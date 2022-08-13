@@ -28,6 +28,16 @@
     <color name="nyanza">#FFD8F3DC</color>
 
     // Reds
+    <color name="bloodRed">#FF680B00</color>
+    <color name="barnRedDark">#FF750D00</color>
+    <color name="barnRedLight">#FF820E00</color>
+    <color name="darkRed">#FF931000</color>
+    <color name="rufous">#FFA31100</color>
+    <color name="internationalOrangeEngineering">#FFB81300</color>
+    <color name="rossoCorsa1">#FFCC1500</color>
+    <color name="rossoCorsa2">#FFDD1700</color>
+    <color name="red">#FFEE1800</color>
+    <color name="scarlet">#FFFF1A00</color>
 
     // Oranges
 
