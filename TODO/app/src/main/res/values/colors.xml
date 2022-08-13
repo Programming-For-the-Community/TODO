@@ -40,6 +40,16 @@
     <color name="scarlet">#FFFF1A00</color>
 
     // Oranges
+    <color name="xiketic">#FF03071E</color>
+    <color name="darkSienna">#FF370617</color>
+    <color name="rosewood">#FF6A040F</color>
+    <color name="darkRedOrange">#FF9D0208</color>
+    <color name="rossoCorsaOrange">#FFD00000</color>
+    <color name="vermilion">#FFCD2F02</color>
+    <color name="persimmon">#FFE85D04</color>
+    <color name="tangerine">#FFF48C06</color>
+    <color name="orangeWeb">#FFFAA307</color>
+    <color name="selectiveYellow">#FFFFBA08</color>
 
     // Pinks
 
