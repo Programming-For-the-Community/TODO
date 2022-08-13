@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hahmcm/Desktop/Custom Programs/TODO/TODO/TODO/app/src/main/res/font/font.xml" value="0.1287037037037037" />
+        <entry key="..\:/Users/hahmcm/Desktop/Custom Programs/TODO/TODO/TODO/app/src/main/res/font/times_new_roman.xml" value="0.1287037037037037" />
         <entry key="..\:/Users/hahmcm/Desktop/Custom Programs/TODO/TODO/TODO/app/src/main/res/layout/activity_main.xml" value="0.371875" />
+        <entry key="..\:/Users/hahmcm/Desktop/Custom Programs/TODO/TODO/TODO/app/src/main/res/layout/fragment_home.xml" value="0.25" />
       </map>
     </option>
   </component>
