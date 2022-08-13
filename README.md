@@ -8,7 +8,7 @@ The motivation behind this app is to create a simple todo list app that is intui
 Below is shown the colors palettes used to generate the different color schemes. All of the palettes were taken from coolors.com.
 
 ### Blue
-![TODO_Blue](https://user-images.githubusercontent.com/106257169/183335816-61507394-0868-4e55-9637-9bfd8621f627.png)
+![TODO_Blue](https://user-images.githubusercontent.com/106257169/184467934-a0f8dd02-b893-4544-8d61-0bb05beb46c6.png)
 
 ### Green
 ![TODO_Green](https://user-images.githubusercontent.com/106257169/183335886-5cf1b4af-af05-467a-adf1-5647eb188156.png)
