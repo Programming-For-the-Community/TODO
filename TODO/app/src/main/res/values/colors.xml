@@ -16,6 +16,16 @@
     <color name="powderBlue">#FFC6EFF7</color>
 
     // Greens
+    <color name="darkJungleGreen">#FF081C15</color>
+    <color name="phthaloGreen">#FF123024</color>
+    <color name="msuGreen">#FF1B4332</color>
+    <color name="bottleGreen">#FF2D6A4F</color>
+    <color name="illuminatingEmerald">#FF40916C</color>
+    <color name="mint">#FF52B788</color>
+    <color name="oceanGreen">#FF74C69D</color>
+    <color name="turquoiseGreen1">#FF95D5B2</color>
+    <color name="turquoiseGreen2">#FFB7E4C7</color>
+    <color name="nyanza">#FFD8F3DC</color>
 
     // Reds
 
