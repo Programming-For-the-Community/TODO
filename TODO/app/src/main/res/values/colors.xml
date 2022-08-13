@@ -64,5 +64,15 @@
     <color name="lavenderBlush">#FFFFF0F3</color>
 
     // Purples
+    <color name="blueVioletColorWheel1">#FF461873</color>
+    <color name="blueVioletColorWheel2">#FF58148E</color>
+    <color name="purple">#FF6910A8</color>
+    <color name="darkViolet">#FF8C07DD</color>
+    <color name="purpleX11">#FF9F21E3</color>
+    <color name="electricPurple">#FFB333E9</color>
+    <color name="mediumOrchid">#FFCB5DF1</color>
+    <color name="brightLilac">#FFDC93F6</color>
+    <color name="mauve">#FFEABFFA</color>
+    <color name="palePurplePantone">#FFF7EBFD</color>
 
 </resources>
