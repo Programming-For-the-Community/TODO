@@ -52,6 +52,16 @@
     <color name="selectiveYellow">#FFFFBA08</color>
 
     // Pinks
+    <color name="claret1">#FF590D22</color>
+    <color name="claret2">#FF800F2F</color>
+    <color name="bigDipOruby">#FFA4133C</color>
+    <color name="brightMaroon">#FFC9184A</color>
+    <color name="fieryRose">#FFFF4D6D</color>
+    <color name="ultraRed">#FFFF758F</color>
+    <color name="salmonPink">#FFFF8FA3</color>
+    <color name="cherryBlossomPink">#FFFFB3C1</color>
+    <color name="pink">#FFFFCCD5</color>
+    <color name="lavenderBlush">#FFFFF0F3</color>
 
     // Purples
 
