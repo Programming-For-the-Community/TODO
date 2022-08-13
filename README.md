@@ -11,7 +11,7 @@ Below is shown the colors palettes used to generate the different color schemes.
 ![TODO_Blue](https://user-images.githubusercontent.com/106257169/184467934-a0f8dd02-b893-4544-8d61-0bb05beb46c6.png)
 
 ### Green
-![TODO_Green](https://user-images.githubusercontent.com/106257169/183335886-5cf1b4af-af05-467a-adf1-5647eb188156.png)
+![TODO_Green](https://user-images.githubusercontent.com/106257169/184468081-6eb0d9d9-e824-4d94-9579-54e1ec8dcd5c.png)
 
 ### Red
 ![TODO_Red](https://user-images.githubusercontent.com/106257169/183336302-0ddb6695-4089-4cc4-a123-95cb05d01949.png)
