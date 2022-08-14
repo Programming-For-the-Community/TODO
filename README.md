@@ -4,6 +4,9 @@ Todo list app without all the adds and annoying pop-ups because no one is sponso
 ## Motivation
 The motivation behind this app is to create a simple todo list app that is intuitive, and does not have all the adds and pop-ups one usually associates with a free todo list app. This app will include all the standard features of a todo list app such as multiple lists, and strikethroughs for completed items. User's will also have the ability to change the font and color scheme in the settings of the app
 
+## Database
+All data stored for this app (users, lists, images, list items, etc.) are stored in Firebase which also provides login capabilities
+
 ## Colors
 Below is shown the colors palettes used to generate the different color schemes. All of the palettes were taken from coolors.com.
 
