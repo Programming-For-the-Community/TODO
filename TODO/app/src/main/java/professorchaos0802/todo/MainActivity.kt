@@ -9,29 +9,26 @@ import androidx.navigation.NavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
 import com.firebase.ui.auth.AuthUI
-import com.google.android.material.navigation.NavigationView
-import io.grpc.InternalChannelz.id
 import professorchaos0802.todo.databinding.ActivityMainBinding
 import professorchaos0802.todo.models.UserViewModel
 
-private lateinit var appBarConfiguration: AppBarConfiguration
-private lateinit var navController: NavController
-private lateinit var binding: ActivityMainBinding
-private lateinit var authListener: FirebaseAuth.AuthStateListener
-
-
-private val signinLauncher = registerForActivityResult(
-    FirebaseAuthUIActivityResultContract()
-){/* empty since the auth listener already responds */}
-
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var navController: NavController
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var authListener: FirebaseAuth.AuthStateListener
+
+
+    private val signinLauncher = registerForActivityResult(
+        FirebaseAuthUIActivityResultContract()
+    ){/* empty since the auth listener already responds */}
 
     override fun onStart(){
         super.onStart()
@@ -84,6 +81,13 @@ class MainActivity : AppCompatActivity() {
                             val id = findNavController(R.id.nav_host_fragment_content_main).currentDestination!!.id
 
                             Log.d(Constants.SETUP, "Authenticating")
+
+                            // If not of the Firebase provided AuthUI Screen go to the home screen
+                            if(id == R.id.nav_splash){
+                                navController.navigate(R.id.nav_home)
+                            }
+                        }else{
+                            navController.navigate(R.id.nav_user_name_setup)
                         }
                     }
                 }
@@ -92,6 +96,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupAuthUI() {
-        TODO("Not yet implemented")
+        val providers = arrayListOf(
+            AuthUI.IdpConfig.GoogleBuilder().build()
+        )
+
+        val signinIntent = AuthUI.getInstance()
+            .createSignInIntentBuilder()
+            .setAvailableProviders(providers)
+            .setIsSmartLockEnabled(false)
+            .setTheme(R.style.Theme_Todo)
+            .build()
+        signinLauncher.launch(signinIntent)
     }
 }

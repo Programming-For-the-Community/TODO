@@ -3,4 +3,10 @@
 
     //----------- Home Fragment ----------------
     <string name="home_fragment_label">Home</string>
+
+    //----------- Splash Fragment----------------
+    <string name="splash_fragment_label">Splash</string>
+
+    //----------- User Name Setup ----------------
+    <string name="user_name_setup_fragment_label">User Name Setup</string>
 </resources>
