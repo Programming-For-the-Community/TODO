@@ -4,13 +4,18 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.objects.User
 
 class UserViewModel: ViewModel() {
     var ref = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
     var user: User? = null
     var editUser = false
+    var currentList = MyList()
 
+    /**
+     * If the current User exists in firestore, this method gets that user, otherwise it creates a new user
+     */
     fun getOrMakeUser(observer: () -> Unit) {
         ref = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
 
@@ -32,8 +37,14 @@ class UserViewModel: ViewModel() {
         }
     }
 
+    /**
+     * Returns whether or not the user has completed setup
+     */
     fun hasCompletedSetup(): Boolean = user?.hasCompletedSetup ?: false
 
+    /**
+     * Updates the currently logged in user
+     */
     fun update(){
         ref = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
 
