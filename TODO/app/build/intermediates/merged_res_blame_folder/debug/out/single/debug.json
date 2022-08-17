@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\menu_menu_profile.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\menu\\menu_profile.xml"
+    },
+    {
         "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.webp"
     },
@@ -12,28 +16,32 @@
         "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\menu_menu_default.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\menu\\menu_default.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_todo_launcher.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_todo_launcher.xml"
     },
     {
         "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_todo_launcher_round.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_todo_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\menu_menu_list.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\menu\\menu_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_splash.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\layout\\fragment_splash.xml"
     },
     {
         "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
         "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
@@ -44,16 +52,92 @@
         "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\navigation_app_nav.xml.flat",
-        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\navigation\\app_nav.xml"
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_todo_launcher_round.png.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-mdpi\\ic_todo_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_todo_launcher.png.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-mdpi\\ic_todo_launcher.png"
     },
     {
         "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_home.xml.flat",
         "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\layout\\fragment_home.xml"
     },
     {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_todo_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\drawable\\ic_todo_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\layout_app_bar_main.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_todo_launcher.png.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xhdpi\\ic_todo_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_todo_launcher_round.png.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_todo_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_todo_launcher_round.png.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_todo_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_user_name_setup.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\layout\\fragment_user_name_setup.xml"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_todo_launcher_round.png.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-hdpi\\ic_todo_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_todo_launcher.png.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-hdpi\\ic_todo_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\layout_content_main.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\layout\\content_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_todo_launcher.png.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_todo_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_todo_launcher.png.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_todo_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_todo_launcher_round.png.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xhdpi\\ic_todo_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\navigation_app_nav.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\navigation\\app_nav.xml"
+    },
+    {
         "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\menu_menu_home.xml.flat",
+        "source": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\src\\main\\res\\menu\\menu_home.xml"
     },
     {
         "merged": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",

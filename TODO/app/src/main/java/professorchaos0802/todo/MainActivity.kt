@@ -47,19 +47,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.appBarMain.toolbar)
-
-        navController = findNavController(R.id.nav_host_fragment_content_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home
-            )
-        )
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {
