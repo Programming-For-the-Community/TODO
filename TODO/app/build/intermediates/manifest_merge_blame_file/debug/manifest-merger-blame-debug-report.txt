@@ -1,0 +1,166 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="professorchaos0802.todo"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+8-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml
+10
+11    <!-- Permission will be merged into the manifest of the hosting app. -->
+12    <!-- Is required to launch foreground extraction service for targetSdkVersion 28+. -->
+13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+13-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:13:5-77
+13-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:13:22-74
+14
+15    <application
+15-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:5:5-22:19
+16        android:allowBackup="true"
+16-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:6:9-35
+17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+17-->[androidx.core:core:1.8.0] C:\Users\hahmcm\.gradle\caches\transforms-3\e0a4801fa752b0a06addae79aff3960c\transformed\core-1.8.0\AndroidManifest.xml:24:18-86
+18        android:debuggable="true"
+19        android:extractNativeLibs="false"
+20        android:icon="@mipmap/ic_launcher"
+20-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:7:9-43
+21        android:label="@string/app_name"
+21-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:8:9-41
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:9:9-54
+23        android:supportsRtl="true"
+23-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:10:9-35
+24        android:theme="@style/Theme.Todo" >
+24-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:11:9-42
+25        <activity
+25-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:12:9-21:20
+26            android:name="professorchaos0802.todo.MainActivity"
+26-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:13:13-41
+27            android:exported="true"
+27-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:14:13-36
+28            android:screenOrientation="portrait" >
+28-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:15:13-49
+29            <intent-filter>
+29-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:16:13-20:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:17:17-69
+30-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:17:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:19:17-77
+32-->C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:19:27-74
+33            </intent-filter>
+34        </activity>
+35
+36        <uses-library
+36-->[androidx.window:window:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\8c4010a7654152e6f5b29f7b63f063e5\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+37            android:name="androidx.window.extensions"
+37-->[androidx.window:window:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\8c4010a7654152e6f5b29f7b63f063e5\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+38            android:required="false" />
+38-->[androidx.window:window:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\8c4010a7654152e6f5b29f7b63f063e5\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+39        <uses-library
+39-->[androidx.window:window:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\8c4010a7654152e6f5b29f7b63f063e5\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+40            android:name="androidx.window.sidecar"
+40-->[androidx.window:window:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\8c4010a7654152e6f5b29f7b63f063e5\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+41            android:required="false" />
+41-->[androidx.window:window:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\8c4010a7654152e6f5b29f7b63f063e5\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+42
+43        <provider
+43-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\36ec8f1d1df0c87e4dfa990ceea1d3cb\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+44            android:name="androidx.startup.InitializationProvider"
+44-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\36ec8f1d1df0c87e4dfa990ceea1d3cb\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+45            android:authorities="professorchaos0802.todo.androidx-startup"
+45-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\36ec8f1d1df0c87e4dfa990ceea1d3cb\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+46            android:exported="false" >
+46-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\36ec8f1d1df0c87e4dfa990ceea1d3cb\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+47            <meta-data
+47-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\36ec8f1d1df0c87e4dfa990ceea1d3cb\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+48                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+48-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\36ec8f1d1df0c87e4dfa990ceea1d3cb\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+49                android:value="androidx.startup" />
+49-->[androidx.emoji2:emoji2:1.0.0] C:\Users\hahmcm\.gradle\caches\transforms-3\36ec8f1d1df0c87e4dfa990ceea1d3cb\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+50            <meta-data
+50-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hahmcm\.gradle\caches\transforms-3\a7ca99539aba1098794a479fce8a27d4\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+51                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+51-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hahmcm\.gradle\caches\transforms-3\a7ca99539aba1098794a479fce8a27d4\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+52                android:value="androidx.startup" />
+52-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\hahmcm\.gradle\caches\transforms-3\a7ca99539aba1098794a479fce8a27d4\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+53            <meta-data
+53-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:31:13-33:52
+54                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+54-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:32:17-85
+55                android:value="androidx.startup" />
+55-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:33:17-49
+56        </provider>
+57
+58        <receiver
+58-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:36:9-45:20
+59            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+59-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:37:13-76
+60            android:directBootAware="false"
+60-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:38:13-44
+61            android:enabled="true"
+61-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:39:13-35
+62            android:exported="true"
+62-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:40:13-36
+63            android:permission="android.permission.DUMP" >
+63-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:41:13-57
+64            <intent-filter>
+64-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:42:13-44:29
+65                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+65-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:43:17-91
+65-->[androidx.profileinstaller:profileinstaller:1.0.1] C:\Users\hahmcm\.gradle\caches\transforms-3\99edb1fdac6d3c6af1e2f66e2bd9b7ab\transformed\profileinstaller-1.0.1\AndroidManifest.xml:43:25-88
+66            </intent-filter>
+67        </receiver> <!-- The activities will be merged into the manifest of the hosting app. -->
+68        <activity
+68-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:18:9-24:45
+69            android:name="com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity"
+69-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:19:13-100
+70            android:enabled="false"
+70-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:20:13-36
+71            android:exported="false"
+71-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:21:13-37
+72            android:launchMode="singleInstance"
+72-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:22:13-48
+73            android:process=":playcore_missing_splits_activity"
+73-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:23:13-64
+74            android:stateNotNeeded="true" />
+74-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:24:13-42
+75        <activity
+75-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:25:9-29:65
+76            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+76-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:26:13-93
+77            android:exported="false"
+77-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:27:13-37
+78            android:stateNotNeeded="true"
+78-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:28:13-42
+79            android:theme="@style/Theme.PlayCore.Transparent" /> <!-- The services will be merged into the manifest of the hosting app. -->
+79-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:29:13-62
+80        <service
+80-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:32:9-39:19
+81            android:name="com.google.android.play.core.assetpacks.AssetPackExtractionService"
+81-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:33:13-94
+82            android:enabled="false"
+82-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:34:13-36
+83            android:exported="true" >
+83-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:35:13-36
+84            <meta-data
+84-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:36:13-38:41
+85                android:name="com.google.android.play.core.assetpacks.versionCode"
+85-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:37:17-83
+86                android:value="11003" />
+86-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:38:17-38
+87        </service>
+88        <service
+88-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:40:9-43:40
+89            android:name="com.google.android.play.core.assetpacks.ExtractionForegroundService"
+89-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:41:13-95
+90            android:enabled="false"
+90-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:42:13-36
+91            android:exported="false" />
+91-->[com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches\transforms-3\f462c42d880c20734496e87267ad17d7\transformed\core-1.10.3\AndroidManifest.xml:43:13-37
+92    </application>
+93
+94</manifest>
