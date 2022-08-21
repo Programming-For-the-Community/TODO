@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    //---------- Setup ----------
+    <dimen name="setup_edit_text_width">300dp</dimen>
+    <dimen name="setup_text_size">30sp</dimen>
+    <dimen name="setup_edit_text_padding">12dp</dimen>
+    <dimen name="setup_edit_text_radius">12dp</dimen>
+    <dimen name="setup_edit_text_margin">10dp</dimen>
+
+    <dimen name="setup_next_cancel_width">100dp</dimen>
+</resources>

@@ -7,6 +7,11 @@
     //----------- Splash Fragment----------------
     <string name="splash_fragment_label">Splash</string>
 
+    //---------- General Setup ----------
+    <string name="next_button">Next</string>
+    <string name="cancel_button">Cancel</string>
+
     //----------- User Name Setup ----------------
     <string name="user_name_setup_fragment_label">User Name Setup</string>
+    <string name="dummy_username">John Doe</string>
 </resources>
