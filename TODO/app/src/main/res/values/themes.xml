@@ -86,4 +86,22 @@
         // Text
         <item name="android:text">@string/dummy_spinner_text</item>
     </style>
+
+    <style name="setup_radio_group">
+        // Dimens
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="setup_radio_button">
+        // Dimens
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/setup_radio_button_text</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorSecondary</item>
+
+    </style>
+
 </resources>

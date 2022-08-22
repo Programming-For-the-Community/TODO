@@ -25,23 +25,8 @@ class HomeFragment : Fragment() {
         binding = FragmentUserNameSetupBinding.inflate(inflater, container, false)
         userModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
 
-        setupButtons()
-
         // Inflate the layout for this fragment
         return binding.root
-    }
-
-   private fun setupButtons(){
-        binding.userNameCancelButton.setOnClickListener{
-            findNavController().navigate(R.id.nav_splash)
-            Firebase.auth.signOut()
-            userModel.user = null
-        }
-
-        binding.userNameCancelButton.setOnClickListener {
-            userModel.updateName(binding.userNameSetupEditText.text.toString())
-            findNavController().navigate(R.id.nav_customization)
-        }
     }
 
 }

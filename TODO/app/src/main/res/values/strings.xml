@@ -27,4 +27,12 @@
     </string-array>
     <string name="setup_themes_label">Choose Theme</string>
     <string name="dummy_spinner_text">Color</string>
+    <string name="setup_profile_visibility">Profile Visibility</string>
+
+    //---------- Profile Visibility ----------
+    <string name="profile_public">Public</string>
+    <string name="profile_private">Private</string>
+
+    //---------- Profile Image ----------
+    <string name="profile_image_fragment_label">Profile Image</string>
 </resources>
