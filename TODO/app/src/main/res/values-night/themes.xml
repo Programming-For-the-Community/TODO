@@ -16,13 +16,13 @@
         <!-- Customize your theme here. -->
     </style>
 
-    ---------- Setup ----------
+    //---------- Setup ----------
     <style name="setup_edit_text">
 
         // Dimens
         <item name="android:layout_width">@dimen/setup_edit_text_width</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/setup_text_size</item>
+        <item name="android:textSize">@dimen/setup_edit_text_size</item>
         <item name="android:padding">@dimen/setup_edit_text_padding</item>
 
         // Color

@@ -24,11 +24,10 @@
 
     //---------- Setup ----------
     <style name="setup_edit_text">
-
         // Dimens
         <item name="android:layout_width">@dimen/setup_edit_text_width</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/setup_text_size</item>
+        <item name="android:textSize">@dimen/setup_edit_text_size</item>
         <item name="android:padding">@dimen/setup_edit_text_padding</item>
         <item name="android:layout_margin">@dimen/setup_edit_text_margin</item>
 
@@ -49,5 +48,42 @@
         // Color
         <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="android:backgroundTint">?attr/colorSecondary</item>
+    </style>
+
+    <style name="setup_theme_spinner">
+        // Dimens
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+
+        // Color
+        <item name="android:backgroundTint">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="setup_text">
+        // Dimens
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginHorizontal">@dimen/setup_text_view_margin</item>
+        <item name="android:textSize">@dimen/setup_text_view_size</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style>
+
+    <style name="theme_spinner_dropdown">
+        // Dimens
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">@dimen/theme_spinner_width</item>
+        <item name="android:textSize">@dimen/setup_text_view_size</item>
+        <item name="android:padding">@dimen/setup_spinner_padding</item>
+
+        // Color
+        <item name="android:background">@drawable/theme_spinner_text_view</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+
+        // Text
+        <item name="android:text">@string/dummy_spinner_text</item>
     </style>
 </resources>

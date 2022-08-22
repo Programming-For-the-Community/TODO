@@ -14,4 +14,17 @@
     //----------- User Name Setup ----------------
     <string name="user_name_setup_fragment_label">User Name Setup</string>
     <string name="dummy_username">John Doe</string>
+
+    //---------- Customization ----------
+    <string name="customization_fragment_label">Customization</string>
+    <string-array name="custom_themes_array">
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Pink</item>
+        <item>Purple</item>
+    </string-array>
+    <string name="setup_themes_label">Choose Theme</string>
+    <string name="dummy_spinner_text">Color</string>
 </resources>

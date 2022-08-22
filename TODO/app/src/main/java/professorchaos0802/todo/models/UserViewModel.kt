@@ -1,5 +1,6 @@
 package professorchaos0802.todo.models
 
+import android.text.Editable
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
@@ -50,6 +51,20 @@ class UserViewModel: ViewModel() {
 
         if(user != null){
             with(user!!){
+                ref.set(this)
+            }
+        }
+    }
+
+    /**
+     * Update the username of the currently logged in user
+     */
+    fun updateName(newName: String?){
+        ref = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
+
+        if(user != null && newName != null){
+            with(user!!){
+                username = newName
                 ref.set(this)
             }
         }

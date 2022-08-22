@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorOnBackground">
+
+    <Spinner android:id="@+id/seutp_theme_spinner"
+        style="@style/setup_theme_spinner"
+        android:layout_toEndOf="@id/setup_theme_spinner_label"/>
+
+    <TextView android:id="@+id/setup_theme_spinner_label"
+        style="@style/setup_text"
+        android:text="@string/setup_themes_label"
+        />
+
+</RelativeLayout>
