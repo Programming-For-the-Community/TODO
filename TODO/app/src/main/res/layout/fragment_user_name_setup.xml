@@ -14,11 +14,13 @@
     <Button android:id="@+id/user_name_next_button"
         style="@style/setup_next_cancel_button"
         android:text="@string/next_button"
+        android:layout_below="@id/user_name_setup_edit_text"
         android:layout_alignStart="@id/user_name_setup_edit_text"/>
 
     <Button android:id="@+id/user_name_cancel_button"
         style="@style/setup_next_cancel_button"
         android:text="@string/cancel_button"
+        android:layout_below="@id/user_name_setup_edit_text"
         android:layout_alignEnd="@id/user_name_setup_edit_text"/>
 
 </RelativeLayout>

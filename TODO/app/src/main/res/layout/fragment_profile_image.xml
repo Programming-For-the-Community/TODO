@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView android:id="@+id/setup_profile_image"
+        style="@style/setup_image_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/setup_image_view_top_margin"/>
+
+    <Button android:id="@+id/setup_choose_image"
+        style="@style/setup_choose_image_button" />
+
+    <Button android:id="@+id/profile_image_next_button"
+        style="@style/setup_next_cancel_button"
+        android:text="@string/next_button"
+        android:layout_below="@id/setup_choose_image"
+        android:layout_alignStart="@id/setup_choose_image"/>
+
+    <Button android:id="@+id/profile_image_cancel_button"
+        style="@style/setup_next_cancel_button"
+        android:text="@string/cancel_button"
+        android:layout_below="@id/setup_choose_image"
+        android:layout_alignEnd="@id/setup_choose_image"/>
+
+</RelativeLayout>

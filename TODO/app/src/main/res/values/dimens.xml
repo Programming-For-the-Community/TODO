@@ -17,8 +17,13 @@
     <dimen name="setup_radio_group_title_margin">0dp</dimen>
     <dimen name="setup_radio_button_text">18sp</dimen>
 
+    <dimen name="setup_image_view_dimens">300dp</dimen>
+    <dimen name="setup_image_view_top_margin">100dp</dimen>
+    <dimen name="setup_choose_image">15dp</dimen>
+
     <dimen name="customization_cancel_left_margin">150dp</dimen>
 
     <dimen name="theme_spinner_width">100dp</dimen>
     <dimen name="theme_spinner_radius">6dp</dimen>
+
 </resources>

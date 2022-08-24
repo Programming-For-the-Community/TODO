@@ -16,13 +16,14 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Todo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+<!--    <style name="Theme.Todo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
 
-    <style name="Theme.Todo.ToolbarOverlay" parent="ThemeOverlay.AppCompat.ActionBar"/>
+<!--    <style name="Theme.Todo.ToolbarOverlay" parent="ThemeOverlay.AppCompat.ActionBar"/>-->
 
-    <style name="Theme.Todo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+<!--    <style name="Theme.Todo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
 
     //---------- Setup ----------
+    /* Setup Edit Text */
     <style name="setup_edit_text">
         // Dimens
         <item name="android:layout_width">@dimen/setup_edit_text_width</item>
@@ -37,6 +38,7 @@
         <item name="android:textColorHint">@color/grayLight</item>
     </style>
 
+    /* Setup Next/Cancel Button */
     <style name="setup_next_cancel_button">
         // Dimens
         <item name="android:layout_height">wrap_content</item>
@@ -47,9 +49,10 @@
 
         // Color
         <item name="android:textColor">?attr/colorOnPrimary</item>
-        <item name="android:backgroundTint">?attr/colorSecondary</item>
+        <item name="android:backgroundTint">?attr/colorPrimaryVariant</item>
     </style>
 
+    /* Setup Theme Spinner */
     <style name="setup_theme_spinner">
         // Dimens
         <item name="android:layout_height">wrap_content</item>
@@ -60,6 +63,7 @@
         <item name="android:backgroundTint">?attr/colorOnPrimary</item>
     </style>
 
+    /* Setup Text View */
     <style name="setup_text">
         // Dimens
         <item name="android:layout_width">wrap_content</item>
@@ -72,6 +76,7 @@
         <item name="android:textColor">?attr/colorSecondary</item>
     </style>
 
+    /* Setup Theme Spinner Dropdown */
     <style name="theme_spinner_dropdown">
         // Dimens
         <item name="android:layout_height">wrap_content</item>
@@ -87,12 +92,14 @@
         <item name="android:text">@string/dummy_spinner_text</item>
     </style>
 
+    /* Setup Radio Group */
     <style name="setup_radio_group">
         // Dimens
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    /* Setup Radio Button */
     <style name="setup_radio_button">
         // Dimens
         <item name="android:layout_width">wrap_content</item>
@@ -101,7 +108,32 @@
 
         // Color
         <item name="android:textColor">?attr/colorSecondary</item>
+    </style>
 
+    /* Setup Image View */
+    <style name="setup_image_view">
+        // Dimens
+        <item name="android:layout_width">@dimen/setup_image_view_dimens</item>
+        <item name="android:layout_height">@dimen/setup_image_view_dimens</item>
+    </style>
+
+    /* Setup Choose Image Button*/
+    <style name="setup_choose_image_button">
+        // Dimens
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">@dimen/setup_image_view_dimens</item>
+        <item name="android:layout_marginVertical">@dimen/setup_choose_image</item>
+
+        // Alignment
+        <item name="android:layout_below">@id/setup_profile_image</item>
+        <item name="android:layout_centerHorizontal">true</item>
+
+        // Text
+        <item name="android:text">@string/choose_image_button</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:backgroundTint">?attr/colorPrimaryVariant</item>
     </style>
 
 </resources>
