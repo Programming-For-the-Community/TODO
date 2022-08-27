@@ -83,6 +83,7 @@ class ProfileImageFragment: Fragment() {
     private fun setupChoosePhotoButton(){
         binding.setupChooseImage.setOnClickListener {
             chooseImageGallery()
+            updateProfileImage()
         }
     }
 
