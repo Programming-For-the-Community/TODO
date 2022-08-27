@@ -40,7 +40,7 @@ class UserNameSetupFragment: Fragment() {
         }
 
         // Advance the user to the next screen when the select the next button
-        binding.userNameCancelButton.setOnClickListener {
+        binding.userNameNextButton.setOnClickListener {
             userModel.updateName(binding.userNameSetupEditText.text.toString())
             findNavController().navigate(R.id.nav_customization)
         }

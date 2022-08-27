@@ -5,4 +5,5 @@ object Constants {
     const val HOME = "HOME"
     const val LIST = "LIST"
     const val PROFILE = "PROFILE"
+    const val USER_UPDATE = "USER_UPDATE"
 }
