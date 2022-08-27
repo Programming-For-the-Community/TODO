@@ -23,7 +23,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentUserNameSetupBinding.inflate(inflater, container, false)
-        userModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+        userModel = ViewModelProvider(requireActivity())[UserViewModel::class.java]
 
         // Inflate the layout for this fragment
         return binding.root
