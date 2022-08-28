@@ -20,10 +20,6 @@
         "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\navigation\\app_nav.xml"
     },
     {
-        "merged": "professorchaos0802.todo.app-merged_res-72:/layout_app_bar_main.xml.flat",
-        "source": "professorchaos0802.todo.app-main-74:/layout/app_bar_main.xml"
-    },
-    {
         "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-merged_res-72:\\mipmap-xxhdpi_ic_todo_launcher.png.flat",
         "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\mipmap-xxhdpi\\ic_todo_launcher.png"
     },
@@ -146,10 +142,6 @@
     {
         "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-merged_res-72:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "professorchaos0802.todo.app-merged_res-72:/layout_fragment_home.xml.flat",
-        "source": "professorchaos0802.todo.app-main-74:/layout/fragment_home.xml"
     },
     {
         "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-merged_res-72:\\layout_fragment_splash.xml.flat",
