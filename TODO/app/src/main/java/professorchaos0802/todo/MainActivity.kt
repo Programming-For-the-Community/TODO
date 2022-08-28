@@ -76,9 +76,11 @@ class MainActivity : AppCompatActivity() {
 
                             // If not of the Firebase provided AuthUI Screen go to the home screen
                             if(id == R.id.nav_splash){
+                                Log.d(Constants.SETUP, "Navigating to Home Page: ${R.id.nav_home}")
                                 navController.navigate(R.id.nav_home)
                             }
                         }else{
+                            Log.d(Constants.SETUP, "Navigating to UserName Setup: ${R.id.nav_user_name_setup}")
                             navController.navigate(R.id.nav_user_name_setup)
                         }
                     }
@@ -89,7 +91,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupAuthUI() {
         val providers = arrayListOf(
-            AuthUI.IdpConfig.GoogleBuilder().build()
+            AuthUI.IdpConfig.GoogleBuilder().build(),
+            AuthUI.IdpConfig.EmailBuilder().build()
         )
 
         val signinIntent = AuthUI.getInstance()

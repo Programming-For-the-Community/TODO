@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ import coil.load
 import coil.transform.CircleCropTransformation
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import professorchaos0802.todo.Constants
 import professorchaos0802.todo.R
 import professorchaos0802.todo.databinding.FragmentProfileImageBinding
 import professorchaos0802.todo.models.UserViewModel
@@ -29,7 +31,6 @@ import professorchaos0802.todo.objects.User
 class ProfileImageFragment: Fragment() {
     private lateinit var binding: FragmentProfileImageBinding
     private lateinit var userModel: UserViewModel
-    var galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
     val pickImageResult =
         registerForActivityResult(ActivityResultContracts.GetContent()){ newImage ->
             userModel.addImageFromUri(this, newImage)
@@ -40,6 +41,7 @@ class ProfileImageFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        Log.d(Constants.SETUP, "Loading ProfileImageFragment")
         binding = FragmentProfileImageBinding.inflate(inflater, container, false)
         userModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
 
@@ -98,6 +100,7 @@ class ProfileImageFragment: Fragment() {
     private fun setupProgressionButtons(){
         // Log-out the user if they choose to cancel the setup process
         binding.profileImageCancelButton.setOnClickListener{
+            Log.d(Constants.SETUP, "Logging out from ProfileImageFragment")
             findNavController().navigate(R.id.nav_splash)
             Firebase.auth.signOut()
             userModel.user = null
@@ -107,6 +110,7 @@ class ProfileImageFragment: Fragment() {
         binding.profileImageNextButton.setOnClickListener {
             userModel.user!!.hasCompletedSetup = true
             userModel.update()
+            Log.d(Constants.SETUP, "Navigating to HomeFragment: ${R.id.nav_home}")
             findNavController().navigate(R.id.nav_home)
         }
     }
