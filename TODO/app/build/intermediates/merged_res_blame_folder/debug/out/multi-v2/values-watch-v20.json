@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
+            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-70:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\f7dd09c43df27d840e854a4b9f122101\\transformed\\appcompat-1.4.2\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\75c3aa6acad2719f9a4970a29a41af38\\transformed\\appcompat-1.4.2\\res\\values-watch-v20\\values-watch-v20.xml",
                     "from": {
                         "startLines": "2,5,8",
                         "startColumns": "4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\8e3e77987bd37536b23782cc28d80ea0\\transformed\\play-services-auth-19.0.0\\res\\values-watch-v20\\values.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\0afa876654e3edd8f4e9920a025d0244\\transformed\\play-services-auth-19.0.0\\res\\values-watch-v20\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11",
                         "startColumns": "0,0,0,0,0,0,0,0",

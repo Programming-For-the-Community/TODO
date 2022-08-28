@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-small-v4\\values-small-v4.xml",
+            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-70:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\12c1eec3e6fc07ca4d696df109de6244\\transformed\\material-1.6.1\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\85397b3bb1b1c8952c389284344f9a1e\\transformed\\material-1.6.1\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

@@ -73,6 +73,7 @@ animator nav_default_enter_anim
 animator nav_default_exit_anim
 animator nav_default_pop_enter_anim
 animator nav_default_pop_exit_anim
+array custom_themes_array
 attr SharedValue
 attr SharedValueId
 attr action
@@ -1373,9 +1374,10 @@ color fui_bgPhone
 color fui_bgTwitter
 color fui_bgYahoo
 color fui_transparent
+color grayDark
+color grayLight
 color highlighted_text_material_dark
 color highlighted_text_material_light
-color ic_todo_launcher_background
 color illuminatingEmerald
 color internationalOrangeEngineering
 color lavenderBlush
@@ -2012,6 +2014,7 @@ dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
+dimen customization_cancel_left_margin
 dimen def_drawer_elevation
 dimen default_dimension
 dimen design_appbar_elevation
@@ -2497,6 +2500,20 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen setup_choose_image
+dimen setup_edit_text_margin
+dimen setup_edit_text_padding
+dimen setup_edit_text_radius
+dimen setup_edit_text_size
+dimen setup_edit_text_width
+dimen setup_image_view_dimens
+dimen setup_image_view_top_margin
+dimen setup_next_cancel_width
+dimen setup_radio_button_text
+dimen setup_radio_group_title_margin
+dimen setup_spinner_padding
+dimen setup_text_view_margin
+dimen setup_text_view_size
 dimen sliding_pane_detail_pane_width
 dimen subtitle_corner_radius
 dimen subtitle_outline_width
@@ -2515,6 +2532,8 @@ dimen test_navigation_bar_item_min_width
 dimen test_navigation_bar_label_padding
 dimen test_navigation_bar_shadow_height
 dimen test_navigation_bar_text_size
+dimen theme_spinner_radius
+dimen theme_spinner_width
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -2660,6 +2679,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_profile_img
 drawable ic_todo_launcher_foreground
 drawable m3_appbar_background
 drawable m3_popupmenu_background_overlay
@@ -2702,8 +2722,10 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable setup_edit_text
 drawable test_custom_background
 drawable test_level_drawable
+drawable theme_spinner_text_view
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -2791,7 +2813,6 @@ id animateToEnd
 id animateToStart
 id antiClockwise
 id anticipate
-id app_bar_main
 id app_nav
 id arc
 id asConfigured
@@ -2851,6 +2872,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id closest
+id coil_request_manager
 id collapseActionView
 id compose_view_saveable_id_tag
 id compress
@@ -2873,6 +2895,8 @@ id cross_device_linking_body
 id currentState
 id custom
 id customPanel
+id customization_cancel_button
+id customization_next_button
 id cut
 id dark
 id date_picker_actions
@@ -2965,7 +2989,6 @@ id hide_in_inspector_tag
 id hideable
 id home
 id homeAsUp
-id home_fragment
 id honorRequest
 id horizontal_only
 id icon
@@ -3063,9 +3086,11 @@ id multiply
 id name
 id name_layout
 id nav_controller_view_tag
+id nav_customization
 id nav_home
 id nav_host_fragment_container
 id nav_host_fragment_content_main
+id nav_profile_image
 id nav_splash
 id nav_user_name_setup
 id navigation_bar_item_active_indicator_view
@@ -3111,6 +3136,8 @@ id phone_number
 id pin
 id position
 id postLayout
+id profile_image_cancel_button
+id profile_image_next_button
 id progress_action
 id progress_circular
 id progress_horizontal
@@ -3155,6 +3182,15 @@ id selected
 id selection_type
 id send_code
 id send_sms_tos
+id setup_choose_image
+id setup_profile_image
+id setup_profile_private
+id setup_profile_public
+id setup_profile_visibility_label
+id setup_radio_button_holder
+id setup_radio_group
+id setup_theme_spinner_label
+id seutp_theme_spinner
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -3231,6 +3267,7 @@ id textinput_helper_text
 id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
+id theme_spinner_dropdown
 id ticker
 id time
 id title
@@ -3257,6 +3294,9 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id user_name_cancel_button
+id user_name_next_button
+id user_name_setup_edit_text
 id vertical_only
 id view_offset_helper
 id view_transition
@@ -3398,7 +3438,9 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dynamic_feature_install_fragment
+layout fragment_customization
 layout fragment_home
+layout fragment_profile_image
 layout fragment_splash
 layout fragment_user_name_setup
 layout fui_activity_invisible
@@ -3510,6 +3552,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+layout theme_spinner_item_dropdown
 menu menu_default
 menu menu_home
 menu menu_list
@@ -3518,7 +3561,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 mipmap ic_todo_launcher
 mipmap ic_todo_launcher_round
-navigation app_nav
+navigation nav_graph
 plurals fui_error_weak_password
 plurals mtrl_badge_content_description
 raw keep
@@ -3554,10 +3597,12 @@ string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string bottomsheet_action_expand_halfway
+string cancel_button
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
+string choose_image_button
 string clear_text_end_icon_content_description
 string close_drawer
 string close_sheet
@@ -3580,8 +3625,11 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string copy_toast_msg
+string customization_fragment_label
 string default_error_message
 string default_web_client_id
+string dummy_spinner_text
+string dummy_username
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
@@ -3774,6 +3822,7 @@ string mtrl_timepicker_confirm
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string navigation_menu
+string next_button
 string not_selected
 string off
 string ok
@@ -3783,11 +3832,16 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string profile_image_fragment_label
+string profile_private
+string profile_public
 string progress
 string project_id
 string retry
 string search_menu_title
 string selected
+string setup_profile_visibility
+string setup_themes_label
 string splash_fragment_label
 string status_bar_notification_info_overflow
 string tab
@@ -4909,6 +4963,15 @@ style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_MaterialComponents_Tooltip
 style Widget_Support_CoordinatorLayout
+style setup_choose_image_button
+style setup_edit_text
+style setup_image_view
+style setup_next_cancel_button
+style setup_radio_button
+style setup_radio_group
+style setup_text
+style setup_theme_spinner
+style theme_spinner_dropdown
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

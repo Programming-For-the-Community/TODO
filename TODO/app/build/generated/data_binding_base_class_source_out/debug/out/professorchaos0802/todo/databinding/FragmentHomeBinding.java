@@ -16,13 +16,8 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   private final RelativeLayout rootView;
 
-  @NonNull
-  public final RelativeLayout homeFragment;
-
-  private FragmentHomeBinding(@NonNull RelativeLayout rootView,
-      @NonNull RelativeLayout homeFragment) {
+  private FragmentHomeBinding(@NonNull RelativeLayout rootView) {
     this.rootView = rootView;
-    this.homeFragment = homeFragment;
   }
 
   @Override
@@ -52,8 +47,6 @@ public final class FragmentHomeBinding implements ViewBinding {
       throw new NullPointerException("rootView");
     }
 
-    RelativeLayout homeFragment = (RelativeLayout) rootView;
-
-    return new FragmentHomeBinding((RelativeLayout) rootView, homeFragment);
+    return new FragmentHomeBinding((RelativeLayout) rootView);
   }
 }

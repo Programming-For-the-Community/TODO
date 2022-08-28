@@ -4,7 +4,6 @@ import org.junit.Test
 
 import org.junit.Assert.*
 import professorchaos0802.todo.objects.Item
-import professorchaos0802.todo.objects.User
 
 /**
  * Tests the creation of an Item object and the ability to edit item fields

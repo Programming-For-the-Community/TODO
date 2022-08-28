@@ -6,30 +6,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
-import androidx.viewbinding.ViewBindings;
 import java.lang.NullPointerException;
 import java.lang.Override;
-import java.lang.String;
 import professorchaos0802.todo.R;
 
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final CoordinatorLayout rootView;
 
-  @NonNull
-  public final AppBarMainBinding appBarMain;
-
-  private ActivityMainBinding(@NonNull ConstraintLayout rootView,
-      @NonNull AppBarMainBinding appBarMain) {
+  private ActivityMainBinding(@NonNull CoordinatorLayout rootView) {
     this.rootView = rootView;
-    this.appBarMain = appBarMain;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public CoordinatorLayout getRoot() {
     return rootView;
   }
 
@@ -50,20 +43,10 @@ public final class ActivityMainBinding implements ViewBinding {
 
   @NonNull
   public static ActivityMainBinding bind(@NonNull View rootView) {
-    // The body of this method is generated in a way you would not otherwise write.
-    // This is done to optimize the compiled bytecode for size and performance.
-    int id;
-    missingId: {
-      id = R.id.app_bar_main;
-      View appBarMain = ViewBindings.findChildViewById(rootView, id);
-      if (appBarMain == null) {
-        break missingId;
-      }
-      AppBarMainBinding binding_appBarMain = AppBarMainBinding.bind(appBarMain);
-
-      return new ActivityMainBinding((ConstraintLayout) rootView, binding_appBarMain);
+    if (rootView == null) {
+      throw new NullPointerException("rootView");
     }
-    String missingId = rootView.getResources().getResourceName(id);
-    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
+
+    return new ActivityMainBinding((CoordinatorLayout) rootView);
   }
 }

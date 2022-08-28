@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -15,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
 import com.firebase.ui.auth.AuthUI
+import io.grpc.InternalChannelz.id
 import professorchaos0802.todo.databinding.ActivityMainBinding
 import professorchaos0802.todo.models.UserViewModel
 
@@ -42,10 +44,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initializeAuthListener()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        navController = findNavController(R.id.nav_host_fragment_content_main)
+
+        initializeAuthListener()
 
     }
 

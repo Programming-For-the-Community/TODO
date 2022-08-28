@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\hahmcm\\Desktop\\Custom Programs\\TODO\\TODO\\TODO\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-port\\values-port.xml",
+            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-70:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\f7dd09c43df27d840e854a4b9f122101\\transformed\\appcompat-1.4.2\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\75c3aa6acad2719f9a4970a29a41af38\\transformed\\appcompat-1.4.2\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

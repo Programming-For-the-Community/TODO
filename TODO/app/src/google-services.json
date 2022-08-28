@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "397807326938-910jr1gdq3jd78jbidv8v5aimkkqddlr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "professorchaos0802.todo",
+            "certificate_hash": "48ba8274fefe2df8c83a08e3a33c67c6c83134e6"
+          }
+        },
+        {
           "client_id": "397807326938-dg2rl7n6knnqen6tkhajioed83fge1nq.apps.googleusercontent.com",
           "client_type": 3
         }

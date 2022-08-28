@@ -105,6 +105,7 @@ class ProfileImageFragment: Fragment() {
 
         // Advance the user to the next screen when the select the next button
         binding.profileImageNextButton.setOnClickListener {
+            userModel.user!!.hasCompletedSetup = true
             userModel.update()
             findNavController().navigate(R.id.nav_home)
         }
