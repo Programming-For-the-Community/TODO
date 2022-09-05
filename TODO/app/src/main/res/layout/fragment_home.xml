@@ -5,22 +5,20 @@
     android:layout_height="match_parent"
     android:background="?attr/colorOnBackground">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/todo_lists"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WELCOME TO HOME"
-        android:textStyle="bold"
-        android:textSize="36sp"
-        android:layout_centerInParent="true"/>
+        android:layout_margin="@dimen/todo_list_margin"
+        android:padding="@dimen/todo_list_padding"
+        android:background="?attr/colorSecondaryVariant"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/new_list_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:backgroundTint="?attr/colorPrimary"
-        android:src="@drawable/ic_add"/>
+        android:src="@drawable/ic_add" />
 
 </RelativeLayout>

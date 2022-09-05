@@ -16,7 +16,8 @@ class ListViewModel: ViewModel() {
     lateinit var itemRef: CollectionReference
 
     var subscriptions = HashMap<String, ListenerRegistration>()
-    var list = MyList()
+    var currentList = MyList()
+    var lists = ArrayList<MyList>()
 
     private var currentItemIndex = 0
 
@@ -24,19 +25,19 @@ class ListViewModel: ViewModel() {
      * Updates the list to the list passed into the method
      */
     fun updateList(l: MyList){
-        list = l
+        currentList = l
     }
 
     /**
      * Returns the item found at the currentItemIndex
      */
-    fun getCurrentItem() = list.items[currentItemIndex]
+    fun getCurrentItem() = currentList.items[currentItemIndex]
 
     /**
      * Subscribes a listener to the item list from the specified list
      */
     fun addItemListener(fragmentName: String, observer: () -> Unit){
-        var listID = list.id
+        var listID = currentList.id
         itemRef = Firebase.firestore.collection(MyList.COLLECTION_PATH).document(listID).collection(
             Item.COLLECTION_PATH)
 
@@ -47,11 +48,11 @@ class ListViewModel: ViewModel() {
                     return@addSnapshotListener
                 }
                 Log.d(Constants.LIST, "Snapshot Length: ${snapshot?.size()}")
-                list.items.clear()
+                currentList.items.clear()
                 snapshot?.documents?.forEach{
-                    list.items.add(Item.from(it))
+                    currentList.items.add(Item.from(it))
                 }
-                Log.d(Constants.LIST, "Clothing Length: ${list.items.size}")
+                Log.d(Constants.LIST, "Clothing Length: ${currentList.items.size}")
                 observer()
             }
     }
@@ -68,10 +69,10 @@ class ListViewModel: ViewModel() {
      * Deletes the current item from the firestore database
      */
     fun deleteCurrentItem(){
-        var currItem = list.items[currentItemIndex]
+        var currItem = currentList.items[currentItemIndex]
 
-        if(list.items[currentItemIndex].id == ""){
-            list.items.remove(currItem)
+        if(currentList.items[currentItemIndex].id == ""){
+            currentList.items.remove(currItem)
         }else {
             itemRef.document(currItem.id).delete()
         }
@@ -86,7 +87,7 @@ class ListViewModel: ViewModel() {
      * Adds an item to both the local list and to the firestore database
      */
     fun addItem(i: Item){
-        list.items.add(i)
+        currentList.items.add(i)
         itemRef.add(i)
     }
 }

@@ -65,7 +65,9 @@ color ultraRed
 color vermilion
 color white
 color xiketic
+dimen add_icon_size
 dimen customization_cancel_left_margin
+dimen fab_margin
 dimen setup_choose_image
 dimen setup_edit_text_margin
 dimen setup_edit_text_padding
@@ -82,6 +84,7 @@ dimen setup_text_view_margin
 dimen setup_text_view_size
 dimen theme_spinner_radius
 dimen theme_spinner_width
+drawable ic_add
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_profile_img
@@ -97,6 +100,7 @@ id nav_host_fragment_content_main
 id nav_profile_image
 id nav_splash
 id nav_user_name_setup
+id new_list_fab
 id profile_image_cancel_button
 id profile_image_next_button
 id setup_choose_image

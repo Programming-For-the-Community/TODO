@@ -8,16 +8,24 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 import professorchaos0802.todo.R;
 
 public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   private final RelativeLayout rootView;
 
-  private FragmentHomeBinding(@NonNull RelativeLayout rootView) {
+  @NonNull
+  public final FloatingActionButton newListFab;
+
+  private FragmentHomeBinding(@NonNull RelativeLayout rootView,
+      @NonNull FloatingActionButton newListFab) {
     this.rootView = rootView;
+    this.newListFab = newListFab;
   }
 
   @Override
@@ -43,10 +51,19 @@ public final class FragmentHomeBinding implements ViewBinding {
 
   @NonNull
   public static FragmentHomeBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.new_list_fab;
+      FloatingActionButton newListFab = ViewBindings.findChildViewById(rootView, id);
+      if (newListFab == null) {
+        break missingId;
+      }
 
-    return new FragmentHomeBinding((RelativeLayout) rootView);
+      return new FragmentHomeBinding((RelativeLayout) rootView, newListFab);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

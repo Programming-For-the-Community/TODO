@@ -72,7 +72,9 @@
     <color name="vermilion">#FFCD2F02</color>
     <color name="white">#FFFFFFFF</color>
     <color name="xiketic">#FF03071E</color>
+    <dimen name="add_icon_size">36dp</dimen>
     <dimen name="customization_cancel_left_margin">150dp</dimen>
+    <dimen name="fab_margin">15dp</dimen>
     <dimen name="setup_choose_image">15dp</dimen>
     <dimen name="setup_edit_text_margin">10dp</dimen>
     <dimen name="setup_edit_text_padding">12dp</dimen>
@@ -113,11 +115,11 @@
     <string name="user_name_setup_fragment_label">User Name Setup</string>
     <style name="Theme.Todo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
-        <item name="colorPrimary">@color/blizzardBlue2</item>
+        <item name="colorPrimary">@color/darkCornflowerBlue</item>
         <item name="colorPrimaryVariant">@color/midnightBlue</item>
         <item name="colorOnPrimary">@color/white</item>
         
-        <item name="colorSecondary">@color/darkCornflowerBlue</item>
+        <item name="colorSecondary">@color/blizzardBlue2</item>
         <item name="colorSecondaryVariant">@color/skyBlueCrayola</item>
         <item name="colorOnSecondary">@color/black</item>
         

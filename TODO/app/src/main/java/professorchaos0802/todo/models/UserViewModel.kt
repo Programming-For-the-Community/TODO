@@ -25,7 +25,6 @@ class UserViewModel: ViewModel() {
     var ref = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
     var user: User? = null
     var editUser = false
-    var currentList = MyList()
     var newProfileImage = ""
 
     var imageStorageRef = Firebase.storage
