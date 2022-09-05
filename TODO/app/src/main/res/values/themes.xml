@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.Todo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/blizzardBlue2</item>
+        <item name="colorPrimary">@color/darkCornflowerBlue</item>
         <item name="colorPrimaryVariant">@color/midnightBlue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/darkCornflowerBlue</item>
+        <item name="colorSecondary">@color/blizzardBlue2</item>
         <item name="colorSecondaryVariant">@color/skyBlueCrayola</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Background Color. -->
