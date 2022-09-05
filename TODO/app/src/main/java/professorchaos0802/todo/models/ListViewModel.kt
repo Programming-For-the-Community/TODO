@@ -14,6 +14,7 @@ import professorchaos0802.todo.objects.MyList
 
 class ListViewModel: ViewModel() {
     lateinit var itemRef: CollectionReference
+    lateinit var listRef: CollectionReference
 
     var subscriptions = HashMap<String, ListenerRegistration>()
     var currentList = MyList()
@@ -29,9 +30,39 @@ class ListViewModel: ViewModel() {
     }
 
     /**
+     * Add a new list to the local list and to the database
+     */
+    fun addNewList(list: MyList){
+        currentList = list
+        lists.add(list)
+        listRef.add(list)
+    }
+
+    /**
      * Returns the item found at the currentItemIndex
      */
     fun getCurrentItem() = currentList.items[currentItemIndex]
+
+    fun addListListener(fragmentName: String, observer: () -> Unit){
+        listRef = Firebase.firestore.collection(MyList.COLLECTION_PATH)
+
+        val subscription = listRef.
+                addSnapshotListener{snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
+                    e?.let{
+                        Log.d(Constants.HOME, "ERROR: $e")
+                        return@addSnapshotListener
+                    }
+                    Log.d(Constants.HOME, "Snapshot Length: ${snapshot?.size()}")
+                    lists.clear()
+                    snapshot?.documents?.forEach {
+                        lists.add(MyList.from(it))
+                    }
+                    Log.d(Constants.HOME, "Lists Length: ${lists.size}")
+                }
+                observer()
+
+        subscriptions[fragmentName] = subscription
+    }
 
     /**
      * Subscribes a listener to the item list from the specified list
@@ -52,9 +83,11 @@ class ListViewModel: ViewModel() {
                 snapshot?.documents?.forEach{
                     currentList.items.add(Item.from(it))
                 }
-                Log.d(Constants.LIST, "Clothing Length: ${currentList.items.size}")
+                Log.d(Constants.LIST, "Number of Items: ${currentList.items.size}")
                 observer()
             }
+
+        subscriptions[fragmentName] = subscription
     }
 
     /**

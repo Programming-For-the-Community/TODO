@@ -3,6 +3,7 @@
 
     //----------- Home Fragment ----------------
     <string name="home_fragment_label">Home</string>
+    <string name="dummmy_list_title">Title</string>
 
     //----------- Splash Fragment----------------
     <string name="splash_fragment_label">Splash</string>
@@ -37,6 +38,6 @@
     <string name="profile_image_fragment_label">Profile Image</string>
     <string name="choose_image_button">Choose Image</string>
 
-    //---------- Home ----------
-    <string name="dummmy_list_title">Title</string>
+    //---------- List Fragment ----------
+    <string name="list_fragment_label">List</string>
 </resources>
