@@ -3,11 +3,16 @@ package professorchaos0802.todo.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import coil.transform.RoundedCornersTransformation
 import professorchaos0802.todo.R
 import professorchaos0802.todo.models.ListViewModel
+import professorchaos0802.todo.objects.Item
+import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.ui.HomeFragment
 
 class TodoListAdapter(val fragment: HomeFragment): RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder>(){
@@ -63,7 +68,7 @@ class TodoListAdapter(val fragment: HomeFragment): RecyclerView.Adapter<TodoList
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: TodoListViewHolder, position: Int) {
-        holder.bind()
+        holder.bind(listModel.lists[position])
     }
 
     /**
@@ -74,12 +79,39 @@ class TodoListAdapter(val fragment: HomeFragment): RecyclerView.Adapter<TodoList
     override fun getItemCount() = listModel.lists.size
 
     inner class TodoListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        init{
+        private var itemPreviews: RecyclerView = itemView.findViewById<RecyclerView>(R.id.list_item_preview)
+        private var owner: TextView = itemView.findViewById<TextView>(R.id.list_preview_owner)
+        private var timestamp: TextView = itemView.findViewById<TextView>(R.id.list_preview_timestamp)
+        private var title: TextView = itemView.findViewById<TextView>(R.id.list_preview_title)
+        private var itemsToPreview = ArrayList<Item>()
+        private var layout: RelativeLayout = itemView.findViewById<RelativeLayout>(R.id.list_preview_layout)
 
-            listModel.updateList(listModel.lists.get(adapterPosition))
+        init{
+            // When the layout is clicked, set the current list to the list that was selected and then navigate to the list screen
+            layout.setOnClickListener {
+                listModel.updateList(listModel.lists[adapterPosition])
+                fragment.findNavController().navigate(R.id.nav_list)
+            }
         }
 
-        fun bind(){
+        fun bind(list: MyList){
+            // Bind list specific info to each list
+            title.text = list.title
+            owner.text = list.owner
+            timestamp.text = timestamp.toString()
+
+            itemsToPreview = if(list.items.size > 5){
+                list.items.subList(0, 4) as ArrayList<Item>
+            }else{
+                list.items
+            }
+
+            // Sets up and attaches the item preview adapter to the item preview recysler view
+            var itemAdapter = ItemPreviewAdapter(fragment, itemsToPreview)
+            itemPreviews.apply{
+                adapter = itemAdapter
+                layoutManager = LinearLayoutManager(fragment.requireContext(), LinearLayoutManager.VERTICAL, false)
+            }
 
         }
     }

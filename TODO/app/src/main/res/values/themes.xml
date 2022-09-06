@@ -158,4 +158,17 @@
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
+    <!-- List Preview Info -->
+    <style name="list_preview_info">
+        // Dimens
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/list_preview_item_text_size</item>
+        <item name="android:padding">@dimen/list_preview_owner_padding</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:background">?attr/colorSecondaryVariant</item>
+    </style>
+
 </resources>

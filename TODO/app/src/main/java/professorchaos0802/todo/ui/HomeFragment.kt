@@ -66,6 +66,8 @@ class HomeFragment : Fragment() {
      * Create the adapter to show the lists available to the currently logged in user
      */
     private fun loadAdapter() {
+        val listPreviewAdapter = TodoListAdapter(this)
+
         listModel.addListListener(fragmentName) {
             listModel.lists = listModel.lists.filter {
                 it.owner == userModel.user!!.username ||
@@ -76,13 +78,13 @@ class HomeFragment : Fragment() {
             // Reveal screen elements once all the data is loaded
             binding.newListFab.visibility = View.VISIBLE
             binding.todoLists.visibility = View.VISIBLE
-
+            listPreviewAdapter.notifyDataSetChanged()
         }
 
         var itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
 
         binding.todoLists.apply{
-            adapter = TodoListAdapter(findFragment())
+            adapter = listPreviewAdapter
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             addItemDecoration(itemDecoration)
         }

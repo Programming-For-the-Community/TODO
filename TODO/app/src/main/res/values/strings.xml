@@ -4,6 +4,9 @@
     //----------- Home Fragment ----------------
     <string name="home_fragment_label">Home</string>
     <string name="dummmy_list_title">Title</string>
+    <string name="dummy_item">Item 1</string>
+    <string name="dummy_list_owner">Owner: JDoe</string>
+    <string name="dummy_list_timestamp">mm/dd/yyy hh:mm:ss</string>
 
     //----------- Splash Fragment----------------
     <string name="splash_fragment_label">Splash</string>

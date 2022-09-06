@@ -2,10 +2,11 @@ package professorchaos0802.todo.objects
 
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Exclude
+import com.google.firebase.firestore.ServerTimestamp
+import java.security.Timestamp
 
 class MyList(
     var owner: String = "",
-    var timestamp: String = "",
     var title: String = "",
     var canEdit: ArrayList<String> = ArrayList<String>(),
     var canView: ArrayList<String> = ArrayList<String>(),
@@ -14,6 +15,9 @@ class MyList(
 
     @get:Exclude
     var id = "" // Firestore ID
+
+    @ServerTimestamp
+    var timestamp: Timestamp? = null
 
     companion object{
         const val COLLECTION_PATH = "lists"

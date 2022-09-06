@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout android:id="@+id/list_preview_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/colorSecondaryVariant">
 
-    <TextView android:id="@+id/list_title"
+    <TextView android:id="@+id/list_preview_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/list_title"/>
 
     <androidx.recyclerview.widget.RecyclerView android:id="@+id/list_item_preview"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/list_preview_width"
         android:layout_height="wrap_content"
-        android:layout_below="@id/list_title"
-        android:layout_alignStart="@id/list_title"
+        android:layout_below="@id/list_preview_title"
+        android:layout_alignStart="@id/list_preview_title"
         android:layout_marginVertical="@dimen/list_preview_margin"
         android:background="?attr/colorSecondaryVariant"/>
+
+    <TextView android:id="@+id/list_preview_owner"
+        style="@style/list_preview_info"
+        android:text="@string/dummy_list_owner"
+        android:layout_alignTop="@id/list_item_preview"
+        android:layout_alignEnd="@id/list_preview_title"/>
+
+    <TextView android:id="@+id/list_preview_timestamp"
+        style="@style/list_preview_info"
+        android:text="@string/dummy_list_timestamp"
+        android:layout_below="@id/list_preview_owner"
+        android:layout_alignEnd="@id/list_preview_title"/>
+
+
 
 </RelativeLayout>

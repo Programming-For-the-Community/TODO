@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <CheckBox android:id="@+id/preview_item_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:background="?attr/colorSecondaryVariant"
+        android:text="@string/dummy_item"
+        android:textColor="?attr/colorOnPrimary"
+        android:textStyle="italic"
+        android:textSize="@dimen/list_preview_item_text_size"
+        android:buttonTint="?attr/colorOnPrimary"/>
+
+
+</RelativeLayout>
