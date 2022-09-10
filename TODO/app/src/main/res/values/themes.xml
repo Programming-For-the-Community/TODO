@@ -2,27 +2,26 @@
     <!-- Base application theme. -->
     <style name="Theme.Todo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/darkCornflowerBlue</item>
-        <item name="colorPrimaryVariant">@color/midnightBlue</item>
+        <item name="colorPrimary">@color/middleBlue</item>
+        <item name="colorPrimaryVariant">@color/skyBlueCrayola</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/blizzardBlue2</item>
-        <item name="colorSecondaryVariant">@color/skyBlueCrayola</item>
+
+        <item name="colorSecondary">@color/midnightBlue</item>
+        <item name="colorSecondaryVariant">@color/pacificBlue</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Background Color. -->
+
         <item name="colorOnBackground">@color/powderBlue</item>
-        <!-- Status bar color. -->
+
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
         <item name="android:headerBackground">?attr/colorPrimaryVariant</item>
     </style>
 
     <style name="Theme.Todo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:backgroundTint">?attr/colorSecondary</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
     </style>
 
     <style name="Theme.Todo.ToolbarOverlay" parent="ThemeOverlay.AppCompat.ActionBar">
-        <item name="android:backgroundTint">?attr/colorSecondary</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
     </style>
 
     <style name="Theme.Todo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -40,7 +39,8 @@
         // Color
         <item name="android:background">@drawable/setup_edit_text</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
-        <item name="android:textColorHint">@color/grayLight</item>
+        <item name="android:textColorHint">@color/grayLight
+        </item>
     </style>
 
     <!-- Setup Next/Cancel Button -->
