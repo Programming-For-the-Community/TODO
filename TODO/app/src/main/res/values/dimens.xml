@@ -39,4 +39,8 @@
     <dimen name="list_preview_item_text_size">12sp</dimen>
     <dimen name="list_preview_owner_padding">5dp</dimen>
 
+    //---------- Splash ----------
+    <dimen name="loading_text_size">36sp</dimen>
+    <dimen name="loading_margin">10dp</dimen>
+
 </resources>

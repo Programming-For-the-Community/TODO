@@ -10,6 +10,7 @@
 
     //----------- Splash Fragment----------------
     <string name="splash_fragment_label">Splash</string>
+    <string name="loading_text">Loading...</string>
 
     //---------- General Setup ----------
     <string name="next_button">Next</string>
