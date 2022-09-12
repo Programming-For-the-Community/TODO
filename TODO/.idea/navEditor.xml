@@ -114,6 +114,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="nav_profile">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-85" />
+                            <option name="y" value="703" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="nav_profile_image">
                     <value>
                       <LayoutPositions>

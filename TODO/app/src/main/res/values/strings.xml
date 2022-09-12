@@ -7,6 +7,9 @@
     <string name="dummy_item">Item 1</string>
     <string name="dummy_list_owner">Owner: JDoe</string>
     <string name="dummy_list_timestamp">mm/dd/yyy hh:mm:ss</string>
+    <string name="profile_icon">Profile</string>
+    <string name="share_icon">Share</string>
+    <string name="home_icon_holder">Menu</string>
 
     //----------- Splash Fragment----------------
     <string name="splash_fragment_label">Splash</string>
@@ -44,4 +47,7 @@
 
     //---------- List Fragment ----------
     <string name="list_fragment_label">List</string>
+
+    //---------- Profile Fragment ----------
+    <string name="profile_fragment_label">Profile</string>
 </resources>

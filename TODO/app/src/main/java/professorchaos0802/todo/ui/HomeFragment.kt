@@ -2,11 +2,11 @@ package professorchaos0802.todo.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ListAdapter
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.findFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -25,7 +25,9 @@ class HomeFragment : Fragment() {
     private lateinit var userModel: UserViewModel
     private lateinit var listModel: ListViewModel
 
-    private val fragmentName = "HomeFragment"
+    companion object{
+        const val fragmentName = "HomeFragment"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,6 +48,37 @@ class HomeFragment : Fragment() {
 
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    /**
+     * Add in a customized toolbar menu for the home fragment in the onViewCreated method. Adds the custom menu and assigns actions to
+     * the specific menu items.
+     *
+     * NOTE: traditional onCreateOptionsMenu() and onOptionsItemSelected() have been depreciated and this is now the new way to attach a custom menu
+     */
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        requireActivity().addMenuProvider(object : MenuProvider{
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater){
+                menuInflater.inflate(R.menu.menu_home, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when(menuItem.itemId){
+                    R.id.profile_icon -> {
+                        findNavController().navigate(R.id.nav_profile)
+                        true
+                    }
+                    R.id.share_icon -> {
+                        true
+                    }
+                    else -> {
+                        true
+                    }
+                }
+            }
+        })
+
+        super.onViewCreated(view, savedInstanceState)
     }
 
     /**
