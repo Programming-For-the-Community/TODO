@@ -17,7 +17,7 @@ import professorchaos0802.todo.objects.Item
 import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.ui.HomeFragment
 
-class TodoListAdapter(val fragment: HomeFragment, val itemAdapters: ArrayList<ItemPreviewAdapter>): RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder>(){
+class TodoListAdapter(val fragment: HomeFragment): RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder>(){
     private val listModel = ViewModelProvider(fragment.requireActivity())[ListViewModel::class.java]
 
     /**
@@ -73,11 +73,6 @@ class TodoListAdapter(val fragment: HomeFragment, val itemAdapters: ArrayList<It
         holder.bind(listModel.lists[position])
     }
 
-    fun update(){
-        notifyDataSetChanged()
-        itemAdapters.forEach { notifyDataSetChanged() }
-    }
-
     /**
      * Returns the total number of items in the data set held by the adapter.
      *
@@ -86,11 +81,9 @@ class TodoListAdapter(val fragment: HomeFragment, val itemAdapters: ArrayList<It
     override fun getItemCount() = listModel.lists.size
 
     inner class TodoListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        private var itemPreviews: RecyclerView = itemView.findViewById<RecyclerView>(R.id.list_item_preview)
         private var owner: TextView = itemView.findViewById<TextView>(R.id.list_preview_owner)
         private var timestamp: TextView = itemView.findViewById<TextView>(R.id.list_preview_timestamp)
         private var title: TextView = itemView.findViewById<TextView>(R.id.list_preview_title)
-        private var itemsToPreview = ArrayList<Item>()
         private var layout: RelativeLayout = itemView.findViewById<RelativeLayout>(R.id.list_preview_layout)
 
         init{
@@ -106,12 +99,6 @@ class TodoListAdapter(val fragment: HomeFragment, val itemAdapters: ArrayList<It
             title.text = list.title
             owner.text = list.owner
             timestamp.text = list.created!!.toDate().toString()
-
-            // Sets up and attaches the item preview adapter to the item preview recycler view
-            itemPreviews.apply{
-                adapter = itemAdapters[adapterPosition]
-                layoutManager = LinearLayoutManager(fragment.requireContext(), LinearLayoutManager.VERTICAL, false)
-            }
 
         }
     }

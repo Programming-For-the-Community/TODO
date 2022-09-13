@@ -3038,7 +3038,6 @@ id line3
 id linear
 id listMode
 id list_item
-id list_item_preview
 id list_preview_layout
 id list_preview_owner
 id list_preview_timestamp
@@ -3163,7 +3162,6 @@ id phone_number
 id pin
 id position
 id postLayout
-id preview_item_checkbox
 id profile_icon
 id profile_image_cancel_button
 id profile_image_next_button
@@ -3502,7 +3500,6 @@ layout fui_register_email_layout
 layout fui_welcome_back_email_link_prompt_layout
 layout fui_welcome_back_idp_prompt_layout
 layout fui_welcome_back_password_prompt_layout
-layout item_preview
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

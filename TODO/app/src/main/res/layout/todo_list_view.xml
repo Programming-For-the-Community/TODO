@@ -10,18 +10,10 @@
         android:layout_height="wrap_content"
         style="@style/list_title"/>
 
-    <androidx.recyclerview.widget.RecyclerView android:id="@+id/list_item_preview"
-        android:layout_width="@dimen/list_preview_width"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/list_preview_title"
-        android:layout_alignStart="@id/list_preview_title"
-        android:layout_marginVertical="@dimen/list_preview_margin"
-        android:background="?attr/colorSecondaryVariant"/>
-
     <TextView android:id="@+id/list_preview_owner"
         style="@style/list_preview_info"
         android:text="@string/dummy_list_owner"
-        android:layout_alignTop="@id/list_item_preview"
+        android:layout_alignParentTop="true"
         android:layout_alignEnd="@id/list_preview_title"/>
 
     <TextView android:id="@+id/list_preview_timestamp"

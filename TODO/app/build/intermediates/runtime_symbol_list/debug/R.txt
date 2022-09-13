@@ -3037,7 +3037,6 @@ int id line3 0x7f090122
 int id linear 0x7f090123
 int id listMode 0x7f090124
 int id list_item 0x7f090125
-int id list_item_preview 0x7f090126
 int id list_preview_layout 0x7f090127
 int id list_preview_owner 0x7f090128
 int id list_preview_timestamp 0x7f090129
@@ -3162,7 +3161,6 @@ int id phone_number 0x7f09019f
 int id pin 0x7f0901a0
 int id position 0x7f0901a1
 int id postLayout 0x7f0901a2
-int id preview_item_checkbox 0x7f0901a3
 int id profile_icon 0x7f0901a4
 int id profile_image_cancel_button 0x7f0901a5
 int id profile_image_next_button 0x7f0901a6
@@ -3501,7 +3499,6 @@ int layout fui_register_email_layout 0x7f0c004f
 int layout fui_welcome_back_email_link_prompt_layout 0x7f0c0050
 int layout fui_welcome_back_idp_prompt_layout 0x7f0c0051
 int layout fui_welcome_back_password_prompt_layout 0x7f0c0052
-int layout item_preview 0x7f0c0053
 int layout m3_alert_dialog 0x7f0c0054
 int layout m3_alert_dialog_actions 0x7f0c0055
 int layout m3_alert_dialog_title 0x7f0c0056
