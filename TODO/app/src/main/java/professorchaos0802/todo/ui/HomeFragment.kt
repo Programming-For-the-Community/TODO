@@ -3,12 +3,18 @@ package professorchaos0802.todo.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import professorchaos0802.todo.Constants
 import professorchaos0802.todo.R
 import professorchaos0802.todo.adapters.TodoListAdapter
@@ -43,9 +49,15 @@ class HomeFragment : Fragment() {
 
         setupFAB()
         loadAdapter()
+        swipeToDelete()
 
         // Inflate the layout for this fragment
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        listModel.removeListener(listListenerId)
     }
 
     /**
@@ -128,4 +140,29 @@ class HomeFragment : Fragment() {
         Log.d(Constants.HOME, "List Listener added")
     }
 
+    private fun swipeToDelete(){
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int){
+                val pos = viewHolder.adapterPosition
+                val listToDelete = listModel.lists[pos]
+                listModel.deleteList(listToDelete)
+                binding.todoLists.adapter!!.notifyItemRemoved(pos)
+
+                Snackbar.make(binding.todoLists, "You deleted " + listToDelete.title, Snackbar.LENGTH_LONG)
+                    .setAction("Undo",
+                    View.OnClickListener {
+                        listModel.addNewList(listToDelete)
+                        binding.todoLists.adapter!!.notifyItemInserted(pos)
+                    })
+                    .show()
+            }
+        }).attachToRecyclerView(binding.todoLists)
+    }
 }

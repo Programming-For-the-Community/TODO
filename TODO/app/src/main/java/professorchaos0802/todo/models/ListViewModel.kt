@@ -36,6 +36,15 @@ class ListViewModel: ViewModel() {
     }
 
     /**
+     * Deletes a list from the local list and to the database
+     */
+    fun deleteList(list: MyList){
+        lists.remove(list)
+        currentList = lists[0]
+        listRef.document(list.id).delete()
+    }
+
+    /**
      * Returns the item found at the currentItemIndex
      */
     fun getCurrentItem() = currentList.items[currentItemIndex]

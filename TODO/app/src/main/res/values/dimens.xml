@@ -27,7 +27,7 @@
     <dimen name="theme_spinner_radius">6dp</dimen>
 
     //---------- Home ----------
-    <dimen name="fab_margin">15dp</dimen>
+    <dimen name="fab_margin">35dp</dimen>
     <dimen name="add_icon_size">36dp</dimen>
 
     <dimen name="todo_list_margin">15dp</dimen>
