@@ -1,5 +1,6 @@
 package professorchaos0802.todo.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,13 +10,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import professorchaos0802.todo.Constants
 import professorchaos0802.todo.R
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.objects.Item
 import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.ui.HomeFragment
 
-class TodoListAdapter(val fragment: HomeFragment): RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder>(){
+class TodoListAdapter(val fragment: HomeFragment, val itemAdapters: ArrayList<ItemPreviewAdapter>): RecyclerView.Adapter<TodoListAdapter.TodoListViewHolder>(){
     private val listModel = ViewModelProvider(fragment.requireActivity())[ListViewModel::class.java]
 
     /**
@@ -71,6 +73,11 @@ class TodoListAdapter(val fragment: HomeFragment): RecyclerView.Adapter<TodoList
         holder.bind(listModel.lists[position])
     }
 
+    fun update(){
+        notifyDataSetChanged()
+        itemAdapters.forEach { notifyDataSetChanged() }
+    }
+
     /**
      * Returns the total number of items in the data set held by the adapter.
      *
@@ -98,18 +105,11 @@ class TodoListAdapter(val fragment: HomeFragment): RecyclerView.Adapter<TodoList
             // Bind list specific info to each list
             title.text = list.title
             owner.text = list.owner
-            timestamp.text = timestamp.toString()
+            timestamp.text = list.created!!.toDate().toString()
 
-            itemsToPreview = if(list.items.size > 5){
-                list.items.subList(0, 4) as ArrayList<Item>
-            }else{
-                list.items
-            }
-
-            // Sets up and attaches the item preview adapter to the item preview recysler view
-            var itemAdapter = ItemPreviewAdapter(fragment, itemsToPreview)
+            // Sets up and attaches the item preview adapter to the item preview recycler view
             itemPreviews.apply{
-                adapter = itemAdapter
+                adapter = itemAdapters[adapterPosition]
                 layoutManager = LinearLayoutManager(fragment.requireContext(), LinearLayoutManager.VERTICAL, false)
             }
 

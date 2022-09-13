@@ -2,10 +2,7 @@ package professorchaos0802.todo.models
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.FirebaseFirestoreException
-import com.google.firebase.firestore.ListenerRegistration
-import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import professorchaos0802.todo.Constants
@@ -43,31 +40,32 @@ class ListViewModel: ViewModel() {
      */
     fun getCurrentItem() = currentList.items[currentItemIndex]
 
-    fun addListListener(fragmentName: String, observer: () -> Unit){
+    fun addListListener(listenerIdentifier: String, observer: () -> Unit){
         listRef = Firebase.firestore.collection(MyList.COLLECTION_PATH)
 
-        val subscription = listRef.
-                addSnapshotListener{snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
+        val subscription = listRef
+            .orderBy(MyList.CREATED_KEY, Query.Direction.DESCENDING)
+            .addSnapshotListener{snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
                     e?.let{
                         Log.d(Constants.HOME, "ERROR: $e")
                         return@addSnapshotListener
                     }
-                    Log.d(Constants.HOME, "Snapshot Length: ${snapshot?.size()}")
+                    Log.d(Constants.HOME, "List Snapshot Length: ${snapshot?.size()}")
                     lists.clear()
                     snapshot?.documents?.forEach {
                         lists.add(MyList.from(it))
                     }
                     Log.d(Constants.HOME, "Lists Length: ${lists.size}")
+                    observer()
                 }
-                observer()
 
-        subscriptions[fragmentName] = subscription
+        subscriptions[listenerIdentifier] = subscription
     }
 
     /**
      * Subscribes a listener to the item list from the specified list
      */
-    fun addItemListener(fragmentName: String, observer: () -> Unit){
+    fun addItemListener(listenerIdentifier: String, observer: () -> Unit){
         var listID = currentList.id
         itemRef = Firebase.firestore.collection(MyList.COLLECTION_PATH).document(listID).collection(
             Item.COLLECTION_PATH)
@@ -78,7 +76,7 @@ class ListViewModel: ViewModel() {
                     Log.d(Constants.LIST, "ERROR: $e")
                     return@addSnapshotListener
                 }
-                Log.d(Constants.LIST, "Snapshot Length: ${snapshot?.size()}")
+                Log.d(Constants.LIST, "Item Snapshot Length: ${snapshot?.size()} for list ${currentList.title}")
                 currentList.items.clear()
                 snapshot?.documents?.forEach{
                     currentList.items.add(Item.from(it))
@@ -87,15 +85,15 @@ class ListViewModel: ViewModel() {
                 observer()
             }
 
-        subscriptions[fragmentName] = subscription
+        subscriptions[listenerIdentifier] = subscription
     }
 
     /**
      * Removes the listener from fragment passed in
      */
-    fun removeListener(fragmentName: String){
-        subscriptions[fragmentName]?.remove() // Tell Firebase to stop listening
-        subscriptions.remove(fragmentName) // Remove listener from HashMap
+    fun removeListener(listenerIdentifier: String){
+        subscriptions[listenerIdentifier]?.remove() // Tell Firebase to stop listening
+        subscriptions.remove(listenerIdentifier) // Remove listener from HashMap
     }
 
     /**

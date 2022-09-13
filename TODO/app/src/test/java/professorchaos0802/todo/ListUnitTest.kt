@@ -18,7 +18,7 @@ class ListUnitTest {
         // Test default creation
         assertEquals("", list.owner)
         assertEquals("", list.title)
-        assertEquals("", list.timestamp)
+        assertEquals("", list.creationTime)
         assertEquals(ArrayList<String>(), list.canEdit)
         assertEquals(ArrayList<String>(), list.canView)
         assertEquals(ArrayList<Item>(), list.items)
@@ -28,7 +28,7 @@ class ListUnitTest {
 
         // Test custom creation
         assertEquals("cmhahm", list1.owner)
-        assertEquals("mm/dd/yyyy hh:mm:ss", list1.timestamp)
+        assertEquals("mm/dd/yyyy hh:mm:ss", list1.creationTime)
         assertEquals("MyTodoList", list1.title)
         assertEquals(arrayListOf<String>("a", "b", "c"), list1.canEdit)
         assertEquals(arrayListOf<String>("d", "e", "f"), list1.canView)
@@ -42,7 +42,7 @@ class ListUnitTest {
         // Verify default creation
         assertEquals("", list.owner)
         assertEquals("", list.title)
-        assertEquals("", list.timestamp)
+        assertEquals("", list.creationTime)
 
         val owner = "cmhahm"
         val title = "Charlie's Todo List"
@@ -50,12 +50,12 @@ class ListUnitTest {
 
         list.owner = owner
         list.title = title
-        list.timestamp = timestamp
+        list.creationTime = timestamp
 
         // Test changes
         assertEquals(owner, list.owner)
         assertEquals(title, list.title)
-        assertEquals(timestamp, list.timestamp)
+        assertEquals(timestamp, list.creationTime)
 
     }
 
