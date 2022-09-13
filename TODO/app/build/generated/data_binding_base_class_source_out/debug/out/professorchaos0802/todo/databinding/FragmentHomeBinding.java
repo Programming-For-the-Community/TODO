@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,10 +23,14 @@ public final class FragmentHomeBinding implements ViewBinding {
   @NonNull
   public final FloatingActionButton newListFab;
 
+  @NonNull
+  public final RecyclerView todoLists;
+
   private FragmentHomeBinding(@NonNull RelativeLayout rootView,
-      @NonNull FloatingActionButton newListFab) {
+      @NonNull FloatingActionButton newListFab, @NonNull RecyclerView todoLists) {
     this.rootView = rootView;
     this.newListFab = newListFab;
+    this.todoLists = todoLists;
   }
 
   @Override
@@ -61,7 +66,13 @@ public final class FragmentHomeBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentHomeBinding((RelativeLayout) rootView, newListFab);
+      id = R.id.todo_lists;
+      RecyclerView todoLists = ViewBindings.findChildViewById(rootView, id);
+      if (todoLists == null) {
+        break missingId;
+      }
+
+      return new FragmentHomeBinding((RelativeLayout) rootView, newListFab, todoLists);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -3,7 +3,7 @@ package professorchaos0802.todo.objects
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Exclude
 
-data class Item(
+class Item(
     var owner: String = "",
     var text: String = "",
     var isDone: Boolean = false
@@ -19,7 +19,10 @@ data class Item(
          * Converts a firestore DocumentSnapshot into an Item object
          */
         fun from(snapshot: DocumentSnapshot): Item{
-            val i = snapshot.toObject(Item::class.java)!!
+            var i = Item(snapshot.get("owner") as String,
+                snapshot.get("text") as String,
+                snapshot.get("isDone") as Boolean)
+
             i.id = snapshot.id
 
             return i

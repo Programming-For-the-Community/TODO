@@ -75,6 +75,12 @@
     <dimen name="add_icon_size">36dp</dimen>
     <dimen name="customization_cancel_left_margin">150dp</dimen>
     <dimen name="fab_margin">15dp</dimen>
+    <dimen name="list_preview_item_text_size">12sp</dimen>
+    <dimen name="list_preview_margin">10dp</dimen>
+    <dimen name="list_preview_owner_padding">5dp</dimen>
+    <dimen name="list_preview_width">250dp</dimen>
+    <dimen name="loading_margin">10dp</dimen>
+    <dimen name="loading_text_size">36sp</dimen>
     <dimen name="setup_choose_image">15dp</dimen>
     <dimen name="setup_edit_text_margin">10dp</dimen>
     <dimen name="setup_edit_text_padding">12dp</dimen>
@@ -91,11 +97,18 @@
     <dimen name="setup_text_view_size">20sp</dimen>
     <dimen name="theme_spinner_radius">6dp</dimen>
     <dimen name="theme_spinner_width">100dp</dimen>
+    <dimen name="todo_list_margin">15dp</dimen>
+    <dimen name="todo_list_padding">5dp</dimen>
+    <dimen name="todo_list_title">24sp</dimen>
     <string name="app_name">Todo</string>
     <string name="cancel_button">Cancel</string>
     <string name="choose_image_button">Choose Image</string>
     <string name="customization_fragment_label">Customization</string>
     <string name="default_web_client_id" translatable="false">397807326938-dg2rl7n6knnqen6tkhajioed83fge1nq.apps.googleusercontent.com</string>
+    <string name="dummmy_list_title">Title</string>
+    <string name="dummy_item">Item 1</string>
+    <string name="dummy_list_owner">Owner: JDoe</string>
+    <string name="dummy_list_timestamp">mm/dd/yyy hh:mm:ss</string>
     <string name="dummy_spinner_text">Color</string>
     <string name="dummy_username">John Doe</string>
     <string name="gcm_defaultSenderId" translatable="false">397807326938</string>
@@ -104,37 +117,86 @@
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCOPSjmPTI6urv245MiAZcHSd4nW8dcHZ0</string>
     <string name="google_storage_bucket" translatable="false">todo-99f73.appspot.com</string>
     <string name="home_fragment_label">Home</string>
+    <string name="home_icon_holder">Menu</string>
+    <string name="list_fragment_label">List</string>
+    <string name="loading_text">Loading...</string>
     <string name="next_button">Next</string>
+    <string name="profile_fragment_label">Profile</string>
+    <string name="profile_icon">Profile</string>
     <string name="profile_image_fragment_label">Profile Image</string>
     <string name="profile_private">Private</string>
     <string name="profile_public">Public</string>
     <string name="project_id" translatable="false">todo-99f73</string>
     <string name="setup_profile_visibility">Profile Visibility</string>
     <string name="setup_themes_label">Choose Theme</string>
+    <string name="share_icon">Share</string>
     <string name="splash_fragment_label">Splash</string>
     <string name="user_name_setup_fragment_label">User Name Setup</string>
     <style name="Theme.Todo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
-        <item name="colorPrimary">@color/darkCornflowerBlue</item>
-        <item name="colorPrimaryVariant">@color/midnightBlue</item>
+        <item name="colorPrimary">@color/middleBlue</item>
+        <item name="colorPrimaryVariant">@color/skyBlueCrayola</item>
         <item name="colorOnPrimary">@color/white</item>
-        
-        <item name="colorSecondary">@color/blizzardBlue2</item>
-        <item name="colorSecondaryVariant">@color/skyBlueCrayola</item>
+
+        <item name="colorSecondary">@color/midnightBlue</item>
+        <item name="colorSecondaryVariant">@color/pacificBlue</item>
         <item name="colorOnSecondary">@color/black</item>
-        
+
+        <item name="colorTertiary">@color/blizzardBlue1</item>
+        <item name="colorOnTertiary">@color/starCommandBlue</item>
+
         <item name="colorOnBackground">@color/powderBlue</item>
-        
+
         <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
-        
         <item name="android:headerBackground">?attr/colorPrimaryVariant</item>
     </style>
     <style name="Theme.Todo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:backgroundTint">?attr/colorSecondary</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
     <style name="Theme.Todo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
     <style name="Theme.Todo.ToolbarOverlay" parent="ThemeOverlay.AppCompat.ActionBar">
-        <item name="android:backgroundTint">?attr/colorSecondary</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+    <style name="list_preview_info">
+        // Dimens
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/list_preview_item_text_size</item>
+        <item name="android:padding">@dimen/list_preview_owner_padding</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:background">?attr/colorSecondaryVariant</item>
+    </style>
+    <style name="list_title">
+        // Dimens
+        <item name="android:textSize">@dimen/todo_list_title</item>
+        <item name="android:padding">@dimen/todo_list_padding</item>
+        <item name="android:layout_margin">@dimen/list_preview_margin</item>
+
+        // Text
+        <item name="android:text">@string/dummmy_list_title</item>
+        <item name="android:textStyle">bold</item>
+
+        // Color
+        <item name="android:background">?attr/colorSecondaryVariant</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+    <style name="loading_text">
+        // Dimens
+        <item name="android:textSize">@dimen/loading_text_size</item>
+        <item name="android:layout_margin">@dimen/loading_margin</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        // Text
+        <item name="android:textStyle">bold|italic</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorSecondary</item>
     </style>
     <style name="setup_choose_image_button">
         // Dimens
@@ -164,7 +226,8 @@
         // Color
         <item name="android:background">@drawable/setup_edit_text</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
-        <item name="android:textColorHint">@color/grayLight</item>
+        <item name="android:textColorHint">@color/grayLight
+        </item>
     </style>
     <style name="setup_image_view">
         // Dimens

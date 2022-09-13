@@ -74,7 +74,7 @@ class ItemPreviewAdapter(val fragment: Fragment, val itemPreview: ArrayList<Item
     override fun getItemCount() = itemPreview.size
 
     inner class ItemPreviewViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val listItem: CheckBox = itemView.findViewById<CheckBox>(R.id.preview_item_checkbox)
+        private val listItem: CheckBox = itemView.findViewById<CheckBox>(R.id.preview_item_checkbox)
 
         fun bind(item: Item){
             // If the item is completed check the box and show show strike thru text
