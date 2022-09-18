@@ -30,6 +30,14 @@ class ListFragment: Fragment() {
             binding = FragmentListBinding.inflate(inflater, container, false)
             userModel = ViewModelProvider(requireActivity())[UserViewModel::class.java]
             listModel = ViewModelProvider(requireActivity())[ListViewModel::class.java]
+            
+            binding.newItem.setOnKeyListener { v, keyCode, event ->
+                if(event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER){
+                    // TODO: Handle enter button presses
+                    return@setOnKeyListener true
+                }
+                false
+            }
 
             // Inflate the layout for this fragment
             return binding.root

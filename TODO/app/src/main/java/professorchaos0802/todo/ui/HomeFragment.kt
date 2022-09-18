@@ -79,6 +79,7 @@ class HomeFragment : Fragment() {
                         true
                     }
                     R.id.share_icon -> {
+                        // TODO: Create a dialog box to share a list with other users
                         true
                     }
                     else -> {
