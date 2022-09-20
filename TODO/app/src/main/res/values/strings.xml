@@ -47,6 +47,8 @@
 
     //---------- List Fragment ----------
     <string name="list_fragment_label">List</string>
+    <string name="list_new_item_hint">New Item</string>
+    <string name="list_uncheck_all">Uncheck All</string>
 
     //---------- Profile Fragment ----------
     <string name="profile_fragment_label">Profile</string>

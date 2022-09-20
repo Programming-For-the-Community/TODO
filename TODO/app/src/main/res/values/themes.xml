@@ -199,12 +199,58 @@
         // Dimens
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_alignParentTop">true</item>
-        <item name="android:layout_alignParentLeft">true</item>
-        <item name="android:layout_margin">@dimen/list_item_recycler_margin</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
 
         // Color
-        <item name="android:background">?attr/colorSecondary</item>
+        <item name="android:background">?attr/colorOnBackground</item>
+    </style>
+
+    <!-- List Title -->
+    <style name="list_title_edit_text">
+        // Dimens
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/list_title_text_size</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+
+        // Text
+        <item name="android:text">@string/dummmy_list_title</item>
+        <item name="android:textStyle">bold</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style>
+
+    <!-- List Item -->
+    <style name="list_new_item">
+        // Dimens
+        <item name="android:layout_width">@dimen/list_new_item_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+        <item name="android:textSize">@dimen/list_new_item_text_size</item>
+
+        // Text
+        <item name="android:hint">@string/list_new_item_hint</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorOnTertiary</item>
+        <item name="android:textColorHint">?attr/colorOnTertiary</item>
+    </style>
+
+    <!-- Uncheck All -->
+    <style name="list_uncheck_all_button">
+        // Dimens
+        <item name="android:layout_width">@dimen/list_uncheck_all_button</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+        <item name="android:textSize">@dimen/list_uncheck_all_text_size</item>
+
+        // Text
+        <item name="android:text">@string/list_uncheck_all</item>
+
+        // Color
+        <item name="android:backgroundTint">?attr/colorOnTertiary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
 </resources>

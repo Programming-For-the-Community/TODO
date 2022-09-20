@@ -44,6 +44,11 @@
     <dimen name="loading_margin">10dp</dimen>
 
     //--------- List ---------
-    <dimen name="list_item_recycler_margin">10dp</dimen>
+    <dimen name="list_fragment_margin">10dp</dimen>
+    <dimen name="list_title_text_size">24sp</dimen>
+    <dimen name="list_new_item_text_size">18sp</dimen>
+    <dimen name="list_uncheck_all_text_size">16sp</dimen>
+    <dimen name="list_new_item_width">250dp</dimen>
+    <dimen name="list_uncheck_all_button">125dp</dimen>
 
 </resources>
