@@ -1087,10 +1087,16 @@
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
+    <dimen name="list_fragment_margin">10dp</dimen>
+    <dimen name="list_new_item_text_size">18sp</dimen>
+    <dimen name="list_new_item_width">250dp</dimen>
     <dimen name="list_preview_item_text_size">12sp</dimen>
     <dimen name="list_preview_margin">10dp</dimen>
     <dimen name="list_preview_owner_padding">5dp</dimen>
     <dimen name="list_preview_width">250dp</dimen>
+    <dimen name="list_title_text_size">24sp</dimen>
+    <dimen name="list_uncheck_all_button">125dp</dimen>
+    <dimen name="list_uncheck_all_text_size">16sp</dimen>
     <dimen name="loading_margin">10dp</dimen>
     <dimen name="loading_text_size">36sp</dimen>
     <dimen name="m3_alert_dialog_action_bottom_padding">14dp</dimen>
@@ -1931,6 +1937,8 @@
     <string name="item_view_role_description">Tab</string>
     <string name="label">Label</string>
     <string name="list_fragment_label">List</string>
+    <string name="list_new_item_hint">New Item</string>
+    <string name="list_uncheck_all">Uncheck All</string>
     <string name="loading_text">Loading...</string>
     <string name="m3_ref_typeface_brand_medium" translatable="false">sans-serif-medium</string>
     <string name="m3_ref_typeface_brand_regular" translatable="false">sans-serif</string>
@@ -8624,6 +8632,29 @@
     <style name="Widget.Support.CoordinatorLayout" parent="android:Widget">
         <item name="statusBarBackground">#000000</item>
     </style>
+    <style name="list_item_recycler">
+        // Dimens
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+
+        // Color
+        <item name="android:background">?attr/colorOnBackground</item>
+    </style>
+    <style name="list_new_item">
+        // Dimens
+        <item name="android:layout_width">@dimen/list_new_item_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+        <item name="android:textSize">@dimen/list_new_item_text_size</item>
+
+        // Text
+        <item name="android:hint">@string/list_new_item_hint</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorOnTertiary</item>
+        <item name="android:textColorHint">?attr/colorOnTertiary</item>
+    </style>
     <style name="list_preview_info">
         // Dimens
         <item name="android:layout_width">wrap_content</item>
@@ -8647,6 +8678,34 @@
 
         // Color
         <item name="android:background">?attr/colorSecondaryVariant</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+    <style name="list_title_edit_text">
+        // Dimens
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/list_title_text_size</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+
+        // Text
+        <item name="android:text">@string/dummmy_list_title</item>
+        <item name="android:textStyle">bold</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style>
+    <style name="list_uncheck_all_button">
+        // Dimens
+        <item name="android:layout_width">@dimen/list_uncheck_all_button</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+        <item name="android:textSize">@dimen/list_uncheck_all_text_size</item>
+
+        // Text
+        <item name="android:text">@string/list_uncheck_all</item>
+
+        // Color
+        <item name="android:backgroundTint">?attr/colorOnTertiary</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
     <style name="loading_text">

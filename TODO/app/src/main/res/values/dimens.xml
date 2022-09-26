@@ -50,5 +50,6 @@
     <dimen name="list_uncheck_all_text_size">16sp</dimen>
     <dimen name="list_new_item_width">250dp</dimen>
     <dimen name="list_uncheck_all_button">125dp</dimen>
+    <dimen name="item_text_size">14sp</dimen>
 
 </resources>
