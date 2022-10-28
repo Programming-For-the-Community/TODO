@@ -1,6 +1,8 @@
 package professorchaos0802.todo.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
@@ -43,10 +45,13 @@ val darkPurplePalette = darkColorScheme()
 @Composable
 fun TodoTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    color: String
+    color: String,
+    content: @Composable () -> Unit
 ){
+    var colorPalette: ColorScheme
+
     if(darkTheme){
-        when(color){
+        colorPalette = when(color){
             "Blue" -> darkBluePalette
             "Green" -> darkGreenPalette
             "Red" -> darkRedPalette
@@ -56,7 +61,7 @@ fun TodoTheme(
             else -> darkBluePalette
         }
     }else{
-        when(color){
+        colorPalette = when(color){
             "Blue" -> lightBluePalette
             "Green" -> lightGreenPalette
             "Red" -> lightRedPalette
@@ -66,4 +71,9 @@ fun TodoTheme(
             else -> lightBluePalette
         }
     }
+
+    MaterialTheme(
+        colorScheme = colorPalette,
+        content = content
+    )
 }
