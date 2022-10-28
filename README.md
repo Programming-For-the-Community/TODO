@@ -4,6 +4,9 @@ Todo list app without all the adds and annoying pop-ups because no one is sponso
 ## Motivation
 The motivation behind this app is to create a simple todo list app that is intuitive, and does not have all the adds and pop-ups one usually associates with a free todo list app. This app will include all the standard features of a todo list app such as multiple lists, and strikethroughs for completed items. User's will also have the ability to change the font and color scheme in the settings of the app
 
+## Layouts
+This app was build using Jetpack Compose. This is the new direction that Android is headed as it migrates away from XML so I thought I would build this app to reflect that. I will also be using the Material Design 3 library for my components.
+
 ## Login
 Login is conducted via gmail through your google account. This makes it easy for people to log-in to the app since most people have a gmail that is linked to their phone. After logging in, the user is guided through a three-step login process to setup their profile before being guided to the home screen where they can start building lists.
 
