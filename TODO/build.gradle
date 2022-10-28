@@ -7,10 +7,14 @@ buildscript {
         mavenCentral()
 
     }
+
+    ext {
+        compose_version = '1.1.0-beta01'
+    }
+
     dependencies {
         // Add this line
         classpath 'com.google.gms:google-services:4.3.13'
-
     }
 }
 
