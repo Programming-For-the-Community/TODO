@@ -123,7 +123,6 @@ font roboto_medium
 font roboto_medium_italic
 font roboto_thin
 font roboto_thin_italic
-id app_nav
 id customization_cancel_button
 id customization_next_button
 id home_icon_holder
@@ -137,16 +136,7 @@ id list_preview_timestamp
 id list_preview_title
 id list_title
 id list_uncheck_all
-id loading_icon
-id loading_text
-id nav_customization
-id nav_home
 id nav_host_fragment_content_main
-id nav_list
-id nav_profile
-id nav_profile_image
-id nav_splash
-id nav_user_name_setup
 id new_item
 id new_list_fab
 id profile_icon
@@ -165,9 +155,6 @@ id share_icon
 id theme_spinner_dropdown
 id todo_lists
 id toolbar
-id user_name_cancel_button
-id user_name_next_button
-id user_name_setup_edit_text
 layout activity_main
 layout app_bar_main
 layout content_main
@@ -176,8 +163,6 @@ layout fragment_home
 layout fragment_list
 layout fragment_profile
 layout fragment_profile_image
-layout fragment_splash
-layout fragment_user_name_setup
 layout list_item_layout
 layout theme_spinner_item_dropdown
 layout todo_list_view
@@ -189,7 +174,6 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 mipmap ic_todo_launcher
 mipmap ic_todo_launcher_round
-navigation nav_graph
 string app_name
 string cancel_button
 string choose_image_button

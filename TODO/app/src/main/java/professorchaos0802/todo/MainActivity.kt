@@ -118,11 +118,11 @@ class MainActivity : AppCompatActivity() {
 
                             // If not of the Firebase provided AuthUI Screen go to the home screen
                             if(id == TodoViews.Splash.route){
-                                Log.d(Constants.SETUP, "Navigating to Home Page: ${R.id.nav_home}")
+                                Log.d(Constants.SETUP, "Navigating to Home Page: ${TodoViews.Home.route}")
                                 navController.navigate(TodoViews.Home.route)
                             }
                         }else{
-                            Log.d(Constants.SETUP, "Navigating to UserName Setup: ${R.id.nav_user_name_setup}")
+                            Log.d(Constants.SETUP, "Navigating to UserName Setup: ${TodoViews.UserNameSetup.route}")
                             navController.navigate(TodoViews.UserNameSetup.route)
                         }
                     }

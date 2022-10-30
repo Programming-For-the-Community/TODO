@@ -12,10 +12,6 @@
         "source": "professorchaos0802.todo.app-main-84:/mipmap-hdpi/ic_todo_launcher_round.png"
     },
     {
-        "merged": "professorchaos0802.todo.app-merged_res-82:/layout_fragment_user_name_setup.xml.flat",
-        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_user_name_setup.xml"
-    },
-    {
         "merged": "professorchaos0802.todo.app-merged_res-82:/drawable-xxhdpi_ic_hamburger.png.flat",
         "source": "professorchaos0802.todo.app-main-84:/drawable-xxhdpi/ic_hamburger.png"
     },
@@ -224,10 +220,6 @@
         "source": "professorchaos0802.todo.app-main-84:/mipmap-xxhdpi/ic_todo_launcher_round.png"
     },
     {
-        "merged": "professorchaos0802.todo.app-merged_res-82:/layout_fragment_splash.xml.flat",
-        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_splash.xml"
-    },
-    {
         "merged": "professorchaos0802.todo.app-merged_res-82:/drawable-anydpi_ic_profile_img.xml.flat",
         "source": "professorchaos0802.todo.app-main-84:/drawable-anydpi/ic_profile_img.xml"
     },
@@ -286,10 +278,6 @@
     {
         "merged": "professorchaos0802.todo.app-merged_res-82:/font_roboto_bold.ttf.flat",
         "source": "professorchaos0802.todo.app-main-84:/font/roboto_bold.ttf"
-    },
-    {
-        "merged": "professorchaos0802.todo.app-merged_res-82:/navigation_nav_graph.xml.flat",
-        "source": "professorchaos0802.todo.app-main-84:/navigation/nav_graph.xml"
     },
     {
         "merged": "professorchaos0802.todo.app-merged_res-82:/mipmap-hdpi_ic_launcher_round.webp.flat",

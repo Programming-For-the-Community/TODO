@@ -107,21 +107,25 @@ fun UserNameSetupContent(userModel: UserViewModel, onNext: () -> Unit, onCancel:
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UserNameTextField(user: User){
-    var userName by remember { mutableStateOf(TextFieldValue(""))}
+fun UserNameTextField(user: User) {
+    var userName by remember { mutableStateOf(TextFieldValue("")) }
 
     TextField(
         value = userName,
-        placeholder = {Text(
-            text = user.username,
-            style = MaterialTheme.typography.labelLarge,
-            color = if(isSystemInDarkTheme()) Color.DarkGray else Color.LightGray
-        )},
-        label = {Text(
-            text = "Enter your username",
-            fontWeight = Bold,
-            color = MaterialTheme.colorScheme.onSecondary
-        )},
+        placeholder = {
+            Text(
+                text = user.username,
+                style = MaterialTheme.typography.labelLarge,
+                color = if (isSystemInDarkTheme()) Color.DarkGray else Color.LightGray
+            )
+        },
+        label = {
+            Text(
+                text = "Enter your username",
+                fontWeight = Bold,
+                color = MaterialTheme.colorScheme.onSecondary
+            )
+        },
         textStyle = MaterialTheme.typography.labelLarge,
         singleLine = true,
         shape = RoundedCornerShape(25),
@@ -136,7 +140,7 @@ fun UserNameTextField(user: User){
             disabledIndicatorColor = Color.Transparent,
             errorIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
-            cursorColor = if(isSystemInDarkTheme()) Color.Black else Color.White
+            cursorColor = if (isSystemInDarkTheme()) Color.Black else Color.White
         ),
         modifier = Modifier.fillMaxWidth()
     )
