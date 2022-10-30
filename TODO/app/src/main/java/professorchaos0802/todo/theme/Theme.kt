@@ -45,10 +45,10 @@ val darkPurplePalette = darkColorScheme()
 @Composable
 fun TodoTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    color: String,
+    color: String = "",
     content: @Composable () -> Unit
 ){
-    var colorPalette: ColorScheme
+    val colorPalette: ColorScheme
 
     if(darkTheme){
         colorPalette = when(color){
@@ -74,6 +74,7 @@ fun TodoTheme(
 
     MaterialTheme(
         colorScheme = colorPalette,
+        typography = TodoTypography,
         content = content
     )
 }

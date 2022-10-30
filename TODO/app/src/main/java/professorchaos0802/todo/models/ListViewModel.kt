@@ -1,6 +1,7 @@
 package professorchaos0802.todo.models
 
 import android.util.Log
+import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
@@ -15,7 +16,7 @@ class ListViewModel: ViewModel() {
 
     var subscriptions = HashMap<String, ListenerRegistration>()
     var currentList = MyList()
-    var lists = ArrayList<MyList>()
+    var lists = mutableStateListOf<MyList>()
 
     private var currentItemIndex = 0
 

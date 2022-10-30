@@ -75,6 +75,7 @@
     <dimen name="add_icon_size">36dp</dimen>
     <dimen name="customization_cancel_left_margin">150dp</dimen>
     <dimen name="fab_margin">35dp</dimen>
+    <dimen name="item_text_size">14sp</dimen>
     <dimen name="list_fragment_margin">10dp</dimen>
     <dimen name="list_new_item_text_size">18sp</dimen>
     <dimen name="list_new_item_width">250dp</dimen>
@@ -113,6 +114,7 @@
     <string name="default_web_client_id" translatable="false">397807326938-dg2rl7n6knnqen6tkhajioed83fge1nq.apps.googleusercontent.com</string>
     <string name="dummmy_list_title">Title</string>
     <string name="dummy_item">Item 1</string>
+    <string name="dummy_item_text">Item</string>
     <string name="dummy_list_owner">Owner: JDoe</string>
     <string name="dummy_list_timestamp">mm/dd/yyy hh:mm:ss</string>
     <string name="dummy_spinner_text">Color</string>
@@ -149,9 +151,6 @@
         <item name="colorSecondary">@color/midnightBlue</item>
         <item name="colorSecondaryVariant">@color/pacificBlue</item>
         <item name="colorOnSecondary">@color/black</item>
-
-        <item name="colorTertiary">@color/blizzardBlue1</item>
-        <item name="colorOnTertiary">@color/starCommandBlue</item>
 
         <item name="colorOnBackground">@color/powderBlue</item>
 

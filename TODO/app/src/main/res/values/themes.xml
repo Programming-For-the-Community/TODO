@@ -10,9 +10,6 @@
         <item name="colorSecondaryVariant">@color/pacificBlue</item>
         <item name="colorOnSecondary">@color/black</item>
 
-        <item name="colorTertiary">@color/blizzardBlue1</item>
-        <item name="colorOnTertiary">@color/starCommandBlue</item>
-
         <item name="colorOnBackground">@color/powderBlue</item>
 
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

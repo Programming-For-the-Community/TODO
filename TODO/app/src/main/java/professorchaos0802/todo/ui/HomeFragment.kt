@@ -128,11 +128,11 @@ class HomeFragment : Fragment() {
         }
 
         Log.d(Constants.HOME, "Filtering lists")
-        listModel.lists = listModel.lists.filter {
-            it.owner == userModel.user!!.username ||
-                    it.canEdit.contains(userModel.user!!.username) ||
-                    it.canView.contains(userModel.user!!.username)
-        } as ArrayList<MyList>
+//        listModel.lists = listModel.lists.filter {
+//            it.owner == userModel.user!!.username ||
+//                    it.canEdit.contains(userModel.user!!.username) ||
+//                    it.canView.contains(userModel.user!!.username)
+//        } as ArrayList<MyList>
 
 
         // Reveal screen elements once all the data is loaded

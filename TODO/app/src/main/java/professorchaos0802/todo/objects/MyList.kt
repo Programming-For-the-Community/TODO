@@ -1,5 +1,6 @@
 package professorchaos0802.todo.objects
 
+import androidx.compose.runtime.mutableStateListOf
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Exclude
@@ -7,11 +8,12 @@ import com.google.firebase.firestore.ServerTimestamp
 
 class MyList(
     var owner: String = "",
-    var title: String = "",
-    var canEdit: ArrayList<String> = ArrayList<String>(),
-    var canView: ArrayList<String> = ArrayList<String>(),
-    var items: ArrayList<Item> = ArrayList<Item>(),
+    var title: String = ""
 ){
+
+    var canEdit = mutableStateListOf<String>()
+    var canView = mutableStateListOf<String>()
+    var items = mutableStateListOf<Item>()
 
     @get:Exclude
     var id = "" // Firestore ID

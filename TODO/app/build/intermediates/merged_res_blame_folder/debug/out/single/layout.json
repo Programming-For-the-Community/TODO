@@ -1,58 +1,54 @@
 [
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\fragment_list.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\fragment_list.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/content_main.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/content_main.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\app_bar_main.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\app_bar_main.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_home.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_home.xml"
     },
     {
-        "merged": "professorchaos0802.todo.app-mergeDebugResources-71:/layout/fragment_list.xml",
-        "source": "professorchaos0802.todo.app-main-74:/layout/fragment_list.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/todo_list_view.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/todo_list_view.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\fragment_user_name_setup.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\fragment_user_name_setup.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/theme_spinner_item_dropdown.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/theme_spinner_item_dropdown.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\fragment_home.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\fragment_home.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/app_bar_main.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/app_bar_main.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\item_preview.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\item_preview.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_user_name_setup.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_user_name_setup.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\content_main.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\content_main.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_customization.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_customization.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\fragment_customization.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\fragment_customization.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_list.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_list.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\fragment_profile.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\fragment_profile.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/list_item_layout.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/list_item_layout.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\activity_main.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/activity_main.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\theme_spinner_item_dropdown.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\theme_spinner_item_dropdown.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_profile_image.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_profile_image.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\todo_list_view.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\todo_list_view.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_profile.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_profile.xml"
     },
     {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\fragment_profile_image.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\fragment_profile_image.xml"
-    },
-    {
-        "merged": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-mergeDebugResources-71:\\layout\\fragment_splash.xml",
-        "source": "C:\\Users\\hahmcm\\.gradle\\daemon\\7.3.3\\professorchaos0802.todo.app-main-74:\\layout\\fragment_splash.xml"
+        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_splash.xml",
+        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_splash.xml"
     }
 ]

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-70:/values-xlarge-v4/values-xlarge-v4.xml",
+            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-80:/values-xlarge-v4/values-xlarge-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\75c3aa6acad2719f9a4970a29a41af38\\transformed\\appcompat-1.4.2\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\09b00d015d23c2f39584ea582de031ac\\transformed\\appcompat-1.5.1\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-70:/values-ldltr-v21/values-ldltr-v21.xml",
+            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-80:/values-ldltr-v21/values-ldltr-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\75c3aa6acad2719f9a4970a29a41af38\\transformed\\appcompat-1.4.2\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\09b00d015d23c2f39584ea582de031ac\\transformed\\appcompat-1.5.1\\res\\values-ldltr-v21\\values-ldltr-v21.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

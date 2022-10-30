@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-70:/values-sw360dp-v13/values-sw360dp-v13.xml",
+            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-80:/values-sw360dp-v13/values-sw360dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\276399d8a698d9d5f384aeeaef356aca\\transformed\\firebase-ui-auth-8.0.0\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\c8c3625e9646d046230a84291916c22a\\transformed\\firebase-ui-auth-8.0.0\\res\\values-sw360dp-v13\\values-sw360dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8",
                         "startColumns": "4,4,4,4,4,4,4",

@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.BuildConfig
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -22,7 +23,7 @@ import java.util.*
 import kotlin.random.Random
 
 class UserViewModel: ViewModel() {
-    var ref = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
+    private var ref: DocumentReference? = null
     var user: User? = null
     var editUser = false
     var newProfileImage = ""
@@ -43,12 +44,12 @@ class UserViewModel: ViewModel() {
             observer()
         }else{
             // make
-            ref.get().addOnSuccessListener {
+            ref!!.get().addOnSuccessListener {
                 if(it.exists()){
                     user = it.toObject(User::class.java)
                 }else{
                     user = User(username= Firebase.auth.currentUser!!.displayName!!)
-                    ref.set(user!!)
+                    ref!!.set(user!!)
                 }
 
                 observer()
@@ -128,7 +129,7 @@ class UserViewModel: ViewModel() {
 
         if(user != null){
             with(user!!){
-                ref.set(this)
+                ref!!.set(this)
             }
         }
     }
@@ -142,7 +143,7 @@ class UserViewModel: ViewModel() {
         if(user != null && newName != null){
             with(user!!){
                 username = newName
-                ref.set(this)
+                ref!!.set(this)
             }
         }
     }

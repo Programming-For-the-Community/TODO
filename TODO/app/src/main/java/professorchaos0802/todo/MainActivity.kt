@@ -3,29 +3,40 @@ package professorchaos0802.todo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.lifecycle.ViewModelProvider
+import android.window.SplashScreen
+import android.window.SplashScreenView
+import androidx.activity.compose.setContent
+import androidx.activity.viewModels
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
 import androidx.navigation.findNavController
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
 import com.firebase.ui.auth.AuthUI
-import io.grpc.InternalChannelz.id
-import professorchaos0802.todo.databinding.ActivityMainBinding
+import professorchaos0802.todo.composeui.HomeScreenView
+import professorchaos0802.todo.composeui.SplashScreenView
+import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
+import professorchaos0802.todo.navigation.TodoViews
+import professorchaos0802.todo.theme.TodoTheme
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var navController: NavController
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavHostController
     private lateinit var authListener: FirebaseAuth.AuthStateListener
+
+    private val listViewModel: ListViewModel by viewModels()
+    private val userModel: UserViewModel by viewModels()
 
 
     private val signinLauncher = registerForActivityResult(
@@ -45,10 +56,31 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContent{
+            TodoTheme{
+                Surface(modifier = Modifier.fillMaxSize()){
+                    navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = TodoViews.Splash.route
+                    ){
 
-        navController = findNavController(R.id.nav_host_fragment_content_main)
+                        composable(route = TodoViews.Splash.route){
+                            SplashScreenView(
+                                userViewModel = userModel
+                            )
+                        }
+
+                        composable(route = TodoViews.Home.route){
+                            HomeScreenView(
+                                userViewModel = userModel,
+                                listViewModel = listViewModel
+                            )
+                        }
+                    }
+                }
+            }
+        }
 
         initializeAuthListener()
 
@@ -67,17 +99,16 @@ class MainActivity : AppCompatActivity() {
                 setupAuthUI()
             }else{
                 with(user){this
-                    val userModel = ViewModelProvider(this@MainActivity).get(UserViewModel::class.java)
                     userModel.getOrMakeUser{
                         if(userModel.hasCompletedSetup()){
-                            val id = findNavController(R.id.nav_host_fragment_content_main).currentDestination!!.id
+                            val id = navController.currentDestination!!.route
 
                             Log.d(Constants.SETUP, "Authenticating")
 
                             // If not of the Firebase provided AuthUI Screen go to the home screen
-                            if(id == R.id.nav_splash){
+                            if(id == TodoViews.Splash.route){
                                 Log.d(Constants.SETUP, "Navigating to Home Page: ${R.id.nav_home}")
-                                navController.navigate(R.id.nav_home)
+                                navController.navigate(TodoViews.Home.route)
                             }
                         }else{
                             Log.d(Constants.SETUP, "Navigating to UserName Setup: ${R.id.nav_user_name_setup}")
