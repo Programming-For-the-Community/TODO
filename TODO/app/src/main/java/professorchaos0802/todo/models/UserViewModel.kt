@@ -12,6 +12,7 @@ import com.google.firebase.firestore.BuildConfig
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import professorchaos0802.todo.Constants
 import professorchaos0802.todo.objects.MyList
@@ -28,9 +29,7 @@ class UserViewModel: ViewModel() {
     var editUser = false
     var newProfileImage = ""
 
-    var imageStorageRef = Firebase.storage
-        .reference
-        .child("images")
+    var imageStorageRef: StorageReference? = null
 
 
     /**
@@ -99,15 +98,20 @@ class UserViewModel: ViewModel() {
             return
         }
 
+        // Add storage reference
+        Firebase.storage
+            .reference
+            .child("images")
+
         val imageId = kotlin.math.abs(Random.nextLong()).toString()
-        imageStorageRef.child(imageId).putStream(stream)
+        imageStorageRef!!.child(imageId).putStream(stream)
             .continueWithTask{task ->
                 if(!task.isSuccessful){
                     task.exception?.let{
                         throw it
                     }
                 }
-                imageStorageRef.child(imageId).downloadUrl
+                imageStorageRef!!.child(imageId).downloadUrl
             }
             .addOnCompleteListener{ task ->
                 if(task.isSuccessful){

@@ -4077,9 +4077,10 @@ int string setup_themes_label 0x7f14013a
 int string share_icon 0x7f14013b
 int string splash_fragment_label 0x7f14013c
 int string status_bar_notification_info_overflow 0x7f14013d
-int string tab 0x7f14013e
-int string template_percent 0x7f14013f
-int string user_name_setup_fragment_label 0x7f140140
+int string switch_role 0x7f14013e
+int string tab 0x7f14013f
+int string template_percent 0x7f140140
+int string user_name_setup_fragment_label 0x7f140141
 int style AlertDialog_AppCompat 0x7f150000
 int style AlertDialog_AppCompat_Light 0x7f150001
 int style Animation_AppCompat_Dialog 0x7f150002

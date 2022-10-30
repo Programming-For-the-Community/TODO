@@ -4078,6 +4078,7 @@ string setup_themes_label
 string share_icon
 string splash_fragment_label
 string status_bar_notification_info_overflow
+string switch_role
 string tab
 string template_percent
 string user_name_setup_fragment_label

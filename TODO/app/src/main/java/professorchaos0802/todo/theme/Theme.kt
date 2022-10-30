@@ -6,6 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 val lightBluePalette = lightColorScheme(
     background = PowderBlue,
@@ -71,6 +72,11 @@ fun TodoTheme(
             else -> lightBluePalette
         }
     }
+
+    rememberSystemUiController().setStatusBarColor(
+        color = MidnightBlue,
+        darkIcons = darkTheme
+    )
 
     MaterialTheme(
         colorScheme = colorPalette,

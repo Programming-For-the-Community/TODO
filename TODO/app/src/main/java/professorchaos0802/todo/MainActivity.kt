@@ -24,6 +24,8 @@ import com.google.firebase.auth.ktx.auth
 import com.firebase.ui.auth.AuthUI
 import professorchaos0802.todo.composeui.HomeScreenView
 import professorchaos0802.todo.composeui.SplashScreenView
+import professorchaos0802.todo.composeui.UserCustomization
+import professorchaos0802.todo.composeui.UserNameSetupScreenView
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews
@@ -71,6 +73,20 @@ class MainActivity : AppCompatActivity() {
                             )
                         }
 
+                        composable(route = TodoViews.UserNameSetup.route){
+                            UserNameSetupScreenView(
+                                userModel = userModel,
+                                onNext = {navController.navigate(TodoViews.Customization.route)},
+                                onCancel = {navController.navigate(TodoViews.Splash.route)}
+                            )
+                        }
+
+                        composable(route = TodoViews.Customization.route){
+                            UserCustomization(
+                                userModel = userModel
+                            )
+                        }
+
                         composable(route = TodoViews.Home.route){
                             HomeScreenView(
                                 userViewModel = userModel,
@@ -84,11 +100,6 @@ class MainActivity : AppCompatActivity() {
 
         initializeAuthListener()
 
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
     private fun initializeAuthListener() {
@@ -112,7 +123,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }else{
                             Log.d(Constants.SETUP, "Navigating to UserName Setup: ${R.id.nav_user_name_setup}")
-                            navController.navigate(R.id.nav_user_name_setup)
+                            navController.navigate(TodoViews.UserNameSetup.route)
                         }
                     }
                 }
