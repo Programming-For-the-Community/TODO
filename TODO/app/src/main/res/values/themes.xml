@@ -51,9 +51,6 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">@dimen/setup_next_cancel_width</item>
 
-        // Alignment
-        <item name="android:layout_below">@id/user_name_setup_edit_text</item>
-
         // Color
         <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="android:backgroundTint">?attr/colorPrimaryVariant</item>

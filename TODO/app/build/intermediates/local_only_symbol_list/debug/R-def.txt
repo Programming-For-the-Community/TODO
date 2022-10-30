@@ -136,7 +136,6 @@ id list_preview_timestamp
 id list_preview_title
 id list_title
 id list_uncheck_all
-id nav_host_fragment_content_main
 id new_item
 id new_list_fab
 id profile_icon
@@ -154,10 +153,6 @@ id seutp_theme_spinner
 id share_icon
 id theme_spinner_dropdown
 id todo_lists
-id toolbar
-layout activity_main
-layout app_bar_main
-layout content_main
 layout fragment_customization
 layout fragment_home
 layout fragment_list

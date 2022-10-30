@@ -101,7 +101,7 @@ class ProfileImageFragment: Fragment() {
         // Log-out the user if they choose to cancel the setup process
         binding.profileImageCancelButton.setOnClickListener{
             Log.d(Constants.SETUP, "Logging out from ProfileImageFragment")
-            findNavController().navigate(R.id.nav_splash)
+//            findNavController().navigate(R.id.nav_splash)
             Firebase.auth.signOut()
             userModel.user = null
         }
@@ -110,8 +110,8 @@ class ProfileImageFragment: Fragment() {
         binding.profileImageNextButton.setOnClickListener {
             userModel.user!!.hasCompletedSetup = true
             userModel.update()
-            Log.d(Constants.SETUP, "Navigating to HomeFragment: ${R.id.nav_home}")
-            findNavController().navigate(R.id.nav_home)
+//            Log.d(Constants.SETUP, "Navigating to HomeFragment: ${R.id.nav_home}")
+//            findNavController().navigate(R.id.nav_home)
         }
     }
 }

@@ -91,7 +91,7 @@ class TodoListAdapter(val fragment: HomeFragment): RecyclerView.Adapter<TodoList
             // When the layout is clicked, set the current list to the list that was selected and then navigate to the list screen
             layout.setOnClickListener {
                 listModel.updateList(listModel.lists[adapterPosition])
-                fragment.findNavController().navigate(R.id.nav_list)
+//                fragment.findNavController().navigate(R.id.nav_list)
             }
         }
 

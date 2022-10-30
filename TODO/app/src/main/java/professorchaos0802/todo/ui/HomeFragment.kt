@@ -75,7 +75,7 @@ class HomeFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when(menuItem.itemId){
                     R.id.profile_icon -> {
-                        findNavController().navigate(R.id.nav_profile)
+//                        findNavController().navigate(R.id.nav_profile)
                         true
                     }
                     R.id.share_icon -> {
@@ -101,7 +101,7 @@ class HomeFragment : Fragment() {
             listModel.addNewList(newList)
 
             // Navigate to the list fragment
-            findNavController().navigate(R.id.nav_list)
+//            findNavController().navigate(R.id.nav_list)
         }
 
     }

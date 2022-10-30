@@ -3,29 +3,24 @@ package professorchaos0802.todo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.window.SplashScreen
-import android.window.SplashScreenView
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import androidx.navigation.findNavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.ktx.auth
 import com.firebase.ui.auth.AuthUI
-import professorchaos0802.todo.composeui.HomeScreenView
-import professorchaos0802.todo.composeui.SplashScreenView
-import professorchaos0802.todo.composeui.UserCustomization
-import professorchaos0802.todo.composeui.UserNameSetupScreenView
+import professorchaos0802.todo.composeui.home.HomeScreenView
+import professorchaos0802.todo.composeui.splash.SplashScreenView
+import professorchaos0802.todo.composeui.usercusotmization.UserCustomization
+import professorchaos0802.todo.composeui.usernamesetup.UserNameSetupScreenView
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews
@@ -33,7 +28,6 @@ import professorchaos0802.todo.theme.TodoTheme
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navController: NavHostController
     private lateinit var authListener: FirebaseAuth.AuthStateListener
 

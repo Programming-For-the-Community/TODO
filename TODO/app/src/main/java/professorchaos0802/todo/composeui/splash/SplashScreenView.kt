@@ -1,4 +1,4 @@
-package professorchaos0802.todo.composeui
+package professorchaos0802.todo.composeui.splash
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background

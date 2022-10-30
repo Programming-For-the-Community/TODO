@@ -63,7 +63,7 @@ class CustomizationFragment: Fragment() {
         // Log-out the user if the cancel the setup process
         binding.customizationCancelButton.setOnClickListener{
             Log.d(Constants.SETUP, "Logging out from CustomizationFragment")
-            findNavController().navigate(R.id.nav_splash)
+//            findNavController().navigate(R.id.nav_splash)
             Firebase.auth.signOut()
             userModel.user = null
         }
@@ -71,8 +71,8 @@ class CustomizationFragment: Fragment() {
         // Send the user to the next setup screen when they are ready to continue
         binding.customizationNextButton.setOnClickListener {
             userModel.update()
-            Log.d(Constants.SETUP, "Navigating to ProfileImage: ${R.id.nav_profile_image}")
-            findNavController().navigate(R.id.nav_profile_image)
+//            Log.d(Constants.SETUP, "Navigating to ProfileImage: ${R.id.nav_profile_image}")
+//            findNavController().navigate(R.id.nav_profile_image)
         }
         
     }
