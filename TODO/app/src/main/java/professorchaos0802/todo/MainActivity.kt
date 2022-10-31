@@ -77,7 +77,9 @@ class MainActivity : AppCompatActivity() {
 
                         composable(route = TodoViews.Customization.route){
                             UserCustomization(
-                                userModel = userModel
+                                userModel = userModel,
+                                onNext = {navController.navigate(TodoViews.ProfileImage.route)},
+                                onCancel = {navController.navigate(TodoViews.Splash.route)}
                             )
                         }
 

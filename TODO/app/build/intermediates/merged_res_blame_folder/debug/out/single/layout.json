@@ -1,9 +1,5 @@
 [
     {
-        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/content_main.xml",
-        "source": "professorchaos0802.todo.app-main-84:/layout/content_main.xml"
-    },
-    {
         "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_home.xml",
         "source": "professorchaos0802.todo.app-main-84:/layout/fragment_home.xml"
     },
@@ -28,16 +24,8 @@
         "source": "professorchaos0802.todo.app-main-84:/layout/theme_spinner_item_dropdown.xml"
     },
     {
-        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/activity_main.xml",
-        "source": "professorchaos0802.todo.app-main-84:/layout/activity_main.xml"
-    },
-    {
         "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_profile_image.xml",
         "source": "professorchaos0802.todo.app-main-84:/layout/fragment_profile_image.xml"
-    },
-    {
-        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/app_bar_main.xml",
-        "source": "professorchaos0802.todo.app-main-84:/layout/app_bar_main.xml"
     },
     {
         "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_profile.xml",

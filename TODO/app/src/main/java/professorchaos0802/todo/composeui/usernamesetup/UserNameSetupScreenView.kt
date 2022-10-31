@@ -2,6 +2,7 @@ package professorchaos0802.todo.composeui.usernamesetup
 
 import android.annotation.SuppressLint
 import android.util.Log
+import android.view.KeyEvent
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.text.font.FontStyle.Companion.Italic
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.input.TextFieldValue
@@ -67,7 +69,6 @@ fun UserNameSetupTopNavBar() {
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UserNameSetupContent(userModel: UserViewModel, onNext: () -> Unit, onCancel: () -> Unit) {
     val user = if (userModel.user == null) User() else userModel.user!!
@@ -79,7 +80,7 @@ fun UserNameSetupContent(userModel: UserViewModel, onNext: () -> Unit, onCancel:
             .fillMaxSize()
             .padding(start = 25.dp, end = 25.dp)
     ) {
-        UserNameTextField(user)
+        UserNameTextField(user, onNext)
 
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -107,7 +108,7 @@ fun UserNameSetupContent(userModel: UserViewModel, onNext: () -> Unit, onCancel:
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UserNameTextField(user: User) {
+fun UserNameTextField(user: User, onNext:() -> Unit) {
     var userName by remember { mutableStateOf(TextFieldValue("")) }
 
     TextField(
@@ -142,7 +143,8 @@ fun UserNameTextField(user: User) {
             unfocusedIndicatorColor = Color.Transparent,
             cursorColor = if (isSystemInDarkTheme()) Color.Black else Color.White
         ),
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier
+            .fillMaxWidth()
     )
 }
 
