@@ -293,7 +293,6 @@ fun UserCustomizationPreview() {
         onCancel = {}
     )
 }
-
 @Preview(showBackground = true)
 @Composable
 fun UserCustomizationTopNavBarPreview() {
@@ -301,6 +300,7 @@ fun UserCustomizationTopNavBarPreview() {
         UserCustomizationTopNavBar()
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable

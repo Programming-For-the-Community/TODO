@@ -1,5 +1,6 @@
 package professorchaos0802.todo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.core.app.ActivityCompat
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,6 +20,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.ktx.auth
 import com.firebase.ui.auth.AuthUI
 import professorchaos0802.todo.composeui.home.HomeScreenView
+import professorchaos0802.todo.composeui.profileimage.ProfileImage
 import professorchaos0802.todo.composeui.splash.SplashScreenView
 import professorchaos0802.todo.composeui.usercusotmization.UserCustomization
 import professorchaos0802.todo.composeui.usernamesetup.UserNameSetupScreenView
@@ -33,6 +36,8 @@ class MainActivity : AppCompatActivity() {
 
     private val listViewModel: ListViewModel by viewModels()
     private val userModel: UserViewModel by viewModels()
+
+    val SELECT_PICTURE = 200
 
 
     private val signinLauncher = registerForActivityResult(
@@ -51,6 +56,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val activity = this
 
         setContent{
             TodoTheme{
@@ -80,6 +87,17 @@ class MainActivity : AppCompatActivity() {
                                 userModel = userModel,
                                 onNext = {navController.navigate(TodoViews.ProfileImage.route)},
                                 onCancel = {navController.navigate(TodoViews.Splash.route)}
+                            )
+                        }
+
+                        composable(route = TodoViews.ProfileImage.route){
+                            ProfileImage(
+                                userModel = userModel,
+                                onNext = {navController.navigate(TodoViews.Home.route)},
+                                onCancel = {navController.navigate(TodoViews.Splash.route)},
+                                onChooseImage = {
+
+                                }
                             )
                         }
 
@@ -141,4 +159,5 @@ class MainActivity : AppCompatActivity() {
             .build()
         signinLauncher.launch(signinIntent)
     }
+
 }
