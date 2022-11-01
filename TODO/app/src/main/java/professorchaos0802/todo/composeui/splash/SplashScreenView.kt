@@ -47,17 +47,23 @@ fun SplashScreenContent(){
         CircularProgressIndicator()
         Text(
             text = "Loading...",
-            style = MaterialTheme.typography.displayLarge
+            style = MaterialTheme.typography.displayLarge,
+            color = MaterialTheme.colorScheme.onBackground
         )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun SplashScreenViewPreview(){
+fun BlueSplashScreenViewPreview(){
     SplashScreenView("Blue")
 }
 
+@Preview(showBackground = true)
+@Composable
+fun GreenSplashScreenViewPreview(){
+    SplashScreenView("Green")
+}
 
 @Preview(showBackground = true)
 @Composable
@@ -71,6 +77,22 @@ fun LightBlueSplashScreenContentPreview(){
 @Composable
 fun DarkBlueSplashScreenContentPreview(){
     TodoTheme(color = "Blue", darkTheme = true){
+        SplashScreenContent()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LightGreenSplashScreenContentPreview(){
+    TodoTheme(color = "Green"){
+        SplashScreenContent()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DarkGreenSplashScreenContentPreview(){
+    TodoTheme(color = "Green", darkTheme = true){
         SplashScreenContent()
     }
 }

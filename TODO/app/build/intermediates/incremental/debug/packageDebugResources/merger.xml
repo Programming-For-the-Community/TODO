@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3" xmlns:ns1="http://schemas.android.com/tools"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res"/><source path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\build\generated\res\rs\debug"/><source path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\build\generated\res\resValues\debug"/><source path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\build\generated\res\google-services\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res"><file name="ic_launcher_background" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable\ic_launcher_background.xml" qualifiers="" type="drawable"/><file name="ic_todo_launcher_foreground" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable\ic_todo_launcher_foreground.xml" qualifiers="" type="drawable"/><file name="progress_bar" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable\progress_bar.xml" qualifiers="" type="drawable"/><file name="setup_edit_text" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable\setup_edit_text.xml" qualifiers="" type="drawable"/><file name="theme_spinner_text_view" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable\theme_spinner_text_view.xml" qualifiers="" type="drawable"/><file name="ic_add" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-anydpi\ic_add.xml" qualifiers="anydpi-v4" type="drawable"/><file name="ic_hamburger" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-anydpi\ic_hamburger.xml" qualifiers="anydpi-v4" type="drawable"/><file name="ic_profile_img" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-anydpi\ic_profile_img.xml" qualifiers="anydpi-v4" type="drawable"/><file name="ic_save" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-anydpi\ic_save.xml" qualifiers="anydpi-v4" type="drawable"/><file name="ic_share" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-anydpi\ic_share.xml" qualifiers="anydpi-v4" type="drawable"/><file name="ic_add" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-hdpi\ic_add.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_hamburger" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-hdpi\ic_hamburger.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_profile_img" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-hdpi\ic_profile_img.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_save" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-hdpi\ic_save.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_share" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-hdpi\ic_share.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_add" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-mdpi\ic_add.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_hamburger" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-mdpi\ic_hamburger.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_profile_img" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-mdpi\ic_profile_img.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_save" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-mdpi\ic_save.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_share" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-mdpi\ic_share.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_launcher_foreground" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-v24\ic_launcher_foreground.xml" qualifiers="v24" type="drawable"/><file name="ic_add" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-xhdpi\ic_add.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_hamburger" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-xhdpi\ic_hamburger.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_profile_img" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-xhdpi\ic_profile_img.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_save" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-xhdpi\ic_save.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_share" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-xhdpi\ic_share.png" qualifiers="xhdpi-v4" type="drawable"/><file name="ic_add" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-xxhdpi\ic_add.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="ic_hamburger" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-xxhdpi\ic_hamburger.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="ic_profile_img" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-xxhdpi\ic_profile_img.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="ic_save" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-xxhdpi\ic_save.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="ic_share" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\drawable-xxhdpi\ic_share.png" qualifiers="xxhdpi-v4" type="drawable"/><file name="roboto" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto.ttf" qualifiers="" type="font"/><file name="roboto_black" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_black.ttf" qualifiers="" type="font"/><file name="roboto_black_italic" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_black_italic.ttf" qualifiers="" type="font"/><file name="roboto_bold" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_bold.ttf" qualifiers="" type="font"/><file name="roboto_bold_italic" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_bold_italic.ttf" qualifiers="" type="font"/><file name="roboto_italic" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_italic.ttf" qualifiers="" type="font"/><file name="roboto_light" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_light.ttf" qualifiers="" type="font"/><file name="roboto_light_italic" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_light_italic.ttf" qualifiers="" type="font"/><file name="roboto_medium" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_medium.ttf" qualifiers="" type="font"/><file name="roboto_medium_italic" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_medium_italic.ttf" qualifiers="" type="font"/><file name="roboto_thin" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_thin.ttf" qualifiers="" type="font"/><file name="roboto_thin_italic" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\font\roboto_thin_italic.ttf" qualifiers="" type="font"/><file name="fragment_customization" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\layout\fragment_customization.xml" qualifiers="" type="layout"/><file name="fragment_home" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\layout\fragment_home.xml" qualifiers="" type="layout"/><file name="fragment_list" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\layout\fragment_list.xml" qualifiers="" type="layout"/><file name="fragment_profile" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\layout\fragment_profile.xml" qualifiers="" type="layout"/><file name="fragment_profile_image" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\layout\fragment_profile_image.xml" qualifiers="" type="layout"/><file name="list_item_layout" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\layout\list_item_layout.xml" qualifiers="" type="layout"/><file name="theme_spinner_item_dropdown" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\layout\theme_spinner_item_dropdown.xml" qualifiers="" type="layout"/><file name="todo_list_view" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\layout\todo_list_view.xml" qualifiers="" type="layout"/><file name="menu_default" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\menu\menu_default.xml" qualifiers="" type="menu"/><file name="menu_home" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\menu\menu_home.xml" qualifiers="" type="menu"/><file name="menu_list" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\menu\menu_list.xml" qualifiers="" type="menu"/><file name="menu_profile" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\menu\menu_profile.xml" qualifiers="" type="menu"/><file name="ic_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_todo_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-anydpi-v26\ic_todo_launcher.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_todo_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-anydpi-v26\ic_todo_launcher_round.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-hdpi\ic_launcher.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-hdpi\ic_launcher_round.webp" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_todo_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-hdpi\ic_todo_launcher.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_todo_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-hdpi\ic_todo_launcher_round.png" qualifiers="hdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-mdpi\ic_launcher.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-mdpi\ic_launcher_round.webp" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_todo_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-mdpi\ic_todo_launcher.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_todo_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-mdpi\ic_todo_launcher_round.png" qualifiers="mdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xhdpi\ic_launcher.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xhdpi\ic_launcher_round.webp" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_todo_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xhdpi\ic_todo_launcher.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_todo_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xhdpi\ic_todo_launcher_round.png" qualifiers="xhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xxhdpi\ic_launcher.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xxhdpi\ic_launcher_round.webp" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_todo_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xxhdpi\ic_todo_launcher.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_todo_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xxhdpi\ic_todo_launcher_round.png" qualifiers="xxhdpi-v4" type="mipmap"/><file name="ic_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xxxhdpi\ic_launcher.webp" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xxxhdpi\ic_launcher_round.webp" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_todo_launcher" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xxxhdpi\ic_todo_launcher.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file name="ic_todo_launcher_round" path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\mipmap-xxxhdpi\ic_todo_launcher_round.png" qualifiers="xxxhdpi-v4" type="mipmap"/><file path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\values\colors.xml" qualifiers=""><color name="black">#FF000000</color><color name="white">#FFFFFFFF</color><color name="grayLight">#FFA4A4A4</color><color name="grayDark">#FF3E3E3E</color><color name="midnightBlue">#FF03045E</color><color name="darkCornflowerBlue">#FF023E8A</color><color name="starCommandBlue">#FF0077B6</color><color name="blueGreen">#FF0096C7</color><color name="pacificBlue">#FF00B4D8</color><color name="skyBlueCrayola">#FF48CAE4</color><color name="middleBlue">#FF90E0EF</color><color name="blizzardBlue1">#FFA6E6F2</color><color name="blizzardBlue2">#FFB8EBF5</color><color name="powderBlue">#FFC6EFF7</color><color name="darkJungleGreen">#FF081C15</color><color name="phthaloGreen">#FF123024</color><color name="msuGreen">#FF1B4332</color><color name="bottleGreen">#FF2D6A4F</color><color name="illuminatingEmerald">#FF40916C</color><color name="mint">#FF52B788</color><color name="oceanGreen">#FF74C69D</color><color name="turquoiseGreen1">#FF95D5B2</color><color name="turquoiseGreen2">#FFB7E4C7</color><color name="nyanza">#FFD8F3DC</color><color name="bloodRed">#FF680B00</color><color name="barnRedDark">#FF750D00</color><color name="barnRedLight">#FF820E00</color><color name="darkRed">#FF931000</color><color name="rufous">#FFA31100</color><color name="internationalOrangeEngineering">#FFB81300</color><color name="rossoCorsa1">#FFCC1500</color><color name="rossoCorsa2">#FFDD1700</color><color name="red">#FFEE1800</color><color name="scarlet">#FFFF1A00</color><color name="xiketic">#FF03071E</color><color name="darkSienna">#FF370617</color><color name="rosewood">#FF6A040F</color><color name="darkRedOrange">#FF9D0208</color><color name="rossoCorsaOrange">#FFD00000</color><color name="vermilion">#FFCD2F02</color><color name="persimmon">#FFE85D04</color><color name="tangerine">#FFF48C06</color><color name="orangeWeb">#FFFAA307</color><color name="selectiveYellow">#FFFFBA08</color><color name="claret1">#FF590D22</color><color name="claret2">#FF800F2F</color><color name="bigDipOruby">#FFA4133C</color><color name="brightMaroon">#FFC9184A</color><color name="fieryRose">#FFFF4D6D</color><color name="ultraRed">#FFFF758F</color><color name="salmonPink">#FFFF8FA3</color><color name="cherryBlossomPink">#FFFFB3C1</color><color name="pink">#FFFFCCD5</color><color name="lavenderBlush">#FFFFF0F3</color><color name="blueVioletColorWheel1">#FF461873</color><color name="blueVioletColorWheel2">#FF58148E</color><color name="purple">#FF6910A8</color><color name="darkViolet">#FF8C07DD</color><color name="purpleX11">#FF9F21E3</color><color name="electricPurple">#FFB333E9</color><color name="mediumOrchid">#FFCB5DF1</color><color name="brightLilac">#FFDC93F6</color><color name="mauve">#FFEABFFA</color><color name="palePurplePantone">#FFF7EBFD</color></file><file path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\values\dimens.xml" qualifiers=""><dimen name="setup_edit_text_width">300dp</dimen><dimen name="setup_edit_text_size">30sp</dimen><dimen name="setup_edit_text_padding">12dp</dimen><dimen name="setup_edit_text_radius">12dp</dimen><dimen name="setup_edit_text_margin">10dp</dimen><dimen name="setup_next_cancel_width">100dp</dimen><dimen name="setup_text_view_size">20sp</dimen><dimen name="setup_text_view_margin">25dp</dimen><dimen name="setup_spinner_padding">3dp</dimen><dimen name="setup_radio_group_title_margin">0dp</dimen><dimen name="setup_radio_button_text">18sp</dimen><dimen name="setup_image_view_dimens">300dp</dimen><dimen name="setup_image_view_top_margin">100dp</dimen><dimen name="setup_choose_image">15dp</dimen><dimen name="customization_cancel_left_margin">150dp</dimen><dimen name="theme_spinner_width">100dp</dimen><dimen name="theme_spinner_radius">6dp</dimen><dimen name="fab_margin">35dp</dimen><dimen name="add_icon_size">36dp</dimen><dimen name="todo_list_margin">15dp</dimen><dimen name="todo_list_padding">5dp</dimen><dimen name="todo_list_title">24sp</dimen><dimen name="list_preview_margin">10dp</dimen><dimen name="list_preview_width">250dp</dimen><dimen name="list_preview_item_text_size">12sp</dimen><dimen name="list_preview_owner_padding">5dp</dimen><dimen name="loading_text_size">36sp</dimen><dimen name="loading_margin">10dp</dimen><dimen name="list_fragment_margin">10dp</dimen><dimen name="list_title_text_size">24sp</dimen><dimen name="list_new_item_text_size">18sp</dimen><dimen name="list_uncheck_all_text_size">16sp</dimen><dimen name="list_new_item_width">250dp</dimen><dimen name="list_uncheck_all_button">125dp</dimen><dimen name="item_text_size">14sp</dimen></file><file path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">Todo</string><string name="home_fragment_label">Home</string><string name="dummmy_list_title">Title</string><string name="dummy_item">Item 1</string><string name="dummy_list_owner">Owner: JDoe</string><string name="dummy_list_timestamp">mm/dd/yyy hh:mm:ss</string><string name="profile_icon">Profile</string><string name="share_icon">Share</string><string name="home_icon_holder">Menu</string><string name="splash_fragment_label">Splash</string><string name="loading_text">Loading...</string><string name="next_button">Next</string><string name="cancel_button">Cancel</string><string name="user_name_setup_fragment_label">User Name Setup</string><string name="dummy_username">John Doe</string><string name="customization_fragment_label">Customization</string><string-array name="custom_themes_array">
+        <item>Blue</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Pink</item>
+        <item>Purple</item>
+    </string-array><string name="setup_themes_label">Choose Theme</string><string name="dummy_spinner_text">Color</string><string name="setup_profile_visibility">Profile Visibility</string><string name="profile_public">Public</string><string name="profile_private">Private</string><string name="profile_image_fragment_label">Profile Image</string><string name="choose_image_button">Choose Image</string><string name="list_fragment_label">List</string><string name="list_new_item_hint">New Item</string><string name="list_uncheck_all">Uncheck All</string><string name="dummy_item_text">Item</string><string name="profile_fragment_label">Profile</string></file><file path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.Todo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/middleBlue</item>
+        <item name="colorPrimaryVariant">@color/skyBlueCrayola</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">@color/midnightBlue</item>
+        <item name="colorSecondaryVariant">@color/pacificBlue</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <item name="colorOnBackground">@color/powderBlue</item>
+
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:headerBackground">?attr/colorPrimaryVariant</item>
+    </style><style name="Theme.Todo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style><style name="Theme.Todo.ToolbarOverlay" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style><style name="Theme.Todo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/><style name="setup_edit_text">
+        // Dimens
+        <item name="android:layout_width">@dimen/setup_edit_text_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/setup_edit_text_size</item>
+        <item name="android:padding">@dimen/setup_edit_text_padding</item>
+        <item name="android:layout_margin">@dimen/setup_edit_text_margin</item>
+
+        // Color
+        <item name="android:background">@drawable/setup_edit_text</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textColorHint">@color/grayLight
+        </item>
+    </style><style name="setup_next_cancel_button">
+        // Dimens
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">@dimen/setup_next_cancel_width</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:backgroundTint">?attr/colorPrimaryVariant</item>
+    </style><style name="setup_theme_spinner">
+        // Dimens
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+
+        // Color
+        <item name="android:backgroundTint">?attr/colorOnPrimary</item>
+    </style><style name="setup_text">
+        // Dimens
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginHorizontal">@dimen/setup_text_view_margin</item>
+        <item name="android:textSize">@dimen/setup_text_view_size</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style><style name="theme_spinner_dropdown">
+        // Dimens
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">@dimen/theme_spinner_width</item>
+        <item name="android:textSize">@dimen/setup_text_view_size</item>
+        <item name="android:padding">@dimen/setup_spinner_padding</item>
+
+        // Color
+        <item name="android:background">@drawable/theme_spinner_text_view</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+
+        // Text
+        <item name="android:text">@string/dummy_spinner_text</item>
+    </style><style name="setup_radio_group">
+        // Dimens
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style><style name="setup_radio_button">
+        // Dimens
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/setup_radio_button_text</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style><style name="setup_image_view">
+        // Dimens
+        <item name="android:layout_width">@dimen/setup_image_view_dimens</item>
+        <item name="android:layout_height">@dimen/setup_image_view_dimens</item>
+    </style><style name="setup_choose_image_button">
+        // Dimens
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">@dimen/setup_image_view_dimens</item>
+        <item name="android:layout_marginVertical">@dimen/setup_choose_image</item>
+
+        // Alignment
+        <item name="android:layout_below">@id/setup_profile_image</item>
+        <item name="android:layout_centerHorizontal">true</item>
+
+        // Text
+        <item name="android:text">@string/choose_image_button</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:backgroundTint">?attr/colorPrimaryVariant</item>
+    </style><style name="list_title">
+        // Dimens
+        <item name="android:textSize">@dimen/todo_list_title</item>
+        <item name="android:padding">@dimen/todo_list_padding</item>
+        <item name="android:layout_margin">@dimen/list_preview_margin</item>
+
+        // Text
+        <item name="android:text">@string/dummmy_list_title</item>
+        <item name="android:textStyle">bold</item>
+
+        // Color
+        <item name="android:background">?attr/colorSecondaryVariant</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style><style name="list_preview_info">
+        // Dimens
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/list_preview_item_text_size</item>
+        <item name="android:padding">@dimen/list_preview_owner_padding</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:background">?attr/colorSecondaryVariant</item>
+    </style><style name="loading_text">
+        // Dimens
+        <item name="android:textSize">@dimen/loading_text_size</item>
+        <item name="android:layout_margin">@dimen/loading_margin</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        // Text
+        <item name="android:textStyle">bold|italic</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style><style name="list_item_recycler">
+        // Dimens
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+
+        // Color
+        <item name="android:background">?attr/colorOnBackground</item>
+    </style><style name="list_title_edit_text">
+        // Dimens
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/list_title_text_size</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+
+        // Text
+        <item name="android:text">@string/dummmy_list_title</item>
+        <item name="android:textStyle">bold</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style><style name="list_new_item">
+        // Dimens
+        <item name="android:layout_width">@dimen/list_new_item_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+        <item name="android:textSize">@dimen/list_new_item_text_size</item>
+
+        // Text
+        <item name="android:hint">@string/list_new_item_hint</item>
+
+        // Color
+        <item name="android:textColor">?attr/colorOnTertiary</item>
+        <item name="android:textColorHint">?attr/colorOnTertiary</item>
+    </style><style name="list_uncheck_all_button">
+        // Dimens
+        <item name="android:layout_width">@dimen/list_uncheck_all_button</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/list_fragment_margin</item>
+        <item name="android:textSize">@dimen/list_uncheck_all_text_size</item>
+
+        // Text
+        <item name="android:text">@string/list_uncheck_all</item>
+
+        // Color
+        <item name="android:backgroundTint">?attr/colorOnTertiary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style></file><file path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\values-large\dimens.xml" qualifiers="large-v4"/><file path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\values-night\themes.xml" qualifiers="night-v8"><style name="Theme.Todo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        
+        <item name="colorPrimary">@color/midnightBlue</item>
+        <item name="colorPrimaryVariant">@color/powderBlue</item>
+        <item name="colorOnPrimary">@color/black</item>
+        
+        <item name="colorSecondary">@color/skyBlueCrayola</item>
+        <item name="colorSecondaryVariant">@color/darkCornflowerBlue</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="colorOnBackground">?attr/colorPrimary</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style><style name="setup_edit_text">
+
+        // Dimens
+        <item name="android:layout_width">@dimen/setup_edit_text_width</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/setup_edit_text_size</item>
+        <item name="android:padding">@dimen/setup_edit_text_padding</item>
+
+        // Color
+        <item name="android:background">@drawable/setup_edit_text</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textColorHint">@color/grayDark</item>
+    </style></file><file path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\values-small\dimens.xml" qualifiers="small-v4"/><file path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\res\values-xlarge\dimens.xml" qualifiers="xlarge-v4"/></source><source path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\build\generated\res\rs\debug"/><source path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\build\generated\res\resValues\debug"/><source path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\build\generated\res\google-services\debug"><file path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\build\generated\res\google-services\debug\values\values.xml" qualifiers=""><string name="default_web_client_id" translatable="false">397807326938-dg2rl7n6knnqen6tkhajioed83fge1nq.apps.googleusercontent.com</string><string name="gcm_defaultSenderId" translatable="false">397807326938</string><string name="google_api_key" translatable="false">AIzaSyCOPSjmPTI6urv245MiAZcHSd4nW8dcHZ0</string><string name="google_app_id" translatable="false">1:397807326938:android:03e14c3a74a673fa53f7e3</string><string name="google_crash_reporting_api_key" translatable="false">AIzaSyCOPSjmPTI6urv245MiAZcHSd4nW8dcHZ0</string><string name="google_storage_bucket" translatable="false">todo-99f73.appspot.com</string><string name="project_id" translatable="false">todo-99f73</string></file></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\debug\res"/></dataSet><mergedItems/></merger>

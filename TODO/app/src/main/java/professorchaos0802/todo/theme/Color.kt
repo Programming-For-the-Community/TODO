@@ -2,15 +2,6 @@ package professorchaos0802.todo.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Neutral Tones
-val Black = Color(0xFF000000)
-val Gray10 = Color(0xFF1A1C1E)
-val Gray30 = Color(0xFF42474E)
-val Gray50 = Color(0xFF72787E)
-val Gray60 = Color(0xFF8C9198)
-val Gray80 = Color(0xFFC2C7CF)
-val NeutralGray90 = Color(0xFFE2E2E5)
-val NeutralVariantGray90 = Color(0xFFDEE3EB)
 val White = Color(0xFFFFFFFF)
 
 // Error
@@ -31,6 +22,11 @@ val LightBlueOnSecondaryContainer = Color(0xFF001E2C)
 val LightBlueTertiary = Color(0xFF006878)
 val LightBlueTertiaryContainer = Color(0xFFA7EDFF)
 val LightBlueOnTertiaryContainer = Color(0xFF001F25)
+val LightBlueOnBackground = Color(0xFF1A1C1E)
+val LightBlueOnSurface = LightBlueOnBackground
+val LightBlueOnSurfaceVariant = Color(0xFF42474E)
+val LightBlueOutline = Color(0xFF72787E)
+val LightBlueSurfaceVariant = Color(0xFFDEE3EB)
 val DarkBluePrimary = Color(0xFF94CCFF)
 val DarkBlueOnPrimary = Color(0xFF003352)
 val DarkBluePrimaryContainer = Color(0xFF004B74)
@@ -42,19 +38,49 @@ val DarkBlueTertiary = Color(0xFF53D7F2)
 val DarkBlueOnTertiary = Color(0xFF00363F)
 val DarkBlueTertiaryContainer = Color(0xFF004E5B)
 val DarkBlueOnTertiaryContainer = Color(0xFFA7EDFF)
+val DarkBlueBackground = LightBlueOnBackground
+val DarkBlueOnBackground = Color(0xFFE2E2E5)
+val DarkBlueSurface = LightBlueOnBackground
+val DarkBlueOnSurface = DarkBlueOnBackground
+val DarkBlueOutline = Color(0xFF8C9198)
+val DarkBlueSurfaceVariant = LightBlueOnSurfaceVariant
+val DarkBlueOnSurfaceVariant = Color(0xFFC2C7CF)
 
 
 // Greens
-val DarkJungleGreen = Color(0xFF081C15)
-val PhthaloGreen = Color(0xFF123024)
-val MsuGreen = Color(0xFF1B4332)
-val BottleGreen = Color(0xFF2D6A4F)
-val IlluminatingEmerald = Color(0xFF40916C)
-val Mint = Color(0xFF52B788)
-val OceanGreen = Color(0xFF74C69D)
-val TurquoiseGreen1 = Color(0xFF95D5B2)
-val TurquoiseGreen2 = Color(0xFFB7E4C7)
-val Nyanza = Color(0xFFD8F3DC)
+val LightGreenPrimary = Color(0xFF246D0A)
+val LightGreenPrimaryContainer = Color(0xFFA7F787)
+val LightGreenOnPrimaryContainer = Color(0xFF042100)
+val LightGreenSecondary = Color(0xFF55624C)
+val LightGreenSecondaryContainer = Color(0xFFD8E7CB)
+val LightGreenOnSecondaryContainer = Color(0xFF131F0D)
+val LightGreenTertiary = Color(0xFF146D26)
+val LightGreenTertiaryContainer = Color(0xFF9FF79E)
+val LightGreenOnTertiaryContainer = Color(0xFF002105)
+val LightGreenOnBackground = Color(0xFF1A1C18)
+val LightGreenSurface = Color(0xFFFdFdF6)
+val LightGreenOutline = Color(0xFF73796E)
+val LightGreenSurfaceVariant = Color(0xFFDFE4D7)
+val LightGreenOnSurfaceVariant = Color(0xFF43483F)
+val DarkGreenPrimary = Color(0xFF8CDA6E)
+val DarkGreenOnPrimary = Color(0xFF0C3900)
+val DarkGreenPrimaryContainer = Color(0xFF155200)
+val DarkGreenOnPrimaryContainer = Color(0xFFA7F787)
+val DarkGreenSecondary = Color(0xFFBCCBB0)
+val DarkGreenOnSecondary = Color(0XFF273421)
+val DarkGreenSecondaryContainer = Color(0xFF3D4B36)
+val DarkGreenOnSecondaryContainer = Color(0xFFD8E7CB)
+val DarkGreenTertiary = Color(0xFF84DA84)
+val DarkGreenOnTertiary = Color(0xFF00309D)
+val DarkGreenTertiaryContainer = Color(0xFF005317)
+val DarkGreenOnTertiaryContainer = Color(0xFF9FF79E)
+val DarkGreenBackground = LightGreenOnBackground
+val DarkGreenOnBackground = Color(0xFFE3E3DC)
+val DarkGreenSurface = LightGreenOnBackground
+val DarkGreenOnSurface = DarkGreenOnBackground
+val DarkGreenOutline = Color(0xFF8D9387)
+val DarkGreenSurfaceVariant = Color(0xFF43483F)
+val DarkGreenOnSurfaceVariant = Color(0xFFC3C8BB)
 
 // Reds
 val BloodRed = Color(0xFF680B00)

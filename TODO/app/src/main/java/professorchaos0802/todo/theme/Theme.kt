@@ -26,12 +26,12 @@ val lightBluePalette = lightColorScheme(
     errorContainer = LightErrorContainer,
     onErrorContainer = LightOnErrorContainer,
     background = White,
-    onBackground = Gray10,
+    onBackground = LightBlueOnBackground,
     surface = White,
-    onSurface = Gray10,
-    outline = Gray50,
-    surfaceVariant = NeutralVariantGray90,
-    onSurfaceVariant = Gray30
+    onSurface = LightBlueOnSurface,
+    outline = LightBlueOutline,
+    surfaceVariant = LightBlueSurfaceVariant,
+    onSurfaceVariant = LightBlueOnSurfaceVariant
 )
 
 val darkBluePalette = darkColorScheme(
@@ -44,24 +44,72 @@ val darkBluePalette = darkColorScheme(
     secondaryContainer = DarkBlueSecondaryContainer,
     onSecondaryContainer = DarkBlueOnSecondaryContainer,
     tertiary = DarkBlueTertiary,
-    onTertiary = DarkBlueTertiary,
+    onTertiary = DarkBlueOnTertiary,
     tertiaryContainer = DarkBlueTertiaryContainer,
     onTertiaryContainer = DarkBlueOnTertiaryContainer,
     error = DarkError,
     onError = DarkOnError,
     errorContainer = DarkErrorContainer,
     onErrorContainer = LightErrorContainer,
-    background = Gray10,
-    onBackground = NeutralGray90,
-    surface = Gray10,
-    onSurface = NeutralGray90,
-    outline = Gray60,
-    surfaceVariant = Gray30,
-    onSurfaceVariant = Gray80
+    background = DarkBlueBackground,
+    onBackground = DarkBlueOnBackground,
+    surface = DarkBlueSurface,
+    onSurface = DarkBlueOnSurface,
+    outline = DarkBlueOutline,
+    surfaceVariant = DarkBlueSurfaceVariant,
+    onSurfaceVariant = DarkBlueOnSurfaceVariant
 )
 
-val lightGreenPalette = lightColorScheme()
-val darkGreenPalette = darkColorScheme()
+val lightGreenPalette = lightColorScheme(
+    primary = LightGreenPrimary,
+    onPrimary = White,
+    primaryContainer = LightGreenPrimaryContainer,
+    onPrimaryContainer = LightGreenOnPrimaryContainer,
+    secondary = LightGreenSecondary,
+    onSecondary = White,
+    secondaryContainer = LightGreenSecondaryContainer,
+    onSecondaryContainer = LightGreenOnSecondaryContainer,
+    tertiary = LightGreenTertiary,
+    onTertiary = White,
+    tertiaryContainer = LightGreenTertiaryContainer,
+    onTertiaryContainer = LightGreenOnTertiaryContainer,
+    error = LightError,
+    onError = White,
+    errorContainer = LightErrorContainer,
+    onErrorContainer = LightOnErrorContainer,
+    background = White,
+    onBackground = LightGreenOnBackground,
+    surface = LightGreenSurface,
+    onSurface = LightGreenOnBackground,
+    outline = LightGreenOutline,
+    surfaceVariant = LightGreenSurfaceVariant,
+    onSurfaceVariant = LightGreenOnSurfaceVariant
+)
+val darkGreenPalette = darkColorScheme(
+    primary = DarkGreenPrimary,
+    onPrimary = DarkGreenOnPrimary,
+    primaryContainer = DarkGreenPrimaryContainer,
+    onPrimaryContainer = LightGreenPrimaryContainer,
+    secondary = DarkGreenSecondary,
+    onSecondary = DarkGreenOnSecondary,
+    secondaryContainer = DarkGreenSecondaryContainer,
+    onSecondaryContainer = DarkGreenOnSecondaryContainer,
+    tertiary = DarkGreenTertiary,
+    onTertiary = DarkGreenOnTertiary,
+    tertiaryContainer = DarkGreenTertiaryContainer,
+    onTertiaryContainer = DarkGreenOnTertiaryContainer,
+    error = DarkError,
+    onError = DarkOnError,
+    errorContainer = DarkErrorContainer,
+    onErrorContainer = LightErrorContainer,
+    background = DarkGreenBackground,
+    onBackground = DarkGreenOnBackground,
+    surface = DarkGreenSurface,
+    onSurface = DarkGreenOnSurface,
+    outline = DarkGreenOutline,
+    surfaceVariant = DarkGreenSurfaceVariant,
+    onSurfaceVariant = DarkGreenOnSurfaceVariant
+)
 
 val lightRedPalette = lightColorScheme()
 val darkRedPalette = darkColorScheme()
@@ -105,9 +153,23 @@ fun TodoTheme(
         }
     }
 
+    val statusBarColor = if(darkTheme){
+        when(color){
+            "Blue" -> LightBluePrimary
+            "Green" -> LightGreenPrimary
+            else -> LightBluePrimary
+        }
+    }else{
+        when(color){
+            "Blue" -> DarkBluePrimary
+            "Green" -> DarkGreenPrimary
+            else -> DarkBluePrimary
+        }
+    }
+
     rememberSystemUiController().setStatusBarColor(
-        color = LightBluePrimary,
-        darkIcons = darkTheme
+        color = statusBarColor,
+        darkIcons = !darkTheme
     )
 
     MaterialTheme(

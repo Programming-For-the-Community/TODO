@@ -13,7 +13,7 @@ fun DefaultTopNav(){
         title = { Text(
             text = "TODO",
             style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.background
+            color = MaterialTheme.colorScheme.onPrimary
         ) },
         colors = TopAppBarDefaults.smallTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary
@@ -36,6 +36,22 @@ fun LightBlueTopNavPreview(){
 @Composable
 fun DarkBlueTopNavPreview(){
     TodoTheme(color = "Blue", darkTheme = true){
+        DefaultTopNav()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LightGreenTopNavPreview(){
+    TodoTheme(color = "Green"){
+        DefaultTopNav()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DarkGreenTopNavPreview(){
+    TodoTheme(color = "Green", darkTheme = true){
         DefaultTopNav()
     }
 }
