@@ -2,22 +2,47 @@ package professorchaos0802.todo.theme
 
 import androidx.compose.ui.graphics.Color
 
-
+// Neutral Tones
 val Black = Color(0xFF000000)
-val DarkGary = Color(0xFF3E3E3E)
-val LightGray = Color(0xFFA4A4A4)
+val Gray10 = Color(0xFF1A1C1E)
+val Gray30 = Color(0xFF42474E)
+val Gray50 = Color(0xFF72787E)
+val Gray60 = Color(0xFF8C9198)
+val Gray80 = Color(0xFFC2C7CF)
+val NeutralGray90 = Color(0xFFE2E2E5)
+val NeutralVariantGray90 = Color(0xFFDEE3EB)
+val White = Color(0xFFFFFFFF)
+
+// Error
+val LightError = Color(0xFFBA1A1A)
+val LightErrorContainer = Color(0xFFFFDAD6)
+val LightOnErrorContainer = Color(0xFF410002)
+val DarkError = Color(0xFFFFB4AB)
+val DarkOnError = Color(0xFF690005)
+val DarkErrorContainer = Color(0xFF93000A)
 
 // Blues
-val MidnightBlue = Color(0xFF03045E)
-val DarkCornflowerBlue = Color(0xFF023E8A)
-val StarCommandBlue = Color(0xFF0077B6)
-val BlueGreen = Color(0xFF0096C7)
-val PacificBlue = Color(0xFF00B4D8)
-val SkyBlueCrayola = Color(0xFF48CAE4)
-val MiddleBlue = Color(0xFF90E0Ef)
-val BlizzardBlue1 = Color(0xFFA6E6F2)
-val BlizzardBlue2 = Color(0xFFB8EBF5)
-val PowderBlue = Color(0xFFC6EFF7)
+val LightBluePrimary = Color(0xFF006399)
+val LightBluePrimaryContainer = Color(0xFFCDE5FF)
+val LightBlueOnPrimaryContainer = Color(0xFF001D32)
+val LightBlueSecondary = Color(0xFF006688)
+val LightBlueSecondaryContainer = Color(0xFFC2E8FF)
+val LightBlueOnSecondaryContainer = Color(0xFF001E2C)
+val LightBlueTertiary = Color(0xFF006878)
+val LightBlueTertiaryContainer = Color(0xFFA7EDFF)
+val LightBlueOnTertiaryContainer = Color(0xFF001F25)
+val DarkBluePrimary = Color(0xFF94CCFF)
+val DarkBlueOnPrimary = Color(0xFF003352)
+val DarkBluePrimaryContainer = Color(0xFF004B74)
+val DarkBlueSecondary = Color(0xFF77D1FF)
+val DarkBlueOnSecondary = Color(0xFF003548)
+val DarkBlueSecondaryContainer = Color(0xFF004D68)
+val DarkBlueOnSecondaryContainer = Color(0xFFC2E8FF)
+val DarkBlueTertiary = Color(0xFF53D7F2)
+val DarkBlueOnTertiary = Color(0xFF00363F)
+val DarkBlueTertiaryContainer = Color(0xFF004E5B)
+val DarkBlueOnTertiaryContainer = Color(0xFFA7EDFF)
+
 
 // Greens
 val DarkJungleGreen = Color(0xFF081C15)

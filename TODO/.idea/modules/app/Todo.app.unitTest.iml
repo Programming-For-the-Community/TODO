@@ -14,6 +14,8 @@
           <stringArguments>
             <stringArg name="classpath">
               <args>
+                <arg>$MODULE_DIR$/../../../app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar</arg>
+                <arg>$MODULE_DIR$/../../../app/build/intermediates/compile_app_classes_jar/debug/classes.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/a9384178a3838fced20a2c5d5b0984f9/transformed/viewbinding-7.2.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/90d4cbaee4e6b7f05771ff30dd5914d3/transformed/accompanist-systemuicontroller-0.17.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/adb282a46f6a56733e7c5481f9ae1b6a/transformed/navigation-compose-2.5.3-api.jar</arg>
@@ -35,11 +37,13 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ecdf06c700108d3abc09568696792b22/transformed/material3-1.0.0-rc01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/3dd9150d9c9cdae8ee1f04447efb4164/transformed/ui-tooling-preview-1.4.0-alpha01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/0718269af880afeaf3cd3c06a917bed0/transformed/ui-tooling-data-1.4.0-alpha01-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/9308749106422b43eef9bc77609cd5a4/transformed/coil-compose-1.3.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/0e054ef82db2adb2c156d03b6d137f9e/transformed/material-ripple-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/47f3ee6291064c6799612acddb9bdaf1/transformed/foundation-1.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/93678f5e06ad08bd1806ea3818f6dba3/transformed/material-icons-core-1.0.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/40d4be05177185773545a4706b797115/transformed/animation-1.4.0-alpha01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/663db5ae588a91f6257a0c5c8a2f4d8e/transformed/lifecycle-viewmodel-compose-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/a6e486e222a54d151d67b6bf8ca87049/transformed/coil-compose-base-1.3.2-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/a929b3ce146cc585151a9290122969f9/transformed/foundation-layout-1.2.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2b031a8c2723eaf761f4ad76940bcef6/transformed/ui-1.4.0-alpha01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/09ee6a892ce6fb1c318ca772c029ce69/transformed/runtime-saveable-1.3.0-rc01-api.jar</arg>
@@ -333,6 +337,8 @@
     <orderEntry type="library" scope="TEST" name="Gradle: io.grpc:grpc-android:1.44.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.coil-kt:coil:1.4.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: io.coil-kt:coil-base:1.4.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.coil-kt:coil-compose:1.3.2@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: io.coil-kt:coil-compose-base:1.3.2@aar" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="Todo.app.main" />
 </module>

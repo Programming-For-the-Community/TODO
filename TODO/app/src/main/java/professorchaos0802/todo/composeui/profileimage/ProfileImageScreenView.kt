@@ -2,7 +2,9 @@ package professorchaos0802.todo.composeui.profileimage
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.net.Uri
+import android.provider.MediaStore
 import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -15,11 +17,14 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.rememberImagePainter
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import professorchaos0802.todo.Constants
@@ -28,6 +33,7 @@ import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews
 import professorchaos0802.todo.objects.User
 import professorchaos0802.todo.theme.TodoTheme
+import java.io.File
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -60,13 +66,24 @@ fun ProfileImage(
                     imageData.value = data
                     user.img = data.toString()
                 }
+                val imgFile = File(imageData.value.toString())
+                val bitmap = BitmapFactory.decodeFile(File(imageData.value.toString()).absolutePath)
 
-                Image(
-                    Icons.Filled.Person,
-                    contentDescription = null,
-                    modifier = Modifier
-                        .size(300.dp)
-                )
+                if(imageData.value == null){
+                    Image(
+                        Icons.Filled.Person,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(300.dp)
+                    )
+                }else {
+                    Image(
+                        painter = rememberImagePainter(data = BitmapFactory.decodeFile(File(imageData.value.toString()).absolutePath)),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(300.dp)
+                    )
+                }
 
                 // Choose Image Button
                 Button(

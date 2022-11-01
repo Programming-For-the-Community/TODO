@@ -1,11 +1,11 @@
 package professorchaos0802.todo.composeui.splash
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.*
+import androidx.compose.material3.TopAppBarDefaults.smallTopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import professorchaos0802.todo.composeui.components.DefaultTopNav
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.objects.User
 import professorchaos0802.todo.theme.TodoTheme
@@ -21,36 +22,18 @@ import professorchaos0802.todo.theme.TodoTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SplashScreenView(
-    userViewModel: UserViewModel = viewModel()
+    themeColor: String
 ){
-    val user = if(userViewModel.user == null) User() else userViewModel.user!!
-    val themeColor = remember { mutableStateOf(user.theme) }
-
     TodoTheme(
-        color = themeColor.toString(),
+        color = themeColor,
         darkTheme = false
     ) {
         Scaffold(
-            topBar = { SplashTopNavBar() }
+            topBar = { DefaultTopNav() }
         ){
             SplashScreenContent()
         }
     }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun SplashTopNavBar(){
-    TopAppBar(
-        title = { Text(
-            text = "TODO",
-            style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.background
-        ) },
-        navigationIcon = {},
-        actions = {},
-        modifier = Modifier
-    )
 }
 
 @Composable
@@ -60,17 +43,11 @@ fun SplashScreenContent(){
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxSize()
-            .background(
-                color = MaterialTheme.colorScheme.background
-            )
     ) {
-        CircularProgressIndicator(
-            color = MaterialTheme.colorScheme.secondary
-        )
+        CircularProgressIndicator()
         Text(
             text = "Loading...",
-            style = MaterialTheme.typography.displayLarge,
-            color = MaterialTheme.colorScheme.secondary
+            style = MaterialTheme.typography.displayLarge
         )
     }
 }
@@ -78,21 +55,22 @@ fun SplashScreenContent(){
 @Preview(showBackground = true)
 @Composable
 fun SplashScreenViewPreview(){
-    SplashScreenView()
+    SplashScreenView("Blue")
 }
+
 
 @Preview(showBackground = true)
 @Composable
-fun SplashTopNavBarPreview(){
+fun LightBlueSplashScreenContentPreview(){
     TodoTheme(color = "Blue"){
-        SplashTopNavBar()
+        SplashScreenContent()
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun SplashScreenContentPreview(){
-    TodoTheme(color = "Blue"){
+fun DarkBlueSplashScreenContentPreview(){
+    TodoTheme(color = "Blue", darkTheme = true){
         SplashScreenContent()
     }
 }

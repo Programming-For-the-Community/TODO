@@ -9,24 +9,56 @@ import androidx.compose.runtime.Composable
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 val lightBluePalette = lightColorScheme(
-    background = PowderBlue,
-    primary = StarCommandBlue,
-    onPrimary = MiddleBlue,
-    primaryContainer = PacificBlue,
-    onPrimaryContainer = DarkCornflowerBlue,
-    secondary = MidnightBlue,
-    onSecondary = BlizzardBlue1,
-    secondaryContainer = PacificBlue,
-    onSecondaryContainer = DarkCornflowerBlue,
-    tertiary = DarkCornflowerBlue,
-    onTertiary = SkyBlueCrayola,
-    tertiaryContainer = BlizzardBlue2,
-    onTertiaryContainer = BlueGreen,
-    surface = DarkCornflowerBlue,
-    onSurface = SkyBlueCrayola
+    primary = LightBluePrimary,
+    onPrimary = White,
+    primaryContainer = LightBluePrimaryContainer,
+    onPrimaryContainer = LightBlueOnPrimaryContainer,
+    secondary = LightBlueSecondary,
+    onSecondary = White,
+    secondaryContainer = LightBlueSecondaryContainer,
+    onSecondaryContainer = LightBlueOnSecondaryContainer,
+    tertiary = LightBlueTertiary,
+    onTertiary = White,
+    tertiaryContainer = LightBlueTertiaryContainer,
+    onTertiaryContainer = LightBlueOnTertiaryContainer,
+    error = LightError,
+    onError = White,
+    errorContainer = LightErrorContainer,
+    onErrorContainer = LightOnErrorContainer,
+    background = White,
+    onBackground = Gray10,
+    surface = White,
+    onSurface = Gray10,
+    outline = Gray50,
+    surfaceVariant = NeutralVariantGray90,
+    onSurfaceVariant = Gray30
 )
 
-val darkBluePalette = darkColorScheme()
+val darkBluePalette = darkColorScheme(
+    primary = DarkBluePrimary,
+    onPrimary = DarkBlueOnPrimary,
+    primaryContainer = DarkBluePrimaryContainer,
+    onPrimaryContainer = LightBluePrimaryContainer,
+    secondary = DarkBlueSecondary,
+    onSecondary = DarkBlueOnSecondary,
+    secondaryContainer = DarkBlueSecondaryContainer,
+    onSecondaryContainer = DarkBlueOnSecondaryContainer,
+    tertiary = DarkBlueTertiary,
+    onTertiary = DarkBlueTertiary,
+    tertiaryContainer = DarkBlueTertiaryContainer,
+    onTertiaryContainer = DarkBlueOnTertiaryContainer,
+    error = DarkError,
+    onError = DarkOnError,
+    errorContainer = DarkErrorContainer,
+    onErrorContainer = LightErrorContainer,
+    background = Gray10,
+    onBackground = NeutralGray90,
+    surface = Gray10,
+    onSurface = NeutralGray90,
+    outline = Gray60,
+    surfaceVariant = Gray30,
+    onSurfaceVariant = Gray80
+)
 
 val lightGreenPalette = lightColorScheme()
 val darkGreenPalette = darkColorScheme()
@@ -74,7 +106,7 @@ fun TodoTheme(
     }
 
     rememberSystemUiController().setStatusBarColor(
-        color = MidnightBlue,
+        color = LightBluePrimary,
         darkIcons = darkTheme
     )
 

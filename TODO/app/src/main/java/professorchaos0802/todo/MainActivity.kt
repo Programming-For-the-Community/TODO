@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
 
                         composable(route = TodoViews.Splash.route){
                             SplashScreenView(
-                                userViewModel = userModel
+                                themeColor = userModel.user!!.theme
                             )
                         }
 
