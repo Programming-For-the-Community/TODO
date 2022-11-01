@@ -27,7 +27,9 @@ Generated from: https://m3.material.io/theme-builder#/custom
 Using: Primary - #5da742;  Secondary - #86957d;  Tertiary - #00631d;  Neutral - #90918b 
 
 ### Red
-![TODO_Red](https://user-images.githubusercontent.com/106257169/183336302-0ddb6695-4089-4cc4-a123-95cb05d01949.png)
+Generated from: https://m3.material.io/theme-builder#/custom
+
+Using: Primary - #cc1500;  Secondary - #fffbff;  Tertiary - #000000;  Neutral - #998e8c
 
 ### Orange
 ![TODO_Orange](https://user-images.githubusercontent.com/106257169/183335979-b5c117d6-9934-460c-8150-7e64ad8f9e67.png)
