@@ -67,7 +67,13 @@ fun GreenSplashScreenViewPreview(){
 
 @Preview(showBackground = true)
 @Composable
-fun LightBlueSplashScreenContentPreview(){
+fun RedSplashScreenViewPreview(){
+    SplashScreenView("Red")
+}
+
+@Preview(showBackground = true)
+@Composable
+fun BlueSplashScreenContentPreview(){
     TodoTheme(color = "Blue"){
         SplashScreenContent()
     }
@@ -75,15 +81,7 @@ fun LightBlueSplashScreenContentPreview(){
 
 @Preview(showBackground = true)
 @Composable
-fun DarkBlueSplashScreenContentPreview(){
-    TodoTheme(color = "Blue", darkTheme = true){
-        SplashScreenContent()
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun LightGreenSplashScreenContentPreview(){
+fun GreenSplashScreenContentPreview(){
     TodoTheme(color = "Green"){
         SplashScreenContent()
     }
@@ -91,8 +89,8 @@ fun LightGreenSplashScreenContentPreview(){
 
 @Preview(showBackground = true)
 @Composable
-fun DarkGreenSplashScreenContentPreview(){
-    TodoTheme(color = "Green", darkTheme = true){
+fun RedSplashScreenContentPreview(){
+    TodoTheme(color = "Red"){
         SplashScreenContent()
     }
 }

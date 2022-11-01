@@ -55,3 +55,19 @@ fun DarkGreenTopNavPreview(){
         DefaultTopNav()
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun LightRedTopNavPreview(){
+    TodoTheme(color = "Red"){
+        DefaultTopNav()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DarkRedTopNavPreview(){
+    TodoTheme(color = "Red", darkTheme = true){
+        DefaultTopNav()
+    }
+}

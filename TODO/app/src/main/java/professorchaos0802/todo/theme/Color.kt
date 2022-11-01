@@ -12,17 +12,22 @@ val DarkError = Color(0xFFFFB4AB)
 val DarkOnError = Color(0xFF690005)
 val DarkErrorContainer = Color(0xFF93000A)
 
-// Blues
+// Blue Color Palette
 val LightBluePrimary = Color(0xFF006399)
+val LightBlueOnPrimary = White
 val LightBluePrimaryContainer = Color(0xFFCDE5FF)
 val LightBlueOnPrimaryContainer = Color(0xFF001D32)
 val LightBlueSecondary = Color(0xFF006688)
+val LightBlueOnSecondary = White
 val LightBlueSecondaryContainer = Color(0xFFC2E8FF)
 val LightBlueOnSecondaryContainer = Color(0xFF001E2C)
 val LightBlueTertiary = Color(0xFF006878)
+val LightBlueOnTertiary = White
 val LightBlueTertiaryContainer = Color(0xFFA7EDFF)
 val LightBlueOnTertiaryContainer = Color(0xFF001F25)
+val LightBlueBackground = White
 val LightBlueOnBackground = Color(0xFF1A1C1E)
+val LightBlueSurface = White
 val LightBlueOnSurface = LightBlueOnBackground
 val LightBlueOnSurfaceVariant = Color(0xFF42474E)
 val LightBlueOutline = Color(0xFF72787E)
@@ -47,16 +52,20 @@ val DarkBlueSurfaceVariant = LightBlueOnSurfaceVariant
 val DarkBlueOnSurfaceVariant = Color(0xFFC2C7CF)
 
 
-// Greens
+// Green Color Palette
 val LightGreenPrimary = Color(0xFF246D0A)
+val LightGreenOnPrimary = White
 val LightGreenPrimaryContainer = Color(0xFFA7F787)
 val LightGreenOnPrimaryContainer = Color(0xFF042100)
 val LightGreenSecondary = Color(0xFF55624C)
+val LightGreenOnSecondary = White
 val LightGreenSecondaryContainer = Color(0xFFD8E7CB)
 val LightGreenOnSecondaryContainer = Color(0xFF131F0D)
 val LightGreenTertiary = Color(0xFF146D26)
+val LightGreenOnTertiary = White
 val LightGreenTertiaryContainer = Color(0xFF9FF79E)
 val LightGreenOnTertiaryContainer = Color(0xFF002105)
+val LightGreenBackground = White
 val LightGreenOnBackground = Color(0xFF1A1C18)
 val LightGreenSurface = Color(0xFFFdFdF6)
 val LightGreenOutline = Color(0xFF73796E)
@@ -82,17 +91,45 @@ val DarkGreenOutline = Color(0xFF8D9387)
 val DarkGreenSurfaceVariant = Color(0xFF43483F)
 val DarkGreenOnSurfaceVariant = Color(0xFFC3C8BB)
 
-// Reds
-val BloodRed = Color(0xFF680B00)
-val BarnRedDark = Color(0xFF750D00)
-val BarnRedLight = Color(0xFF820E00)
-val DarkRed = Color(0xFF931000)
-val Rufous = Color(0xFFA31100)
-val InternationalOrangeEngineering = Color(0xFFB81300)
-val RossoCorsa1 = Color(0xFFCC1500)
-val RossoCorsa2 = Color(0xFFDD1700)
-val Red = Color(0xFFEE1800)
-val Scarlet = Color(0xFFFF1A00)
+// Red Color Palette
+val LightRedPrimary = Color(0xFFBD1300)
+val LightRedOnPrimary = White
+val LightRedPrimaryContainer = Color(0xFFFFDAD4)
+val LightRedOnPrimaryContainer = Color(0xFF400200)
+val LightRedSecondary = Color(0xFF5455A9)
+val LightRedOnSecondary = White
+val LightRedSecondaryContainer = Color(0xFFE1DFFF)
+val LightRedOnSecondaryContainer = Color(0xFF0B0664)
+val LightRedTertiary = Color(0xFF984061)
+val LightRedOnTertiary = White
+val LightRedTertiaryContainer = Color(0xFFFFD9E2)
+val LightRedOnTertiaryContainer = Color(0xFF3E001D)
+val LightRedBackground = Color(0xFFFFFBFF)
+val LightRedOnBackground = Color(0xFF201A19)
+val LightRedSurface = LightRedBackground
+val LightRedOnSurface = LightRedOnBackground
+val LightRedOutline = Color(0xFF857370)
+val LightRedSurfaceVariant = Color(0xFFF5DDD9)
+val LightRedOnSurfaceVariant = Color(0xFF534340)
+val DarkRedPrimary = Color(0xFFFFB4A6)
+val DarkRedOnPrimary = Color(0xFF670600)
+val DarkRedPrimaryContainer = Color(0xFF910C00)
+val DarkRedOnPrimaryContainer = LightRedPrimaryContainer
+val DarkRedSecondary = Color(0xFFC1C1FF)
+val DarkRedOnSecondary = Color(0xFF242478)
+val DarkRedSecondaryContainer = Color(0xFF3B3D8F)
+val DarkRedOnSecondaryContainer = Color(0xFFE1DFFF)
+val DarkRedTertiary = Color(0xFFFFB1C8)
+val DarkRedOnTertiary = Color(0xFF5E1133)
+val DarkRedTertiaryContainer = Color(0xFF7B2949)
+val DarkRedOnTertiaryContainer = Color(0xFFFFD9E2)
+val DarkRedBackground = LightRedOnBackground
+val DarkRedOnBackground = Color(0xFFEDE0DD)
+val DarkRedSurface = LightRedOnBackground
+val DarkRedOnSurface = DarkRedOnBackground
+val DarkRedOutline = Color(0xFFA08C89)
+val DarkRedSurfaceVariant = LightRedOnSurfaceVariant
+val DarkRedOnSurfaceVariant = Color(0xFFD8C2BE)
 
 // Oranges
 val Xiketic = Color(0xFF03071E)
