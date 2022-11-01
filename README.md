@@ -17,7 +17,13 @@ All data stored for this app (users, lists, images, list items, etc.) are stored
 Below is shown the colors palettes used to generate the different color schemes. All of the palettes were taken from coolors.com.
 
 ### Blue
-![TODO_Blue](https://user-images.githubusercontent.com/106257169/184467934-a0f8dd02-b893-4544-8d61-0bb05beb46c6.png)
+Generated from: https://m3.material.io/theme-builder#/custom
+
+Using:
+Primary - #0077b6
+Secondary - #0096c7
+Tertiary - #48cae4
+Neutral - #909194
 
 ### Green
 ![TODO_Green](https://user-images.githubusercontent.com/106257169/184468081-6eb0d9d9-e824-4d94-9579-54e1ec8dcd5c.png)
