@@ -73,6 +73,18 @@ fun RedSplashScreenViewPreview(){
 
 @Preview(showBackground = true)
 @Composable
+fun OrangeSplashScreenViewPreview(){
+    SplashScreenView("Orange")
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PinkSplashScreenViewPreview(){
+    SplashScreenView("Pink")
+}
+
+@Preview(showBackground = true)
+@Composable
 fun BlueSplashScreenContentPreview(){
     TodoTheme(color = "Blue"){
         SplashScreenContent()
@@ -91,6 +103,22 @@ fun GreenSplashScreenContentPreview(){
 @Composable
 fun RedSplashScreenContentPreview(){
     TodoTheme(color = "Red"){
+        SplashScreenContent()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun OrangeSplashScreenContentPreview(){
+    TodoTheme(color = "Orange"){
+        SplashScreenContent()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PinkSplashScreenContentPreview(){
+    TodoTheme(color = "Pink"){
         SplashScreenContent()
     }
 }

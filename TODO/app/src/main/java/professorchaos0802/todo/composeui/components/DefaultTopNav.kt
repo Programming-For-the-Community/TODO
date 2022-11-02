@@ -71,3 +71,35 @@ fun DarkRedTopNavPreview(){
         DefaultTopNav()
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun LightOrangeTopNavPreview(){
+    TodoTheme(color = "Orange"){
+        DefaultTopNav()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DarkOrangeTopNavPreview(){
+    TodoTheme(color = "Orange", darkTheme = true){
+        DefaultTopNav()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun LightPinkTopNavPreview(){
+    TodoTheme(color = "Pink"){
+        DefaultTopNav()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DarkPinkTopNavPreview(){
+    TodoTheme(color = "Pink", darkTheme = true){
+        DefaultTopNav()
+    }
+}

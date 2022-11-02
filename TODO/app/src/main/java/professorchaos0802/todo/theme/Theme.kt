@@ -162,11 +162,107 @@ val darkRedPalette = darkColorScheme(
     onSurfaceVariant = DarkRedOnSurfaceVariant
 )
 
-val lightOrangePalette = lightColorScheme()
-val darkOrangePalette = darkColorScheme()
+val lightOrangePalette = lightColorScheme(
+    primary = LightOrangePrimary,
+    onPrimary = LightOrangeOnPrimary,
+    primaryContainer = LightOrangePrimaryContainer,
+    onPrimaryContainer = LightOrangeOnPrimaryContainer,
+    secondary = LightOrangeSecondary,
+    onSecondary = LightOrangeOnSecondary,
+    secondaryContainer = LightOrangeSecondaryContainer,
+    onSecondaryContainer = LightOrangeOnSecondaryContainer,
+    tertiary = LightOrangeTertiary,
+    onTertiary = LightOrangeOnTertiary,
+    tertiaryContainer = LightOrangeTertiaryContainer,
+    onTertiaryContainer = LightOrangeOnTertiaryContainer,
+    error = LightError,
+    onError = White,
+    errorContainer = LightErrorContainer,
+    onErrorContainer = LightOnErrorContainer,
+    background = LightOrangeBackground,
+    onBackground = LightOrangeOnBackground,
+    surface = LightOrangeSurface,
+    onSurface = LightOrangeOnSurface,
+    outline = LightOrangeOutline,
+    surfaceVariant = LightOrangeSurfaceVariant,
+    onSurfaceVariant = LightOrangeOnSurfaceVariant
+)
+val darkOrangePalette = darkColorScheme(
+    primary = DarkOrangePrimary,
+    onPrimary = DarkOrangeOnPrimary,
+    primaryContainer = DarkOrangePrimaryContainer,
+    onPrimaryContainer = DarkOrangeOnPrimaryContainer,
+    secondary = DarkOrangeSecondary,
+    onSecondary = DarkOrangeOnSecondary,
+    secondaryContainer = DarkOrangeSecondaryContainer,
+    onSecondaryContainer = DarkOrangeOnSecondaryContainer,
+    tertiary = DarkOrangeTertiary,
+    onTertiary = DarkOrangeOnTertiary,
+    tertiaryContainer = DarkOrangeTertiaryContainer,
+    onTertiaryContainer = DarkOrangeOnTertiaryContainer,
+    error = DarkError,
+    onError = DarkOnError,
+    errorContainer = DarkErrorContainer,
+    onErrorContainer = LightErrorContainer,
+    background = DarkOrangeBackground,
+    onBackground = DarkOrangeOnBackground,
+    surface = DarkOrangeSurface,
+    onSurface = DarkOrangeOnSurface,
+    outline = DarkOrangeOutline,
+    surfaceVariant = DarkOrangeSurfaceVariant,
+    onSurfaceVariant = DarkOrangeOnSurfaceVariant
+)
 
-val lightPinkPalette = lightColorScheme()
-val darkPinkPalette = darkColorScheme()
+val lightPinkPalette = lightColorScheme(
+    primary = LightPinkPrimary,
+    onPrimary = LightPinkOnPrimary,
+    primaryContainer = LightPinkPrimaryContainer,
+    onPrimaryContainer = LightPinkOnPrimaryContainer,
+    secondary = LightPinkSecondary,
+    onSecondary = LightPinkOnSecondary,
+    secondaryContainer = LightPinkSecondaryContainer,
+    onSecondaryContainer = LightPinkOnSecondaryContainer,
+    tertiary = LightPinkTertiary,
+    onTertiary = LightPinkOnTertiary,
+    tertiaryContainer = LightPinkTertiaryContainer,
+    onTertiaryContainer = LightPinkOnTertiaryContainer,
+    error = LightError,
+    onError = White,
+    errorContainer = LightErrorContainer,
+    onErrorContainer = LightOnErrorContainer,
+    background = LightPinkBackground,
+    onBackground = LightPinkOnBackground,
+    surface = LightPinkSurface,
+    onSurface = LightPinkOnSurface,
+    outline = LightPinkOutline,
+    surfaceVariant = LightPinkSurfaceVariant,
+    onSurfaceVariant = LightPinkOnSurfaceVariant
+)
+val darkPinkPalette = darkColorScheme(
+    primary = DarkPinkPrimary,
+    onPrimary = DarkPinkOnPrimary,
+    primaryContainer = DarkPinkPrimaryContainer,
+    onPrimaryContainer = DarkPinkOnPrimaryContainer,
+    secondary = DarkPinkSecondary,
+    onSecondary = DarkPinkOnSecondary,
+    secondaryContainer = DarkPinkSecondaryContainer,
+    onSecondaryContainer = DarkPinkOnSecondaryContainer,
+    tertiary = DarkPinkTertiary,
+    onTertiary = DarkPinkOnTertiary,
+    tertiaryContainer = DarkPinkTertiaryContainer,
+    onTertiaryContainer = DarkPinkOnTertiaryContainer,
+    error = DarkError,
+    onError = DarkOnError,
+    errorContainer = DarkErrorContainer,
+    onErrorContainer = LightErrorContainer,
+    background = DarkPinkBackground,
+    onBackground = DarkPinkOnBackground,
+    surface = DarkPinkSurface,
+    onSurface = DarkPinkOnSurface,
+    outline = DarkPinkOutline,
+    surfaceVariant = DarkPinkSurfaceVariant,
+    onSurfaceVariant = DarkPinkOnSurfaceVariant
+)
 
 val lightPurplePalette = lightColorScheme()
 val darkPurplePalette = darkColorScheme()
@@ -205,12 +301,18 @@ fun TodoTheme(
         when(color){
             "Blue" -> LightBluePrimary
             "Green" -> LightGreenPrimary
+            "Red" -> LightRedPrimary
+            "Orange" -> LightOrangePrimary
+            "Pink" -> LightPinkPrimary
             else -> LightBluePrimary
         }
     }else{
         when(color){
             "Blue" -> DarkBluePrimary
             "Green" -> DarkGreenPrimary
+            "Red" -> DarkRedPrimary
+            "Orange" -> DarkOrangePrimary
+            "Pink" -> DarkPinkPrimary
             else -> DarkBluePrimary
         }
     }
