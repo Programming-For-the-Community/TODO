@@ -42,4 +42,6 @@ Generated from: https://m3.material.io/theme-builder#/custom
 Using: Primary - #FF4d6d;  Secondary - #8a0048;  Tertiary - #FFB3C1;  Neutral - #8a0048
 
 ### Purple
-![TODO_Purple](https://user-images.githubusercontent.com/106257169/183336394-0aaedc52-8a48-49a1-80ef-02235fb8b717.png)
+Generated from: https://m3.material.io/theme-builder#/custom
+
+Using: Primary - #8c07dd;  Secondary - #bfbeff;  Tertiary - #5d0e4c;  Neutral - #948f93
