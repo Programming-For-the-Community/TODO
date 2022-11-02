@@ -36,8 +36,11 @@ class UserViewModel: ViewModel() {
 
     val themeEvent = MutableLiveData("Blue")
     val theme: LiveData<String> = themeEvent
+    var userTheme = mutableStateOf("Blue")
 
-    val userTheme = mutableStateOf("Blue")
+    val nameEvent = MutableLiveData("")
+    val name: LiveData<String> = nameEvent
+    var userName = mutableStateOf("")
 
 
     /**
@@ -54,8 +57,10 @@ class UserViewModel: ViewModel() {
             ref!!.get().addOnSuccessListener {
                 if(it.exists()){
                     user = it.toObject(User::class.java)
+                    nameEvent.value = user!!.username
                 }else{
                     user = User(username= Firebase.auth.currentUser!!.displayName!!)
+                    nameEvent.value = user!!.username
                     ref!!.set(user!!)
                 }
 
@@ -150,12 +155,12 @@ class UserViewModel: ViewModel() {
     /**
      * Update the username of the currently logged in user
      */
-    fun updateName(newName: String?){
+    fun updateName(){
         ref = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
 
-        if(user != null && newName != null){
+        if(user != null){
             with(user!!){
-                username = newName
+                username = userName.value
                 ref!!.set(this)
             }
         }

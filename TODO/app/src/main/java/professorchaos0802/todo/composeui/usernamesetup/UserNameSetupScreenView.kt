@@ -53,64 +53,6 @@ fun UserNameSetupScreenView(
     }
 }
 
-@Composable
-fun UserNameSetupContent(userModel: UserViewModel, onNext: () -> Unit, onCancel: () -> Unit) {
-    val user = if (userModel.user == null) User() else userModel.user!!
-
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(start = 25.dp, end = 25.dp)
-    ) {
-        UserNameTextField(user, onNext)
-        ProgressionButtons(onNext, onCancel) // Progression Buttons
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun UserNameTextField(user: User, onNext: () -> Unit) {
-    var userName by remember { mutableStateOf(TextFieldValue("")) }
-
-    TextField(
-        value = userName,
-        placeholder = {
-            Text(
-                text = user.username,
-                style = MaterialTheme.typography.labelLarge,
-                color = if (isSystemInDarkTheme()) Color.DarkGray else Color.LightGray
-            )
-        },
-        label = {
-            Text(
-                text = "Enter your username",
-                fontWeight = Bold,
-                color = MaterialTheme.colorScheme.onSecondary
-            )
-        },
-        textStyle = MaterialTheme.typography.labelLarge,
-        singleLine = true,
-        shape = RoundedCornerShape(25),
-        onValueChange = { newName: TextFieldValue ->
-            userName = newName
-            user.username = newName.text
-        },
-        colors = textFieldColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            textColor = MaterialTheme.colorScheme.background,
-            focusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            cursorColor = if (isSystemInDarkTheme()) Color.Black else Color.White
-        ),
-        modifier = Modifier
-            .fillMaxWidth()
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun UserNameSetupScreenViewPreview() {

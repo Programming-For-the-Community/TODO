@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                             UserNameSetupScreenView(
                                 userModel = userModel,
                                 onNext = {
-                                    userModel.updateName(userModel.user!!.username)
+                                    userModel.updateName()
                                     Log.d(Constants.SETUP, "Navigating to CustomizationView: ${TodoViews.Customization.route}")
                                     navController.navigate(TodoViews.Customization.route)
                                 },
@@ -148,6 +148,10 @@ class MainActivity : AppCompatActivity() {
     private fun setupObservers(){
         userModel.theme.observe(this){ newTheme ->
             userModel.userTheme.value = newTheme
+        }
+
+        userModel.name.observe(this){ newName ->
+            userModel.userName.value = newName
         }
     }
 

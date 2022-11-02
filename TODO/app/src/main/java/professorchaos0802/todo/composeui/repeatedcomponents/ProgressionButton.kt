@@ -31,7 +31,7 @@ fun ProgressionButton(text: String, onClick: () -> Unit) {
         Text(
             text = text,
             style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.background
+            color = MaterialTheme.colorScheme.onPrimary
         )
     }
 }
