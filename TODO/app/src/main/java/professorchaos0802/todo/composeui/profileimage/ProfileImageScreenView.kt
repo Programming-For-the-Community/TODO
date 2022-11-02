@@ -28,6 +28,8 @@ import coil.compose.rememberImagePainter
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import professorchaos0802.todo.Constants
+import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
+import professorchaos0802.todo.composeui.repeatedcomponents.ProgressionButtons
 import professorchaos0802.todo.composeui.usercusotmization.*
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews
@@ -45,13 +47,12 @@ fun ProfileImage(
     onChooseImage: () -> Unit
 ) {
     val user = if (userModel.user == null) User() else userModel.user!!
-    val themeColor = remember { mutableStateOf(user.theme) }
 
     TodoTheme(
-        color = themeColor.toString()
+        color = userModel.userTheme.value
     ) {
         Scaffold(
-            topBar = { ProfileImageTopNavBar() }
+            topBar = { DefaultTopNav() }
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -105,72 +106,10 @@ fun ProfileImage(
                 }
 
                 // ProgressionButtons
-                ProgressionButtons(userModel, onNext, onCancel)
+                ProgressionButtons(onNext, onCancel)
             }
         }
     }
-}
-
-@Composable
-fun ProgressionButtons(userModel: UserViewModel, onNext: () -> Unit, onCancel: () -> Unit) {
-    Row(
-        horizontalArrangement = Arrangement.SpaceBetween,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 25.dp)
-    ) {
-        UserCustomizationButton(
-            text = "Next"
-        ) {
-            userModel.user!!.hasCompletedSetup = true
-            userModel.update()
-            Log.d(Constants.SETUP, "Navigating to HomeFragment: ${TodoViews.Home.route}")
-            onNext()
-        }
-
-        ProfileImageButton(
-            text = "Cancel"
-        ) {
-            Log.d(Constants.SETUP, "Logging out from ProfileImageFragment")
-            onCancel()
-            Firebase.auth.signOut()
-            userModel.user = null
-        }
-    }
-}
-
-@Composable
-fun ProfileImageButton(text: String, onClick: () -> Unit) {
-    Button(
-        onClick = onClick,
-        shape = RoundedCornerShape(25),
-        modifier = Modifier
-            .width(125.dp)
-            .padding(top = 10.dp)
-    ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.background
-        )
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun ProfileImageTopNavBar() {
-    TopAppBar(
-        title = {
-            Text(
-                text = "TODO",
-                style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.background
-            )
-        },
-        navigationIcon = {},
-        actions = {},
-        modifier = Modifier
-    )
 }
 
 @Preview(showBackground = true)
@@ -181,12 +120,4 @@ fun ProfileImagePreview() {
         onCancel = {},
         onChooseImage = {}
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ProfileImageTopNavBarPreview() {
-    TodoTheme(color = "Blue") {
-        ProfileImageTopNavBar()
-    }
 }

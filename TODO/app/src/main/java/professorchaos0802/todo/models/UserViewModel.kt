@@ -4,8 +4,11 @@ import android.net.Uri
 import android.os.Environment
 import android.text.Editable
 import android.util.Log
+import androidx.compose.runtime.mutableStateOf
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.BuildConfig
@@ -30,6 +33,11 @@ class UserViewModel: ViewModel() {
     var newProfileImage = ""
 
     var imageStorageRef: StorageReference? = null
+
+    val themeEvent = MutableLiveData("Blue")
+    val theme: LiveData<String> = themeEvent
+
+    val userTheme = mutableStateOf("Blue")
 
 
     /**
@@ -130,6 +138,7 @@ class UserViewModel: ViewModel() {
      */
     fun update(){
         ref = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
+        user!!.theme = userTheme.value
 
         if(user != null){
             with(user!!){

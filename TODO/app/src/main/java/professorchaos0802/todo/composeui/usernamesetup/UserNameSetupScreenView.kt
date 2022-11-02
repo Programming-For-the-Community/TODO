@@ -24,6 +24,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import professorchaos0802.todo.Constants
 import professorchaos0802.todo.R
+import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
+import professorchaos0802.todo.composeui.repeatedcomponents.ProgressionButtons
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews
 import professorchaos0802.todo.objects.User
@@ -38,35 +40,17 @@ fun UserNameSetupScreenView(
     onCancel: () -> Unit
 ) {
     val user = if (userModel.user == null) User() else userModel.user!!
-    val themeColor = remember { mutableStateOf(user.theme) }
 
     TodoTheme(
-        color = themeColor.toString()
+        color = userModel.userTheme.value
     ) {
         Scaffold(
-            topBar = { UserNameSetupTopNavBar() },
+            topBar = { DefaultTopNav() },
             modifier = Modifier.fillMaxSize()
         ) {
             UserNameSetupContent(userModel, onNext, onCancel)
         }
     }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun UserNameSetupTopNavBar() {
-    TopAppBar(
-        title = {
-            Text(
-                text = "TODO",
-                style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.background
-            )
-        },
-        navigationIcon = {},
-        actions = {},
-        modifier = Modifier
-    )
 }
 
 @Composable
@@ -81,34 +65,13 @@ fun UserNameSetupContent(userModel: UserViewModel, onNext: () -> Unit, onCancel:
             .padding(start = 25.dp, end = 25.dp)
     ) {
         UserNameTextField(user, onNext)
-
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            UserNameSetupButton("Next") {
-                userModel.updateName(user.username)
-                Log.d(
-                    Constants.SETUP,
-                    "Navigating to Customization: ${TodoViews.Customization.route}"
-                )
-                onNext()
-            }
-            UserNameSetupButton("Cancel") {
-                Log.d(Constants.SETUP, "Logging out from UserNameSetup Fragment")
-                onCancel()
-                Firebase.auth.signOut()
-                userModel.user = null
-            }
-        }
+        ProgressionButtons(onNext, onCancel) // Progression Buttons
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UserNameTextField(user: User, onNext:() -> Unit) {
+fun UserNameTextField(user: User, onNext: () -> Unit) {
     var userName by remember { mutableStateOf(TextFieldValue("")) }
 
     TextField(
@@ -148,33 +111,8 @@ fun UserNameTextField(user: User, onNext:() -> Unit) {
     )
 }
 
-@Composable
-fun UserNameSetupButton(text: String, onClick: () -> Unit) {
-    Button(
-        onClick = onClick,
-        shape = RoundedCornerShape(25),
-        modifier = Modifier
-            .width(125.dp)
-            .padding(top = 10.dp)
-    ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.background
-        )
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
 fun UserNameSetupScreenViewPreview() {
     UserNameSetupScreenView(onNext = {}, onCancel = {})
-}
-
-@Preview(showBackground = true)
-@Composable
-fun UserNameSetupTopNavBarPreview() {
-    TodoTheme(color = "Blue") {
-        UserNameSetupTopNavBar()
-    }
 }

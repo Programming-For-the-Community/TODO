@@ -70,31 +70,59 @@ class MainActivity : AppCompatActivity() {
 
                         composable(route = TodoViews.Splash.route){
                             SplashScreenView(
-                                themeColor = userModel.user!!.theme
+                                themeColor = userModel.userTheme.value
                             )
                         }
 
                         composable(route = TodoViews.UserNameSetup.route){
                             UserNameSetupScreenView(
                                 userModel = userModel,
-                                onNext = {navController.navigate(TodoViews.Customization.route)},
-                                onCancel = {navController.navigate(TodoViews.Splash.route)}
+                                onNext = {
+                                    userModel.updateName(userModel.user!!.username)
+                                    Log.d(Constants.SETUP, "Navigating to CustomizationView: ${TodoViews.Customization.route}")
+                                    navController.navigate(TodoViews.Customization.route)
+                                },
+                                onCancel = {
+                                    Log.d(Constants.SETUP, "Logging out from UserNameSetupScreenView")
+                                    navController.navigate(TodoViews.Splash.route)
+                                    Firebase.auth.signOut()
+                                    userModel.user = null
+                                },
                             )
                         }
 
                         composable(route = TodoViews.Customization.route){
                             UserCustomization(
                                 userModel = userModel,
-                                onNext = {navController.navigate(TodoViews.ProfileImage.route)},
-                                onCancel = {navController.navigate(TodoViews.Splash.route)}
+                                onNext = {
+                                    userModel.update()
+                                    Log.d(Constants.SETUP, "Navigating to ProfileImageView: ${TodoViews.ProfileImage.route}")
+                                    navController.navigate(TodoViews.ProfileImage.route)
+                                },
+                                onCancel = {
+                                    Log.d(Constants.SETUP, "Logging out from UserCustomizationView")
+                                    navController.navigate(TodoViews.Splash.route)
+                                    Firebase.auth.signOut()
+                                    userModel.user = null
+                                },
                             )
                         }
 
                         composable(route = TodoViews.ProfileImage.route){
                             ProfileImage(
                                 userModel = userModel,
-                                onNext = {navController.navigate(TodoViews.Home.route)},
-                                onCancel = {navController.navigate(TodoViews.Splash.route)},
+                                onNext = {
+                                    userModel.user!!.hasCompletedSetup = true
+                                    userModel.update()
+                                    Log.d(Constants.SETUP, "Navigating to HomeView: ${TodoViews.Home.route}")
+                                    navController.navigate(TodoViews.Home.route)
+                                },
+                                onCancel = {
+                                    Log.d(Constants.SETUP, "Logging out from ProfileImageView")
+                                    navController.navigate(TodoViews.Splash.route)
+                                    Firebase.auth.signOut()
+                                    userModel.user = null
+                                },
                                 onChooseImage = {
 
                                 }
@@ -112,8 +140,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        setupObservers()
         initializeAuthListener()
 
+    }
+
+    private fun setupObservers(){
+        userModel.theme.observe(this){ newTheme ->
+            userModel.userTheme.value = newTheme
+        }
     }
 
     private fun initializeAuthListener() {

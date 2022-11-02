@@ -32,7 +32,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import professorchaos0802.todo.Constants
 import professorchaos0802.todo.R
-import professorchaos0802.todo.composeui.usernamesetup.UserNameSetupTopNavBar
+import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
+import professorchaos0802.todo.composeui.repeatedcomponents.ProgressionButtons
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews
 import professorchaos0802.todo.objects.User
@@ -48,13 +49,12 @@ fun UserCustomization(
 ) {
 
     val user = if (userModel.user == null) User() else userModel.user!!
-    val themeColor = remember { mutableStateOf(user.theme) }
 
     TodoTheme(
-        color = themeColor.toString()
+        color = userModel.userTheme.value
     ) {
         Scaffold(
-            topBar = { UserCustomizationTopNavBar() }
+            topBar = { DefaultTopNav() }
         ) {
             Column(
                 horizontalAlignment = Alignment.Start,
@@ -98,35 +98,8 @@ fun UserCustomization(
                         }
                     }
 
-                    ThemeSelectionDropdown(user)
-
-                    // Progression Buttons
-                    Row(
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = 25.dp)
-                    ) {
-                        UserCustomizationButton(
-                            text = "Next"
-                        ) {
-                            userModel.update()
-                            Log.d(
-                                Constants.SETUP,
-                                "Navigating to ProfileImage: ${TodoViews.ProfileImage.route}"
-                            )
-                            onNext()
-                        }
-
-                        UserCustomizationButton(
-                            text = "Cancel"
-                        ) {
-                            Log.d(Constants.SETUP, "Logging out from CustomizationFragment")
-                            onCancel()
-                            Firebase.auth.signOut()
-                            userModel.user = null
-                        }
-                    }
+                    ThemeSelectionDropdown(userModel) // Theme Selection Dropdown
+                    ProgressionButtons(onNext, onCancel) // Progression Buttons
                 }
 
             }
@@ -157,15 +130,14 @@ fun UserCustomizationRadioButton(text: String, selected: Boolean, onClick: () ->
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ThemeSelectionDropdown(user: User) {
+fun ThemeSelectionDropdown(userModel: UserViewModel) {
     // Theme Selection Dropdown
     var isExpanded by remember { mutableStateOf(false) }
-    var currentTheme by remember { mutableStateOf(user.theme) }
     val themeOptions =
         listOf("Blue", "Green", "Red", "Orange", "Pink", "Purple")
 
     TextField(
-        value = currentTheme,
+        value = userModel.userTheme.value,
         onValueChange = {},
         enabled = false,
         label = {
@@ -234,8 +206,7 @@ fun ThemeSelectionDropdown(user: User) {
                     },
                     onClick = {
                         isExpanded = false
-                        currentTheme = color
-                        user.theme = color
+                        userModel.themeEvent.value = color
                     },
                     colors = itemColors(
                         textColor = MaterialTheme.colorScheme.background,
@@ -251,40 +222,6 @@ fun ThemeSelectionDropdown(user: User) {
     }
 }
 
-@Composable
-fun UserCustomizationButton(text: String, onClick: () -> Unit) {
-    Button(
-        onClick = onClick,
-        shape = RoundedCornerShape(25),
-        modifier = Modifier
-            .width(125.dp)
-            .padding(top = 10.dp)
-    ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.background
-        )
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun UserCustomizationTopNavBar() {
-    TopAppBar(
-        title = {
-            Text(
-                text = "TODO",
-                style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.background
-            )
-        },
-        navigationIcon = {},
-        actions = {},
-        modifier = Modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun UserCustomizationPreview() {
@@ -293,14 +230,6 @@ fun UserCustomizationPreview() {
         onCancel = {}
     )
 }
-@Preview(showBackground = true)
-@Composable
-fun UserCustomizationTopNavBarPreview() {
-    TodoTheme(color = "Blue") {
-        UserCustomizationTopNavBar()
-    }
-}
-
 
 @Preview(showBackground = true)
 @Composable
