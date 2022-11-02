@@ -2,7 +2,6 @@ package professorchaos0802.todo.models
 
 import android.net.Uri
 import android.os.Environment
-import android.text.Editable
 import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.core.content.FileProvider
@@ -18,10 +17,8 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import professorchaos0802.todo.Constants
-import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.objects.User
 import java.io.File
-import java.lang.Math.abs
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.random.Random
@@ -58,9 +55,11 @@ class UserViewModel: ViewModel() {
                 if(it.exists()){
                     user = it.toObject(User::class.java)
                     nameEvent.value = user!!.username
+                    themeEvent.value = user!!.theme
                 }else{
                     user = User(username= Firebase.auth.currentUser!!.displayName!!)
                     nameEvent.value = user!!.username
+                    themeEvent.value = user!!.theme
                     ref!!.set(user!!)
                 }
 

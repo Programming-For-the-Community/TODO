@@ -1,21 +1,17 @@
 package professorchaos0802.todo.composeui.usernamesetup
 
-import android.util.Log
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import professorchaos0802.todo.models.UserViewModel
-import professorchaos0802.todo.objects.User
 import professorchaos0802.todo.theme.TodoTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
