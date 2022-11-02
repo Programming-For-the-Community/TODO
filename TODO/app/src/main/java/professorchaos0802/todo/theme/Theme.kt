@@ -264,8 +264,56 @@ val darkPinkPalette = darkColorScheme(
     onSurfaceVariant = DarkPinkOnSurfaceVariant
 )
 
-val lightPurplePalette = lightColorScheme()
-val darkPurplePalette = darkColorScheme()
+val lightPurplePalette = lightColorScheme(
+    primary = LightPurplePrimary,
+    onPrimary = LightPurpleOnPrimary,
+    primaryContainer = LightPurplePrimaryContainer,
+    onPrimaryContainer = LightPurpleOnPrimaryContainer,
+    secondary = LightPurpleSecondary,
+    onSecondary = LightPurpleOnSecondary,
+    secondaryContainer = LightPurpleSecondaryContainer,
+    onSecondaryContainer = LightPurpleOnSecondaryContainer,
+    tertiary = LightPurpleTertiary,
+    onTertiary = LightPurpleOnTertiary,
+    tertiaryContainer = LightPurpleTertiaryContainer,
+    onTertiaryContainer = LightPurpleOnTertiaryContainer,
+    error = LightError,
+    onError = White,
+    errorContainer = LightErrorContainer,
+    onErrorContainer = LightOnErrorContainer,
+    background = LightPurpleBackground,
+    onBackground = LightPurpleOnBackground,
+    surface = LightPurpleSurface,
+    onSurface = LightPurpleOnSurface,
+    outline = LightPurpleOutline,
+    surfaceVariant = LightPurpleSurfaceVariant,
+    onSurfaceVariant = LightPurpleOnSurfaceVariant
+)
+val darkPurplePalette = darkColorScheme(
+    primary = DarkPurplePrimary,
+    onPrimary = DarkPurpleOnPrimary,
+    primaryContainer = DarkPurplePrimaryContainer,
+    onPrimaryContainer = DarkPurpleOnPrimaryContainer,
+    secondary = DarkPurpleSecondary,
+    onSecondary = DarkPurpleOnSecondary,
+    secondaryContainer = DarkPurpleSecondaryContainer,
+    onSecondaryContainer = DarkPurpleOnSecondaryContainer,
+    tertiary = DarkPurpleTertiary,
+    onTertiary = DarkPurpleOnTertiary,
+    tertiaryContainer = DarkPurpleTertiaryContainer,
+    onTertiaryContainer = DarkPurpleOnTertiaryContainer,
+    error = DarkError,
+    onError = DarkOnError,
+    errorContainer = DarkErrorContainer,
+    onErrorContainer = LightErrorContainer,
+    background = DarkPurpleBackground,
+    onBackground = DarkPurpleOnBackground,
+    surface = DarkPurpleSurface,
+    onSurface = DarkPurpleOnSurface,
+    outline = DarkPurpleOutline,
+    surfaceVariant = DarkPurpleSurfaceVariant,
+    onSurfaceVariant = DarkPurpleOnSurfaceVariant
+)
 
 @Composable
 fun TodoTheme(
@@ -304,6 +352,7 @@ fun TodoTheme(
             "Red" -> LightRedPrimary
             "Orange" -> LightOrangePrimary
             "Pink" -> LightPinkPrimary
+            "Purple" -> LightPurplePrimary
             else -> LightBluePrimary
         }
     }else{
@@ -313,6 +362,7 @@ fun TodoTheme(
             "Red" -> DarkRedPrimary
             "Orange" -> DarkOrangePrimary
             "Pink" -> DarkPinkPrimary
+            "Purple" -> DarkPurplePrimary
             else -> DarkBluePrimary
         }
     }

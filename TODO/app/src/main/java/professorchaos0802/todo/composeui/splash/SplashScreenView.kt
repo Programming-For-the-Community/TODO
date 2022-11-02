@@ -79,8 +79,8 @@ fun OrangeSplashScreenViewPreview(){
 
 @Preview(showBackground = true)
 @Composable
-fun PinkSplashScreenViewPreview(){
-    SplashScreenView("Pink")
+fun PurpleSplashScreenViewPreview(){
+    SplashScreenView("Purple")
 }
 
 @Preview(showBackground = true)
@@ -119,6 +119,14 @@ fun OrangeSplashScreenContentPreview(){
 @Composable
 fun PinkSplashScreenContentPreview(){
     TodoTheme(color = "Pink"){
+        SplashScreenContent()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PurpleSplashScreenContentPreview(){
+    TodoTheme(color = "Purple"){
         SplashScreenContent()
     }
 }

@@ -103,3 +103,19 @@ fun DarkPinkTopNavPreview(){
         DefaultTopNav()
     }
 }
+
+@Preview(showBackground = true)
+@Composable
+fun LightPurpleTopNavPreview(){
+    TodoTheme(color = "Purple"){
+        DefaultTopNav()
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun DarkPurpleTopNavPreview(){
+    TodoTheme(color = "Purple", darkTheme = true){
+        DefaultTopNav()
+    }
+}
