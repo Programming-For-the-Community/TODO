@@ -32,10 +32,14 @@ Generated from: https://m3.material.io/theme-builder#/custom
 Using: Primary - #cc1500;  Secondary - #fffbff;  Tertiary - #000000;  Neutral - #998e8c
 
 ### Orange
-![TODO_Orange](https://user-images.githubusercontent.com/106257169/183335979-b5c117d6-9934-460c-8150-7e64ad8f9e67.png)
+Generated from: https://m3.material.io/theme-builder#/custom
+
+Forgot to copy Hex Codes
 
 ### Pink
-![TODO_Pink](https://user-images.githubusercontent.com/106257169/183336273-c18bc526-bda9-41cd-bd9a-542d9489b930.png)
+Generated from: https://m3.material.io/theme-builder#/custom
+
+Using: Primary - #FF4d6d;  Secondary - #8a0048;  Tertiary - #FFB3C1;  Neutral - #8a0048
 
 ### Purple
 ![TODO_Purple](https://user-images.githubusercontent.com/106257169/183336394-0aaedc52-8a48-49a1-80ef-02235fb8b717.png)
