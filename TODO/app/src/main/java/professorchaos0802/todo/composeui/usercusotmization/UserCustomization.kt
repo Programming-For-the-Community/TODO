@@ -1,44 +1,28 @@
 package professorchaos0802.todo.composeui.usercusotmization
 
 import android.annotation.SuppressLint
-import android.util.Log
-import android.widget.RadioGroup
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.expandVertically
-import androidx.compose.animation.shrinkVertically
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowDropDown
-import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.material3.CardDefaults.cardColors
-import androidx.compose.material3.MenuDefaults.itemColors
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import professorchaos0802.todo.Constants
-import professorchaos0802.todo.R
 import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
 import professorchaos0802.todo.composeui.repeatedcomponents.ProgressionButtons
 import professorchaos0802.todo.models.UserViewModel
-import professorchaos0802.todo.navigation.TodoViews
 import professorchaos0802.todo.objects.User
 import professorchaos0802.todo.theme.TodoTheme
 
+/**
+ * View allowing the user to customize the theme and privacy status of their profile
+ *
+ * @param userModel - [UserViewModel]: viewModel containing user information
+ * @param onNext - [Unit]: Lambda function executed when the "Next" button is pressed
+ * @param onCancel - [Unit]: Lambda function executed when the "Cancel" button is pressed
+ */
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -71,7 +55,7 @@ fun UserCustomization(
                     Text(
                         text = "Profile Visibility",
                         style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.secondary,
+                        color = MaterialTheme.colorScheme.primary,
                         modifier = Modifier.padding(start = 10.dp)
                     )
 
@@ -107,136 +91,12 @@ fun UserCustomization(
     }
 }
 
-@Composable
-fun UserCustomizationRadioButton(text: String, selected: Boolean, onClick: () -> Unit) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Start
-    ) {
-        RadioButton(
-            selected = selected,
-            onClick = onClick,
-            colors = RadioButtonDefaults.colors(
-                unselectedColor = MaterialTheme.colorScheme.secondary
-            ),
-        )
-        Text(
-            text = text,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.secondary,
-        )
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun ThemeSelectionDropdown(userModel: UserViewModel) {
-    // Theme Selection Dropdown
-    var isExpanded by remember { mutableStateOf(false) }
-    val themeOptions =
-        listOf("Blue", "Green", "Red", "Orange", "Pink", "Purple")
-
-    TextField(
-        value = userModel.userTheme.value,
-        onValueChange = {},
-        enabled = false,
-        label = {
-            Text(
-                text = "Choose a Theme Color",
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onSecondary
-            )
-        },
-        textStyle = MaterialTheme.typography.labelLarge,
-        singleLine = true,
-        shape = if (isExpanded) RoundedCornerShape(25, 25, 0, 0) else RoundedCornerShape(25),
-        colors = ExposedDropdownMenuDefaults.textFieldColors(
-            containerColor = MaterialTheme.colorScheme.primary,
-            disabledTextColor = MaterialTheme.colorScheme.background,
-            textColor = MaterialTheme.colorScheme.background,
-            focusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            cursorColor = if (isSystemInDarkTheme()) Color.Black else Color.White
-        ),
-        trailingIcon = {
-            if (isExpanded) {
-                Icon(
-                    Icons.Filled.KeyboardArrowUp,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.background,
-                    modifier = Modifier
-                        .size(50.dp)
-                        .padding(top = 10.dp)
-                )
-            } else {
-                Icon(
-                    Icons.Filled.KeyboardArrowDown,
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.background,
-                    modifier = Modifier
-                        .size(50.dp)
-                        .padding(top = 10.dp)
-                )
-            }
-        },
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable {
-                isExpanded = !isExpanded
-            }
-    )
-
-    AnimatedVisibility(
-        visible = isExpanded,
-        enter = expandVertically(),
-        exit = shrinkVertically()
-    ) {
-        Column(
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            themeOptions.forEach { color ->
-                DropdownMenuItem(
-                    text = {
-                        Text(
-                            text = color,
-                            modifier = Modifier.fillMaxWidth()
-                        )
-                    },
-                    onClick = {
-                        isExpanded = false
-                        userModel.themeEvent.value = color
-                    },
-                    colors = itemColors(
-                        textColor = MaterialTheme.colorScheme.background,
-                    ),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(
-                            color = MaterialTheme.colorScheme.secondaryContainer
-                        )
-                )
-            }
-        }
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
 fun UserCustomizationPreview() {
     UserCustomization(
+        UserViewModel(),
         onNext = {},
         onCancel = {}
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun UserCustomizationRadioButtonPreview() {
-    TodoTheme(
-        color = "Blue"
-    ) {
-        UserCustomizationRadioButton("Private", false) {}
-    }
 }

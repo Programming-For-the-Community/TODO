@@ -2788,6 +2788,7 @@ drawable fui_ic_twitter_bird_white_24dp
 drawable fui_ic_yahoo_24dp
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_100tb
 drawable ic_add
 drawable ic_clock_black_24dp
 drawable ic_hamburger

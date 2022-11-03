@@ -39,6 +39,10 @@ class UserViewModel: ViewModel() {
     val name: LiveData<String> = nameEvent
     var userName = mutableStateOf("")
 
+    val imageEvent = MutableLiveData("")
+    val image: LiveData<String> = imageEvent
+    var userImage = mutableStateOf("")
+
 
     /**
      * If the current User exists in firestore, this method gets that user, otherwise it creates a new user
@@ -56,10 +60,12 @@ class UserViewModel: ViewModel() {
                     user = it.toObject(User::class.java)
                     nameEvent.value = user!!.username
                     themeEvent.value = user!!.theme
+                    imageEvent.value = user!!.img
                 }else{
                     user = User(username= Firebase.auth.currentUser!!.displayName!!)
                     nameEvent.value = user!!.username
                     themeEvent.value = user!!.theme
+                    imageEvent.value = user!!.img
                     ref!!.set(user!!)
                 }
 
@@ -143,6 +149,7 @@ class UserViewModel: ViewModel() {
     fun update(){
         ref = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
         user!!.theme = userTheme.value
+        user!!.img = userImage.value
 
         if(user != null){
             with(user!!){

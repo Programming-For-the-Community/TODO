@@ -6,4 +6,5 @@ object Constants {
     const val LIST = "LIST"
     const val PROFILE = "PROFILE"
     const val USER_UPDATE = "USER_UPDATE"
+    const val PERMISSIONS = "PERMISSIONS"
 }
