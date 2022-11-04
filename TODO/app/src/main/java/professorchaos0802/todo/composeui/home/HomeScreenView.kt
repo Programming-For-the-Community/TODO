@@ -5,13 +5,10 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
-import professorchaos0802.todo.navigation.TodoViews
 import professorchaos0802.todo.theme.TodoTheme
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -20,12 +17,9 @@ import professorchaos0802.todo.theme.TodoTheme
 fun HomeScreenView(
     userViewModel: UserViewModel = viewModel(),
     listViewModel: ListViewModel = viewModel()
-){
-    val user = userViewModel.user!!
-    val themeColor = remember { mutableStateOf(user.theme) }
-
-    TodoTheme(color = themeColor.toString()) {
-        Scaffold(){
+) {
+    TodoTheme(color = userViewModel.userTheme.value) {
+        Scaffold() {
             Text("You made it")
         }
     }
@@ -33,6 +27,6 @@ fun HomeScreenView(
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenViewPreview(){
+fun HomeScreenViewPreview() {
     HomeScreenView()
 }

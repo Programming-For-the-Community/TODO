@@ -60,5 +60,5 @@ val TodoTypography = Typography(
         fontFamily = Roboto,
         fontWeight = Normal,
         fontSize = 20.sp
-    )
+    ),
 )

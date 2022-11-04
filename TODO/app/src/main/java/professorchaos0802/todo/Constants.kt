@@ -7,4 +7,5 @@ object Constants {
     const val PROFILE = "PROFILE"
     const val USER_UPDATE = "USER_UPDATE"
     const val PERMISSIONS = "PERMISSIONS"
+    const val THEME_KEY = "theme"
 }

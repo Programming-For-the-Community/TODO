@@ -18,7 +18,7 @@ data class User(
     var theme: String = "Blue",
     var font: String = "",
     var hasCompletedSetup: Boolean = false,
-    var isVisible: Boolean = false
+    var isVisible: Boolean? = null
 ) {
     companion object{
         const val COLLECTION_PATH = "users"

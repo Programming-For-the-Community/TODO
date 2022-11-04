@@ -2,6 +2,7 @@ package professorchaos0802.todo
 
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+import android.content.Context
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -63,11 +64,13 @@ class MainActivity : AppCompatActivity() {
             askForPermissions()
         }
 
-        setupObservers()
         initializeAuthListener()
+        setupObservers()
 
         setContent {
-            TodoTheme {
+            TodoTheme(
+                color = getSharedPreferences(Constants.THEME_KEY, Context.MODE_PRIVATE).toString()
+            ) {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     navController = rememberNavController()
                     NavHost(
@@ -143,6 +146,7 @@ class MainActivity : AppCompatActivity() {
                                     userModel.user = null
                                 },
                                 onChooseImage = {
+                                    userModel.selectingImage = true
                                     pickMediaActivityResultLauncher.launch("image/*")
                                 }
                             )
@@ -199,13 +203,14 @@ class MainActivity : AppCompatActivity() {
                                 navController.navigate(TodoViews.Home.route)
                             }
                         } else {
-                            if(userModel.user!!.img == ""){
+                            if(!userModel.selectingImage){
                                 Log.d(
                                     Constants.SETUP,
                                     "Navigating to UserName Setup: ${TodoViews.UserNameSetup.route}"
                                 )
                                 navController.navigate(TodoViews.UserNameSetup.route)
                             }else{
+                                userModel.selectingImage = false
                                 Log.d(
                                     Constants.SETUP,
                                     "Navigating to ProfileImage: ${TodoViews.ProfileImage.route}"
@@ -271,6 +276,7 @@ class MainActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     userModel.imageEvent.value = task.result.toString()
+                    userModel.update()
                     Log.d(Constants.SETUP, "Got download uri: ${userModel.userImage}")
                 } else {
                     Log.d(Constants.SETUP, "Failed to retrieve download uri")

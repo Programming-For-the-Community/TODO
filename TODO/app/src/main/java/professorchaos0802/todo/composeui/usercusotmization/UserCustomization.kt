@@ -7,9 +7,11 @@ import androidx.compose.material3.CardDefaults.cardColors
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.launch
 import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
 import professorchaos0802.todo.composeui.repeatedcomponents.ProgressionButtons
 import professorchaos0802.todo.models.UserViewModel
@@ -33,6 +35,9 @@ fun UserCustomization(
 ) {
 
     val user = if (userModel.user == null) User() else userModel.user!!
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
 
     TodoTheme(
         color = userModel.userTheme.value
@@ -83,7 +88,20 @@ fun UserCustomization(
                     }
 
                     ThemeSelectionDropdown(userModel) // Theme Selection Dropdown
-                    ProgressionButtons(onNext, onCancel) // Progression Buttons
+                    ProgressionButtons(
+                        onNext = {
+                            if (user.isVisible == null) {
+                                scope.launch {
+                                    snackbarHostState.showSnackbar("Choose a Profile Visibility!")
+                                }
+                            } else {
+                                onNext()
+                            }
+                        },
+                        onCancel = onCancel
+                    ) // Progression Buttons
+
+                    ErrorSnackbar(hostState = snackbarHostState) // Create snackbar to be launched if no profile visibility is chosen
                 }
 
             }
