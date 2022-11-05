@@ -61,4 +61,15 @@ val TodoTypography = Typography(
         fontWeight = Normal,
         fontSize = 20.sp
     ),
+    bodySmall = TextStyle(
+      fontFamily = Roboto,
+      fontWeight = Normal,
+      fontStyle = Italic,
+      fontSize = 10.sp
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = Roboto,
+        fontWeight = Bold,
+        fontSize = 12.sp
+    )
 )

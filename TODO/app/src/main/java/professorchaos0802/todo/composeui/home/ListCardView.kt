@@ -35,12 +35,13 @@ fun ListCardView(list: MyList, onClick:() -> Unit){
                 .padding(10.dp)
         ){
             Row(
-                verticalAlignment = Alignment.CenterVertically,
+                verticalAlignment = Alignment.Top,
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier.fillMaxWidth()
             ){
                 Text(
                     text = list.title,
+                    style = MaterialTheme.typography.headlineMedium,
                     color = MaterialTheme.colorScheme.onPrimaryContainer
                 )
 
@@ -50,11 +51,13 @@ fun ListCardView(list: MyList, onClick:() -> Unit){
                     modifier = Modifier
                 ){
                     Text(
-                        text = list.owner,
+                        text = "Owner: ${list.owner}",
+                        style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                     Text(
-                        text = list.created!!.toDate().toString(),
+                        text = "Created: ${list.created!!.toDate().toString()}",
+                        style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                 }

@@ -4,10 +4,6 @@
         "source": "professorchaos0802.todo.app-main-84:/layout/fragment_home.xml"
     },
     {
-        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_customization.xml",
-        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_customization.xml"
-    },
-    {
         "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_list.xml",
         "source": "professorchaos0802.todo.app-main-84:/layout/fragment_list.xml"
     },
@@ -18,17 +14,5 @@
     {
         "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/list_item_layout.xml",
         "source": "professorchaos0802.todo.app-main-84:/layout/list_item_layout.xml"
-    },
-    {
-        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/theme_spinner_item_dropdown.xml",
-        "source": "professorchaos0802.todo.app-main-84:/layout/theme_spinner_item_dropdown.xml"
-    },
-    {
-        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_profile_image.xml",
-        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_profile_image.xml"
-    },
-    {
-        "merged": "professorchaos0802.todo.app-mergeDebugResources-81:/layout/fragment_profile.xml",
-        "source": "professorchaos0802.todo.app-main-84:/layout/fragment_profile.xml"
     }
 ]

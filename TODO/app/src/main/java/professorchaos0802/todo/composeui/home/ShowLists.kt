@@ -4,11 +4,13 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.google.firebase.Timestamp
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.objects.Item
 import professorchaos0802.todo.objects.MyList
@@ -18,14 +20,14 @@ import professorchaos0802.todo.theme.TodoTheme
 fun ShowLists(listViewModel: ListViewModel){
     LazyColumn(
         horizontalAlignment = Alignment.Start,
-        verticalArrangement = Arrangement.Top,
+        verticalArrangement = Arrangement.spacedBy(5.dp),
         modifier = Modifier
             .fillMaxWidth()
             .padding(25.dp)
     ){
-//        items(listViewModel.lists) { list ->
-//            ListCardView(list)
-//        }
+        items(items = listViewModel.lists){ list ->
+            ListCardView(list){}
+        }
     }
 }
 
@@ -41,6 +43,7 @@ fun BlueShowListsPreview(){
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
+        list.created = Timestamp.now()
     }
     
     TodoTheme(
@@ -62,6 +65,7 @@ fun GreenShowListsPreview(){
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
+        list.created = Timestamp.now()
     }
 
     TodoTheme(
@@ -83,6 +87,7 @@ fun RedShowListsPreview(){
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
+        list.created = Timestamp.now()
     }
 
     TodoTheme(
@@ -104,6 +109,7 @@ fun OrangeShowListsPreview(){
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
+        list.created = Timestamp.now()
     }
 
     TodoTheme(
@@ -125,6 +131,7 @@ fun PinkShowListsPreview(){
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
+        list.created = Timestamp.now()
     }
 
     TodoTheme(
@@ -146,6 +153,7 @@ fun PurpleShowListsPreview(){
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
+        list.created = Timestamp.now()
     }
 
     TodoTheme(
