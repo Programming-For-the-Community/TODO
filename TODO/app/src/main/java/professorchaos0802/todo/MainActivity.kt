@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     private val listViewModel: ListViewModel by viewModels()
     private val userModel: UserViewModel by viewModels()
+    private val listListenerId = "TodoLists"
 
     private val signinLauncher = registerForActivityResult(
         FirebaseAuthUIActivityResultContract()
@@ -55,6 +56,11 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         Firebase.auth.removeAuthStateListener(authListener)
+
+        // Make sure there are no Firebase listeners remaining when the app stops
+        listViewModel.subscriptions.forEach{ entry ->
+            listViewModel.removeListener(entry.key)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -153,6 +159,7 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         composable(route = TodoViews.Home.route) {
+                            listViewModel.addListListener(listListenerId){}
                             HomeScreenView(
                                 userViewModel = userModel,
                                 listViewModel = listViewModel

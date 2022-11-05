@@ -141,7 +141,6 @@ id share_icon
 id todo_lists
 layout fragment_home
 layout fragment_list
-layout fragment_profile
 layout list_item_layout
 layout todo_list_view
 menu menu_default

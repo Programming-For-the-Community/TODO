@@ -3616,7 +3616,6 @@ layout design_text_input_start_icon
 layout dynamic_feature_install_fragment
 layout fragment_home
 layout fragment_list
-layout fragment_profile
 layout fui_activity_invisible
 layout fui_activity_register_email
 layout fui_activity_register_phone

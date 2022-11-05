@@ -35,17 +35,4 @@ class MyList(
             return l
         }
     }
-
-//    /**
-//     * Returns the text of all the items within the list
-//     */
-//    fun getItemText(): ArrayList<String>{
-//        var itemText = ArrayList<String>()
-//
-//        for(item in items){
-//            itemText.add(item.text)
-//        }
-//
-//        return itemText
-//    }
 }
