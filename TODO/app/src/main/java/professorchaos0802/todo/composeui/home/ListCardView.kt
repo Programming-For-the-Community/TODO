@@ -5,7 +5,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,7 +23,7 @@ fun ListCardView(list: MyList, onClick:() -> Unit){
             .fillMaxWidth()
             .background(
                 color = MaterialTheme.colorScheme.primaryContainer,
-                shape = RoundedCornerShape(25)
+                shape = RoundedCornerShape(15)
             )
     ){
         Column(
@@ -34,34 +33,8 @@ fun ListCardView(list: MyList, onClick:() -> Unit){
                 .fillMaxWidth()
                 .padding(10.dp)
         ){
-            Row(
-                verticalAlignment = Alignment.Top,
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.fillMaxWidth()
-            ){
-                Text(
-                    text = list.title,
-                    style = MaterialTheme.typography.headlineMedium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer
-                )
-
-                Column(
-                    horizontalAlignment = Alignment.End,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier
-                ){
-                    Text(
-                        text = "Owner: ${list.owner}",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer
-                    )
-                    Text(
-                        text = "Created: ${list.created!!.toDate().toString()}",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer
-                    )
-                }
-            }
+            ListTitleInfo(list)
+            ListItemPreview(list)
         }
     }
 }
@@ -74,6 +47,7 @@ fun BlueListCardViewPreview(){
     for(i in 1..5){
         list.items.add(Item("JDoe", "Todo $i", false))
     }
+    list.items[0].isDone = true
     
     TodoTheme(
         color = "Blue"
@@ -90,6 +64,7 @@ fun GreenListCardViewPreview(){
     for(i in 1..5){
         list.items.add(Item("JDoe", "Todo $i", false))
     }
+    list.items[0].isDone = true
 
     TodoTheme(
         color = "Green"
@@ -106,6 +81,7 @@ fun RedListCardViewPreview(){
     for(i in 1..5){
         list.items.add(Item("JDoe", "Todo $i", false))
     }
+    list.items[0].isDone = true
 
     TodoTheme(
         color = "Red"
@@ -122,6 +98,7 @@ fun OrangeListCardViewPreview(){
     for(i in 1..5){
         list.items.add(Item("JDoe", "Todo $i", false))
     }
+    list.items[0].isDone = true
 
     TodoTheme(
         color = "Orange"
@@ -138,6 +115,7 @@ fun PinkListCardViewPreview(){
     for(i in 1..5){
         list.items.add(Item("JDoe", "Todo $i", false))
     }
+    list.items[0].isDone = true
 
     TodoTheme(
         color = "Pink"
@@ -154,6 +132,7 @@ fun PurpleListCardViewPreview(){
     for(i in 1..5){
         list.items.add(Item("JDoe", "Todo $i", false))
     }
+    list.items[0].isDone = true
 
     TodoTheme(
         color = "Purple"

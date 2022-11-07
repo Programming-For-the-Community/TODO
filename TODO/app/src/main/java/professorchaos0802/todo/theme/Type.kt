@@ -9,6 +9,7 @@ import androidx.compose.ui.text.font.FontStyle.Companion.Italic
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.font.FontWeight.Companion.Normal
+import androidx.compose.ui.text.font.FontWeight.Companion.Thin
 import androidx.compose.ui.unit.sp
 import professorchaos0802.todo.R
 
@@ -33,6 +34,12 @@ val TodoTypography = Typography(
         fontWeight = Bold,
         fontStyle = Italic,
         fontSize = 36.sp
+    ),
+    displaySmall = TextStyle(
+        fontFamily = Roboto,
+        fontWeight = Thin,
+        fontStyle = Italic,
+        fontSize = 18.sp
     ),
     titleLarge = TextStyle(
         fontFamily = Roboto,
@@ -70,6 +77,6 @@ val TodoTypography = Typography(
     headlineMedium = TextStyle(
         fontFamily = Roboto,
         fontWeight = Bold,
-        fontSize = 12.sp
+        fontSize = 24.sp
     )
 )

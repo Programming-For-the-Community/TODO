@@ -1,7 +1,7 @@
 package professorchaos0802.todo.composeui.home
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -20,9 +20,10 @@ import professorchaos0802.todo.theme.TodoTheme
 fun ShowLists(listViewModel: ListViewModel){
     LazyColumn(
         horizontalAlignment = Alignment.Start,
-        verticalArrangement = Arrangement.spacedBy(5.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+        userScrollEnabled = true,
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize(1F)
             .padding(25.dp)
     ){
         items(items = listViewModel.lists){ list ->
