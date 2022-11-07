@@ -15,6 +15,11 @@ import professorchaos0802.todo.objects.Item
 import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.theme.TodoTheme
 
+/**
+ * Takes a [MyList] and displays identifying information of the list
+ *
+ * @param list - [MyList]: List to be previewed
+ */
 @Composable
 fun ListCardView(list: MyList, onClick:() -> Unit){
     Box(

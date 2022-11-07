@@ -16,6 +16,11 @@ import professorchaos0802.todo.objects.Item
 import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.theme.TodoTheme
 
+/**
+ * Shows a preview of all the lists available to the user in [HomeScreenView]
+ *
+ * @param listViewModel - [ListViewModel]: view model containing information on all the available lists
+ */
 @Composable
 fun ShowLists(listViewModel: ListViewModel){
     LazyColumn(
