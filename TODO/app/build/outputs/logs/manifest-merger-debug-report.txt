@@ -231,9 +231,9 @@ MERGED from [com.google.android.play:core:1.10.3] C:\Users\hahmcm\.gradle\caches
 	android:label
 		ADDED from C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:12:9-41
 	android:roundIcon
-		ADDED from C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:13:9-54
+		ADDED from C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:13:9-59
 	android:icon
-		ADDED from C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:11:9-48
 	android:allowBackup
 		ADDED from C:\Users\hahmcm\Desktop\Custom Programs\TODO\TODO\TODO\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme

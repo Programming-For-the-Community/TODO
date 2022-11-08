@@ -38,7 +38,9 @@ fun ListCardView(list: MyList, onClick:() -> Unit){
                 .fillMaxWidth()
                 .padding(10.dp)
         ){
-            ListTitleInfo(list)
+            ListTitleInfo(
+                list = list
+            )
             ListItemPreview(list)
         }
     }

@@ -57,6 +57,11 @@ val TodoTypography = Typography(
         fontWeight = Bold,
         fontSize = 18.sp
     ),
+    labelSmall = TextStyle(
+      fontFamily = Roboto,
+      fontWeight = Bold,
+      fontSize = 14.sp
+    ),
     bodyLarge = TextStyle(
         fontFamily = Roboto,
         fontWeight = Bold,

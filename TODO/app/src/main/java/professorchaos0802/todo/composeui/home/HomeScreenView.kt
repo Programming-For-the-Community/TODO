@@ -2,13 +2,22 @@ package professorchaos0802.todo.composeui.home
 
 import android.annotation.SuppressLint
 import android.util.Log
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.firebase.Timestamp
 import professorchaos0802.todo.Constants
+import professorchaos0802.todo.R
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.objects.Item
@@ -21,7 +30,8 @@ import professorchaos0802.todo.theme.TodoTheme
 @Composable
 fun HomeScreenView(
     userViewModel: UserViewModel = viewModel(),
-    listViewModel: ListViewModel = viewModel()
+    listViewModel: ListViewModel = viewModel(),
+    onFabClick:() -> Unit
 ) {
     val user = userViewModel.user!!
 
@@ -35,6 +45,28 @@ fun HomeScreenView(
     TodoTheme(color = userViewModel.userTheme.value) {
         Scaffold() {
             ShowLists(listViewModel)
+
+            Column(
+                verticalArrangement = Arrangement.Bottom,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(bottom = 25.dp, start = 15.dp, end = 15.dp)
+            ) {
+                Row(
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    HomeScreenFab(
+                        icon = Icons.Filled.Share,
+                        onFabClick = { /* TODO: Implement Share Logic */ }
+                    )
+                    HomeScreenFab(
+                        icon = ImageVector.vectorResource(R.drawable.ic_baseline_edit_note_24),
+                        onFabClick = onFabClick
+                    )
+                }
+            }
         }
     }
 }
@@ -64,6 +96,6 @@ fun HomeScreenViewPreview() {
         HomeScreenView(
             user,
             model
-        )
+        ){}
     }
 }

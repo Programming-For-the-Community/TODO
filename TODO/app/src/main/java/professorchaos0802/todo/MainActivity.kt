@@ -162,7 +162,8 @@ class MainActivity : AppCompatActivity() {
                             listViewModel.addListListener(listListenerId){}
                             HomeScreenView(
                                 userViewModel = userModel,
-                                listViewModel = listViewModel
+                                listViewModel = listViewModel,
+                                onFabClick = {}
                             )
                         }
                     }
