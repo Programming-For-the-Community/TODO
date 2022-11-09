@@ -20,9 +20,10 @@ import professorchaos0802.todo.theme.TodoTheme
  * Shows a preview of all the lists available to the user in [HomeScreenView]
  *
  * @param listViewModel - [ListViewModel]: view model containing information on all the available lists
+ * @param username - [String]: username of the logged in user
  */
 @Composable
-fun ShowLists(listViewModel: ListViewModel){
+fun ShowLists(listViewModel: ListViewModel, username: String){
     LazyColumn(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(10.dp),
@@ -31,8 +32,12 @@ fun ShowLists(listViewModel: ListViewModel){
             .fillMaxSize(1F)
             .padding(25.dp)
     ){
-        items(items = listViewModel.lists){ list ->
-            ListCardView(list){}
+        items(items = listViewModel.lists.value){ list ->
+            if(list.owner == username ||
+                list.canEdit.contains(username) ||
+                list.canView.contains(username)) {
+                ListCardView(list) {}
+            }
         }
     }
 }
@@ -41,21 +46,23 @@ fun ShowLists(listViewModel: ListViewModel){
 @Composable
 fun BlueShowListsPreview(){
     val model = ListViewModel()
-    model.lists.add(MyList("JDoe", "List1"))
-    model.lists.add(MyList("JDoe", "List2"))
-    model.lists.add(MyList("JDoe", "List3"))
-    model.lists.add(MyList("JDoe", "List4"))
-    model.lists.forEach { list ->
+    val myLists = mutableListOf<MyList>()
+    myLists.add(MyList("JDoe", "List1"))
+    myLists.add(MyList("JDoe", "List2"))
+    myLists.add(MyList("JDoe", "List3"))
+    myLists.add(MyList("JDoe", "List4"))
+    myLists.forEach { list ->
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
         list.created = Timestamp.now()
     }
+    model.lists.value = myLists
     
     TodoTheme(
         color = "Blue"
     ){
-        ShowLists(model)
+        ShowLists(model,"JDoe")
     }
 }
 
@@ -63,21 +70,23 @@ fun BlueShowListsPreview(){
 @Composable
 fun GreenShowListsPreview(){
     val model = ListViewModel()
-    model.lists.add(MyList("JDoe", "List1"))
-    model.lists.add(MyList("JDoe", "List2"))
-    model.lists.add(MyList("JDoe", "List3"))
-    model.lists.add(MyList("JDoe", "List4"))
-    model.lists.forEach { list ->
+    val myLists = mutableListOf<MyList>()
+    myLists.add(MyList("JDoe", "List1"))
+    myLists.add(MyList("JDoe", "List2"))
+    myLists.add(MyList("JDoe", "List3"))
+    myLists.add(MyList("JDoe", "List4"))
+    myLists.forEach { list ->
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
         list.created = Timestamp.now()
     }
+    model.lists.value = myLists
 
     TodoTheme(
         color = "Green"
     ){
-        ShowLists(model)
+        ShowLists(model, "JDoe")
     }
 }
 
@@ -85,21 +94,23 @@ fun GreenShowListsPreview(){
 @Composable
 fun RedShowListsPreview(){
     val model = ListViewModel()
-    model.lists.add(MyList("JDoe", "List1"))
-    model.lists.add(MyList("JDoe", "List2"))
-    model.lists.add(MyList("JDoe", "List3"))
-    model.lists.add(MyList("JDoe", "List4"))
-    model.lists.forEach { list ->
+    val myLists = mutableListOf<MyList>()
+    myLists.add(MyList("JDoe", "List1"))
+    myLists.add(MyList("JDoe", "List2"))
+    myLists.add(MyList("JDoe", "List3"))
+    myLists.add(MyList("JDoe", "List4"))
+    myLists.forEach { list ->
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
         list.created = Timestamp.now()
     }
+    model.lists.value = myLists
 
     TodoTheme(
         color = "Red"
     ){
-        ShowLists(model)
+        ShowLists(model,"JDoe")
     }
 }
 
@@ -107,21 +118,23 @@ fun RedShowListsPreview(){
 @Composable
 fun OrangeShowListsPreview(){
     val model = ListViewModel()
-    model.lists.add(MyList("JDoe", "List1"))
-    model.lists.add(MyList("JDoe", "List2"))
-    model.lists.add(MyList("JDoe", "List3"))
-    model.lists.add(MyList("JDoe", "List4"))
-    model.lists.forEach { list ->
+    val myLists = mutableListOf<MyList>()
+    myLists.add(MyList("JDoe", "List1"))
+    myLists.add(MyList("JDoe", "List2"))
+    myLists.add(MyList("JDoe", "List3"))
+    myLists.add(MyList("JDoe", "List4"))
+    myLists.forEach { list ->
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
         list.created = Timestamp.now()
     }
+    model.lists.value = myLists
 
     TodoTheme(
         color = "Orange"
     ){
-        ShowLists(model)
+        ShowLists(model,"JDoe")
     }
 }
 
@@ -129,21 +142,23 @@ fun OrangeShowListsPreview(){
 @Composable
 fun PinkShowListsPreview(){
     val model = ListViewModel()
-    model.lists.add(MyList("JDoe", "List1"))
-    model.lists.add(MyList("JDoe", "List2"))
-    model.lists.add(MyList("JDoe", "List3"))
-    model.lists.add(MyList("JDoe", "List4"))
-    model.lists.forEach { list ->
+    val myLists = mutableListOf<MyList>()
+    myLists.add(MyList("JDoe", "List1"))
+    myLists.add(MyList("JDoe", "List2"))
+    myLists.add(MyList("JDoe", "List3"))
+    myLists.add(MyList("JDoe", "List4"))
+    myLists.forEach { list ->
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
         list.created = Timestamp.now()
     }
+    model.lists.value = myLists
 
     TodoTheme(
         color = "Pink"
     ){
-        ShowLists(model)
+        ShowLists(model,"JDoe")
     }
 }
 
@@ -151,20 +166,22 @@ fun PinkShowListsPreview(){
 @Composable
 fun PurpleShowListsPreview(){
     val model = ListViewModel()
-    model.lists.add(MyList("JDoe", "List1"))
-    model.lists.add(MyList("JDoe", "List2"))
-    model.lists.add(MyList("JDoe", "List3"))
-    model.lists.add(MyList("JDoe", "List4"))
-    model.lists.forEach { list ->
+    val myLists = mutableListOf<MyList>()
+    myLists.add(MyList("JDoe", "List1"))
+    myLists.add(MyList("JDoe", "List2"))
+    myLists.add(MyList("JDoe", "List3"))
+    myLists.add(MyList("JDoe", "List4"))
+    myLists.forEach { list ->
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
         list.created = Timestamp.now()
     }
+    model.lists.value = myLists
 
     TodoTheme(
         color = "Purple"
     ){
-        ShowLists(model)
+        ShowLists(model,"JDoe")
     }
 }

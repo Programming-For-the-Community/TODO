@@ -1,5 +1,6 @@
 package professorchaos0802.todo.composeui.usercusotmization
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
@@ -30,6 +31,7 @@ import professorchaos0802.todo.theme.TodoTheme
  *
  * @param userModel - [UserViewModel]: viewModel containing all user information
  */
+@SuppressLint("CommitPrefEdits")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ThemeSelectionDropdown(userModel: UserViewModel) {

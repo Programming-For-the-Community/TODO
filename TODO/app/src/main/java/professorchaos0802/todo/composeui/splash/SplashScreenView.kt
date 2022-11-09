@@ -20,7 +20,6 @@ fun SplashScreenView(
 ){
     TodoTheme(
         color = themeColor,
-        darkTheme = false
     ) {
         Scaffold(
             topBar = { DefaultTopNav() }

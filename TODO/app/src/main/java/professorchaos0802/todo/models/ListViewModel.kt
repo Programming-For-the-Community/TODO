@@ -1,6 +1,9 @@
 package professorchaos0802.todo.models
 
 import android.util.Log
+import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
@@ -15,7 +18,11 @@ class ListViewModel: ViewModel() {
 
     var subscriptions = HashMap<String, ListenerRegistration>()
     var currentList = MyList()
-    var lists = mutableListOf<MyList>()
+
+    private val listEvent: MutableLiveData<List<MyList>> = MutableLiveData<List<MyList>>()
+    val myLists: LiveData<List<MyList>> = listEvent
+    var lists = mutableStateOf(listOf<MyList>())
+
 
     private var currentItemIndex = 0
 
@@ -31,7 +38,6 @@ class ListViewModel: ViewModel() {
      */
     fun addNewList(list: MyList){
         currentList = list
-        lists.add(list)
         listRef.add(list)
     }
 
@@ -39,8 +45,6 @@ class ListViewModel: ViewModel() {
      * Deletes a list from the local list and to the database
      */
     fun deleteList(list: MyList){
-        lists.remove(list)
-        currentList = lists[0]
         listRef.document(list.id).delete()
     }
 
@@ -49,24 +53,24 @@ class ListViewModel: ViewModel() {
      */
     fun getCurrentItem() = currentList.items[currentItemIndex]
 
-    fun addListListener(listenerIdentifier: String, observer: () -> Unit){
+    fun addListListener(listenerIdentifier: String){
         listRef = Firebase.firestore.collection(MyList.COLLECTION_PATH)
 
         val subscription = listRef
             .orderBy(MyList.CREATED_KEY, Query.Direction.DESCENDING)
             .addSnapshotListener{snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
-                    e?.let{
-                        Log.d(Constants.HOME, "ERROR: $e")
-                        return@addSnapshotListener
-                    }
-                    Log.d(Constants.HOME, "List Snapshot Length: ${snapshot?.size()}")
-                    lists.clear()
-                    snapshot?.documents?.forEach {
-                        lists.add(MyList.from(it))
-                    }
-                    Log.d(Constants.HOME, "Lists Length: ${lists.size}")
-                    observer()
+                e?.let{
+                    Log.d(Constants.HOME, "ERROR: $e")
+                    return@addSnapshotListener
                 }
+                Log.d(Constants.HOME, "List Snapshot Length: ${snapshot?.size()}")
+                val allLists = mutableListOf<MyList>()
+                snapshot?.documents?.forEach {
+                    allLists.add(MyList.from(it))
+                }
+                listEvent.value = allLists
+                Log.d(Constants.HOME, "Lists Length: ${allLists.size}")
+            }
 
         subscriptions[listenerIdentifier] = subscription
     }

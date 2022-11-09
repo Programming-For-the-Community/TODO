@@ -2,7 +2,6 @@ package professorchaos0802.todo
 
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-import android.content.Context
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -75,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             TodoTheme(
-                color = getSharedPreferences(Constants.THEME_KEY, Context.MODE_PRIVATE).toString()
+                color = if(userModel.user == null) "Blue" else userModel.user!!.theme
             ) {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     navController = rememberNavController()
@@ -159,7 +158,7 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         composable(route = TodoViews.Home.route) {
-                            listViewModel.addListListener(listListenerId){}
+                            listViewModel.addListListener(listListenerId)
                             HomeScreenView(
                                 userViewModel = userModel,
                                 listViewModel = listViewModel,
@@ -185,6 +184,10 @@ class MainActivity : AppCompatActivity() {
         userModel.image.observe(this) { newImage ->
             userModel.userImage.value = newImage
         }
+
+        listViewModel.myLists.observe(this){ allLists ->
+            listViewModel.lists.value = allLists
+        }
     }
 
     private fun initializeAuthListener() {
@@ -194,37 +197,34 @@ class MainActivity : AppCompatActivity() {
             if (user == null) {
                 setupAuthUI()
             } else {
-                with(user) {
-                    this
-                    userModel.getOrMakeUser {
-                        if (userModel.hasCompletedSetup()) {
-                            val id = navController.currentDestination!!.route
+                userModel.getOrMakeUser {
+                    if (userModel.hasCompletedSetup()) {
+                        val id = navController.currentDestination!!.route
 
-                            Log.d(Constants.SETUP, "Authenticating")
+                        Log.d(Constants.SETUP, "Authenticating")
 
-                            // If not of the Firebase provided AuthUI Screen go to the home screen
-                            if (id == TodoViews.Splash.route) {
-                                Log.d(
-                                    Constants.SETUP,
-                                    "Navigating to Home Page: ${TodoViews.Home.route}"
-                                )
-                                navController.navigate(TodoViews.Home.route)
-                            }
-                        } else {
-                            if(!userModel.selectingImage){
-                                Log.d(
-                                    Constants.SETUP,
-                                    "Navigating to UserName Setup: ${TodoViews.UserNameSetup.route}"
-                                )
-                                navController.navigate(TodoViews.UserNameSetup.route)
-                            }else{
-                                userModel.selectingImage = false
-                                Log.d(
-                                    Constants.SETUP,
-                                    "Navigating to ProfileImage: ${TodoViews.ProfileImage.route}"
-                                )
-                                navController.navigate(TodoViews.ProfileImage.route)
-                            }
+                        // If not of the Firebase provided AuthUI Screen go to the home screen
+                        if (id == TodoViews.Splash.route) {
+                            Log.d(
+                                Constants.SETUP,
+                                "Navigating to Home Page: ${TodoViews.Home.route}"
+                            )
+                            navController.navigate(TodoViews.Home.route)
+                        }
+                    } else {
+                        if(!userModel.selectingImage){
+                            Log.d(
+                                Constants.SETUP,
+                                "Navigating to UserName Setup: ${TodoViews.UserNameSetup.route}"
+                            )
+                            navController.navigate(TodoViews.UserNameSetup.route)
+                        }else{
+                            userModel.selectingImage = false
+                            Log.d(
+                                Constants.SETUP,
+                                "Navigating to ProfileImage: ${TodoViews.ProfileImage.route}"
+                            )
+                            navController.navigate(TodoViews.ProfileImage.route)
                         }
                     }
                 }

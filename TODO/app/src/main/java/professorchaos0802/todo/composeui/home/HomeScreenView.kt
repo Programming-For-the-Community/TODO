@@ -36,15 +36,11 @@ fun HomeScreenView(
     val user = userViewModel.user!!
 
     Log.d(Constants.HOME, "Filtering lists")
-    listViewModel.lists = listViewModel.lists.filter {
-        it.owner == user.username ||
-                it.canEdit.contains(user.username) ||
-                it.canView.contains(user.username)
-    } as MutableList<MyList>
+
 
     TodoTheme(color = userViewModel.userTheme.value) {
         Scaffold() {
-            ShowLists(listViewModel)
+            ShowLists(listViewModel, userViewModel.userName.value)
 
             Column(
                 verticalArrangement = Arrangement.Bottom,
@@ -79,17 +75,18 @@ fun HomeScreenViewPreview() {
     user.user = User()
 
     val model = ListViewModel()
-    model.lists.add(MyList("JDoe", "List1"))
-    model.lists.add(MyList("JDoe", "List2"))
-    model.lists.add(MyList("JDoe", "List3"))
-    model.lists.add(MyList("JDoe", "List4"))
-    model.lists.forEach { list ->
+    val myLists = mutableListOf<MyList>()
+    myLists.add(MyList("JDoe", "List1"))
+    myLists.add(MyList("JDoe", "List2"))
+    myLists.add(MyList("JDoe", "List3"))
+    myLists.add(MyList("JDoe", "List4"))
+    myLists.forEach { list ->
         for(i in 1..5){
             list.items.add(Item("JDoe", "Todo $i", false))
         }
         list.created = Timestamp.now()
-        list.items[0].isDone = true
     }
+    model.lists.value = myLists
     TodoTheme(
         color = "Blue"
     ) {
