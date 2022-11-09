@@ -30,7 +30,12 @@ fun ShowLists(listViewModel: ListViewModel, username: String){
         userScrollEnabled = true,
         modifier = Modifier
             .fillMaxSize(1F)
-            .padding(25.dp)
+            .padding(
+                top = 75.dp,
+                bottom = 25.dp,
+                start = 25.dp,
+                end = 25.dp
+            )
     ){
         items(items = listViewModel.lists.value){ list ->
             if(list.owner == username ||

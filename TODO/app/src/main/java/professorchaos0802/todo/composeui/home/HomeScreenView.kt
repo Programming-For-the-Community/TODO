@@ -39,7 +39,9 @@ fun HomeScreenView(
 
 
     TodoTheme(color = userViewModel.userTheme.value) {
-        Scaffold() {
+        Scaffold(
+            topBar = { HomeTopNav(userViewModel){/* TODO: Navigate to Profile/Settings View */} }
+        ) {
             ShowLists(listViewModel, userViewModel.userName.value)
 
             Column(
