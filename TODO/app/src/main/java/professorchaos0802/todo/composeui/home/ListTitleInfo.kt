@@ -48,7 +48,7 @@ fun ListTitleInfo(list: MyList){
                 color = MaterialTheme.colorScheme.onPrimaryContainer
             )
             Text(
-                text = "Created: ${list.created!!.toDate()}",
+                text = "Created: ${list.created?.let{it.toDate()}}",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onPrimaryContainer
             )

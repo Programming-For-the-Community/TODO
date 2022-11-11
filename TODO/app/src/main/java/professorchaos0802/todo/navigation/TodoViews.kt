@@ -6,4 +6,6 @@ sealed class TodoViews(val route: String) {
     object Customization:TodoViews("customization_view")
     object ProfileImage:TodoViews("profile_image")
     object Home:TodoViews("home_view")
+    object Profile:TodoViews("profile_view")
+    object List:TodoViews("list_view")
 }

@@ -38,16 +38,17 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/a68e2f6185a301ec35894bb592ea8fc3/transformed/lifecycle-runtime-ktx-2.5.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/bddf50b9aaec31f4e6dece4d398cef38/transformed/ui-tooling-1.4.0-alpha01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ecdf06c700108d3abc09568696792b22/transformed/material3-1.0.0-rc01-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/40568120dc4bb9461a70de1d22a5bb37/transformed/material-1.4.0-alpha01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/3dd9150d9c9cdae8ee1f04447efb4164/transformed/ui-tooling-preview-1.4.0-alpha01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/1260112c89d583adea776159cb88f8f5/transformed/ui-test-1.4.0-alpha01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/0718269af880afeaf3cd3c06a917bed0/transformed/ui-tooling-data-1.4.0-alpha01-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/0e054ef82db2adb2c156d03b6d137f9e/transformed/material-ripple-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/f4ab81756495693aa998dcde10295903/transformed/material-ripple-1.4.0-alpha01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/6ad5bb23c9b4701cba9ae28b12083618/transformed/coil-compose-2.0.0-rc01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/a882a2948b9c0d62b13a18677bd60cf1/transformed/coil-compose-base-2.0.0-rc01-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/47f3ee6291064c6799612acddb9bdaf1/transformed/foundation-1.2.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/2345587e3e516e99c0d0e0ece900732c/transformed/foundation-1.4.0-alpha01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/663db5ae588a91f6257a0c5c8a2f4d8e/transformed/lifecycle-viewmodel-compose-2.5.1-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/93678f5e06ad08bd1806ea3818f6dba3/transformed/material-icons-core-1.0.2-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/5ec7bc5bfb538627510428e594e76058/transformed/animation-1.1.1-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/edfd633c188f01beb62412ae6f4eacef/transformed/material-icons-core-1.4.0-alpha01-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/2a5beb1de252a72335720ce612881643/transformed/animation-1.2.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/3a4e54bda5ae346920209e1f5cbf330d/transformed/foundation-layout-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2b031a8c2723eaf761f4ad76940bcef6/transformed/ui-1.4.0-alpha01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/09ee6a892ce6fb1c318ca772c029ce69/transformed/runtime-saveable-1.3.0-rc01-api.jar</arg>
@@ -81,8 +82,8 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/1c1ec75a055b64d53b75f1aa65dd485c/transformed/lifecycle-viewmodel-ktx-2.5.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/7dfba721d1712f15dc6e38e31395db23/transformed/coil-2.0.0-rc01-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/bde4cf67a7068df9626f51d4a4e91577/transformed/coil-base-2.0.0-rc01-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/5b9452633cacfbb92eb239d9f8d7ac3a/transformed/animation-core-1.2.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-test-jvm/1.6.4/27cee4a22d4149a86095bb1b4f4c5f10fbd3be97/kotlinx-coroutines-test-jvm-1.6.4.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/cbe539e5741bf639403d3e9523ae95e3/transformed/animation-core-1.1.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.6.4/2c997cd1c0ef33f3e751d3831929aeff1390cb30/kotlinx-coroutines-core-jvm-1.6.4.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-android/1.6.4/f955fc8b2ad196e2f4429598440e15f7492eeb2b/kotlinx-coroutines-android-1.6.4.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.grpc/grpc-okhttp/1.44.1/577c61816b27a2af018070d00ef8ff18c009b10a/grpc-okhttp-1.44.1.jar</arg>
@@ -318,12 +319,13 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.ui:ui-tooling-preview:1.4.0-alpha01@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.ui:ui-test-manifest:1.4.0-alpha01@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.material3:material3:1.0.0-rc01@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.foundation:foundation:1.2.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.animation:animation:1.1.1@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.animation:animation-core:1.1.1@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.foundation:foundation:1.4.0-alpha01@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.animation:animation:1.2.1@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.animation:animation-core:1.2.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.foundation:foundation-layout:1.0.0@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.material:material-icons-core:1.0.2@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.material:material-ripple:1.0.0@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.material:material-icons-core:1.4.0-alpha01@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.material:material-ripple:1.4.0-alpha01@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: androidx.compose.material:material:1.4.0-alpha01@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.android.material:material:1.7.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.appcompat:appcompat:1.5.1@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.appcompat:appcompat-resources:1.5.1@aar" level="project" />

@@ -8,4 +8,8 @@ object Constants {
     const val USER_UPDATE = "USER_UPDATE"
     const val PERMISSIONS = "PERMISSIONS"
     const val THEME_KEY = "theme"
+
+    // Listener IDs
+    const val listListenerId = "TodoLists"
+    const val itemListenerId = "TodoItems"
 }

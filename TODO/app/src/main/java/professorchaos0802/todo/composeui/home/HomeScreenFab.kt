@@ -24,8 +24,8 @@ import professorchaos0802.todo.theme.TodoTheme
 fun HomeScreenFab(icon: ImageVector, onFabClick: () -> Unit) {
     FloatingActionButton(
         onClick = onFabClick,
-        containerColor = MaterialTheme.colorScheme.secondary,
-        contentColor = MaterialTheme.colorScheme.onSecondary,
+        containerColor = MaterialTheme.colorScheme.primary,
+        contentColor = MaterialTheme.colorScheme.onPrimary,
         shape = CircleShape,
         modifier = Modifier.size(50.dp)
     ) {

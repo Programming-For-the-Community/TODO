@@ -17,27 +17,31 @@ class ListViewModel: ViewModel() {
     lateinit var listRef: CollectionReference
 
     var subscriptions = HashMap<String, ListenerRegistration>()
-    var currentList = MyList()
 
     private val listEvent: MutableLiveData<List<MyList>> = MutableLiveData<List<MyList>>()
     val myLists: LiveData<List<MyList>> = listEvent
     var lists = mutableStateOf(listOf<MyList>())
 
+    private val currentListEvent: MutableLiveData<MyList> = MutableLiveData<MyList>()
+    val currList: LiveData<MyList> = currentListEvent
+    var currentList = mutableStateOf(MyList())
 
+    private val itemEvent: MutableLiveData<List<Item>> = MutableLiveData<List<Item>>()
+    val currItems: LiveData<List<Item>> = itemEvent
+    var currentItems = mutableStateOf(listOf<Item>())
+
+//    private val listsToDeleteEvent: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
+//    val deleteLists: LiveData<Boolean> = listsToDeleteEvent
+//    var hasListsToDelete = mutableStateOf(false)
+
+//    var listsToDelete = mutableListOf<MyList>()
     private var currentItemIndex = 0
-
-    /**
-     * Updates the list to the list passed into the method
-     */
-    fun updateList(l: MyList){
-        currentList = l
-    }
 
     /**
      * Add a new list to the local list and to the database
      */
     fun addNewList(list: MyList){
-        currentList = list
+        currentListEvent.value = list
         listRef.add(list)
     }
 
@@ -47,11 +51,6 @@ class ListViewModel: ViewModel() {
     fun deleteList(list: MyList){
         listRef.document(list.id).delete()
     }
-
-    /**
-     * Returns the item found at the currentItemIndex
-     */
-    fun getCurrentItem() = currentList.items[currentItemIndex]
 
     fun addListListener(listenerIdentifier: String){
         listRef = Firebase.firestore.collection(MyList.COLLECTION_PATH)
@@ -78,8 +77,8 @@ class ListViewModel: ViewModel() {
     /**
      * Subscribes a listener to the item list from the specified list
      */
-    fun addItemListener(listenerIdentifier: String, observer: () -> Unit){
-        var listID = currentList.id
+    fun addItemListener(listenerIdentifier: String){
+        val listID = currentList.value.id
         itemRef = Firebase.firestore.collection(MyList.COLLECTION_PATH).document(listID).collection(
             Item.COLLECTION_PATH)
 
@@ -89,13 +88,13 @@ class ListViewModel: ViewModel() {
                     Log.d(Constants.LIST, "ERROR: $e")
                     return@addSnapshotListener
                 }
-                Log.d(Constants.LIST, "Item Snapshot Length: ${snapshot?.size()} for list ${currentList.title}")
-                currentList.items.clear()
+                Log.d(Constants.LIST, "Item Snapshot Length: ${snapshot?.size()} for list ${currentList.value.title}")
+                val allItems = mutableListOf<Item>()
                 snapshot?.documents?.forEach{
-                    currentList.items.add(Item.from(it))
+                    allItems.add(Item.from(it))
                 }
-                Log.d(Constants.LIST, "Number of Items: ${currentList.items.size}")
-                observer()
+                itemEvent.value = allItems
+                Log.d(Constants.LIST, "Number of Items: ${allItems.size}")
             }
 
         subscriptions[listenerIdentifier] = subscription
@@ -113,10 +112,10 @@ class ListViewModel: ViewModel() {
      * Deletes the current item from the firestore database
      */
     fun deleteCurrentItem(){
-        var currItem = currentList.items[currentItemIndex]
+        var currItem = currentList.value.items[currentItemIndex]
 
-        if(currentList.items[currentItemIndex].id == ""){
-            currentList.items.remove(currItem)
+        if(currentList.value.items[currentItemIndex].id == ""){
+            currentList.value.items.remove(currItem)
         }else {
             itemRef.document(currItem.id).delete()
         }
@@ -131,7 +130,7 @@ class ListViewModel: ViewModel() {
      * Adds an item to both the local list and to the firestore database
      */
     fun addItem(i: Item){
-        currentList.items.add(i)
+        currentList.value.items.add(i)
         itemRef.add(i)
     }
 }

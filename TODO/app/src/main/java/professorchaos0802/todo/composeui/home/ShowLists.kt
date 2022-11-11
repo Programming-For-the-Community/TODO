@@ -23,7 +23,7 @@ import professorchaos0802.todo.theme.TodoTheme
  * @param username - [String]: username of the logged in user
  */
 @Composable
-fun ShowLists(listViewModel: ListViewModel, username: String){
+fun ShowLists(listViewModel: ListViewModel, username: String, onClick:() -> Unit){
     LazyColumn(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(10.dp),
@@ -41,7 +41,11 @@ fun ShowLists(listViewModel: ListViewModel, username: String){
             if(list.owner == username ||
                 list.canEdit.contains(username) ||
                 list.canView.contains(username)) {
-                ListCardView(list) {}
+
+                ListCardView(
+                    list = list,
+                    onClick = onClick
+                )
             }
         }
     }
@@ -67,126 +71,6 @@ fun BlueShowListsPreview(){
     TodoTheme(
         color = "Blue"
     ){
-        ShowLists(model,"JDoe")
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreenShowListsPreview(){
-    val model = ListViewModel()
-    val myLists = mutableListOf<MyList>()
-    myLists.add(MyList("JDoe", "List1"))
-    myLists.add(MyList("JDoe", "List2"))
-    myLists.add(MyList("JDoe", "List3"))
-    myLists.add(MyList("JDoe", "List4"))
-    myLists.forEach { list ->
-        for(i in 1..5){
-            list.items.add(Item("JDoe", "Todo $i", false))
-        }
-        list.created = Timestamp.now()
-    }
-    model.lists.value = myLists
-
-    TodoTheme(
-        color = "Green"
-    ){
-        ShowLists(model, "JDoe")
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun RedShowListsPreview(){
-    val model = ListViewModel()
-    val myLists = mutableListOf<MyList>()
-    myLists.add(MyList("JDoe", "List1"))
-    myLists.add(MyList("JDoe", "List2"))
-    myLists.add(MyList("JDoe", "List3"))
-    myLists.add(MyList("JDoe", "List4"))
-    myLists.forEach { list ->
-        for(i in 1..5){
-            list.items.add(Item("JDoe", "Todo $i", false))
-        }
-        list.created = Timestamp.now()
-    }
-    model.lists.value = myLists
-
-    TodoTheme(
-        color = "Red"
-    ){
-        ShowLists(model,"JDoe")
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun OrangeShowListsPreview(){
-    val model = ListViewModel()
-    val myLists = mutableListOf<MyList>()
-    myLists.add(MyList("JDoe", "List1"))
-    myLists.add(MyList("JDoe", "List2"))
-    myLists.add(MyList("JDoe", "List3"))
-    myLists.add(MyList("JDoe", "List4"))
-    myLists.forEach { list ->
-        for(i in 1..5){
-            list.items.add(Item("JDoe", "Todo $i", false))
-        }
-        list.created = Timestamp.now()
-    }
-    model.lists.value = myLists
-
-    TodoTheme(
-        color = "Orange"
-    ){
-        ShowLists(model,"JDoe")
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PinkShowListsPreview(){
-    val model = ListViewModel()
-    val myLists = mutableListOf<MyList>()
-    myLists.add(MyList("JDoe", "List1"))
-    myLists.add(MyList("JDoe", "List2"))
-    myLists.add(MyList("JDoe", "List3"))
-    myLists.add(MyList("JDoe", "List4"))
-    myLists.forEach { list ->
-        for(i in 1..5){
-            list.items.add(Item("JDoe", "Todo $i", false))
-        }
-        list.created = Timestamp.now()
-    }
-    model.lists.value = myLists
-
-    TodoTheme(
-        color = "Pink"
-    ){
-        ShowLists(model,"JDoe")
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PurpleShowListsPreview(){
-    val model = ListViewModel()
-    val myLists = mutableListOf<MyList>()
-    myLists.add(MyList("JDoe", "List1"))
-    myLists.add(MyList("JDoe", "List2"))
-    myLists.add(MyList("JDoe", "List3"))
-    myLists.add(MyList("JDoe", "List4"))
-    myLists.forEach { list ->
-        for(i in 1..5){
-            list.items.add(Item("JDoe", "Todo $i", false))
-        }
-        list.created = Timestamp.now()
-    }
-    model.lists.value = myLists
-
-    TodoTheme(
-        color = "Purple"
-    ){
-        ShowLists(model,"JDoe")
+        ShowLists(model,"JDoe"){}
     }
 }

@@ -24,6 +24,8 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import professorchaos0802.todo.composeui.home.HomeScreenView
+import professorchaos0802.todo.composeui.list.ListScreenView
+import professorchaos0802.todo.composeui.profile.ProfileScreenView
 import professorchaos0802.todo.composeui.profileimage.ProfileImage
 import professorchaos0802.todo.composeui.splash.SplashScreenView
 import professorchaos0802.todo.composeui.usercusotmization.UserCustomization
@@ -41,7 +43,6 @@ class MainActivity : AppCompatActivity() {
 
     private val listViewModel: ListViewModel by viewModels()
     private val userModel: UserViewModel by viewModels()
-    private val listListenerId = "TodoLists"
 
     private val signinLauncher = registerForActivityResult(
         FirebaseAuthUIActivityResultContract()
@@ -158,11 +159,24 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         composable(route = TodoViews.Home.route) {
-                            listViewModel.addListListener(listListenerId)
+                            listViewModel.addListListener(Constants.listListenerId)
                             HomeScreenView(
                                 userViewModel = userModel,
                                 listViewModel = listViewModel,
-                                onFabClick = {}
+                                onNavigateToList = { navController.navigate(TodoViews.List.route) }
+                            )
+                        }
+
+                        composable(route = TodoViews.List.route){
+                            ListScreenView(
+                                userModel = userModel,
+                                listModel = listViewModel
+                            )
+                        }
+
+                        composable(route = TodoViews.Profile.route){
+                            ProfileScreenView(
+                                userModel = userModel
                             )
                         }
                     }
@@ -172,6 +186,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Sets up observers for all [LiveData] and [MutableLiveData] used in the app
+     */
     private fun setupObservers() {
         userModel.theme.observe(this) { newTheme ->
             userModel.userTheme.value = newTheme
@@ -188,6 +205,18 @@ class MainActivity : AppCompatActivity() {
         listViewModel.myLists.observe(this){ allLists ->
             listViewModel.lists.value = allLists
         }
+
+        listViewModel.currList.observe(this){ list ->
+            listViewModel.currentList.value = list
+        }
+
+        listViewModel.currItems.observe(this){ allItems ->
+            listViewModel.currentItems.value = allItems
+        }
+
+//        listViewModel.deleteLists.observe(this){
+//            listViewModel.hasListsToDelete.value = it
+//        }
     }
 
     private fun initializeAuthListener() {
