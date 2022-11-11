@@ -163,7 +163,10 @@ class MainActivity : AppCompatActivity() {
                             HomeScreenView(
                                 userViewModel = userModel,
                                 listViewModel = listViewModel,
-                                onNavigateToList = { navController.navigate(TodoViews.List.route) }
+                                navController = navController,
+                                onNavigateToList = { navController.navigate(TodoViews.List.route) },
+                                onNavigateToHome = {}, // Do nothing since we are already on the home screen
+                                onNavigateToProfile = { navController.navigate(TodoViews.Profile.route) }
                             )
                         }
 

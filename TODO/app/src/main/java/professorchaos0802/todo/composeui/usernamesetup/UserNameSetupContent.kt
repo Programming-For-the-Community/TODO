@@ -10,9 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import professorchaos0802.todo.composeui.repeatedcomponents.ProgressionButtons
+import professorchaos0802.todo.composeui.repeatedcomponents.progressionbuttons.ProgressionButtons
 import professorchaos0802.todo.models.UserViewModel
-import professorchaos0802.todo.objects.User
 import professorchaos0802.todo.theme.TodoTheme
 
 /**

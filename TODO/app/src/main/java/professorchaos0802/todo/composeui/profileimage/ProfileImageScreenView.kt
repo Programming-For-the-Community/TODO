@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.annotation.ExperimentalCoilApi
 import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
-import professorchaos0802.todo.composeui.repeatedcomponents.ProgressionButtons
+import professorchaos0802.todo.composeui.repeatedcomponents.progressionbuttons.ProgressionButtons
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.theme.TodoTheme
 

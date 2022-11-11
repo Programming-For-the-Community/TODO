@@ -3,22 +3,20 @@ package professorchaos0802.todo.composeui.home
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.DrawerValue
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material3.rememberDrawerState
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ModalNavigationDrawer
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.google.firebase.Timestamp
 import kotlinx.coroutines.launch
 import professorchaos0802.todo.Constants
@@ -37,7 +35,10 @@ import professorchaos0802.todo.theme.TodoTheme
 fun HomeScreenView(
     userViewModel: UserViewModel = viewModel(),
     listViewModel: ListViewModel = viewModel(),
-    onNavigateToList:() -> Unit
+    navController: NavHostController,
+    onNavigateToList:() -> Unit,
+    onNavigateToHome:() -> Unit,
+    onNavigateToProfile:() -> Unit
 ) {
     Log.d(Constants.HOME, "Filtering lists")
     val drawerState = rememberDrawerState(DrawerValue.Closed)
@@ -46,7 +47,19 @@ fun HomeScreenView(
     TodoTheme(color = userViewModel.userTheme.value) {
         ModalNavigationDrawer(
             drawerState = drawerState,
-            drawerContent = {NavDrawer(userViewModel)}
+            drawerContent = {
+                NavDrawer(
+                    userModel = userViewModel,
+                    navController = navController,
+                    onNavigateToHome = {
+                        scope.launch{
+                            drawerState.close()
+                        }
+                        onNavigateToHome()
+                    },
+                    onNavigateToProfile = onNavigateToProfile
+                )
+            }
         ) {
             Scaffold(
                 topBar = { HomeTopNav(userViewModel) {
@@ -117,7 +130,10 @@ fun HomeScreenViewPreview() {
     ) {
         HomeScreenView(
             user,
-            model
+            model,
+            NavHostController(LocalContext.current),
+            {},
+            {}
         ){}
     }
 }
