@@ -1,4 +1,4 @@
-package professorchaos0802.todo.composeui.profileimage
+package professorchaos0802.todo.composeui.profileimage.chooseimagebutton
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

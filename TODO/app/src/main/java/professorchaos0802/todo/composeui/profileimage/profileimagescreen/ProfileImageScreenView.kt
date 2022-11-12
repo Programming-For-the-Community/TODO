@@ -1,4 +1,4 @@
-package professorchaos0802.todo.composeui.profileimage
+package professorchaos0802.todo.composeui.profileimage.profileimagescreen
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Arrangement
@@ -10,17 +10,17 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import coil.annotation.ExperimentalCoilApi
+import professorchaos0802.todo.composeui.profileimage.chooseimagebutton.ChooseImageButton
+import professorchaos0802.todo.composeui.profileimage.profileimageicon.ProfileImageIcon
 import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
 import professorchaos0802.todo.composeui.repeatedcomponents.progressionbuttons.ProgressionButtons
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.theme.TodoTheme
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalCoilApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileImage(
     userModel: UserViewModel = viewModel(),
@@ -47,14 +47,4 @@ fun ProfileImage(
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ProfileImagePreview() {
-    ProfileImage(
-        onNext = {},
-        onCancel = {},
-        onChooseImage = {}
-    )
 }

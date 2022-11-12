@@ -26,10 +26,10 @@ import com.google.firebase.storage.ktx.storage
 import professorchaos0802.todo.composeui.home.HomeScreenView
 import professorchaos0802.todo.composeui.list.ListScreenView
 import professorchaos0802.todo.composeui.profile.ProfileScreenView
-import professorchaos0802.todo.composeui.profileimage.ProfileImage
-import professorchaos0802.todo.composeui.splash.SplashScreenView
-import professorchaos0802.todo.composeui.usercusotmization.UserCustomization
-import professorchaos0802.todo.composeui.usernamesetup.UserNameSetupScreenView
+import professorchaos0802.todo.composeui.profileimage.profileimagescreen.ProfileImage
+import professorchaos0802.todo.composeui.splash.splashscreen.SplashScreenView
+import professorchaos0802.todo.composeui.usercusotmization.usercustomizationscreen.UserCustomization
+import professorchaos0802.todo.composeui.usernamesetup.usernamesetupscreen.UserNameSetupScreenView
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews

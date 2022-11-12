@@ -1,4 +1,4 @@
-package professorchaos0802.todo.composeui.profileimage
+package professorchaos0802.todo.composeui.profileimage.profileimageicon
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size

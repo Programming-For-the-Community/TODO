@@ -1,4 +1,4 @@
-package professorchaos0802.todo.composeui.usercusotmization
+package professorchaos0802.todo.composeui.usercusotmization.themeselectiondropdown
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
@@ -20,10 +20,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import professorchaos0802.todo.models.UserViewModel
-import professorchaos0802.todo.theme.TodoTheme
 
 /**
  * Dropdown menu for the user to indicate their choice of color theme during [UserCustomization]
@@ -112,53 +110,5 @@ fun ThemeSelectionDropdown(userModel: UserViewModel) {
                 )
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun BlueThemeSelectionDropdownPreview() {
-    TodoTheme(color = "Blue") {
-        ThemeSelectionDropdown(UserViewModel())
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreenThemeSelectionDropdownPreview() {
-    TodoTheme(color = "Green") {
-        ThemeSelectionDropdown(UserViewModel())
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun RedThemeSelectionDropdownPreview() {
-    TodoTheme(color = "Red") {
-        ThemeSelectionDropdown(UserViewModel())
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun OrangeThemeSelectionDropdownPreview() {
-    TodoTheme(color = "Orange") {
-        ThemeSelectionDropdown(UserViewModel())
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PinkThemeSelectionDropdownPreview() {
-    TodoTheme(color = "Pink") {
-        ThemeSelectionDropdown(UserViewModel())
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PurpleThemeSelectionDropdownPreview() {
-    TodoTheme(color = "Purple") {
-        ThemeSelectionDropdown(UserViewModel())
     }
 }

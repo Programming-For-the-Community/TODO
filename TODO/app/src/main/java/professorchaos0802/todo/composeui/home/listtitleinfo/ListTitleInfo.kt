@@ -1,4 +1,4 @@
-package professorchaos0802.todo.composeui.home
+package professorchaos0802.todo.composeui.home.listtitleinfo
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme

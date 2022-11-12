@@ -1,4 +1,4 @@
-package professorchaos0802.todo.composeui.home
+package professorchaos0802.todo.composeui.home.listitempreview
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -13,12 +13,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.firebase.Timestamp
 import professorchaos0802.todo.objects.Item
 import professorchaos0802.todo.objects.MyList
-import professorchaos0802.todo.theme.TodoTheme
 
 /**
  * Displays a preview of the given [MyList] items
@@ -111,107 +108,5 @@ fun ListItemPreview(list: MyList) {
                 .fillMaxWidth()
             )
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun BlueListItemPreviewPreview() {
-    val list = MyList("JDoe", "List 1")
-    list.created = Timestamp.now()
-    for (i in 1..10) {
-        list.items.add(Item("JDoe", "Todo $i", false))
-    }
-    list.items[0].isDone = true
-
-    TodoTheme(
-        color = "Blue"
-    ) {
-        ListItemPreview(list)
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreenListItemPreviewPreview() {
-    val list = MyList("JDoe", "List 1")
-    list.created = Timestamp.now()
-    for (i in 1..10) {
-        list.items.add(Item("JDoe", "Todo $i", false))
-    }
-    list.items[0].isDone = true
-
-    TodoTheme(
-        color = "Green"
-    ) {
-        ListItemPreview(list)
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun RedListItemPreviewPreview() {
-    val list = MyList("JDoe", "List 1")
-    list.created = Timestamp.now()
-    for (i in 1..10) {
-        list.items.add(Item("JDoe", "Todo $i", false))
-    }
-    list.items[0].isDone = true
-
-    TodoTheme(
-        color = "Red"
-    ) {
-        ListItemPreview(list)
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun OrangeListItemPreviewPreview() {
-    val list = MyList("JDoe", "List 1")
-    list.created = Timestamp.now()
-    for (i in 1..10) {
-        list.items.add(Item("JDoe", "Todo $i", false))
-    }
-    list.items[0].isDone = true
-
-    TodoTheme(
-        color = "Orange"
-    ) {
-        ListItemPreview(list)
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PinkListItemPreviewPreview() {
-    val list = MyList("JDoe", "List 1")
-    list.created = Timestamp.now()
-    for (i in 1..10) {
-        list.items.add(Item("JDoe", "Todo $i", false))
-    }
-    list.items[0].isDone = true
-
-    TodoTheme(
-        color = "Pink"
-    ) {
-        ListItemPreview(list)
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PurpleListItemPreviewPreview() {
-    val list = MyList("JDoe", "List 1")
-    list.created = Timestamp.now()
-    for (i in 1..10) {
-        list.items.add(Item("JDoe", "Todo $i", false))
-    }
-    list.items[0].isDone = true
-
-    TodoTheme(
-        color = "Purple"
-    ) {
-        ListItemPreview(list)
     }
 }

@@ -1,4 +1,4 @@
-package professorchaos0802.todo.composeui.usercusotmization
+package professorchaos0802.todo.composeui.usercusotmization.usercustomizationscreen
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
@@ -7,13 +7,14 @@ import androidx.compose.material3.CardDefaults.cardColors
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
 import professorchaos0802.todo.composeui.repeatedcomponents.progressionbuttons.ProgressionButtons
+import professorchaos0802.todo.composeui.usercusotmization.ErrorSnackbar
+import professorchaos0802.todo.composeui.usercusotmization.themeselectiondropdown.ThemeSelectionDropdown
+import professorchaos0802.todo.composeui.usercusotmization.usercustomizationradiobutton.UserCustomizationRadioButton
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.objects.User
 import professorchaos0802.todo.theme.TodoTheme
@@ -35,7 +36,6 @@ fun UserCustomization(
 ) {
 
     val user = if (userModel.user == null) User() else userModel.user!!
-    val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -107,14 +107,4 @@ fun UserCustomization(
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun UserCustomizationPreview() {
-    UserCustomization(
-        UserViewModel(),
-        onNext = {},
-        onCancel = {}
-    )
 }
