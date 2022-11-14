@@ -20,6 +20,7 @@ import professorchaos0802.todo.objects.MyList
  */
 @Composable
 fun ListCardView(list: MyList, onClick: () -> Unit) {
+
     Box(
         modifier = Modifier
             .clickable { onClick() }

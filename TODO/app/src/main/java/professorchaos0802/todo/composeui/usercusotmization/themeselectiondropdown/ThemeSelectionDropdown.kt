@@ -1,6 +1,7 @@
 package professorchaos0802.todo.composeui.usercusotmization.themeselectiondropdown
 
 import android.annotation.SuppressLint
+import android.content.Context
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandVertically
 import androidx.compose.animation.shrinkVertically
@@ -19,8 +20,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import professorchaos0802.todo.Constants
 import professorchaos0802.todo.models.UserViewModel
 
 /**
@@ -84,6 +87,7 @@ fun ThemeSelectionDropdown(userModel: UserViewModel) {
         enter = expandVertically(),
         exit = shrinkVertically()
     ) {
+        val context = LocalContext.current
         Column(
             modifier = Modifier.fillMaxWidth()
         ) {
@@ -98,6 +102,8 @@ fun ThemeSelectionDropdown(userModel: UserViewModel) {
                     onClick = {
                         isExpanded = false
                         userModel.themeEvent.value = color
+                        val sharedPreferences = context.getSharedPreferences(Constants.THEME_KEY, Context.MODE_PRIVATE)
+                        sharedPreferences.edit().putString(Constants.THEME_KEY, userModel.userTheme.value).apply()
                     },
                     colors = MenuDefaults.itemColors(
                         textColor = MaterialTheme.colorScheme.onPrimaryContainer,

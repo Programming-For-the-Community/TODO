@@ -1,4 +1,4 @@
-package professorchaos0802.todo.composeui.repeatedcomponents
+package professorchaos0802.todo.composeui.repeatedcomponents.navdraweritem
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -20,12 +20,12 @@ fun NavDrawerItem(text: String, isCurrentView: Boolean, icon: ImageVector, onCli
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .clickable{ onClick() }
-            .height(32.dp)
+            .height(52.dp)
             .fillMaxWidth()
             .background(
                 color = if (isCurrentView) MaterialTheme.colorScheme.onSecondaryContainer else MaterialTheme.colorScheme.primaryContainer
             )
-            .padding(start = 10.dp)
+            .padding(start = 10.dp, top = 10.dp, bottom = 10.dp)
     ) {
         Icon(
             imageVector = icon,

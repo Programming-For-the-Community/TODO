@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
+import professorchaos0802.todo.composeui.repeatedcomponents.defaulttopnav.DefaultTopNav
 import professorchaos0802.todo.composeui.splash.splashscreencontent.SplashScreenContent
 import professorchaos0802.todo.theme.TodoTheme
 

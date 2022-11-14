@@ -1,5 +1,6 @@
 package professorchaos0802.todo.models
 
+import android.content.SharedPreferences
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,6 +9,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import professorchaos0802.todo.Constants
 import professorchaos0802.todo.objects.User
 
 class UserViewModel: ViewModel() {
@@ -31,7 +33,7 @@ class UserViewModel: ViewModel() {
     /**
      * If the current User exists in firestore, this method gets that user, otherwise it creates a new user
      */
-    fun getOrMakeUser(observer: () -> Unit) {
+    fun getOrMakeUser(sharedPreferences: SharedPreferences, observer: () -> Unit) {
         ref = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
 
         if(user != null){
@@ -52,6 +54,7 @@ class UserViewModel: ViewModel() {
                     imageEvent.value = user!!.img
                     ref!!.set(user!!)
                 }
+                sharedPreferences.edit().putString(Constants.THEME_KEY, userTheme.value).apply()
 
                 observer()
             }

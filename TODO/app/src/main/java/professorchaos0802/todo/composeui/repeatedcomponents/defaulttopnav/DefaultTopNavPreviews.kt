@@ -2,7 +2,6 @@ package professorchaos0802.todo.composeui.repeatedcomponents.defaulttopnav
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
 import professorchaos0802.todo.theme.TodoTheme
 
 @Preview(showBackground = true)

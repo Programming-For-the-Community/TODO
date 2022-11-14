@@ -1,4 +1,4 @@
-package professorchaos0802.todo.composeui.repeatedcomponents
+package professorchaos0802.todo.composeui.repeatedcomponents.navdrawer
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,8 +17,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
+import professorchaos0802.todo.composeui.repeatedcomponents.navdraweritem.NavDrawerItem
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews
 
@@ -30,7 +30,7 @@ import professorchaos0802.todo.navigation.TodoViews
 @Composable
 fun NavDrawer(
     userModel: UserViewModel = viewModel(),
-    navController: NavHostController,
+    currentRoute: String,
     onNavigateToHome:() -> Unit,
     onNavigateToProfile:() -> Unit
 ) {
@@ -38,7 +38,7 @@ fun NavDrawer(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top,
         modifier = Modifier
-            .requiredWidth(200.dp)
+            .requiredWidth(300.dp)
             .fillMaxHeight()
             .background(
                 color = MaterialTheme.colorScheme.primaryContainer
@@ -85,14 +85,14 @@ fun NavDrawer(
 
         NavDrawerItem(
             text = "HOME",
-            isCurrentView = navController.currentDestination?.route == TodoViews.Home.route,
+            isCurrentView = currentRoute == TodoViews.Home.route,
             icon = Icons.Filled.Home,
             onClick = onNavigateToHome
         )
 
         NavDrawerItem(
             text = "Profile",
-            isCurrentView = navController.currentDestination?.route == TodoViews.Profile.route,
+            isCurrentView = currentRoute == TodoViews.Profile.route,
             icon = Icons.Filled.Person,
             onClick = onNavigateToProfile
         )

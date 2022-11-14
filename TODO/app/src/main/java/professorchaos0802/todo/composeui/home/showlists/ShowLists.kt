@@ -40,7 +40,11 @@ fun ShowLists(listViewModel: ListViewModel, username: String, onClick:() -> Unit
 
                 ListCardView(
                     list = list,
-                    onClick = onClick
+                    onClick = {
+                        listViewModel.addCurrentListListener(list)
+                        listViewModel.addItemListener(list)
+                        onClick()
+                    }
                 )
             }
         }

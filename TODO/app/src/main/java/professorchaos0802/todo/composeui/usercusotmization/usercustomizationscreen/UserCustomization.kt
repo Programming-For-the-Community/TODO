@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
-import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
+import professorchaos0802.todo.composeui.repeatedcomponents.defaulttopnav.DefaultTopNav
 import professorchaos0802.todo.composeui.repeatedcomponents.progressionbuttons.ProgressionButtons
 import professorchaos0802.todo.composeui.usercusotmization.ErrorSnackbar
 import professorchaos0802.todo.composeui.usercusotmization.themeselectiondropdown.ThemeSelectionDropdown

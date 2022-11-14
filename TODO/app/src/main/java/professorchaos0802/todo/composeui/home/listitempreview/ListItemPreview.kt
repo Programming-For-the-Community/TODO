@@ -46,6 +46,7 @@ fun ListItemPreview(list: MyList) {
             Row(
                 horizontalArrangement = Arrangement.Start,
                 verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.padding(start = 10.dp, top = 15.dp, bottom = 15.dp)
             ) {
                 Text(
                     text = "This list is empty",

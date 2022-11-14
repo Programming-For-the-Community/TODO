@@ -2,6 +2,7 @@ package professorchaos0802.todo
 
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -23,8 +24,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import professorchaos0802.todo.composeui.home.HomeScreenView
-import professorchaos0802.todo.composeui.list.ListScreenView
+import professorchaos0802.todo.composeui.home.homescreen.HomeScreenView
+import professorchaos0802.todo.composeui.list.listscreen.ListScreenView
 import professorchaos0802.todo.composeui.profile.ProfileScreenView
 import professorchaos0802.todo.composeui.profileimage.profileimagescreen.ProfileImage
 import professorchaos0802.todo.composeui.splash.splashscreen.SplashScreenView
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavHostController
     private lateinit var authListener: FirebaseAuth.AuthStateListener
+    private lateinit var sharedPreferences: SharedPreferences
 
     private val listViewModel: ListViewModel by viewModels()
     private val userModel: UserViewModel by viewModels()
@@ -51,6 +53,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         Firebase.auth.addAuthStateListener(authListener)
+        sharedPreferences = getSharedPreferences(Constants.THEME_KEY, MODE_PRIVATE)
     }
 
     override fun onStop() {
@@ -58,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         Firebase.auth.removeAuthStateListener(authListener)
 
         // Make sure there are no Firebase listeners remaining when the app stops
-        listViewModel.subscriptions.forEach{ entry ->
+        listViewModel.subscriptions.forEach { entry ->
             listViewModel.removeListener(entry.key)
         }
     }
@@ -66,16 +69,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (!hasPermissions()) {
-            askForPermissions()
-        }
-
         initializeAuthListener()
         setupObservers()
 
         setContent {
             TodoTheme(
-                color = if(userModel.user == null) "Blue" else userModel.user!!.theme
+                color = sharedPreferences.getString(Constants.THEME_KEY, "")!!
             ) {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     navController = rememberNavController()
@@ -86,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
                         composable(route = TodoViews.Splash.route) {
                             SplashScreenView(
-                                themeColor = userModel.userTheme.value
+                                themeColor = sharedPreferences.getString(Constants.THEME_KEY, "")!!
                             )
                         }
 
@@ -111,6 +110,10 @@ class MainActivity : AppCompatActivity() {
                                     userModel.user = null
                                 },
                             )
+
+                            if (!hasPermissions()) {
+                                askForPermissions()
+                            }
                         }
 
                         composable(route = TodoViews.Customization.route) {
@@ -163,21 +166,21 @@ class MainActivity : AppCompatActivity() {
                             HomeScreenView(
                                 userViewModel = userModel,
                                 listViewModel = listViewModel,
-                                navController = navController,
                                 onNavigateToList = { navController.navigate(TodoViews.List.route) },
                                 onNavigateToHome = {}, // Do nothing since we are already on the home screen
                                 onNavigateToProfile = { navController.navigate(TodoViews.Profile.route) }
                             )
                         }
 
-                        composable(route = TodoViews.List.route){
+                        composable(route = TodoViews.List.route) {
                             ListScreenView(
                                 userModel = userModel,
-                                listModel = listViewModel
+                                listModel = listViewModel,
+                                onBackClick = { navController.navigate(TodoViews.Home.route) }
                             )
                         }
 
-                        composable(route = TodoViews.Profile.route){
+                        composable(route = TodoViews.Profile.route) {
                             ProfileScreenView(
                                 userModel = userModel
                             )
@@ -205,16 +208,23 @@ class MainActivity : AppCompatActivity() {
             userModel.userImage.value = newImage
         }
 
-        listViewModel.myLists.observe(this){ allLists ->
+        listViewModel.myLists.observe(this) { allLists ->
             listViewModel.lists.value = allLists
         }
 
-        listViewModel.currList.observe(this){ list ->
+        listViewModel.currList.observe(this) { list ->
             listViewModel.currentList.value = list
+            if (list != null) {
+                listViewModel.currentListTitleEvent.value = list.title
+            }
         }
 
-        listViewModel.currItems.observe(this){ allItems ->
+        listViewModel.currItems.observe(this) { allItems ->
             listViewModel.currentItems.value = allItems
+        }
+
+        listViewModel.currListTitle.observe(this){ title ->
+            listViewModel.currentListTitle.value = title
         }
 
 //        listViewModel.deleteLists.observe(this){
@@ -229,7 +239,7 @@ class MainActivity : AppCompatActivity() {
             if (user == null) {
                 setupAuthUI()
             } else {
-                userModel.getOrMakeUser {
+                userModel.getOrMakeUser(sharedPreferences) {
                     if (userModel.hasCompletedSetup()) {
                         val id = navController.currentDestination!!.route
 
@@ -244,13 +254,13 @@ class MainActivity : AppCompatActivity() {
                             navController.navigate(TodoViews.Home.route)
                         }
                     } else {
-                        if(!userModel.selectingImage){
+                        if (!userModel.selectingImage) {
                             Log.d(
                                 Constants.SETUP,
                                 "Navigating to UserName Setup: ${TodoViews.UserNameSetup.route}"
                             )
                             navController.navigate(TodoViews.UserNameSetup.route)
-                        }else{
+                        } else {
                             userModel.selectingImage = false
                             Log.d(
                                 Constants.SETUP,
@@ -344,8 +354,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private val activityResultLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()){ permissions ->
-            permissions.entries.forEach{
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            permissions.entries.forEach {
                 val permissionName = it.key
                 val isGranted = it.value
                 if (isGranted) {

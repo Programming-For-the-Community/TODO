@@ -5,7 +5,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import professorchaos0802.todo.composeui.repeatedcomponents.NavDrawerItem
 import professorchaos0802.todo.theme.TodoTheme
 
 @Preview(showBackground = true)

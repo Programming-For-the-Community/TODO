@@ -7,7 +7,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
-import professorchaos0802.todo.composeui.repeatedcomponents.DefaultTopNav
+import professorchaos0802.todo.composeui.repeatedcomponents.defaulttopnav.DefaultTopNav
 import professorchaos0802.todo.composeui.usernamesetup.usernamesetupcontent.UserNameSetupContent
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.theme.TodoTheme

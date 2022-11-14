@@ -18,19 +18,21 @@ import professorchaos0802.todo.models.UserViewModel
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeTopNav(userModel: UserViewModel, onClick:() -> Unit){
+fun HomeTopNav(userModel: UserViewModel, onClick: () -> Unit) {
     TopAppBar(
-        title = { Text(
-            text = userModel.userName.value,
-            style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.onPrimary
-        ) },
+        title = {
+            Text(
+                text = userModel.userName.value,
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.onPrimary
+            )
+        },
         colors = TopAppBarDefaults.smallTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary
         ),
         navigationIcon = {
-            IconButton(onClick = onClick){
-                if(userModel.userImage.value == ""){
+            IconButton(onClick = onClick) {
+                if (userModel.userImage.value == "") {
                     Icon(
                         Icons.Filled.Person,
                         contentDescription = "Default User Icon",
@@ -39,7 +41,7 @@ fun HomeTopNav(userModel: UserViewModel, onClick:() -> Unit){
                             .size(50.dp)
                             .clip(CircleShape)
                     )
-                }else {
+                } else {
                     Image(
                         painter = rememberAsyncImagePainter(userModel.userImage.value),
                         contentDescription = "User Profile Image",
@@ -48,7 +50,7 @@ fun HomeTopNav(userModel: UserViewModel, onClick:() -> Unit){
                             .clip(CircleShape)
                     )
                 }
-            }             
+            }
         },
         actions = {},
         modifier = Modifier
