@@ -97,12 +97,11 @@ fun HomeScreenView(
                         HomeScreenFab(
                             icon = ImageVector.vectorResource(R.drawable.ic_baseline_edit_note_24),
                             onFabClick = {
-                                listViewModel.addNewList(
-                                    MyList(
-                                        owner = userViewModel.userName.value,
-                                        title = "Title"
-                                    )
+                                val newList = MyList(
+                                    owner = userViewModel.userName.value,
+                                    title = "Title"
                                 )
+                                listViewModel.addNewList(newList)
                                 onNavigateToList()
                             }
                         )

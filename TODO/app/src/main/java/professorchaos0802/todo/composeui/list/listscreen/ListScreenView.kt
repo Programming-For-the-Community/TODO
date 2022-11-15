@@ -5,7 +5,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
-import professorchaos0802.todo.composeui.list.listcanedit.listcaneditscreen.ListCanEdit
+import professorchaos0802.todo.composeui.list.listcontent.listcontentscreen.ListCanEdit
 import professorchaos0802.todo.composeui.list.listtopnav.ListTopNav
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel

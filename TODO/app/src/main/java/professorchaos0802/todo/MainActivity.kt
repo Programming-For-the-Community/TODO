@@ -166,9 +166,15 @@ class MainActivity : AppCompatActivity() {
                             HomeScreenView(
                                 userViewModel = userModel,
                                 listViewModel = listViewModel,
-                                onNavigateToList = { navController.navigate(TodoViews.List.route) },
+                                onNavigateToList = {
+                                    listViewModel.removeListener(Constants.listListenerId)
+                                    navController.navigate(TodoViews.List.route)
+                                },
                                 onNavigateToHome = {}, // Do nothing since we are already on the home screen
-                                onNavigateToProfile = { navController.navigate(TodoViews.Profile.route) }
+                                onNavigateToProfile = {
+                                    listViewModel.removeListener(Constants.listListenerId)
+                                    navController.navigate(TodoViews.Profile.route)
+                                }
                             )
                         }
 
@@ -176,7 +182,11 @@ class MainActivity : AppCompatActivity() {
                             ListScreenView(
                                 userModel = userModel,
                                 listModel = listViewModel,
-                                onBackClick = { navController.navigate(TodoViews.Home.route) }
+                                onBackClick = {
+                                    listViewModel.currentListEvent.value = null
+                                    listViewModel.currentListTitleEvent.value = ""
+                                    navController.navigate(TodoViews.Home.route)
+                                }
                             )
                         }
 

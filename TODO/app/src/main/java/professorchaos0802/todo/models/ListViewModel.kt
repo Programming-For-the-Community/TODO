@@ -19,7 +19,7 @@ class ListViewModel: ViewModel() {
 
     var subscriptions = HashMap<String, ListenerRegistration>()
 
-    private val listEvent: MutableLiveData<List<MyList>> = MutableLiveData<List<MyList>>()
+    val listEvent: MutableLiveData<List<MyList>> = MutableLiveData<List<MyList>>()
     val myLists: LiveData<List<MyList>> = listEvent
     var lists = mutableStateOf(listOf<MyList>())
 
@@ -46,8 +46,13 @@ class ListViewModel: ViewModel() {
      * Add a new list to the local list and to the database
      */
     fun addNewList(list: MyList){
-        currentListEvent.value = list
         listRef.add(list)
+            .addOnSuccessListener {
+                val task = it.get()
+                task.addOnSuccessListener { newList ->
+                    addCurrentListListener(MyList.from(newList))
+                }
+            }
     }
 
     /**
