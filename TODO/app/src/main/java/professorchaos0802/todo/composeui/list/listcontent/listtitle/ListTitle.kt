@@ -9,6 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -19,7 +20,11 @@ import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import professorchaos0802.todo.models.ListViewModel
+import professorchaos0802.todo.utilities.FirebaseUtility
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -27,6 +32,7 @@ fun ListTitle(model: ListViewModel, readOnly: Boolean){
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusRequester = remember { FocusRequester() }
     val focusManager = LocalFocusManager.current
+    val scope = rememberCoroutineScope()
 
     TextField(
         value = model.currentListTitle.value,
@@ -56,7 +62,16 @@ fun ListTitle(model: ListViewModel, readOnly: Boolean){
             onDone = {
                 focusManager.clearFocus()
                 keyboardController?.hide()
-                model.updateCurrentList()
+
+                // Update the current List on the Dispatchers.IO thread
+                scope.launch{
+                    withContext(Dispatchers.IO){
+                        FirebaseUtility.updateCurrentList(
+                            currentList = model.currentList.value!!,
+                            currentTitle = model.currentListTitle.value
+                        )
+                    }
+                }
             }
         ),
         colors = TextFieldDefaults.textFieldColors(
@@ -70,11 +85,20 @@ fun ListTitle(model: ListViewModel, readOnly: Boolean){
             .focusRequester(focusRequester)
             .fillMaxWidth()
             .onKeyEvent { event ->
-                if(event.key == Key.Enter){
+                if (event.key == Key.Enter) {
                     focusManager.clearFocus()
                     keyboardController?.hide()
                     model.currentListTitleEvent.value = model.currentListTitle.value.dropLast(1)
-                    model.updateCurrentList()
+
+                    // Update the current List on the Dispatchers.IO thread
+                    scope.launch{
+                        withContext(Dispatchers.IO){
+                            FirebaseUtility.updateCurrentList(
+                                currentList = model.currentList.value!!,
+                                currentTitle = model.currentListTitle.value
+                            )
+                        }
+                    }
                 }
 
                 false

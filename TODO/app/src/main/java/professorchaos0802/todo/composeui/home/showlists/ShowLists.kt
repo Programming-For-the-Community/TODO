@@ -6,11 +6,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import professorchaos0802.todo.composeui.home.listcardview.ListCardView
 import professorchaos0802.todo.models.ListViewModel
+import professorchaos0802.todo.utilities.FirebaseUtility
 
 /**
  * Shows a preview of all the lists available to the user in [HomeScreenView]
@@ -20,6 +25,8 @@ import professorchaos0802.todo.models.ListViewModel
  */
 @Composable
 fun ShowLists(listViewModel: ListViewModel, username: String, onClick:() -> Unit){
+    val scope = rememberCoroutineScope()
+
     LazyColumn(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(10.dp),
@@ -41,8 +48,12 @@ fun ShowLists(listViewModel: ListViewModel, username: String, onClick:() -> Unit
                 ListCardView(
                     list = list,
                     onClick = {
-                        listViewModel.addCurrentListListener(list)
-                        listViewModel.addItemListener(list)
+                        scope.launch{
+                            withContext(Dispatchers.IO){
+                                FirebaseUtility.addCurrentListListener(list, listViewModel.currentListEvent)
+                                FirebaseUtility.addItemListener(list, listViewModel.itemEvent)
+                            }
+                        }
                         onClick()
                     }
                 )

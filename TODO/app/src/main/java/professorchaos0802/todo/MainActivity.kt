@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -24,6 +25,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import professorchaos0802.todo.composeui.home.homescreen.HomeScreenView
 import professorchaos0802.todo.composeui.list.listscreen.ListScreenView
 import professorchaos0802.todo.composeui.profile.ProfileScreenView
@@ -35,6 +39,7 @@ import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews
 import professorchaos0802.todo.theme.TodoTheme
+import professorchaos0802.todo.utilities.FirebaseUtility
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -56,13 +61,21 @@ class MainActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences(Constants.THEME_KEY, MODE_PRIVATE)
     }
 
+    /**
+     * Removes all Firebase listeners when the app is stopped
+     */
     override fun onStop() {
         super.onStop()
         Firebase.auth.removeAuthStateListener(authListener)
 
-        // Make sure there are no Firebase listeners remaining when the app stops
-        listViewModel.subscriptions.forEach { entry ->
-            listViewModel.removeListener(entry.key)
+        // Make sure there are no Firebase listeners remaining when the app stops using the
+        // Dispatchers.IO thread
+        lifecycleScope.launch {
+            withContext(Dispatchers.IO) {
+                FirebaseUtility.subscriptions.forEach { entry ->
+                    FirebaseUtility.removeListener(entry.key)
+                }
+            }
         }
     }
 
@@ -93,7 +106,12 @@ class MainActivity : AppCompatActivity() {
                             UserNameSetupScreenView(
                                 userModel = userModel,
                                 onNext = {
-                                    userModel.updateName()
+                                    // Update the user's name to Firebase on the Dispatcher.IO thread
+                                    lifecycleScope.launch {
+                                        withContext(Dispatchers.IO) {
+                                            FirebaseUtility.updateName(userModel)
+                                        }
+                                    }
                                     Log.d(
                                         Constants.SETUP,
                                         "Navigating to CustomizationView: ${TodoViews.Customization.route}"
@@ -120,7 +138,13 @@ class MainActivity : AppCompatActivity() {
                             UserCustomization(
                                 userModel = userModel,
                                 onNext = {
-                                    userModel.update()
+                                    // Update the user in Firebase on the Dispatchers.IO thread
+                                    lifecycleScope.launch {
+                                        withContext(Dispatchers.IO) {
+                                            FirebaseUtility.updateUser(userModel)
+                                        }
+                                    }
+
                                     Log.d(
                                         Constants.SETUP,
                                         "Navigating to ProfileImageView: ${TodoViews.ProfileImage.route}"
@@ -141,11 +165,29 @@ class MainActivity : AppCompatActivity() {
                                 userModel = userModel,
                                 onNext = {
                                     userModel.user!!.hasCompletedSetup = true
-                                    userModel.update()
+
+                                    // Update the user in Firebase on the Dispatchers.IO thread
+                                    lifecycleScope.launch {
+                                        withContext(Dispatchers.IO) {
+                                            FirebaseUtility.updateUser(userModel)
+                                        }
+                                    }
+
                                     Log.d(
                                         Constants.SETUP,
                                         "Navigating to HomeView: ${TodoViews.Home.route}"
                                     )
+
+                                    // Add Firebase List listener in Dispatchers.IO thread
+                                    lifecycleScope.launch {
+                                        withContext(Dispatchers.IO) {
+                                            FirebaseUtility.addListListener(
+                                                Constants.listListenerId,
+                                                listViewModel.listEvent
+                                            )
+                                        }
+                                    }
+
                                     navController.navigate(TodoViews.Home.route)
                                 },
                                 onCancel = {
@@ -162,17 +204,29 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         composable(route = TodoViews.Home.route) {
-                            listViewModel.addListListener(Constants.listListenerId)
                             HomeScreenView(
                                 userViewModel = userModel,
                                 listViewModel = listViewModel,
                                 onNavigateToList = {
-                                    listViewModel.removeListener(Constants.listListenerId)
+
+                                    lifecycleScope.launch {
+                                        withContext(Dispatchers.IO) {
+                                            FirebaseUtility.removeListener(Constants.listListenerId)
+                                        }
+                                    }
+
                                     navController.navigate(TodoViews.List.route)
                                 },
                                 onNavigateToHome = {}, // Do nothing since we are already on the home screen
                                 onNavigateToProfile = {
-                                    listViewModel.removeListener(Constants.listListenerId)
+
+                                    // Remove the Firebase listeners for all lists on the Dispatchers.IO thread
+                                    lifecycleScope.launch {
+                                        withContext(Dispatchers.IO) {
+                                            FirebaseUtility.removeListener(Constants.listListenerId)
+                                        }
+                                    }
+
                                     navController.navigate(TodoViews.Profile.route)
                                 }
                             )
@@ -183,8 +237,6 @@ class MainActivity : AppCompatActivity() {
                                 userModel = userModel,
                                 listModel = listViewModel,
                                 onBackClick = {
-                                    listViewModel.currentListEvent.value = null
-                                    listViewModel.currentListTitleEvent.value = ""
                                     navController.navigate(TodoViews.Home.route)
                                 }
                             )
@@ -233,7 +285,7 @@ class MainActivity : AppCompatActivity() {
             listViewModel.currentItems.value = allItems
         }
 
-        listViewModel.currListTitle.observe(this){ title ->
+        listViewModel.currListTitle.observe(this) { title ->
             listViewModel.currentListTitle.value = title
         }
 
@@ -242,6 +294,9 @@ class MainActivity : AppCompatActivity() {
 //        }
     }
 
+    /**
+     * Initializes the AuthListener for a new or current user
+     */
     private fun initializeAuthListener() {
         authListener = FirebaseAuth.AuthStateListener { auth: FirebaseAuth ->
             val user = auth.currentUser
@@ -249,34 +304,50 @@ class MainActivity : AppCompatActivity() {
             if (user == null) {
                 setupAuthUI()
             } else {
-                userModel.getOrMakeUser(sharedPreferences) {
-                    if (userModel.hasCompletedSetup()) {
-                        val id = navController.currentDestination!!.route
+                /*
+                    Check for the existence of a user, and if there isn't one logged in, create a
+                    new user
+                 */
+                lifecycleScope.launch {
+                    withContext(Dispatchers.IO) {
+                        FirebaseUtility.getOrMakeUser(sharedPreferences, userModel) {
+                            if (userModel.hasCompletedSetup()) {
+                                val id = navController.currentDestination!!.route
 
-                        Log.d(Constants.SETUP, "Authenticating")
+                                Log.d(Constants.SETUP, "Authenticating")
 
-                        // If not of the Firebase provided AuthUI Screen go to the home screen
-                        if (id == TodoViews.Splash.route) {
-                            Log.d(
-                                Constants.SETUP,
-                                "Navigating to Home Page: ${TodoViews.Home.route}"
-                            )
-                            navController.navigate(TodoViews.Home.route)
-                        }
-                    } else {
-                        if (!userModel.selectingImage) {
-                            Log.d(
-                                Constants.SETUP,
-                                "Navigating to UserName Setup: ${TodoViews.UserNameSetup.route}"
-                            )
-                            navController.navigate(TodoViews.UserNameSetup.route)
-                        } else {
-                            userModel.selectingImage = false
-                            Log.d(
-                                Constants.SETUP,
-                                "Navigating to ProfileImage: ${TodoViews.ProfileImage.route}"
-                            )
-                            navController.navigate(TodoViews.ProfileImage.route)
+                                // If not of the Firebase provided AuthUI Screen go to the home screen
+                                if (id == TodoViews.Splash.route) {
+
+                                    // Add Firebase List listener
+                                    FirebaseUtility.addListListener(
+                                        Constants.listListenerId,
+                                        listViewModel.listEvent
+                                    )
+
+
+                                    Log.d(
+                                        Constants.SETUP,
+                                        "Navigating to Home Page: ${TodoViews.Home.route}"
+                                    )
+                                    navController.navigate(TodoViews.Home.route)
+                                }
+                            } else {
+                                if (!userModel.selectingImage) {
+                                    Log.d(
+                                        Constants.SETUP,
+                                        "Navigating to UserName Setup: ${TodoViews.UserNameSetup.route}"
+                                    )
+                                    navController.navigate(TodoViews.UserNameSetup.route)
+                                } else {
+                                    userModel.selectingImage = false
+                                    Log.d(
+                                        Constants.SETUP,
+                                        "Navigating to ProfileImage: ${TodoViews.ProfileImage.route}"
+                                    )
+                                    navController.navigate(TodoViews.ProfileImage.route)
+                                }
+                            }
                         }
                     }
                 }
@@ -284,6 +355,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Initializes and launches the Firebase AuthUI
+     */
     private fun setupAuthUI() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.GoogleBuilder().build(),
@@ -336,7 +410,14 @@ class MainActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     userModel.imageEvent.value = task.result.toString()
-                    userModel.update()
+
+                    // Update the user in Firebase on the Dispatchers.IO thread
+                    lifecycleScope.launch{
+                        withContext(Dispatchers.IO){
+                            FirebaseUtility.updateUser(userModel)
+                        }
+                    }
+
                     Log.d(Constants.SETUP, "Got download uri: ${userModel.userImage}")
                 } else {
                     Log.d(Constants.SETUP, "Failed to retrieve download uri")
@@ -345,12 +426,20 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Check if which requested permissions have been granted
+     *
+     * @return Boolean - indicates if all permissions have been granted
+     */
     private fun hasPermissions(): Boolean {
         return checkSelfPermission(READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED && checkSelfPermission(
             WRITE_EXTERNAL_STORAGE
         ) == PackageManager.PERMISSION_GRANTED
     }
 
+    /**
+     * Asks for permissions needed for the app
+     */
     private fun askForPermissions() {
         activityResultLauncher.launch(
             arrayOf(READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE)

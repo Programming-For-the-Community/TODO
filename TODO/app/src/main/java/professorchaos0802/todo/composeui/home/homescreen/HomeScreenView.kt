@@ -14,7 +14,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import professorchaos0802.todo.Constants
 import professorchaos0802.todo.R
 import professorchaos0802.todo.composeui.home.homescreenfab.HomeScreenFab
@@ -27,6 +29,7 @@ import professorchaos0802.todo.navigation.TodoViews
 import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.objects.User
 import professorchaos0802.todo.theme.TodoTheme
+import professorchaos0802.todo.utilities.FirebaseUtility
 
 /**
  * Show the home screen of the app, displaying a preview of all the lists that the logged-in [User]
@@ -101,7 +104,14 @@ fun HomeScreenView(
                                     owner = userViewModel.userName.value,
                                     title = "Title"
                                 )
-                                listViewModel.addNewList(newList)
+
+                                // Add new list to Firebase on the Dispatchers.IO thread
+                                scope.launch{
+                                    withContext(Dispatchers.IO){
+                                        FirebaseUtility.addNewList(newList, listViewModel.currentListEvent)
+                                    }
+                                }
+
                                 onNavigateToList()
                             }
                         )
