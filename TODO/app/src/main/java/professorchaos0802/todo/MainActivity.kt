@@ -35,6 +35,7 @@ import professorchaos0802.todo.composeui.profileimage.profileimagescreen.Profile
 import professorchaos0802.todo.composeui.splash.splashscreen.SplashScreenView
 import professorchaos0802.todo.composeui.usercusotmization.usercustomizationscreen.UserCustomization
 import professorchaos0802.todo.composeui.usernamesetup.usernamesetupscreen.UserNameSetupScreenView
+import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 
     private val listViewModel: ListViewModel by viewModels()
     private val userModel: UserViewModel by viewModels()
+    private val itemViewModel: ItemViewModel by viewModels()
 
     private val signinLauncher = registerForActivityResult(
         FirebaseAuthUIActivityResultContract()
@@ -166,10 +168,12 @@ class MainActivity : AppCompatActivity() {
                                 onNext = {
                                     userModel.user!!.hasCompletedSetup = true
 
-                                    // Update the user in Firebase on the Dispatchers.IO thread
+                                    // Update the user and add listeners in Firebase on the Dispatchers.IO thread
                                     lifecycleScope.launch {
                                         withContext(Dispatchers.IO) {
                                             FirebaseUtility.updateUser(userModel)
+                                            FirebaseUtility.addListListener(listViewModel.listEvent)
+                                            FirebaseUtility.addItemListener(itemViewModel.itemEvent)
                                         }
                                     }
 
@@ -177,16 +181,6 @@ class MainActivity : AppCompatActivity() {
                                         Constants.SETUP,
                                         "Navigating to HomeView: ${TodoViews.Home.route}"
                                     )
-
-                                    // Add Firebase List listener in Dispatchers.IO thread
-                                    lifecycleScope.launch {
-                                        withContext(Dispatchers.IO) {
-                                            FirebaseUtility.addListListener(
-                                                Constants.listListenerId,
-                                                listViewModel.listEvent
-                                            )
-                                        }
-                                    }
 
                                     navController.navigate(TodoViews.Home.route)
                                 },
@@ -207,6 +201,7 @@ class MainActivity : AppCompatActivity() {
                             HomeScreenView(
                                 userViewModel = userModel,
                                 listViewModel = listViewModel,
+                                itemViewModel = itemViewModel,
                                 onNavigateToList = {
 
                                     lifecycleScope.launch {
@@ -289,6 +284,10 @@ class MainActivity : AppCompatActivity() {
             listViewModel.currentListTitle.value = title
         }
 
+        itemViewModel.myItems.observe(this){ allItems ->
+            itemViewModel.items.value = allItems
+        }
+
 //        listViewModel.deleteLists.observe(this){
 //            listViewModel.hasListsToDelete.value = it
 //        }
@@ -320,11 +319,9 @@ class MainActivity : AppCompatActivity() {
                                 if (id == TodoViews.Splash.route) {
 
                                     // Add Firebase List listener
-                                    FirebaseUtility.addListListener(
-                                        Constants.listListenerId,
-                                        listViewModel.listEvent
-                                    )
+                                    FirebaseUtility.addListListener(listViewModel.listEvent)
 
+                                    FirebaseUtility.addItemListener(itemViewModel.itemEvent)
 
                                     Log.d(
                                         Constants.SETUP,

@@ -9,9 +9,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import professorchaos0802.todo.Constants
 import professorchaos0802.todo.composeui.list.listcontent.listcontentscreen.ListCanEdit
 import professorchaos0802.todo.composeui.list.listtopnav.ListTopNav
+import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.theme.TodoTheme
@@ -23,6 +23,7 @@ import professorchaos0802.todo.utilities.FirebaseUtility
 fun ListScreenView(
     userModel: UserViewModel = viewModel(),
     listModel: ListViewModel = viewModel(),
+    itemModel: ItemViewModel = viewModel(),
     onBackClick: () -> Unit
 ) {
     val scope = rememberCoroutineScope()
@@ -40,10 +41,8 @@ fun ListScreenView(
                                     currentTitle = listModel.currentListTitle.value
                                 )
 
-                                FirebaseUtility.addListListener(
-                                    Constants.listListenerId,
-                                    listModel.listEvent
-                                )
+                                FirebaseUtility.addListListener(listModel.listEvent)
+                                FirebaseUtility.addItemListener(itemModel.itemEvent)
 
                                 listModel.currentList.value?.let { FirebaseUtility.removeListener(it.id) }
                             }

@@ -23,6 +23,7 @@ import professorchaos0802.todo.composeui.home.homescreenfab.HomeScreenFab
 import professorchaos0802.todo.composeui.home.hometopnav.HomeTopNav
 import professorchaos0802.todo.composeui.home.showlists.ShowLists
 import professorchaos0802.todo.composeui.repeatedcomponents.navdrawer.NavDrawer
+import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.navigation.TodoViews
@@ -47,6 +48,7 @@ import professorchaos0802.todo.utilities.FirebaseUtility
 fun HomeScreenView(
     userViewModel: UserViewModel = viewModel(),
     listViewModel: ListViewModel = viewModel(),
+    itemViewModel: ItemViewModel = viewModel(),
     onNavigateToList:() -> Unit,
     onNavigateToHome:() -> Unit,
     onNavigateToProfile:() -> Unit
@@ -80,7 +82,7 @@ fun HomeScreenView(
                 } }
 
             ) {
-                ShowLists(listViewModel, userViewModel.userName.value, onNavigateToList)
+                ShowLists(listViewModel, itemViewModel, userViewModel.userName.value, onNavigateToList)
 
                 Column(
                     verticalArrangement = Arrangement.Bottom,

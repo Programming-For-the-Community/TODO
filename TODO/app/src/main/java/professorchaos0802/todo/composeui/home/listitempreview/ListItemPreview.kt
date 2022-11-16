@@ -8,9 +8,6 @@ import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -23,12 +20,12 @@ import professorchaos0802.todo.objects.MyList
  * @params list - [MyList]: List whose items to preview
  */
 @Composable
-fun ListItemPreview(list: MyList) {
+fun ListItemPreview(items: List<Item>) {
 
-    val itemsToPreview: List<Item> = if (list.items.size <= 5) {
-        list.items
+    val itemsToPreview: List<Item> = if (items.size <= 5) {
+        items
     } else {
-        list.items.subList(0, 5)
+        items.subList(0, 5)
     }
 
     if (itemsToPreview.isEmpty()) {
@@ -78,10 +75,9 @@ fun ListItemPreview(list: MyList) {
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.padding(start = 15.dp)
                 ) {
-                    val isChecked by remember {mutableStateOf(item.isDone)}
 
                     Checkbox(
-                        checked = isChecked,
+                        checked = item.isDone,
                         onCheckedChange = {},
                         enabled = false,
                         colors = CheckboxDefaults.colors(

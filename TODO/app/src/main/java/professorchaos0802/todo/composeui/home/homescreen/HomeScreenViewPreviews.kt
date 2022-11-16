@@ -3,6 +3,7 @@ package professorchaos0802.todo.composeui.home.homescreen
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.firebase.Timestamp
+import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.objects.Item
@@ -13,6 +14,8 @@ import professorchaos0802.todo.theme.TodoTheme
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenViewPreview() {
+    val item = ItemViewModel()
+    var itemsToAdd = mutableListOf<Item>()
     val user = UserViewModel()
     user.userName.value = "JDoe"
     user.user = User()
@@ -25,17 +28,19 @@ fun HomeScreenViewPreview() {
     myLists.add(MyList("JDoe", "List4"))
     myLists.forEach { list ->
         for(i in 1..5){
-            list.items.add(Item("JDoe", "Todo $i", false))
+            itemsToAdd.add(Item("JDoe", list.id,"Todo $i", false))
         }
         list.created = Timestamp.now()
     }
     model.lists.value = myLists
+    item.items.value = itemsToAdd
     TodoTheme(
         color = "Blue"
     ) {
         HomeScreenView(
             user,
             model,
+            item,
             {},
             {}
         ){}

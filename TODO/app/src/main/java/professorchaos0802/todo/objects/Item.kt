@@ -5,6 +5,7 @@ import com.google.firebase.firestore.Exclude
 
 class Item(
     var owner: String = "",
+    var listId: String = "",
     var text: String = "",
     var isDone: Boolean = false
 ) {
@@ -20,6 +21,7 @@ class Item(
          */
         fun from(snapshot: DocumentSnapshot): Item{
             val i = Item(snapshot.get("owner") as String,
+                snapshot.get("listId") as String,
                 snapshot.get("text") as String,
                 snapshot.get("isDone") as Boolean)
 

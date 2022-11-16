@@ -18,8 +18,9 @@ import professorchaos0802.todo.objects.User
  * interactions while the [ListViewModel] and [UserViewModel] hold all the data
  */
 object FirebaseUtility {
-    lateinit var userRef: DocumentReference
+    private lateinit var userRef: DocumentReference
     private val listRef = Firebase.firestore.collection(MyList.COLLECTION_PATH)
+    private val itemRef = Firebase.firestore.collection(Item.COLLECTION_PATH)
     lateinit var currentListRef: DocumentReference
 
     var subscriptions = HashMap<String, ListenerRegistration>()
@@ -65,7 +66,7 @@ object FirebaseUtility {
      * @param listenerIdentifier - [String]: key to identify the specific listener
      * @param listEvent - [MutableLiveData]: live list seen in UI
      */
-    fun addListListener(listenerIdentifier: String, listEvent: MutableLiveData<List<MyList>>){
+    fun addListListener(listEvent: MutableLiveData<List<MyList>>){
 
         val subscription = listRef
             .orderBy(MyList.CREATED_KEY, Query.Direction.DESCENDING)
@@ -83,7 +84,7 @@ object FirebaseUtility {
                 Log.d(Constants.HOME, "Lists Length: ${allLists.size}")
             }
 
-        subscriptions[listenerIdentifier] = subscription
+        subscriptions[Constants.listListenerId] = subscription
     }
 
     /**
@@ -113,18 +114,14 @@ object FirebaseUtility {
     /**
      * Subscribes a listener to the item list from the specified list
      */
-    fun addItemListener(list: MyList, itemEvent: MutableLiveData<List<Item>>){
-        val listID = list.id
-        val itemRef = listRef.document(listID).collection(
-            Item.COLLECTION_PATH)
-
+    fun addItemListener(itemEvent: MutableLiveData<List<Item>>){
         val subscription = itemRef
             .addSnapshotListener{ snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
                 e?.let{
                     Log.d(Constants.LIST, "ERROR: $e")
                     return@addSnapshotListener
                 }
-                Log.d(Constants.LIST, "Item Snapshot Length: ${snapshot?.size()} for list ${list.title}")
+                Log.d(Constants.LIST, "Item Snapshot Length: ${snapshot?.size()}")
                 val allItems = mutableListOf<Item>()
                 snapshot?.documents?.forEach{
                     allItems.add(Item.from(it))

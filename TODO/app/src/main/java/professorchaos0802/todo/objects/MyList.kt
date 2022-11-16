@@ -12,7 +12,6 @@ class MyList(
 
     var canEdit = mutableListOf<String>()
     var canView = mutableListOf<String>()
-    var items = mutableListOf<Item>()
 
     @get:Exclude
     var id = "" // Firestore ID

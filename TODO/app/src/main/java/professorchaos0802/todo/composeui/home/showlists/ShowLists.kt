@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import professorchaos0802.todo.composeui.home.listcardview.ListCardView
+import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.utilities.FirebaseUtility
 
@@ -24,7 +25,11 @@ import professorchaos0802.todo.utilities.FirebaseUtility
  * @param username - [String]: username of the logged in user
  */
 @Composable
-fun ShowLists(listViewModel: ListViewModel, username: String, onClick:() -> Unit){
+fun ShowLists(
+    listViewModel: ListViewModel,
+    itemModel: ItemViewModel,
+    username: String, onClick:() -> Unit
+){
     val scope = rememberCoroutineScope()
 
     LazyColumn(
@@ -47,11 +52,13 @@ fun ShowLists(listViewModel: ListViewModel, username: String, onClick:() -> Unit
 
                 ListCardView(
                     list = list,
+                    items = itemModel.items.value.filter{ item ->
+                        item.listId == list.id
+                    },
                     onClick = {
                         scope.launch{
                             withContext(Dispatchers.IO){
                                 FirebaseUtility.addCurrentListListener(list, listViewModel.currentListEvent)
-                                FirebaseUtility.addItemListener(list, listViewModel.itemEvent)
                             }
                         }
                         onClick()

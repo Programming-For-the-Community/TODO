@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import professorchaos0802.todo.composeui.home.listitempreview.ListItemPreview
 import professorchaos0802.todo.composeui.home.listtitleinfo.ListTitleInfo
+import professorchaos0802.todo.objects.Item
 import professorchaos0802.todo.objects.MyList
 
 /**
@@ -19,7 +20,7 @@ import professorchaos0802.todo.objects.MyList
  * @param list - [MyList]: List to be previewed
  */
 @Composable
-fun ListCardView(list: MyList, onClick: () -> Unit) {
+fun ListCardView(list: MyList, items: List<Item>, onClick: () -> Unit) {
 
     Box(
         modifier = Modifier
@@ -38,7 +39,7 @@ fun ListCardView(list: MyList, onClick: () -> Unit) {
                 .padding(10.dp)
         ) {
             ListTitleInfo(list = list)
-            ListItemPreview(list)
+            ListItemPreview(items)
         }
     }
 }
