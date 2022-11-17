@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import professorchaos0802.todo.composeui.list.listcontent.items.ListItems
 import professorchaos0802.todo.composeui.list.listcontent.listtitle.ListTitle
 import professorchaos0802.todo.composeui.list.listcontent.newItem.NewItem
 import professorchaos0802.todo.models.ItemViewModel
@@ -30,6 +31,7 @@ fun ListContent(listModel: ListViewModel, itemModel: ItemViewModel, user: String
                 .padding(top = 64.dp)
         ) {
             ListTitle(listModel, readOnly)
+            ListItems(itemModel, readOnly)
         }
 
         if(!readOnly){
