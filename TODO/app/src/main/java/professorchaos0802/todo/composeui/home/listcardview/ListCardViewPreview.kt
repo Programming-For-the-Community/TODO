@@ -16,7 +16,7 @@ fun BlueListCardViewPreview() {
     for (i in 1..5) {
         items.add(Item("JDoe", list.title, "Todo $i", false))
     }
-    items[0].isDone = true
+    items[0].done = true
 
     TodoTheme(
         color = "Blue"
@@ -34,7 +34,7 @@ fun GreenListCardViewPreview() {
     for (i in 1..5) {
         items.add(Item("JDoe", list.title, "Todo $i", false))
     }
-    items[0].isDone = true
+    items[0].done = true
 
     TodoTheme(
         color = "Green"
@@ -52,7 +52,7 @@ fun RedListCardViewPreview() {
     for (i in 1..5) {
         items.add(Item("JDoe", list.title, "Todo $i", false))
     }
-    items[0].isDone = true
+    items[0].done = true
 
     TodoTheme(
         color = "Red"
@@ -70,7 +70,7 @@ fun OrangeListCardViewPreview() {
     for (i in 1..5) {
         items.add(Item("JDoe", list.title, "Todo $i", false))
     }
-    items[0].isDone = true
+    items[0].done = true
 
     TodoTheme(
         color = "Orange"
@@ -88,7 +88,7 @@ fun PinkListCardViewPreview() {
     for (i in 1..5) {
         items.add(Item("JDoe", list.title, "Todo $i", false))
     }
-    items[0].isDone = true
+    items[0].done = true
 
     TodoTheme(
         color = "Pink"
@@ -106,7 +106,7 @@ fun PurpleListCardViewPreview() {
     for (i in 1..5) {
         items.add(Item("JDoe", list.title, "Todo $i", false))
     }
-    items[0].isDone = true
+    items[0].done = true
 
     TodoTheme(
         color = "Purple"

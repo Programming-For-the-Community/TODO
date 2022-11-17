@@ -40,7 +40,7 @@ fun ListTitleInfo(list: MyList){
         Column(
             horizontalAlignment = Alignment.End,
             verticalArrangement = Arrangement.Center,
-            modifier = Modifier
+            modifier = Modifier.padding(start = 10.dp)
         ){
             Text(
                 text = "Owner: ${list.owner}",

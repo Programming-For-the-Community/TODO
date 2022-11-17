@@ -2,6 +2,7 @@ package professorchaos0802.todo.utilities
 
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.compose.runtime.MutableState
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.*
@@ -22,6 +23,7 @@ object FirebaseUtility {
     private val listRef = Firebase.firestore.collection(MyList.COLLECTION_PATH)
     private val itemRef = Firebase.firestore.collection(Item.COLLECTION_PATH)
     lateinit var currentListRef: DocumentReference
+    lateinit var currentItemRef: DocumentReference
 
     var subscriptions = HashMap<String, ListenerRegistration>()
 
@@ -113,24 +115,52 @@ object FirebaseUtility {
 
     /**
      * Subscribes a listener to the item list from the specified list
+     *
+     * @param itemEvent - [MutableLiveData]: live data storing the items from the listener
      */
-    fun addItemListener(itemEvent: MutableLiveData<List<Item>>){
+    fun addItemListener(itemEvent: MutableState<List<Item>>){
         val subscription = itemRef
             .addSnapshotListener{ snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
                 e?.let{
-                    Log.d(Constants.LIST, "ERROR: $e")
+                    Log.e(Constants.ITEM, "ERROR: $e")
                     return@addSnapshotListener
                 }
-                Log.d(Constants.LIST, "Item Snapshot Length: ${snapshot?.size()}")
+                Log.d(Constants.ITEM, "Item Snapshot Length: ${snapshot?.size()}")
                 val allItems = mutableListOf<Item>()
                 snapshot?.documents?.forEach{
                     allItems.add(Item.from(it))
                 }
                 itemEvent.value = allItems
-                Log.d(Constants.LIST, "Number of Items: ${allItems.size}")
+                Log.d(Constants.ITEM, "Number of Items: ${allItems.size}")
             }
 
         subscriptions[Constants.itemListenerId] = subscription
+    }
+
+    /**
+     * Subscribes a listener to the subset of items associated with a particular list
+     *
+     * @param list - [MyList]: list we want the items for
+     * @param currentListItemsEvent - [MutableLiveData]: live data storing the items associated with the given list
+     */
+    fun addCurrentListItemListener(list: MyList, currentListItemsEvent: MutableLiveData<List<Item>>){
+        val subscription = itemRef
+            .whereEqualTo("listId", list.id)
+            .addSnapshotListener{ snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
+                e?.let{
+                    Log.e(Constants.ITEM, "ERROR: $e")
+                    return@addSnapshotListener
+                }
+                Log.d(Constants.ITEM, "Item Snapshot Length: ${snapshot?.size()}")
+                val currentListItems = mutableListOf<Item>()
+                snapshot?.documents?.forEach{
+                    currentListItems.add(Item.from(it))
+                }
+                currentListItemsEvent.value = currentListItems
+                Log.d(Constants.ITEM, "Number of Items: ${currentListItems.size}")
+            }
+
+        subscriptions[list.id + Constants.itemListenerId] = subscription
     }
 
     /**
@@ -152,10 +182,11 @@ object FirebaseUtility {
 
     /**
      * Adds an item to both the local list and to the firestore database
+     *
+     * @param item - [Item]: item to be added to firebase
      */
     fun addItem(i: Item){
-//        currentList.value!!.items.add(i)
-//        itemRef.add(i)
+        itemRef.add(i)
     }
 
     /**
@@ -207,10 +238,20 @@ object FirebaseUtility {
     }
 
     /**
-     * Updates the indes of the current item
+     * Updates the give item in Firebase
+     *
+     * @param item - [Item]: item to be updated
+     * @param text - [String]: new text of the item
+     * @param isDone - [Boolean]: completion state of the item
      */
-    fun updateCurrentItem(pos: Int) {
-//        currentItemIndex = pos
+    fun updateItem(item: Item, text: String, isDone: Boolean) {
+        currentItemRef = itemRef.document(item.id)
+
+        with(item){
+            this.text = text
+            this.done = isDone
+            currentItemRef.set(this)
+        }
     }
 
     /**
@@ -224,15 +265,11 @@ object FirebaseUtility {
 
     /**
      * Deletes the current item from the firestore database
+     *
+     * @param item - [Item]: Item to be deleted
      */
-    fun deleteCurrentItem(){
-//        var currItem = currentList.value!!.items[currentItemIndex]
-//
-//        if(currentList.value!!.items[currentItemIndex].id == ""){
-//            currentList.value!!.items.remove(currItem)
-//        }else {
-//            itemRef.document(currItem.id).delete()
-//        }
+    fun deleteItem(item: Item){
+        itemRef.document(item.id).delete()
     }
 
     /**

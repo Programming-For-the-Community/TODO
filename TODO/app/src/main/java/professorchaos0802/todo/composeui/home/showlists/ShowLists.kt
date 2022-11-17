@@ -59,6 +59,7 @@ fun ShowLists(
                         scope.launch{
                             withContext(Dispatchers.IO){
                                 FirebaseUtility.addCurrentListListener(list, listViewModel.currentListEvent)
+                                FirebaseUtility.addCurrentListItemListener(list, itemModel.currentListItemsEvent)
                             }
                         }
                         onClick()

@@ -17,7 +17,7 @@ class ItemUnitTest {
         // Test default creation
         assertEquals("", item.owner)
         assertEquals("", item.text)
-        assertEquals(false, item.isDone)
+        assertEquals(false, item.done)
 
         // Test Collection Path
         assertEquals("items", Item.COLLECTION_PATH)
@@ -25,7 +25,7 @@ class ItemUnitTest {
         // Test custom creation
         assertEquals("cmhahm", item1.owner)
         assertEquals("Write Item object", item1.text)
-        assertEquals(true, item1.isDone)
+        assertEquals(true, item1.done)
     }
 
     @Test
@@ -35,15 +35,15 @@ class ItemUnitTest {
         // Verify creation
         assertEquals("", item.owner)
         assertEquals("", item.text)
-        assertEquals(false, item.isDone)
+        assertEquals(false, item.done)
 
         item.owner = "cmhahm"
         item.text = "Take a nap"
-        item.isDone = true
+        item.done = true
 
         // Test changing values
         assertEquals("cmhahm", item.owner)
         assertEquals("Take a nap", item.text)
-        assertEquals(true, item.isDone)
+        assertEquals(true, item.done)
     }
 }

@@ -9,7 +9,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import professorchaos0802.todo.composeui.list.listcontent.listcontentscreen.ListCanEdit
+import professorchaos0802.todo.Constants
+import professorchaos0802.todo.composeui.list.listcontent.listcontentscreen.ListContent
 import professorchaos0802.todo.composeui.list.listtopnav.ListTopNav
 import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.models.ListViewModel
@@ -41,8 +42,10 @@ fun ListScreenView(
                                     currentTitle = listModel.currentListTitle.value
                                 )
 
-                                FirebaseUtility.addListListener(listModel.listEvent)
-                                FirebaseUtility.addItemListener(itemModel.itemEvent)
+
+                                // Remove listeners from list screen
+                                FirebaseUtility.removeListener(listModel.currentList.value!!.id)
+                                FirebaseUtility.removeListener(listModel.currentList.value!!.id + Constants.itemListenerId)
 
                                 listModel.currentList.value?.let { FirebaseUtility.removeListener(it.id) }
                             }
@@ -53,10 +56,11 @@ fun ListScreenView(
             }
         ) {
             listModel.currentList.value?.canView?.let { list ->
-                ListCanEdit(
-                    model = listModel,
-                    readOnly = list.contains(userModel.userName.value),
-                    updateTitle = {}
+                ListContent(
+                    listModel = listModel,
+                    itemModel = itemModel,
+                    user = userModel.userName.value,
+                    readOnly = list.contains(userModel.userName.value)
                 )
             }
         }

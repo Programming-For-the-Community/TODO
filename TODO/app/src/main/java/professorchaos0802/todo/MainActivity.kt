@@ -173,7 +173,7 @@ class MainActivity : AppCompatActivity() {
                                         withContext(Dispatchers.IO) {
                                             FirebaseUtility.updateUser(userModel)
                                             FirebaseUtility.addListListener(listViewModel.listEvent)
-                                            FirebaseUtility.addItemListener(itemViewModel.itemEvent)
+                                            FirebaseUtility.addItemListener(itemViewModel.items)
                                         }
                                     }
 
@@ -207,6 +207,7 @@ class MainActivity : AppCompatActivity() {
                                     lifecycleScope.launch {
                                         withContext(Dispatchers.IO) {
                                             FirebaseUtility.removeListener(Constants.listListenerId)
+                                            FirebaseUtility.removeListener(Constants.itemListenerId)
                                         }
                                     }
 
@@ -219,6 +220,7 @@ class MainActivity : AppCompatActivity() {
                                     lifecycleScope.launch {
                                         withContext(Dispatchers.IO) {
                                             FirebaseUtility.removeListener(Constants.listListenerId)
+                                            FirebaseUtility.removeListener(Constants.itemListenerId)
                                         }
                                     }
 
@@ -232,6 +234,15 @@ class MainActivity : AppCompatActivity() {
                                 userModel = userModel,
                                 listModel = listViewModel,
                                 onBackClick = {
+
+                                    // Add Listeners on Dispatchers.IO thread
+                                    lifecycleScope.launch {
+                                        withContext(Dispatchers.IO){
+                                            FirebaseUtility.addListListener(listViewModel.listEvent)
+                                            FirebaseUtility.addItemListener(itemViewModel.items)
+                                        }
+                                    }
+
                                     navController.navigate(TodoViews.Home.route)
                                 }
                             )
@@ -265,6 +276,18 @@ class MainActivity : AppCompatActivity() {
             userModel.userImage.value = newImage
         }
 
+//        itemViewModel.myItems.observe(this){ allItems ->
+//            itemViewModel.items.value = allItems
+//        }
+
+        itemViewModel.myCurrentListItems.observe(this){ currentListItems ->
+            itemViewModel.currentListItems.value = currentListItems
+        }
+
+        itemViewModel.currItem.observe(this){ currentItem ->
+            itemViewModel.currentItem.value = currentItem
+        }
+
         listViewModel.myLists.observe(this) { allLists ->
             listViewModel.lists.value = allLists
         }
@@ -276,16 +299,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        listViewModel.currItems.observe(this) { allItems ->
-            listViewModel.currentItems.value = allItems
-        }
-
         listViewModel.currListTitle.observe(this) { title ->
             listViewModel.currentListTitle.value = title
-        }
-
-        itemViewModel.myItems.observe(this){ allItems ->
-            itemViewModel.items.value = allItems
         }
 
 //        listViewModel.deleteLists.observe(this){
@@ -321,7 +336,7 @@ class MainActivity : AppCompatActivity() {
                                     // Add Firebase List listener
                                     FirebaseUtility.addListListener(listViewModel.listEvent)
 
-                                    FirebaseUtility.addItemListener(itemViewModel.itemEvent)
+                                    FirebaseUtility.addItemListener(itemViewModel.items)
 
                                     Log.d(
                                         Constants.SETUP,

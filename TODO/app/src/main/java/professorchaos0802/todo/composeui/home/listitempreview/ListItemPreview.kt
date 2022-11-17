@@ -77,7 +77,7 @@ fun ListItemPreview(items: List<Item>) {
                 ) {
 
                     Checkbox(
-                        checked = item.isDone,
+                        checked = item.done,
                         onCheckedChange = {},
                         enabled = false,
                         colors = CheckboxDefaults.colors(
@@ -95,6 +95,20 @@ fun ListItemPreview(items: List<Item>) {
                     Text(
                         text = item.text,
                         style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onTertiary
+                    )
+                }
+            }
+
+            if(items.size > 5){
+                Row(
+                    horizontalArrangement = Arrangement.Start,
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(start = 15.dp)
+                ) {
+                    Text(
+                        text = ".......",
+                        style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onTertiary
                     )
                 }

@@ -1,112 +1,138 @@
 package professorchaos0802.todo.composeui.list.listcontent.listcontentscreen
 
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
+import professorchaos0802.todo.models.ItemViewModel
+import professorchaos0802.todo.models.ListViewModel
+import professorchaos0802.todo.objects.Item
+import professorchaos0802.todo.objects.MyList
+import professorchaos0802.todo.theme.TodoTheme
 
-//@Preview
-//@Composable
-//fun BlueListCanEditPreview() {
-//
-//    val list = MyList()
-//    list.title = "Title"
-//    for (i in 1..10) {
-//        list.items.add(Item(owner = "JDoe", text = "Item # $i", isDone = false))
-//    }
-//
-//    TodoTheme(
-//        color = "Blue",
-//        darkTheme = false
-//    ) {
-//        ListCanEdit(list, true, {})
-//    }
-//}
-//
-//@Preview
-//@Composable
-//fun GreenListCanEditPreview() {
-//
-//    val list = MyList()
-//    list.title = "Title"
-//    for (i in 1..10) {
-//        list.items.add(Item(owner = "JDoe", text = "Item # $i", isDone = false))
-//    }
-//
-//
-//    TodoTheme(
-//        color = "Green",
-//        darkTheme = false
-//    ) {
-//        ListCanEdit(list, false, {})
-//    }
-//}
-//
-//@Preview
-//@Composable
-//fun RedListCanEditPreview() {
-//
-//    val list = MyList()
-//    list.title = "Title"
-//    for (i in 1..10) {
-//        list.items.add(Item(owner = "JDoe", text = "Item # $i", isDone = false))
-//    }
-//
-//    TodoTheme(
-//        color = "Red",
-//        darkTheme = false
-//    ) {
-//        ListCanEdit(list, false, {})
-//    }
-//}
-//
-//@Preview
-//@Composable
-//fun OrangeListCanEditPreview() {
-//
-//    val list = MyList()
-//    list.title = "Title"
-//    for (i in 1..10) {
-//        list.items.add(Item(owner = "JDoe", text = "Item # $i", isDone = false))
-//    }
-//
-//    TodoTheme(
-//        color = "Orange",
-//        darkTheme = false
-//    ) {
-//        ListCanEdit(list, false, {})
-//    }
-//}
-//
-//@Preview
-//@Composable
-//fun PinkListCanEditPreview() {
-//
-//    val list = MyList()
-//    list.title = "Title"
-//    for (i in 1..10) {
-//        list.items.add(Item(owner = "JDoe", text = "Item # $i", isDone = false))
-//    }
-//
-//    TodoTheme(
-//        color = "Pink",
-//        darkTheme = false
-//    ) {
-//        ListCanEdit(list, false, {})
-//    }
-//}
-//
-//@Preview
-//@Composable
-//fun PurpleListCanEditPreview() {
-//
-//    val list = MyList()
-//    list.title = "Title"
-//    for (i in 1..10) {
-//        list.items.add(Item(owner = "JDoe", text = "Item # $i", isDone = false))
-//    }
-//
-//
-//    TodoTheme(
-//        color = "Purple",
-//        darkTheme = false
-//    ) {
-//        ListCanEdit(list, false, {})
-//    }
-//}
+val list = MyList(title = "Title")
+
+@Preview(showBackground = true)
+@Composable
+fun BlueListContentPreview() {
+    val listModel: ListViewModel = viewModel()
+    listModel.currentList.value = list
+
+    val items = mutableListOf<Item>()
+    for (i in 1..10) {
+        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+    }
+    val itemModel: ItemViewModel = viewModel()
+    itemModel.currentListItems.value = items
+
+    TodoTheme(
+        color = "Blue",
+        darkTheme = false
+    ) {
+        ListContent(listModel, itemModel,"JDoe", true)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreenListContentPreview() {
+    val listModel: ListViewModel = viewModel()
+    listModel.currentList.value = list
+
+    val items = mutableListOf<Item>()
+    for (i in 1..10) {
+        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+    }
+    val itemModel: ItemViewModel = viewModel()
+    itemModel.currentListItems.value = items
+
+    TodoTheme(
+        color = "Green",
+        darkTheme = false
+    ) {
+        ListContent(listModel, itemModel,"JDoe",false)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun RedListContentPreview() {
+    val listModel: ListViewModel = viewModel()
+    listModel.currentList.value = list
+
+    val items = mutableListOf<Item>()
+    for (i in 1..10) {
+        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+    }
+    val itemModel: ItemViewModel = viewModel()
+    itemModel.currentListItems.value = items
+
+    TodoTheme(
+        color = "Red",
+        darkTheme = false
+    ) {
+        ListContent(listModel, itemModel,"JDoe", true)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun OrangeListContentPreview() {
+    val listModel: ListViewModel = viewModel()
+    listModel.currentList.value = list
+
+    val items = mutableListOf<Item>()
+    for (i in 1..10) {
+        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+    }
+    val itemModel: ItemViewModel = viewModel()
+    itemModel.currentListItems.value = items
+
+    TodoTheme(
+        color = "Orange",
+        darkTheme = false
+    ) {
+        ListContent(listModel, itemModel,"JDoe",false)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PinkListContentPreview() {
+    val listModel: ListViewModel = viewModel()
+    listModel.currentList.value = list
+
+    val items = mutableListOf<Item>()
+    for (i in 1..10) {
+        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+    }
+    val itemModel: ItemViewModel = viewModel()
+    itemModel.currentListItems.value = items
+
+    TodoTheme(
+        color = "Pink",
+        darkTheme = false
+    ) {
+        ListContent(listModel, itemModel,"JDoe", true)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PurpleListContentPreview() {
+    val listModel: ListViewModel = viewModel()
+    listModel.currentList.value = list
+
+    val items = mutableListOf<Item>()
+    for (i in 1..10) {
+        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+    }
+    val itemModel: ItemViewModel = viewModel()
+    itemModel.currentListItems.value = items
+
+    TodoTheme(
+        color = "Purple",
+        darkTheme = false
+    ) {
+        ListContent(listModel, itemModel,"JDoe",false)
+    }
+}

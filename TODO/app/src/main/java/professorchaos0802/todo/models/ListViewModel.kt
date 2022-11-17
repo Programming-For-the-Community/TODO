@@ -4,7 +4,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import professorchaos0802.todo.objects.Item
 import professorchaos0802.todo.objects.MyList
 
 /**
@@ -22,10 +21,6 @@ class ListViewModel: ViewModel() {
     val currentListTitleEvent: MutableLiveData<String> = MutableLiveData<String>()
     val currListTitle: LiveData<String> = currentListTitleEvent
     var currentListTitle = mutableStateOf("")
-
-    val itemEvent: MutableLiveData<List<Item>> = MutableLiveData<List<Item>>()
-    val currItems: LiveData<List<Item>> = itemEvent
-    var currentItems = mutableStateOf(listOf<Item>())
 
 //    private val listsToDeleteEvent: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
 //    val deleteLists: LiveData<Boolean> = listsToDeleteEvent
