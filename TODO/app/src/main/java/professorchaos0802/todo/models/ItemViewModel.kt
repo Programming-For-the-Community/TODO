@@ -9,8 +9,8 @@ import professorchaos0802.todo.objects.Item
 class ItemViewModel: ViewModel() {
     var items = mutableStateOf(listOf<Item>())
 
-    val currentListItemsEvent: MutableLiveData<List<Item>> = MutableLiveData<List<Item>>()
-    val myCurrentListItems: LiveData<List<Item>> = currentListItemsEvent
+    var currentListItemsEvent: MutableLiveData<List<Item>> = MutableLiveData<List<Item>>()
+    var currListItems: LiveData<List<Item>> = currentListItemsEvent
     var currentListItems = mutableStateOf(listOf<Item>())
 
     val currentItemEvent: MutableLiveData<Item?> = MutableLiveData<Item?>()

@@ -107,10 +107,10 @@ fun HomeScreenView(
                                     title = "Title"
                                 )
 
-                                // Add new list to Firebase on the Dispatchers.IO thread
+                                //Add new list to Firebase on the Dispatchers.IO thread
                                 scope.launch{
                                     withContext(Dispatchers.IO){
-                                        FirebaseUtility.addNewList(newList, listViewModel.currentListEvent)
+                                        FirebaseUtility.addNewList(newList, listViewModel.currentListEvent, itemViewModel.currentListItemsEvent)
                                     }
                                 }
 

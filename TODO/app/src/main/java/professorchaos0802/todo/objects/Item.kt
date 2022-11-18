@@ -20,7 +20,12 @@ class Item(
          * Converts a firestore DocumentSnapshot into an Item object
          */
         fun from(snapshot: DocumentSnapshot): Item{
-            val i = snapshot.toObject(Item::class.java)!!
+            val i = Item(
+                owner = snapshot.get("owner") as String,
+                listId = snapshot.get("listId") as String,
+                text = snapshot.get("text") as String,
+                done = snapshot.get("done") as Boolean
+            )
 
             i.id = snapshot.id
 

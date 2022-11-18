@@ -4,41 +4,7 @@
             "outputFile": "professorchaos0802.todo.app-mergeDebugResources-80:/values-en-rXC/values-en-rXC.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\4b681886b0143d134d8c44b41b3ac68e\\transformed\\navigation-dynamic-features-fragment-2.5.3\\res\\values-en-rXC\\values-en-rXC.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,258,456,654,823,1003",
-                        "endColumns": "202,197,197,168,179,169",
-                        "endOffsets": "253,451,649,818,998,1168"
-                    },
-                    "to": {
-                        "startLines": "43,44,45,49,51,54",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "8214,8417,8615,9353,9689,10235",
-                        "endColumns": "202,197,197,168,179,169",
-                        "endOffsets": "8412,8610,8808,9517,9864,10400"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\943fe7b7348bbde0daa53db736d58f99\\transformed\\core-1.9.0\\res\\values-en-rXC\\values-en-rXC.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "203",
-                        "endOffsets": "254"
-                    },
-                    "to": {
-                        "startLines": "57",
-                        "startColumns": "4",
-                        "startOffsets": "10757",
-                        "endColumns": "203",
-                        "endOffsets": "10956"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\4ac8c70d211dbf7f87fc35e03b570b2c\\transformed\\material3-1.0.0-rc01\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\4de25af8ca022ba2abbb2c3f98fe083e\\transformed\\material3-1.0.0-rc01\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",
@@ -55,7 +21,41 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\7ebe7573c71cea08cee94dc8927bba10\\transformed\\ui-1.4.0-alpha01\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\601f6d359f97386f213071bac9dd67fc\\transformed\\core-1.9.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "203",
+                        "endOffsets": "254"
+                    },
+                    "to": {
+                        "startLines": "57",
+                        "startColumns": "4",
+                        "startOffsets": "10757",
+                        "endColumns": "203",
+                        "endOffsets": "10956"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\8c01c40c222b71aa61f9f9bc90e99b9f\\transformed\\navigation-dynamic-features-fragment-2.5.3\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,258,456,654,823,1003",
+                        "endColumns": "202,197,197,168,179,169",
+                        "endOffsets": "253,451,649,818,998,1168"
+                    },
+                    "to": {
+                        "startLines": "43,44,45,49,51,54",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "8214,8417,8615,9353,9689,10235",
+                        "endColumns": "202,197,197,168,179,169",
+                        "endOffsets": "8412,8610,8808,9517,9864,10400"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\de772425697f12f548acba46bfd94c72\\transformed\\ui-1.4.0-alpha02\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -72,7 +72,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\8c0a039cf991e7a9924caa5751493c4f\\transformed\\browser-1.4.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\d3d5d8a4f4fb8531ab6e030194e9f1ad\\transformed\\browser-1.4.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -89,7 +89,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\09b00d015d23c2f39584ea582de031ac\\transformed\\appcompat-1.5.1\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\f2d0d7f972c1252ab98c765bf9fee9d1\\transformed\\appcompat-1.5.1\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

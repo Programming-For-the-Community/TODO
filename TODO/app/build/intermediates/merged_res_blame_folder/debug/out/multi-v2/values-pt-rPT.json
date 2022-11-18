@@ -4,58 +4,7 @@
             "outputFile": "professorchaos0802.todo.app-mergeDebugResources-80:/values-pt-rPT/values-pt-rPT.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\7ebe7573c71cea08cee94dc8927bba10\\transformed\\ui-1.4.0-alpha01\\res\\values-pt-rPT\\values-pt-rPT.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,200,283,380,479,565,644,741,832,919,991,1060,1145,1235,1311,1383",
-                        "endColumns": "94,82,96,98,85,78,96,90,86,71,68,84,89,75,71,121",
-                        "endOffsets": "195,278,375,474,560,639,736,827,914,986,1055,1140,1230,1306,1378,1500"
-                    },
-                    "to": {
-                        "startLines": "38,39,60,61,63,160,161,216,217,218,220,223,224,227,229,230",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "3789,3884,6494,6591,6772,16342,16421,20957,21048,21135,21271,21504,21589,21837,22014,22086",
-                        "endColumns": "94,82,96,98,85,78,96,90,86,71,68,84,89,75,71,121",
-                        "endOffsets": "3879,3962,6586,6685,6853,16416,16513,21043,21130,21202,21335,21584,21674,21908,22081,22203"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\1eae3760114698fcbd2c73e9b8e6cef1\\transformed\\play-services-base-18.0.1\\res\\values-pt-rPT\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "197,298,457,581,685,849,973,1091,1196,1380,1484,1650,1777,1932,2106,2170,2235",
-                        "endColumns": "100,158,123,103,163,123,117,104,183,103,165,126,154,173,63,64,82",
-                        "endOffsets": "297,456,580,684,848,972,1090,1195,1379,1483,1649,1776,1931,2105,2169,2234,2317"
-                    },
-                    "to": {
-                        "startLines": "41,42,43,44,45,46,47,48,50,51,52,53,54,55,56,57,58",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "4044,4149,4312,4440,4548,4716,4844,4966,5220,5408,5516,5686,5817,5976,6154,6222,6291",
-                        "endColumns": "104,162,127,107,167,127,121,108,187,107,169,130,158,177,67,68,86",
-                        "endOffsets": "4144,4307,4435,4543,4711,4839,4961,5070,5403,5511,5681,5812,5971,6149,6217,6286,6373"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\dcfaede2b9dbf22604e1b70b2400b467\\transformed\\navigation-ui-2.5.3\\res\\values-pt-rPT\\values-pt-rPT.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,167",
-                        "endColumns": "111,119",
-                        "endOffsets": "162,282"
-                    },
-                    "to": {
-                        "startLines": "214,215",
-                        "startColumns": "4,4",
-                        "startOffsets": "20725,20837",
-                        "endColumns": "111,119",
-                        "endOffsets": "20832,20952"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\8c0a039cf991e7a9924caa5751493c4f\\transformed\\browser-1.4.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\d3d5d8a4f4fb8531ab6e030194e9f1ad\\transformed\\browser-1.4.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -72,7 +21,41 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\c8c3625e9646d046230a84291916c22a\\transformed\\firebase-ui-auth-8.0.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\8c01c40c222b71aa61f9f9bc90e99b9f\\transformed\\navigation-dynamic-features-fragment-2.5.3\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,157,253,351,415,493",
+                        "endColumns": "101,95,97,63,77,71",
+                        "endOffsets": "152,248,346,410,488,560"
+                    },
+                    "to": {
+                        "startLines": "162,163,164,219,222,225",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "16518,16620,16716,21207,21426,21679",
+                        "endColumns": "101,95,97,63,77,71",
+                        "endOffsets": "16615,16711,16809,21266,21499,21746"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\7446e5093d7b99faf796eb34416365ab\\transformed\\play-services-basement-18.0.0\\res\\values-pt-rPT\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "199",
+                        "endColumns": "140",
+                        "endOffsets": "339"
+                    },
+                    "to": {
+                        "startLines": "49",
+                        "startColumns": "4",
+                        "startOffsets": "5075",
+                        "endColumns": "144",
+                        "endOffsets": "5215"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\a60b71a4b211451e53d843f589c45353\\transformed\\firebase-ui-auth-8.0.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -89,7 +72,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\09b00d015d23c2f39584ea582de031ac\\transformed\\appcompat-1.5.1\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\de772425697f12f548acba46bfd94c72\\transformed\\ui-1.4.0-alpha02\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,283,380,479,565,644,741,832,919,991,1060,1145,1235,1311,1387,1459",
+                        "endColumns": "94,82,96,98,85,78,96,90,86,71,68,84,89,75,75,71,121",
+                        "endOffsets": "195,278,375,474,560,639,736,827,914,986,1055,1140,1230,1306,1382,1454,1576"
+                    },
+                    "to": {
+                        "startLines": "38,39,60,61,63,160,161,216,217,218,220,223,224,227,229,230,231",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3789,3884,6494,6591,6772,16342,16421,20957,21048,21135,21271,21504,21589,21837,22014,22090,22162",
+                        "endColumns": "94,82,96,98,85,78,96,90,86,71,68,84,89,75,75,71,121",
+                        "endOffsets": "3879,3962,6586,6685,6853,16416,16513,21043,21130,21202,21335,21584,21674,21908,22085,22157,22279"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\f2d0d7f972c1252ab98c765bf9fee9d1\\transformed\\appcompat-1.5.1\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -106,7 +106,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\7252de9b30b5f2ab9333b6ffd9decc34\\transformed\\material-1.7.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\2dbc367b9043792d39c48a69483c752f\\transformed\\material-1.7.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -125,24 +125,41 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\4ac8c70d211dbf7f87fc35e03b570b2c\\transformed\\material3-1.0.0-rc01\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\dd2c4a897219f801ce63bd12645ff9f7\\transformed\\navigation-ui-2.5.3\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,132,214",
-                        "endColumns": "76,81,76",
-                        "endOffsets": "127,209,286"
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,167",
+                        "endColumns": "111,119",
+                        "endOffsets": "162,282"
                     },
                     "to": {
-                        "startLines": "40,62,65",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "3967,6690,6922",
-                        "endColumns": "76,81,76",
-                        "endOffsets": "4039,6767,6994"
+                        "startLines": "214,215",
+                        "startColumns": "4,4",
+                        "startOffsets": "20725,20837",
+                        "endColumns": "111,119",
+                        "endOffsets": "20832,20952"
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\943fe7b7348bbde0daa53db736d58f99\\transformed\\core-1.9.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\fa7cbc3e616d3b71103e51ede7651b46\\transformed\\play-services-base-18.0.1\\res\\values-pt-rPT\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "197,298,457,581,685,849,973,1091,1196,1380,1484,1650,1777,1932,2106,2170,2235",
+                        "endColumns": "100,158,123,103,163,123,117,104,183,103,165,126,154,173,63,64,82",
+                        "endOffsets": "297,456,580,684,848,972,1090,1195,1379,1483,1649,1776,1931,2105,2169,2234,2317"
+                    },
+                    "to": {
+                        "startLines": "41,42,43,44,45,46,47,48,50,51,52,53,54,55,56,57,58",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "4044,4149,4312,4440,4548,4716,4844,4966,5220,5408,5516,5686,5817,5976,6154,6222,6291",
+                        "endColumns": "104,162,127,107,167,127,121,108,187,107,169,130,158,177,67,68,86",
+                        "endOffsets": "4144,4307,4435,4543,4711,4839,4961,5070,5403,5511,5681,5812,5971,6149,6217,6286,6373"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\601f6d359f97386f213071bac9dd67fc\\transformed\\core-1.9.0\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -159,37 +176,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\4b681886b0143d134d8c44b41b3ac68e\\transformed\\navigation-dynamic-features-fragment-2.5.3\\res\\values-pt-rPT\\values-pt-rPT.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\4de25af8ca022ba2abbb2c3f98fe083e\\transformed\\material3-1.0.0-rc01\\res\\values-pt-rPT\\values-pt-rPT.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,157,253,351,415,493",
-                        "endColumns": "101,95,97,63,77,71",
-                        "endOffsets": "152,248,346,410,488,560"
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,132,214",
+                        "endColumns": "76,81,76",
+                        "endOffsets": "127,209,286"
                     },
                     "to": {
-                        "startLines": "162,163,164,219,222,225",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "16518,16620,16716,21207,21426,21679",
-                        "endColumns": "101,95,97,63,77,71",
-                        "endOffsets": "16615,16711,16809,21266,21499,21746"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\6efb3563008fd0dd9d43bdd5f9228061\\transformed\\play-services-basement-18.0.0\\res\\values-pt-rPT\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "199",
-                        "endColumns": "140",
-                        "endOffsets": "339"
-                    },
-                    "to": {
-                        "startLines": "49",
-                        "startColumns": "4",
-                        "startOffsets": "5075",
-                        "endColumns": "144",
-                        "endOffsets": "5215"
+                        "startLines": "40,62,65",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "3967,6690,6922",
+                        "endColumns": "76,81,76",
+                        "endOffsets": "4039,6767,6994"
                     }
                 }
             ]

@@ -141,7 +141,7 @@ object FirebaseUtility {
      * Subscribes a listener to the subset of items associated with a particular list
      *
      * @param list - [MyList]: list we want the items for
-     * @param currentListItemsEvent - [MutableLiveData]: live data storing the items associated with the given list
+     * @param currentListItemsEvent - [MutableState]: live data storing the items associated with the given list
      */
     fun addCurrentListItemListener(list: MyList, currentListItemsEvent: MutableLiveData<List<Item>>){
         val subscription = itemRef
@@ -152,12 +152,12 @@ object FirebaseUtility {
                     return@addSnapshotListener
                 }
                 Log.d(Constants.ITEM, "Item Snapshot Length: ${snapshot?.size()}")
-                val currentListItems = mutableListOf<Item>()
+                val currListItems = mutableListOf<Item>()
                 snapshot?.documents?.forEach{
-                    currentListItems.add(Item.from(it))
+                    currListItems.add(Item.from(it))
                 }
-                currentListItemsEvent.value = currentListItems
-                Log.d(Constants.ITEM, "Number of Items: ${currentListItems.size}")
+                currentListItemsEvent.postValue(currListItems)
+                Log.d(Constants.ITEM, "Number of Items: ${currListItems.size}")
             }
 
         subscriptions[list.id + Constants.itemListenerId] = subscription
@@ -170,12 +170,14 @@ object FirebaseUtility {
      * @param listEvent - [MutableLiveData]: mutable live data to be updated when the
      * list is added to Firebase
      */
-    fun addNewList(list: MyList, listEvent: MutableLiveData<MyList?>){
+    fun addNewList(list: MyList, listEvent: MutableLiveData<MyList?>, currListItems: MutableLiveData<List<Item>>){
         listRef.add(list)
             .addOnSuccessListener {
                 val task = it.get()
                 task.addOnSuccessListener { newList ->
-                    addCurrentListListener(MyList.from(newList), listEvent)
+                    val currList = MyList.from(newList)
+                    addCurrentListListener(currList, listEvent)
+                    addCurrentListItemListener(currList, currListItems)
                 }
             }
     }

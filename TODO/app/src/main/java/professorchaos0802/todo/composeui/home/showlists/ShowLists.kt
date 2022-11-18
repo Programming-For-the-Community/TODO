@@ -28,7 +28,8 @@ import professorchaos0802.todo.utilities.FirebaseUtility
 fun ShowLists(
     listViewModel: ListViewModel,
     itemModel: ItemViewModel,
-    username: String, onClick:() -> Unit
+    username: String,
+    onClick:() -> Unit
 ){
     val scope = rememberCoroutineScope()
 
@@ -59,9 +60,10 @@ fun ShowLists(
                         scope.launch{
                             withContext(Dispatchers.IO){
                                 FirebaseUtility.addCurrentListListener(list, listViewModel.currentListEvent)
-                                FirebaseUtility.addCurrentListItemListener(list, itemModel.currentListItemsEvent)
                             }
                         }
+
+                        FirebaseUtility.addCurrentListItemListener(list, itemModel.currentListItemsEvent)
                         onClick()
                     }
                 )

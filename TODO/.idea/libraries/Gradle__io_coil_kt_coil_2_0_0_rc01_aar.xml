@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: io.coil-kt:coil:2.0.0-rc01@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/150c01cee9099915861100c2fe83e08c/transformed/coil-2.0.0-rc01/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/150c01cee9099915861100c2fe83e08c/transformed/coil-2.0.0-rc01/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/150c01cee9099915861100c2fe83e08c/transformed/coil-2.0.0-rc01/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/89776c920eb03b6224a0b3999138e16f/transformed/coil-2.0.0-rc01/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/89776c920eb03b6224a0b3999138e16f/transformed/coil-2.0.0-rc01/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.coil-kt/coil/2.0.0-rc01/3bdb92669ac674d80dce247f5f05a23f95be9292/coil-2.0.0-rc01-javadoc.jar!/" />

@@ -203,7 +203,6 @@ class MainActivity : AppCompatActivity() {
                                 listViewModel = listViewModel,
                                 itemViewModel = itemViewModel,
                                 onNavigateToList = {
-
                                     lifecycleScope.launch {
                                         withContext(Dispatchers.IO) {
                                             FirebaseUtility.removeListener(Constants.listListenerId)
@@ -276,16 +275,12 @@ class MainActivity : AppCompatActivity() {
             userModel.userImage.value = newImage
         }
 
-//        itemViewModel.myItems.observe(this){ allItems ->
-//            itemViewModel.items.value = allItems
-//        }
-
-        itemViewModel.myCurrentListItems.observe(this){ currentListItems ->
-            itemViewModel.currentListItems.value = currentListItems
-        }
-
         itemViewModel.currItem.observe(this){ currentItem ->
             itemViewModel.currentItem.value = currentItem
+        }
+
+        itemViewModel.currListItems.observe(this){ listItems ->
+            itemViewModel.currentListItems.value = listItems
         }
 
         listViewModel.myLists.observe(this) { allLists ->

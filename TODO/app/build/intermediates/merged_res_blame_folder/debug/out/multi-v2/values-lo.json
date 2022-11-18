@@ -4,92 +4,24 @@
             "outputFile": "professorchaos0802.todo.app-mergeDebugResources-80:/values-lo/values-lo.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\4ac8c70d211dbf7f87fc35e03b570b2c\\transformed\\material3-1.0.0-rc01\\res\\values-lo\\values-lo.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\de772425697f12f548acba46bfd94c72\\transformed\\ui-1.4.0-alpha02\\res\\values-lo\\values-lo.xml",
                     "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,132,208",
-                        "endColumns": "76,75,77",
-                        "endOffsets": "127,203,281"
-                    },
-                    "to": {
-                        "startLines": "39,61,64",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "3551,6187,6418",
-                        "endColumns": "76,75,77",
-                        "endOffsets": "3623,6258,6491"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\6efb3563008fd0dd9d43bdd5f9228061\\transformed\\play-services-basement-18.0.0\\res\\values-lo\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "127",
-                        "endOffsets": "322"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "4644",
-                        "endColumns": "131",
-                        "endOffsets": "4771"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\7ebe7573c71cea08cee94dc8927bba10\\transformed\\ui-1.4.0-alpha01\\res\\values-lo\\values-lo.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,195,272,381,479,568,657,747,833,916,981,1047,1127,1211,1285,1351",
-                        "endColumns": "89,76,108,97,88,88,89,85,82,64,65,79,83,73,65,120",
-                        "endOffsets": "190,267,376,474,563,652,742,828,911,976,1042,1122,1206,1280,1346,1467"
-                    },
-                    "to": {
-                        "startLines": "37,38,59,60,62,70,71,126,127,128,130,133,134,137,139,140",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "3384,3474,5980,6089,6263,6967,7056,11398,11484,11567,11700,11920,12000,12237,12412,12478",
-                        "endColumns": "89,76,108,97,88,88,89,85,82,64,65,79,83,73,65,120",
-                        "endOffsets": "3469,3546,6084,6182,6347,7051,7141,11479,11562,11627,11761,11995,12079,12306,12473,12594"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\1eae3760114698fcbd2c73e9b8e6cef1\\transformed\\play-services-base-18.0.1\\res\\values-lo\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "193,297,463,589,692,840,961,1065,1177,1325,1426,1588,1713,1880,2037,2101,2166",
-                        "endColumns": "103,165,125,102,147,120,103,111,147,100,161,124,166,156,63,64,80",
-                        "endOffsets": "296,462,588,691,839,960,1064,1176,1324,1425,1587,1712,1879,2036,2100,2165,2246"
-                    },
-                    "to": {
-                        "startLines": "40,41,42,43,44,45,46,47,49,50,51,52,53,54,55,56,57",
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "3628,3736,3906,4036,4143,4295,4420,4528,4776,4928,5033,5199,5328,5499,5660,5728,5797",
-                        "endColumns": "107,169,129,106,151,124,107,115,151,104,165,128,170,160,67,68,84",
-                        "endOffsets": "3731,3901,4031,4138,4290,4415,4523,4639,4923,5028,5194,5323,5494,5655,5723,5792,5877"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\943fe7b7348bbde0daa53db736d58f99\\transformed\\core-1.9.0\\res\\values-lo\\values-lo.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startOffsets": "105,195,272,381,479,568,657,747,833,916,981,1047,1127,1211,1285,1363,1429",
+                        "endColumns": "89,76,108,97,88,88,89,85,82,64,65,79,83,73,77,65,120",
+                        "endOffsets": "190,267,376,474,563,652,742,828,911,976,1042,1122,1206,1280,1358,1424,1545"
                     },
                     "to": {
-                        "startLines": "138",
-                        "startColumns": "4",
-                        "startOffsets": "12311",
-                        "endColumns": "100",
-                        "endOffsets": "12407"
+                        "startLines": "37,38,59,60,62,70,71,126,127,128,130,133,134,137,139,140,141",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3384,3474,5980,6089,6263,6967,7056,11398,11484,11567,11700,11920,12000,12237,12412,12490,12556",
+                        "endColumns": "89,76,108,97,88,88,89,85,82,64,65,79,83,73,77,65,120",
+                        "endOffsets": "3469,3546,6084,6182,6347,7051,7141,11479,11562,11627,11761,11995,12079,12306,12485,12551,12672"
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\09b00d015d23c2f39584ea582de031ac\\transformed\\appcompat-1.5.1\\res\\values-lo\\values-lo.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\f2d0d7f972c1252ab98c765bf9fee9d1\\transformed\\appcompat-1.5.1\\res\\values-lo\\values-lo.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -106,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\7252de9b30b5f2ab9333b6ffd9decc34\\transformed\\material-1.7.0\\res\\values-lo\\values-lo.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\d3d5d8a4f4fb8531ab6e030194e9f1ad\\transformed\\browser-1.4.0\\res\\values-lo\\values-lo.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,153,251,366",
+                        "endColumns": "97,97,114,99",
+                        "endOffsets": "148,246,361,461"
+                    },
+                    "to": {
+                        "startLines": "58,66,67,68",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "5882,6585,6683,6798",
+                        "endColumns": "97,97,114,99",
+                        "endOffsets": "5975,6678,6793,6893"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\2dbc367b9043792d39c48a69483c752f\\transformed\\material-1.7.0\\res\\values-lo\\values-lo.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -125,7 +74,75 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\4b681886b0143d134d8c44b41b3ac68e\\transformed\\navigation-dynamic-features-fragment-2.5.3\\res\\values-lo\\values-lo.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\fa7cbc3e616d3b71103e51ede7651b46\\transformed\\play-services-base-18.0.1\\res\\values-lo\\values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "193,297,463,589,692,840,961,1065,1177,1325,1426,1588,1713,1880,2037,2101,2166",
+                        "endColumns": "103,165,125,102,147,120,103,111,147,100,161,124,166,156,63,64,80",
+                        "endOffsets": "296,462,588,691,839,960,1064,1176,1324,1425,1587,1712,1879,2036,2100,2165,2246"
+                    },
+                    "to": {
+                        "startLines": "40,41,42,43,44,45,46,47,49,50,51,52,53,54,55,56,57",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3628,3736,3906,4036,4143,4295,4420,4528,4776,4928,5033,5199,5328,5499,5660,5728,5797",
+                        "endColumns": "107,169,129,106,151,124,107,115,151,104,165,128,170,160,67,68,84",
+                        "endOffsets": "3731,3901,4031,4138,4290,4415,4523,4639,4923,5028,5194,5323,5494,5655,5723,5792,5877"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\7446e5093d7b99faf796eb34416365ab\\transformed\\play-services-basement-18.0.0\\res\\values-lo\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "127",
+                        "endOffsets": "322"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "4644",
+                        "endColumns": "131",
+                        "endOffsets": "4771"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\dd2c4a897219f801ce63bd12645ff9f7\\transformed\\navigation-ui-2.5.3\\res\\values-lo\\values-lo.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,164",
+                        "endColumns": "108,109",
+                        "endOffsets": "159,269"
+                    },
+                    "to": {
+                        "startLines": "124,125",
+                        "startColumns": "4,4",
+                        "startOffsets": "11179,11288",
+                        "endColumns": "108,109",
+                        "endOffsets": "11283,11393"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\601f6d359f97386f213071bac9dd67fc\\transformed\\core-1.9.0\\res\\values-lo\\values-lo.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "138",
+                        "startColumns": "4",
+                        "startOffsets": "12311",
+                        "endColumns": "100",
+                        "endOffsets": "12407"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\8c01c40c222b71aa61f9f9bc90e99b9f\\transformed\\navigation-dynamic-features-fragment-2.5.3\\res\\values-lo\\values-lo.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -142,37 +159,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\8c0a039cf991e7a9924caa5751493c4f\\transformed\\browser-1.4.0\\res\\values-lo\\values-lo.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\4de25af8ca022ba2abbb2c3f98fe083e\\transformed\\material3-1.0.0-rc01\\res\\values-lo\\values-lo.xml",
                     "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,153,251,366",
-                        "endColumns": "97,97,114,99",
-                        "endOffsets": "148,246,361,461"
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,132,208",
+                        "endColumns": "76,75,77",
+                        "endOffsets": "127,203,281"
                     },
                     "to": {
-                        "startLines": "58,66,67,68",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "5882,6585,6683,6798",
-                        "endColumns": "97,97,114,99",
-                        "endOffsets": "5975,6678,6793,6893"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\dcfaede2b9dbf22604e1b70b2400b467\\transformed\\navigation-ui-2.5.3\\res\\values-lo\\values-lo.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,164",
-                        "endColumns": "108,109",
-                        "endOffsets": "159,269"
-                    },
-                    "to": {
-                        "startLines": "124,125",
-                        "startColumns": "4,4",
-                        "startOffsets": "11179,11288",
-                        "endColumns": "108,109",
-                        "endOffsets": "11283,11393"
+                        "startLines": "39,61,64",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "3551,6187,6418",
+                        "endColumns": "76,75,77",
+                        "endOffsets": "3623,6258,6491"
                     }
                 }
             ]
