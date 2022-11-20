@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import professorchaos0802.todo.objects.Item
+import professorchaos0802.todo.objects.MyItem
 import professorchaos0802.todo.objects.MyList
 
 /**
@@ -20,9 +20,9 @@ import professorchaos0802.todo.objects.MyList
  * @params list - [MyList]: List whose items to preview
  */
 @Composable
-fun ListItemPreview(items: List<Item>) {
+fun ListItemPreview(items: List<MyItem>) {
 
-    val itemsToPreview: List<Item> = if (items.size <= 5) {
+    val itemsToPreview: List<MyItem> = if (items.size <= 5) {
         items
     } else {
         items.subList(0, 5)

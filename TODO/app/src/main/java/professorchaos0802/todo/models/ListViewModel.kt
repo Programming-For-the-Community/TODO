@@ -28,4 +28,24 @@ class ListViewModel: ViewModel() {
 
 //    var listsToDelete = mutableListOf<MyList>()
 
+    /**
+     * Updates the current list locally without needing wifi
+     *
+     * @param list - [MyList]: list to set as the current list
+     */
+    fun updateCurrentList(list: MyList){
+        currentList.value = list
+    }
+
+    /**
+     * Adds a new list locally without using Wifi
+     *
+     * @param list - [MyList]: list to add
+     */
+    fun addList(list: MyList){
+        val allLists = lists.value.toMutableList()
+        allLists.add(list)
+        lists.value = allLists
+    }
+
 }

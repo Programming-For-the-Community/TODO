@@ -3,6 +3,7 @@ package professorchaos0802.todo.composeui.list.listtopnav
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.theme.TodoTheme
 
 @Preview
@@ -13,14 +14,14 @@ fun BlueListTopNavPreview(){
             color = "Blue",
             darkTheme = true
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
 
         TodoTheme(
             color = "Blue",
             darkTheme = false
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
     }
 }
@@ -33,14 +34,14 @@ fun GreenListTopNavPreview(){
             color = "Green",
             darkTheme = true
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
 
         TodoTheme(
             color = "Green",
             darkTheme = false
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
     }
 }
@@ -53,14 +54,14 @@ fun RedListTopNavPreview(){
             color = "Red",
             darkTheme = true
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
 
         TodoTheme(
             color = "Red",
             darkTheme = false
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
     }
 }
@@ -73,14 +74,14 @@ fun OrangeListTopNavPreview(){
             color = "Orange",
             darkTheme = true
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
 
         TodoTheme(
             color = "Orange",
             darkTheme = false
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
     }
 }
@@ -93,14 +94,14 @@ fun PinkListTopNavPreview(){
             color = "Pink",
             darkTheme = true
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
 
         TodoTheme(
             color = "Pink",
             darkTheme = false
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
     }
 }
@@ -113,14 +114,14 @@ fun PurpleListTopNavPreview(){
             color = "Purple",
             darkTheme = true
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
 
         TodoTheme(
             color = "Purple",
             darkTheme = false
         ) {
-            ListTopNav {}
+            ListTopNav(ListViewModel(),  true, {})
         }
     }
 }

@@ -6,7 +6,7 @@ import com.google.firebase.Timestamp
 import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.models.UserViewModel
-import professorchaos0802.todo.objects.Item
+import professorchaos0802.todo.objects.MyItem
 import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.objects.User
 import professorchaos0802.todo.theme.TodoTheme
@@ -15,7 +15,7 @@ import professorchaos0802.todo.theme.TodoTheme
 @Composable
 fun HomeScreenViewPreview() {
     val item = ItemViewModel()
-    var itemsToAdd = mutableListOf<Item>()
+    var itemsToAdd = mutableListOf<MyItem>()
     val user = UserViewModel()
     user.userName.value = "JDoe"
     user.user = User()
@@ -28,7 +28,7 @@ fun HomeScreenViewPreview() {
     myLists.add(MyList("JDoe", "List4"))
     myLists.forEach { list ->
         for(i in 1..5){
-            itemsToAdd.add(Item("JDoe", list.id,"Todo $i", false))
+            itemsToAdd.add(MyItem("JDoe", list.id,"Todo $i", false))
         }
         list.created = Timestamp.now()
     }

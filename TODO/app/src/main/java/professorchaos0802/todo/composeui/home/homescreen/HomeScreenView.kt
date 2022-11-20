@@ -106,6 +106,8 @@ fun HomeScreenView(
                                     owner = userViewModel.userName.value,
                                     title = "Title"
                                 )
+                                listViewModel.addList(newList)
+                                listViewModel.updateCurrentList(newList)
 
                                 //Add new list to Firebase on the Dispatchers.IO thread
                                 scope.launch{

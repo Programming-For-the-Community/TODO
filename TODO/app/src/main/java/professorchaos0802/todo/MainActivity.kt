@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         Firebase.auth.addAuthStateListener(authListener)
         sharedPreferences = getSharedPreferences(Constants.THEME_KEY, MODE_PRIVATE)
+        userModel.themeEvent.value = sharedPreferences.getString(Constants.THEME_KEY, "")
     }
 
     /**
@@ -89,7 +90,7 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             TodoTheme(
-                color = sharedPreferences.getString(Constants.THEME_KEY, "")!!
+                color = userModel.userTheme.value
             ) {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     navController = rememberNavController()
@@ -100,7 +101,7 @@ class MainActivity : AppCompatActivity() {
 
                         composable(route = TodoViews.Splash.route) {
                             SplashScreenView(
-                                themeColor = sharedPreferences.getString(Constants.THEME_KEY, "")!!
+                                themeColor = userModel.userTheme.value
                             )
                         }
 

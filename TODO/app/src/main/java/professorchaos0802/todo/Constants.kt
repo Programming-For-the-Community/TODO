@@ -9,6 +9,9 @@ object Constants {
     const val USER_UPDATE = "USER_UPDATE"
     const val PERMISSIONS = "PERMISSIONS"
     const val THEME_KEY = "theme"
+    const val USERNAME_KEY = "username"
+    const val IMAGE_KEY = "image"
+    const val SETUP_KEY = "setup"
 
     // Listener IDs
     const val listListenerId = "TodoLists"

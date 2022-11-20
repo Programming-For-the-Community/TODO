@@ -6,23 +6,37 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.input.ImeAction
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.utilities.FirebaseUtility
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun ListItems(itemModel: ItemViewModel, readOnly: Boolean){
+    val keyboardController = LocalSoftwareKeyboardController.current
+    val focusRequester = remember { FocusRequester() }
+    val focusManager = LocalFocusManager.current
     val scope = rememberCoroutineScope()
 
     LazyColumn(
@@ -41,15 +55,20 @@ fun ListItems(itemModel: ItemViewModel, readOnly: Boolean){
                     )
             ){
                 Row{
+                    var currentItemText by remember{ mutableStateOf(item.text) }
+
                     TextField(
-                        value = item.text,
+                        value = currentItemText,
+                        readOnly = readOnly,
                         leadingIcon = {
                             Checkbox(
                                 checked = item.done,
                                 onCheckedChange = {
+                                    itemModel.updateCurrentListItem(item)
+
                                     scope.launch{
                                         withContext(Dispatchers.IO){
-                                            FirebaseUtility.updateItem(item, item.text, !item.done)
+                                            FirebaseUtility.updateItem(item, currentItemText, !item.done)
                                         }
                                     }
                                 },
@@ -63,16 +82,53 @@ fun ListItems(itemModel: ItemViewModel, readOnly: Boolean){
                                 )
                             )
                         },
-                        label = {},
-                        placeholder = {},
-                        onValueChange = {},
+                        onValueChange = { newText: String ->
+                            currentItemText = newText
+                        },
+                        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                        keyboardActions = KeyboardActions(
+                            onDone = {
+                                focusManager.clearFocus()
+                                keyboardController?.hide()
+                                itemModel.updateCurrentListItem(item)
+
+                                // Add the current Item to Firebase on the Dispatchers.IO thread
+                                scope.launch{
+                                    withContext(Dispatchers.IO){
+                                        FirebaseUtility.updateItem(item, currentItemText, item.done)
+                                    }
+                                }
+                            }
+                        ),
                         colors = TextFieldDefaults.textFieldColors(
                             backgroundColor = MaterialTheme.colorScheme.tertiaryContainer,
                             textColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                            disabledTextColor = MaterialTheme.colorScheme.onTertiaryContainer,
                             cursorColor = MaterialTheme.colorScheme.onTertiaryContainer,
                             leadingIconColor = MaterialTheme.colorScheme.onTertiaryContainer,
-                            focusedIndicatorColor = MaterialTheme.colorScheme.tertiaryContainer
+                            focusedIndicatorColor = MaterialTheme.colorScheme.tertiaryContainer,
+                            unfocusedIndicatorColor = MaterialTheme.colorScheme.tertiaryContainer
                         ),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .focusRequester(focusRequester)
+                            .onKeyEvent { event ->
+                                if (event.key == Key.Enter) {
+                                    focusManager.clearFocus()
+                                    keyboardController?.hide()
+                                    currentItemText = currentItemText.dropLast(1)
+                                    itemModel.updateCurrentListItem(item)
+
+                                    // Update the current List on the Dispatchers.IO thread
+                                    scope.launch{
+                                        withContext(Dispatchers.IO){
+                                            FirebaseUtility.updateItem(item, currentItemText, item.done)
+                                        }
+                                    }
+                                }
+
+                                false
+                            }
                     )
                 }
             }

@@ -57,6 +57,7 @@ fun ShowLists(
                         item.listId == list.id
                     },
                     onClick = {
+                        listViewModel.updateCurrentList(list)
 
                         // Add Fireabse Listeners on Dispatchers.IO thread
                         scope.launch{

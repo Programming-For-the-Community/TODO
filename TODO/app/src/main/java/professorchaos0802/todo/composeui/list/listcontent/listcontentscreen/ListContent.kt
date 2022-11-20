@@ -10,7 +10,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import professorchaos0802.todo.Constants
 import professorchaos0802.todo.composeui.list.listcontent.items.ListItems
-import professorchaos0802.todo.composeui.list.listcontent.listtitle.ListTitle
 import professorchaos0802.todo.composeui.list.listcontent.newItem.NewItem
 import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.models.ListViewModel
@@ -33,7 +32,6 @@ fun ListContent(listModel: ListViewModel, itemModel: ItemViewModel, user: String
                 .fillMaxWidth()
                 .padding(top = 64.dp)
         ) {
-            ListTitle(listModel, readOnly)
             ListItems(itemModel, readOnly)
         }
 

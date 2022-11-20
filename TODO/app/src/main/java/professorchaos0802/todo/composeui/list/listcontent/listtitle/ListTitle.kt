@@ -49,7 +49,7 @@ fun ListTitle(model: ListViewModel, readOnly: Boolean){
             Text(
                 text = model.currentListTitle.value,
                 style = MaterialTheme.typography.labelLarge,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = MaterialTheme.colorScheme.onPrimary
             )
         },
         label = {},
@@ -75,11 +75,12 @@ fun ListTitle(model: ListViewModel, readOnly: Boolean){
             }
         ),
         colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = MaterialTheme.colorScheme.surfaceVariant,
-            textColor = MaterialTheme.colorScheme.onSurfaceVariant,
-            cursorColor = MaterialTheme.colorScheme.onSurfaceVariant,
-            leadingIconColor = MaterialTheme.colorScheme.onSurfaceVariant,
-            focusedIndicatorColor = MaterialTheme.colorScheme.onSurfaceVariant
+            backgroundColor = MaterialTheme.colorScheme.primary,
+            textColor = MaterialTheme.colorScheme.onPrimary,
+            cursorColor = MaterialTheme.colorScheme.onPrimary,
+            leadingIconColor = MaterialTheme.colorScheme.onPrimary,
+            focusedIndicatorColor = MaterialTheme.colorScheme.primary,
+            unfocusedIndicatorColor = MaterialTheme.colorScheme.primary
         ),
         modifier = Modifier
             .focusRequester(focusRequester)

@@ -32,27 +32,33 @@ fun ListScreenView(
     TodoTheme(color = userModel.userTheme.value) {
         Scaffold(
             topBar = {
-                ListTopNav(
-                    onBackClick = {
-                        // Update the currentList and adds back the listener for all lists on the Dispatchers.IO thread
-                        scope.launch {
-                            withContext(Dispatchers.IO) {
-                                FirebaseUtility.updateCurrentList(
-                                    currentList = listModel.currentList.value!!,
-                                    currentTitle = listModel.currentListTitle.value
-                                )
+                listModel.currentList.value?.canView?.contains(userModel.userName.value)?.let { readOnly ->
+                    ListTopNav(
+                        listModel = listModel,
+                        readOnly = readOnly,
+                        onBackClick = {
+                            // Update the currentList and adds back the listener for all lists on the Dispatchers.IO thread
+                            scope.launch {
+                                withContext(Dispatchers.IO) {
+                                    FirebaseUtility.updateCurrentList(
+                                        currentList = listModel.currentList.value!!,
+                                        currentTitle = listModel.currentListTitle.value
+                                    )
 
 
-                                // Remove listeners from list screen
-                                FirebaseUtility.removeListener(listModel.currentList.value!!.id)
-                                FirebaseUtility.removeListener(listModel.currentList.value!!.id + Constants.itemListenerId)
+                                    // Remove listeners from list screen
+                                    FirebaseUtility.removeListener(listModel.currentList.value!!.id)
+                                    FirebaseUtility.removeListener(listModel.currentList.value!!.id + Constants.itemListenerId)
 
-                                listModel.currentList.value?.let { FirebaseUtility.removeListener(it.id) }
+                                    listModel.currentList.value?.let { myList ->
+                                        FirebaseUtility.removeListener(myList.id)
+                                    }
+                                }
                             }
+                            onBackClick()
                         }
-                        onBackClick()
-                    }
-                )
+                    )
+                }
             }
         ) {
             listModel.currentList.value?.canView?.let { list ->

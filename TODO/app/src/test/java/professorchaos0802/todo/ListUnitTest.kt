@@ -1,11 +1,5 @@
 package professorchaos0802.todo
 
-import org.junit.Test
-
-import org.junit.Assert.*
-import professorchaos0802.todo.objects.Item
-import professorchaos0802.todo.objects.MyList
-
 /**
  * Tests the List Object
  */

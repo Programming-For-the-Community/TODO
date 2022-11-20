@@ -3,7 +3,7 @@ package professorchaos0802.todo.composeui.home.listcardview
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.firebase.Timestamp
-import professorchaos0802.todo.objects.Item
+import professorchaos0802.todo.objects.MyItem
 import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.theme.TodoTheme
 
@@ -12,9 +12,9 @@ import professorchaos0802.todo.theme.TodoTheme
 fun BlueListCardViewPreview() {
     val list = MyList("JDoe", "List 1")
     list.created = Timestamp.now()
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..5) {
-        items.add(Item("JDoe", list.title, "Todo $i", false))
+        items.add(MyItem("JDoe", list.title, "Todo $i", false))
     }
     items[0].done = true
 
@@ -30,9 +30,9 @@ fun BlueListCardViewPreview() {
 fun GreenListCardViewPreview() {
     val list = MyList("JDoe", "List 1")
     list.created = Timestamp.now()
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..5) {
-        items.add(Item("JDoe", list.title, "Todo $i", false))
+        items.add(MyItem("JDoe", list.title, "Todo $i", false))
     }
     items[0].done = true
 
@@ -48,9 +48,9 @@ fun GreenListCardViewPreview() {
 fun RedListCardViewPreview() {
     val list = MyList("JDoe", "List 1")
     list.created = Timestamp.now()
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..5) {
-        items.add(Item("JDoe", list.title, "Todo $i", false))
+        items.add(MyItem("JDoe", list.title, "Todo $i", false))
     }
     items[0].done = true
 
@@ -66,9 +66,9 @@ fun RedListCardViewPreview() {
 fun OrangeListCardViewPreview() {
     val list = MyList("JDoe", "List 1")
     list.created = Timestamp.now()
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..5) {
-        items.add(Item("JDoe", list.title, "Todo $i", false))
+        items.add(MyItem("JDoe", list.title, "Todo $i", false))
     }
     items[0].done = true
 
@@ -84,9 +84,9 @@ fun OrangeListCardViewPreview() {
 fun PinkListCardViewPreview() {
     val list = MyList("JDoe", "List 1")
     list.created = Timestamp.now()
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..5) {
-        items.add(Item("JDoe", list.title, "Todo $i", false))
+        items.add(MyItem("JDoe", list.title, "Todo $i", false))
     }
     items[0].done = true
 
@@ -102,9 +102,9 @@ fun PinkListCardViewPreview() {
 fun PurpleListCardViewPreview() {
     val list = MyList("JDoe", "List 1")
     list.created = Timestamp.now()
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..5) {
-        items.add(Item("JDoe", list.title, "Todo $i", false))
+        items.add(MyItem("JDoe", list.title, "Todo $i", false))
     }
     items[0].done = true
 

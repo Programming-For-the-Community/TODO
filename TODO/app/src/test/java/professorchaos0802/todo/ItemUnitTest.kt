@@ -1,9 +1,8 @@
 package professorchaos0802.todo
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
-import professorchaos0802.todo.objects.Item
+import professorchaos0802.todo.objects.MyItem
 
 /**
  * Tests the creation of an Item object and the ability to edit item fields
@@ -11,8 +10,8 @@ import professorchaos0802.todo.objects.Item
 class ItemUnitTest {
     @Test
     fun item_creation(){
-        var item = Item()
-        var item1 = Item("cmhahm", "Write Item object", true)
+        var item = MyItem()
+        var item1 = MyItem("cmhahm", "","Write Item object", true)
 
         // Test default creation
         assertEquals("", item.owner)
@@ -20,7 +19,7 @@ class ItemUnitTest {
         assertEquals(false, item.done)
 
         // Test Collection Path
-        assertEquals("items", Item.COLLECTION_PATH)
+        assertEquals("items", MyItem.COLLECTION_PATH)
 
         // Test custom creation
         assertEquals("cmhahm", item1.owner)
@@ -30,7 +29,7 @@ class ItemUnitTest {
 
     @Test
     fun item_editing(){
-        var item = Item()
+        var item = MyItem()
 
         // Verify creation
         assertEquals("", item.owner)

@@ -5,7 +5,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.models.ListViewModel
-import professorchaos0802.todo.objects.Item
+import professorchaos0802.todo.objects.MyItem
 import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.theme.TodoTheme
 
@@ -17,9 +17,9 @@ fun BlueListContentPreview() {
     val listModel: ListViewModel = viewModel()
     listModel.currentList.value = list
 
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..10) {
-        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+        items.add(MyItem(owner = "JDoe", text = "Item # $i", done = false))
     }
     val itemModel: ItemViewModel = viewModel()
     itemModel.currentListItems.value = items
@@ -38,9 +38,9 @@ fun GreenListContentPreview() {
     val listModel: ListViewModel = viewModel()
     listModel.currentList.value = list
 
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..10) {
-        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+        items.add(MyItem(owner = "JDoe", text = "Item # $i", done = false))
     }
     val itemModel: ItemViewModel = viewModel()
     itemModel.currentListItems.value = items
@@ -59,9 +59,9 @@ fun RedListContentPreview() {
     val listModel: ListViewModel = viewModel()
     listModel.currentList.value = list
 
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..10) {
-        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+        items.add(MyItem(owner = "JDoe", text = "Item # $i", done = false))
     }
     val itemModel: ItemViewModel = viewModel()
     itemModel.currentListItems.value = items
@@ -80,9 +80,9 @@ fun OrangeListContentPreview() {
     val listModel: ListViewModel = viewModel()
     listModel.currentList.value = list
 
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..10) {
-        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+        items.add(MyItem(owner = "JDoe", text = "Item # $i", done = false))
     }
     val itemModel: ItemViewModel = viewModel()
     itemModel.currentListItems.value = items
@@ -101,9 +101,9 @@ fun PinkListContentPreview() {
     val listModel: ListViewModel = viewModel()
     listModel.currentList.value = list
 
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..10) {
-        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+        items.add(MyItem(owner = "JDoe", text = "Item # $i", done = false))
     }
     val itemModel: ItemViewModel = viewModel()
     itemModel.currentListItems.value = items
@@ -122,9 +122,9 @@ fun PurpleListContentPreview() {
     val listModel: ListViewModel = viewModel()
     listModel.currentList.value = list
 
-    val items = mutableListOf<Item>()
+    val items = mutableListOf<MyItem>()
     for (i in 1..10) {
-        items.add(Item(owner = "JDoe", text = "Item # $i", done = false))
+        items.add(MyItem(owner = "JDoe", text = "Item # $i", done = false))
     }
     val itemModel: ItemViewModel = viewModel()
     itemModel.currentListItems.value = items

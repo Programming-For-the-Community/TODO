@@ -28,7 +28,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import professorchaos0802.todo.models.ItemViewModel
-import professorchaos0802.todo.objects.Item
+import professorchaos0802.todo.objects.MyItem
 import professorchaos0802.todo.utilities.FirebaseUtility
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -70,12 +70,13 @@ fun NewItem(itemModel: ItemViewModel, listId: String, user: String){
                     focusManager.clearFocus()
                     keyboardController?.hide()
 
-                    val newItem = Item(
+                    val newItem = MyItem(
                         owner = user,
                         listId = listId,
                         text = itemModel.itemText.value,
                         done = false
                     )
+                    itemModel.addItem(newItem)
 
                     // Add the current Item to Firebase on the Dispatchers.IO thread
                     scope.launch{
@@ -115,12 +116,13 @@ fun NewItem(itemModel: ItemViewModel, listId: String, user: String){
                         itemModel.itemTextEvent.value = itemModel.itemText.value.dropLast(1)
 
                         // Add the current Item to Firebase on the Dispatchers.IO thread
-                        val newItem = Item(
+                        val newItem = MyItem(
                             owner = user,
                             listId = listId,
                             text = itemModel.itemText.value,
                             done = false
                         )
+                        itemModel.addItem(newItem)
 
                         // Update the current List on the Dispatchers.IO thread
                         scope.launch{
