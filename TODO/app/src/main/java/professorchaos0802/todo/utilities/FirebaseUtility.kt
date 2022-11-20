@@ -118,7 +118,7 @@ object FirebaseUtility {
      *
      * @param itemEvent - [MutableLiveData]: live data storing the items from the listener
      */
-    fun addItemListener(itemEvent: MutableState<List<Item>>){
+    fun addItemListener(itemEvent: MutableLiveData<List<Item>>){
         val subscription = itemRef
             .addSnapshotListener{ snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
                 e?.let{
@@ -156,7 +156,7 @@ object FirebaseUtility {
                 snapshot?.documents?.forEach{
                     currListItems.add(Item.from(it))
                 }
-                currentListItemsEvent.postValue(currListItems)
+                currentListItemsEvent.value = currListItems
                 Log.d(Constants.ITEM, "Number of Items: ${currListItems.size}")
             }
 

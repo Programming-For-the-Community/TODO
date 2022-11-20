@@ -34,6 +34,12 @@ import professorchaos0802.todo.utilities.FirebaseUtility
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun NewItem(itemModel: ItemViewModel, listId: String, user: String){
+    val keyboardController = LocalSoftwareKeyboardController.current
+    val focusRequester = remember { FocusRequester() }
+    val focusManager = LocalFocusManager.current
+    val scope = rememberCoroutineScope()
+    var showLabel by remember { mutableStateOf(false) }
+
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
@@ -42,12 +48,6 @@ fun NewItem(itemModel: ItemViewModel, listId: String, user: String){
                 color = MaterialTheme.colorScheme.secondary
             )
     ){
-        val keyboardController = LocalSoftwareKeyboardController.current
-        val focusRequester = remember { FocusRequester() }
-        val focusManager = LocalFocusManager.current
-        val scope = rememberCoroutineScope()
-        var showLabel by remember { mutableStateOf(false) }
-
         TextField(
             value = itemModel.itemText.value,
             textStyle = MaterialTheme.typography.bodyMedium,
@@ -62,7 +62,7 @@ fun NewItem(itemModel: ItemViewModel, listId: String, user: String){
             },
             singleLine = true,
             onValueChange = { newItemText ->
-                itemModel.itemText.value = newItemText
+                itemModel.itemTextEvent.value = newItemText
             },
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
             keyboardActions = KeyboardActions(
@@ -84,7 +84,7 @@ fun NewItem(itemModel: ItemViewModel, listId: String, user: String){
                         }
                     }
 
-                    itemModel.itemText.value = ""
+                    itemModel.itemTextEvent.value = ""
                 }
             ),
             colors = TextFieldDefaults.textFieldColors(
@@ -112,7 +112,7 @@ fun NewItem(itemModel: ItemViewModel, listId: String, user: String){
                     if (event.key == Key.Enter) {
                         focusManager.clearFocus()
                         keyboardController?.hide()
-                        itemModel.itemText.value = itemModel.itemText.value.dropLast(1)
+                        itemModel.itemTextEvent.value = itemModel.itemText.value.dropLast(1)
 
                         // Add the current Item to Firebase on the Dispatchers.IO thread
                         val newItem = Item(
@@ -129,7 +129,7 @@ fun NewItem(itemModel: ItemViewModel, listId: String, user: String){
                             }
                         }
 
-                        itemModel.itemText.value = ""
+                        itemModel.itemTextEvent.value = ""
                     }
 
                     false

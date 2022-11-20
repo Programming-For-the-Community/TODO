@@ -17,7 +17,6 @@ import professorchaos0802.todo.models.ListViewModel
 
 @Composable
 fun ListContent(listModel: ListViewModel, itemModel: ItemViewModel, user: String, readOnly: Boolean){
-//    itemModel.currentListItems.value = itemModel.items.value.filter{ it.listId == listModel.currentList.value!!.id }
     Log.d(Constants.ITEM, "${listModel.currentList.value!!.title} has ${itemModel.currentListItems.value.size} items")
 
     Column(

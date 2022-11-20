@@ -57,13 +57,15 @@ fun ShowLists(
                         item.listId == list.id
                     },
                     onClick = {
+
+                        // Add Fireabse Listeners on Dispatchers.IO thread
                         scope.launch{
                             withContext(Dispatchers.IO){
                                 FirebaseUtility.addCurrentListListener(list, listViewModel.currentListEvent)
+                                FirebaseUtility.addCurrentListItemListener(list, itemModel.currentListItemsEvent)
                             }
                         }
 
-                        FirebaseUtility.addCurrentListItemListener(list, itemModel.currentListItemsEvent)
                         onClick()
                     }
                 )

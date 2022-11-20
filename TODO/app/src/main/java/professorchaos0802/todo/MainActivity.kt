@@ -173,7 +173,7 @@ class MainActivity : AppCompatActivity() {
                                         withContext(Dispatchers.IO) {
                                             FirebaseUtility.updateUser(userModel)
                                             FirebaseUtility.addListListener(listViewModel.listEvent)
-                                            FirebaseUtility.addItemListener(itemViewModel.items)
+                                            FirebaseUtility.addItemListener(itemViewModel.itemsEvent)
                                         }
                                     }
 
@@ -232,13 +232,14 @@ class MainActivity : AppCompatActivity() {
                             ListScreenView(
                                 userModel = userModel,
                                 listModel = listViewModel,
+                                itemModel = itemViewModel,
                                 onBackClick = {
 
                                     // Add Listeners on Dispatchers.IO thread
                                     lifecycleScope.launch {
                                         withContext(Dispatchers.IO){
                                             FirebaseUtility.addListListener(listViewModel.listEvent)
-                                            FirebaseUtility.addItemListener(itemViewModel.items)
+                                            FirebaseUtility.addItemListener(itemViewModel.itemsEvent)
                                         }
                                     }
 
@@ -273,6 +274,14 @@ class MainActivity : AppCompatActivity() {
 
         userModel.image.observe(this) { newImage ->
             userModel.userImage.value = newImage
+        }
+
+        itemViewModel.myItemText.observe(this){ text ->
+            itemViewModel.itemText.value = text
+        }
+
+        itemViewModel.myItems.observe(this){ allItems ->
+            itemViewModel.items.value = allItems
         }
 
         itemViewModel.currItem.observe(this){ currentItem ->
@@ -331,7 +340,7 @@ class MainActivity : AppCompatActivity() {
                                     // Add Firebase List listener
                                     FirebaseUtility.addListListener(listViewModel.listEvent)
 
-                                    FirebaseUtility.addItemListener(itemViewModel.items)
+                                    FirebaseUtility.addItemListener(itemViewModel.itemsEvent)
 
                                     Log.d(
                                         Constants.SETUP,
