@@ -23,6 +23,7 @@ import androidx.compose.ui.text.input.ImeAction
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import professorchaos0802.todo.composeui.list.listcontent.listcontentscreen.list
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.utilities.FirebaseUtility
 
@@ -38,13 +39,6 @@ fun ListTitle(model: ListViewModel, readOnly: Boolean){
         value = model.currentListTitle.value,
         readOnly = readOnly,
         textStyle = MaterialTheme.typography.labelLarge,
-//        leadingIcon = {
-//            Icon(
-//                Icons.Filled.List,
-//                contentDescription = null,
-//                modifier = Modifier.size(40.dp)
-//            )
-//        },
         placeholder = {
             Text(
                 text = model.currentListTitle.value,
@@ -62,6 +56,10 @@ fun ListTitle(model: ListViewModel, readOnly: Boolean){
             onDone = {
                 focusManager.clearFocus()
                 keyboardController?.hide()
+                val newList = model.currentList.value
+                newList!!.title = model.currentListTitle.value
+
+                model.updateCurrentList(newList)
 
                 // Update the current List on the Dispatchers.IO thread
                 scope.launch{
@@ -90,6 +88,7 @@ fun ListTitle(model: ListViewModel, readOnly: Boolean){
                     focusManager.clearFocus()
                     keyboardController?.hide()
                     model.currentListTitleEvent.value = model.currentListTitle.value.dropLast(1)
+                    model.updateCurrentList(list)
 
                     // Update the current List on the Dispatchers.IO thread
                     scope.launch{

@@ -34,7 +34,7 @@ class ListViewModel: ViewModel() {
      * @param list - [MyList]: list to set as the current list
      */
     fun updateCurrentList(list: MyList){
-        currentList.value = list
+        currentListEvent.value = list
     }
 
     /**
@@ -45,7 +45,7 @@ class ListViewModel: ViewModel() {
     fun addList(list: MyList){
         val allLists = lists.value.toMutableList()
         allLists.add(list)
-        lists.value = allLists
+        listEvent.value = allLists
     }
 
 }

@@ -53,8 +53,13 @@ fun ListScreenView(
                                     listModel.currentList.value?.let { myList ->
                                         FirebaseUtility.removeListener(myList.id)
                                     }
+
+                                    // Clear Current List values
+                                    listModel.currentListEvent.postValue(null)
+                                    itemModel.currentListItemsEvent.postValue(listOf())
                                 }
                             }
+
                             onBackClick()
                         }
                     )

@@ -1,5 +1,6 @@
 package professorchaos0802.todo.objects
 
+import androidx.compose.runtime.mutableStateOf
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Exclude
 
@@ -13,6 +14,9 @@ class MyItem(
     @get:Exclude
     var id = "" // Firestore ID
 
+    @get:Exclude
+    var mutableItemText = mutableStateOf("")
+
     companion object{
         const val COLLECTION_PATH = "items"
 
@@ -20,15 +24,10 @@ class MyItem(
          * Converts a firestore DocumentSnapshot into an Item object
          */
         fun from(snapshot: DocumentSnapshot): MyItem{
-//            val i = MyItem(
-//                owner = snapshot.get("owner") as String,
-//                listId = snapshot.get("listId") as String,
-//                text = snapshot.get("text") as String,
-//                done = snapshot.get("done") as Boolean
-//            )
             val i = snapshot.toObject(MyItem::class.java)!!
 
             i.id = snapshot.id
+            i.mutableItemText.value = i.text
 
             return i
         }

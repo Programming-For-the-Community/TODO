@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         Firebase.auth.addAuthStateListener(authListener)
         sharedPreferences = getSharedPreferences(Constants.THEME_KEY, MODE_PRIVATE)
         userModel.themeEvent.value = sharedPreferences.getString(Constants.THEME_KEY, "")
+        Constants.windowManager = windowManager
     }
 
     /**
@@ -203,7 +204,7 @@ class MainActivity : AppCompatActivity() {
                                 userViewModel = userModel,
                                 listViewModel = listViewModel,
                                 itemViewModel = itemViewModel,
-                                onNavigateToList = {
+                                onNavigateToSplash = {
                                     lifecycleScope.launch {
                                         withContext(Dispatchers.IO) {
                                             FirebaseUtility.removeListener(Constants.listListenerId)
@@ -211,6 +212,9 @@ class MainActivity : AppCompatActivity() {
                                         }
                                     }
 
+                                    navController.navigate(TodoViews.Splash.route)
+                                },
+                                onNavigateToList = {
                                     navController.navigate(TodoViews.List.route)
                                 },
                                 onNavigateToHome = {}, // Do nothing since we are already on the home screen

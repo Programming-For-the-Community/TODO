@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import professorchaos0802.todo.objects.MyList
+import java.text.SimpleDateFormat
 
 /**
  * Displays the Title information of the given [MyList] on a [ListCardView]
@@ -42,16 +43,21 @@ fun ListTitleInfo(list: MyList){
             verticalArrangement = Arrangement.Center,
             modifier = Modifier.padding(start = 10.dp)
         ){
-            Text(
-                text = "Owner: ${list.owner}",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onPrimaryContainer
-            )
-            Text(
-                text = "Created: ${list.created?.let{it.toDate()}}",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onPrimaryContainer
-            )
+            Row(horizontalArrangement = Arrangement.End) {
+                Text(
+                    text = "Owner: ${list.owner}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+            }
+
+            Row(horizontalArrangement = Arrangement.End) {
+                Text(
+                    text = "Created: ${list.created?.let { SimpleDateFormat("MM-dd-yyyy").format(it.toDate()) }}",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+            }
         }
     }
 }

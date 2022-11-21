@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextDecoration.Companion.LineThrough
+import androidx.compose.ui.text.style.TextDecoration.Companion.None
 import androidx.compose.ui.unit.dp
 import professorchaos0802.todo.objects.MyItem
 import professorchaos0802.todo.objects.MyList
@@ -95,6 +97,7 @@ fun ListItemPreview(items: List<MyItem>) {
                     Text(
                         text = item.text,
                         style = MaterialTheme.typography.bodySmall,
+                        textDecoration = if(item.done) LineThrough else None,
                         color = MaterialTheme.colorScheme.onTertiary
                     )
                 }

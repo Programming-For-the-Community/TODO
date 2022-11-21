@@ -51,7 +51,8 @@ fun HomeScreenView(
     itemViewModel: ItemViewModel = viewModel(),
     onNavigateToList:() -> Unit,
     onNavigateToHome:() -> Unit,
-    onNavigateToProfile:() -> Unit
+    onNavigateToProfile:() -> Unit,
+    onNavigateToSplash: () -> Unit,
 ) {
     Log.d(Constants.HOME, "Filtering lists")
     val drawerState = rememberDrawerState(DrawerValue.Closed)
@@ -112,11 +113,11 @@ fun HomeScreenView(
                                 //Add new list to Firebase on the Dispatchers.IO thread
                                 scope.launch{
                                     withContext(Dispatchers.IO){
-                                        FirebaseUtility.addNewList(newList, listViewModel.currentListEvent, itemViewModel.currentListItemsEvent)
+                                        FirebaseUtility.addNewList(newList, listViewModel.currentListEvent, itemViewModel.currentListItemsEvent, onNavigateToList)
                                     }
                                 }
 
-                                onNavigateToList()
+                                onNavigateToSplash()
                             }
                         )
                     }

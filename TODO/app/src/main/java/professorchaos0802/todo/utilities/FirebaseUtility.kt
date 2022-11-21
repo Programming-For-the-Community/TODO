@@ -34,29 +34,34 @@ object FirebaseUtility {
      * @param userModel - [UserViewModel]: stores all data about the current user
      * @param observer - [Unit]: Lambda that runs after the user has been verified or created
      */
-    fun getOrMakeUser(sharedPreferences: SharedPreferences, userModel: UserViewModel, observer: () -> Unit) {
+    fun getOrMakeUser(
+        sharedPreferences: SharedPreferences,
+        userModel: UserViewModel,
+        observer: () -> Unit
+    ) {
         userRef = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
 
-        if(userModel.user != null){
+        if (userModel.user != null) {
             // get
             observer()
-        }else{
+        } else {
             // make
             userRef.get().addOnSuccessListener {
-                if(it.exists()){
+                if (it.exists()) {
                     userModel.user = it.toObject(User::class.java)
-                    userModel.nameEvent.value = userModel.user!!.username
-                    userModel.themeEvent.value = userModel.user!!.theme
-                    userModel.imageEvent.value = userModel.user!!.img
-                }else{
-                    userModel.user = User(username= Firebase.auth.currentUser!!.displayName!!)
-                    userModel.nameEvent.value = userModel.user!!.username
-                    userModel.themeEvent.value = userModel.user!!.theme
-                    userModel.imageEvent.value = userModel.user!!.img
+                    userModel.nameEvent.postValue(userModel.user!!.username)
+                    userModel.themeEvent.postValue(userModel.user!!.theme)
+                    userModel.imageEvent.postValue(userModel.user!!.img)
+                } else {
+                    userModel.user = User(username = Firebase.auth.currentUser!!.displayName!!)
+                    userModel.nameEvent.postValue(userModel.user!!.username)
+                    userModel.themeEvent.postValue(userModel.user!!.theme)
+                    userModel.imageEvent.postValue(userModel.user!!.img)
                     userRef.set(userModel.user!!)
                 }
 
-                sharedPreferences.edit().putString(Constants.THEME_KEY, userModel.userTheme.value).apply()
+                sharedPreferences.edit().putString(Constants.THEME_KEY, userModel.userTheme.value)
+                    .apply()
 
                 observer()
             }
@@ -69,12 +74,12 @@ object FirebaseUtility {
      * @param listenerIdentifier - [String]: key to identify the specific listener
      * @param listEvent - [MutableLiveData]: live list seen in UI
      */
-    fun addListListener(listEvent: MutableLiveData<List<MyList>>){
+    fun addListListener(listEvent: MutableLiveData<List<MyList>>) {
 
         val subscription = listRef
             .orderBy(MyList.CREATED_KEY, Query.Direction.DESCENDING)
-            .addSnapshotListener{ snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
-                e?.let{
+            .addSnapshotListener { snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
+                e?.let {
                     Log.d(Constants.HOME, "ERROR: $e")
                     return@addSnapshotListener
                 }
@@ -83,7 +88,7 @@ object FirebaseUtility {
                 snapshot?.documents?.forEach {
                     allLists.add(MyList.from(it))
                 }
-                listEvent.value = allLists
+                listEvent.postValue(allLists)
                 Log.d(Constants.HOME, "Lists Length: ${allLists.size}")
             }
 
@@ -96,19 +101,19 @@ object FirebaseUtility {
      * @param list - [MyList]: List to add listener to
      * @param currentListEvent - [MutableLiveData]: live data being observed in the UI
      */
-    fun addCurrentListListener(list: MyList, currentListEvent: MutableLiveData<MyList?>){
+    fun addCurrentListListener(list: MyList, currentListEvent: MutableLiveData<MyList?>) {
         currentListRef = listRef.document(list.id)
 
         val subscription = currentListRef
-            .addSnapshotListener{ snapshot, e ->
-                e?.let{
+            .addSnapshotListener { snapshot, e ->
+                e?.let {
                     Log.d(Constants.LIST, "ERROR: $e")
                     return@addSnapshotListener
                 }
                 var myList: MyList? = null
-                snapshot?.let{ myList = MyList.from(it) }
+                snapshot?.let { myList = MyList.from(it) }
                 Log.d(Constants.LIST, "Current List: ${myList?.title}")
-                currentListEvent.value = myList
+                currentListEvent.postValue(myList)
             }
 
         subscriptions[list.id] = subscription
@@ -119,19 +124,19 @@ object FirebaseUtility {
      *
      * @param itemEvent - [MutableLiveData]: live data storing the items from the listener
      */
-    fun addItemListener(itemEvent: MutableLiveData<List<MyItem>>){
+    fun addItemListener(itemEvent: MutableLiveData<List<MyItem>>) {
         val subscription = itemRef
-            .addSnapshotListener{ snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
-                e?.let{
+            .addSnapshotListener { snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
+                e?.let {
                     Log.e(Constants.ITEM, "ERROR: $e")
                     return@addSnapshotListener
                 }
                 Log.d(Constants.ITEM, "Item Snapshot Length: ${snapshot?.size()}")
                 val allItems = mutableListOf<MyItem>()
-                snapshot?.documents?.forEach{
+                snapshot?.documents?.forEach {
                     allItems.add(MyItem.from(it))
                 }
-                itemEvent.value = allItems
+                itemEvent.postValue(allItems)
                 Log.d(Constants.ITEM, "Number of Items: ${allItems.size}")
             }
 
@@ -144,20 +149,23 @@ object FirebaseUtility {
      * @param list - [MyList]: list we want the items for
      * @param currentListItemsEvent - [MutableState]: live data storing the items associated with the given list
      */
-    fun addCurrentListItemListener(list: MyList, currentListItemsEvent: MutableLiveData<List<MyItem>>){
+    fun addCurrentListItemListener(
+        list: MyList,
+        currentListItemsEvent: MutableLiveData<List<MyItem>>
+    ) {
         val subscription = itemRef
             .whereEqualTo("listId", list.id)
-            .addSnapshotListener{ snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
-                e?.let{
+            .addSnapshotListener { snapshot: QuerySnapshot?, e: FirebaseFirestoreException? ->
+                e?.let {
                     Log.e(Constants.ITEM, "ERROR: $e")
                     return@addSnapshotListener
                 }
                 Log.d(Constants.ITEM, "Item Snapshot Length: ${snapshot?.size()}")
                 val currListItems = mutableListOf<MyItem>()
-                snapshot?.documents?.forEach{
+                snapshot?.documents?.forEach {
                     currListItems.add(MyItem.from(it))
                 }
-                currentListItemsEvent.value = currListItems
+                currentListItemsEvent.postValue(currListItems)
                 Log.d(Constants.ITEM, "Number of Items: ${currListItems.size}")
             }
 
@@ -171,7 +179,12 @@ object FirebaseUtility {
      * @param listEvent - [MutableLiveData]: mutable live data to be updated when the
      * list is added to Firebase
      */
-    fun addNewList(list: MyList, listEvent: MutableLiveData<MyList?>, currListItems: MutableLiveData<List<MyItem>>){
+    fun addNewList(
+        list: MyList,
+        listEvent: MutableLiveData<MyList?>,
+        currListItems: MutableLiveData<List<MyItem>>,
+        onNavigateToList: () -> Unit
+    ) {
         listRef.add(list)
             .addOnSuccessListener {
                 val task = it.get()
@@ -179,6 +192,8 @@ object FirebaseUtility {
                     val currList = MyList.from(newList)
                     addCurrentListListener(currList, listEvent)
                     addCurrentListItemListener(currList, currListItems)
+
+                    onNavigateToList()
                 }
             }
     }
@@ -188,7 +203,7 @@ object FirebaseUtility {
      *
      * @param item - [MyItem]: item to be added to firebase
      */
-    fun addItem(i: MyItem){
+    fun addItem(i: MyItem) {
         itemRef.add(i)
     }
 
@@ -197,13 +212,13 @@ object FirebaseUtility {
      *
      * @param userModel - [UserViewModel]: Holds the most current data to pass to Firebase
      */
-    fun updateUser(userModel: UserViewModel){
+    fun updateUser(userModel: UserViewModel) {
         userRef = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
         userModel.user!!.theme = userModel.userTheme.value
         userModel.user!!.img = userModel.userImage.value
 
-        if(userModel.user != null){
-            with(userModel.user!!){
+        if (userModel.user != null) {
+            with(userModel.user!!) {
                 userRef.set(this)
             }
         }
@@ -214,11 +229,11 @@ object FirebaseUtility {
      *
      * @param userModel - [UserViewModel]: Holds the most current data to pass to Firebase
      */
-    fun updateName(userModel: UserViewModel){
+    fun updateName(userModel: UserViewModel) {
         userRef = Firebase.firestore.collection(User.COLLECTION_PATH).document(Firebase.auth.uid!!)
 
-        if(userModel.user != null){
-            with(userModel.user!!){
+        if (userModel.user != null) {
+            with(userModel.user!!) {
                 username = userModel.userName.value
                 userRef.set(this)
             }
@@ -231,10 +246,10 @@ object FirebaseUtility {
      * @param currentList - [MyList]: List to be updated
      * @param currentTitle - [String]: new title to be passed to the list
      */
-    fun updateCurrentList(currentList: MyList, currentTitle: String){
+    fun updateCurrentList(currentList: MyList, currentTitle: String) {
         currentListRef = listRef.document(currentList.id)
 
-        with(currentList){
+        with(currentList) {
             this.title = currentTitle
             currentListRef.set(this)
         }
@@ -250,7 +265,7 @@ object FirebaseUtility {
     fun updateItem(item: MyItem, text: String, isDone: Boolean) {
         currentItemRef = itemRef.document(item.id)
 
-        with(item){
+        with(item) {
             this.text = text
             this.done = isDone
             currentItemRef.set(this)
@@ -262,7 +277,7 @@ object FirebaseUtility {
      *
      * @param list - [MyList]: List to be deleted from Firebase
      */
-    fun deleteList(list: MyList){
+    fun deleteList(list: MyList) {
         listRef.document(list.id).delete()
     }
 
@@ -271,7 +286,7 @@ object FirebaseUtility {
      *
      * @param item - [MyItem]: Item to be deleted
      */
-    fun deleteItem(item: MyItem){
+    fun deleteItem(item: MyItem) {
         itemRef.document(item.id).delete()
     }
 
@@ -280,7 +295,7 @@ object FirebaseUtility {
      *
      * @param listenerIdentifier - [String]: Listener to be removed
      */
-    fun removeListener(listenerIdentifier: String){
+    fun removeListener(listenerIdentifier: String) {
         subscriptions[listenerIdentifier]?.remove() // Tell Firebase to stop listening
         subscriptions.remove(listenerIdentifier) // Remove listener from HashMap
     }

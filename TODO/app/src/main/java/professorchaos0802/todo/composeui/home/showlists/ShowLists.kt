@@ -1,10 +1,12 @@
 package professorchaos0802.todo.composeui.home.showlists
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -32,21 +34,24 @@ fun ShowLists(
     onClick:() -> Unit
 ){
     val scope = rememberCoroutineScope()
+    val scrollState = rememberLazyListState()
 
     LazyColumn(
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.spacedBy(10.dp),
+        contentPadding = PaddingValues(bottom = 10.dp),
+        state = scrollState,
         userScrollEnabled = true,
         modifier = Modifier
             .fillMaxSize(1F)
             .padding(
                 top = 75.dp,
                 bottom = 25.dp,
-                start = 25.dp,
-                end = 25.dp
+                start = 15.dp,
+                end = 15.dp
             )
     ){
-        items(items = listViewModel.lists.value){ list ->
+        itemsIndexed(listViewModel.lists.value){ _ , list ->
             if(list.owner == username ||
                 list.canEdit.contains(username) ||
                 list.canView.contains(username)) {

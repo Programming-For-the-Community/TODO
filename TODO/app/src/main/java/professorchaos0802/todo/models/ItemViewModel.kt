@@ -46,7 +46,19 @@ class ItemViewModel: ViewModel() {
         val newList = currentListItems.value.toMutableList()
         newList.add(item)
 
-        currentListItems.value = newList
+        currentListItemsEvent.value = newList
+    }
+
+    /**
+     * Deletes an item from the current list of items locally
+     *
+     * @param item - [MyItem]: item to be deleted
+     */
+    fun deleteItem(item: MyItem){
+        val newList = currentListItems.value.toMutableList()
+        newList.remove(item)
+
+        currentListItemsEvent.value = newList
     }
 
 }

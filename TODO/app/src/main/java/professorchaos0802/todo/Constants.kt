@@ -1,5 +1,7 @@
 package professorchaos0802.todo
 
+import android.view.WindowManager
+
 object Constants {
     const val SETUP = "SETUP"
     const val HOME = "HOME"
@@ -16,4 +18,6 @@ object Constants {
     // Listener IDs
     const val listListenerId = "TodoLists"
     const val itemListenerId = "TodoItems"
+
+    var windowManager: WindowManager? = null
 }
