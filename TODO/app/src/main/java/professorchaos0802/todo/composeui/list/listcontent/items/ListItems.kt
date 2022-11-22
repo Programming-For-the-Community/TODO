@@ -63,7 +63,6 @@ fun ListItems(itemModel: ItemViewModel, readOnly: Boolean) {
                     )
             ) {
                 Row {
-                    var currentItemText by remember { mutableStateOf(item.text) }
 
                     TextField(
                         value = item.mutableItemText.value,
@@ -80,7 +79,7 @@ fun ListItems(itemModel: ItemViewModel, readOnly: Boolean) {
                                         withContext(Dispatchers.IO) {
                                             FirebaseUtility.updateItem(
                                                 item,
-                                                currentItemText,
+                                                item.mutableItemText.value,
                                                 !item.done
                                             )
                                         }
