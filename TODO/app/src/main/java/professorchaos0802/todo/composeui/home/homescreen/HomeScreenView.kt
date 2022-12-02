@@ -7,6 +7,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -57,6 +59,7 @@ fun HomeScreenView(
     Log.d(Constants.HOME, "Filtering lists")
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+    val listsToDelete = remember{ mutableStateListOf<MyList>() }
 
     TodoTheme(color = userViewModel.userTheme.value) {
         ModalNavigationDrawer(
@@ -76,14 +79,33 @@ fun HomeScreenView(
             }
         ) {
             Scaffold(
-                topBar = { HomeTopNav(userViewModel) {
-                    scope.launch{
-                        drawerState.open()
+                topBar = { HomeTopNav(
+                    userModel =  userViewModel,
+                    listsToDelete = listsToDelete,
+                    onClick = {
+                        scope.launch{
+                            drawerState.open()
+                        }
+                    },
+                    onDelete = {
+                        // Delete Selected Lists on Dispatchers IO thread
+                        scope.launch{
+                            withContext(Dispatchers.IO){
+                                listsToDelete.forEach { list ->
+                                    val allLists = listViewModel.lists.value.toMutableList()
+                                    allLists.remove(list)
+                                    listViewModel.lists.value = allLists
+                                    FirebaseUtility.deleteList(list)
+                                }
+
+                                listsToDelete.clear()
+                            }
+                        }
                     }
-                } }
+                )}
 
             ) {
-                ShowLists(listViewModel, itemViewModel, userViewModel.userName.value, onNavigateToList)
+                ShowLists(listViewModel, itemViewModel, userViewModel.userName.value, listsToDelete, onNavigateToList)
 
                 Column(
                     verticalArrangement = Arrangement.Bottom,

@@ -22,12 +22,6 @@ class ListViewModel: ViewModel() {
     val currListTitle: LiveData<String> = currentListTitleEvent
     var currentListTitle = mutableStateOf("")
 
-//    private val listsToDeleteEvent: MutableLiveData<Boolean> = MutableLiveData<Boolean>()
-//    val deleteLists: LiveData<Boolean> = listsToDeleteEvent
-//    var hasListsToDelete = mutableStateOf(false)
-
-//    var listsToDelete = mutableListOf<MyList>()
-
     /**
      * Updates the current list locally without needing wifi
      *

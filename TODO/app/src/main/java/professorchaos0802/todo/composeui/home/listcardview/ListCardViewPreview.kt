@@ -21,7 +21,7 @@ fun BlueListCardViewPreview() {
     TodoTheme(
         color = "Blue"
     ) {
-        ListCardView(list, items.toList(), onClick = {})
+        ListCardView(list, items.toList(), "", onClick = {}, listsToDelete = mutableListOf())
     }
 }
 
@@ -39,7 +39,7 @@ fun GreenListCardViewPreview() {
     TodoTheme(
         color = "Green"
     ) {
-        ListCardView(list, items.toList(), onClick = {})
+        ListCardView(list, items.toList(), "", onClick = {}, listsToDelete = mutableListOf())
     }
 }
 
@@ -57,7 +57,7 @@ fun RedListCardViewPreview() {
     TodoTheme(
         color = "Red"
     ) {
-        ListCardView(list, items.toList(), onClick = {})
+        ListCardView(list, items.toList(), "", onClick = {}, listsToDelete = mutableListOf())
     }
 }
 
@@ -75,7 +75,7 @@ fun OrangeListCardViewPreview() {
     TodoTheme(
         color = "Orange"
     ) {
-        ListCardView(list, items.toList(), onClick = {})
+        ListCardView(list, items.toList(), "", onClick = {}, listsToDelete = mutableListOf())
     }
 }
 
@@ -93,7 +93,7 @@ fun PinkListCardViewPreview() {
     TodoTheme(
         color = "Pink"
     ) {
-        ListCardView(list, items.toList(), onClick = {})
+        ListCardView(list, items.toList(), "", onClick = {}, listsToDelete = mutableListOf())
     }
 }
 
@@ -111,6 +111,6 @@ fun PurpleListCardViewPreview() {
     TodoTheme(
         color = "Purple"
     ) {
-        ListCardView(list, items.toList(), onClick = {})
+        ListCardView(list, items.toList(), "", onClick = {}, listsToDelete = mutableListOf())
     }
 }

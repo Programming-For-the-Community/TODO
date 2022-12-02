@@ -1,5 +1,6 @@
 package professorchaos0802.todo.objects
 
+import androidx.compose.runtime.mutableStateOf
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.Exclude
@@ -15,6 +16,9 @@ class MyList(
 
     @get:Exclude
     var id = "" // Firestore ID
+
+    @get:Exclude
+    var deleteMe = mutableStateOf(false)
 
     @ServerTimestamp
     var created: Timestamp? = null

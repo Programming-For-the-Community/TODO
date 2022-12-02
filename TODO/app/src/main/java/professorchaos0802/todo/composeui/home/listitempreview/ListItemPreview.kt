@@ -22,7 +22,7 @@ import professorchaos0802.todo.objects.MyList
  * @params list - [MyList]: List whose items to preview
  */
 @Composable
-fun ListItemPreview(items: List<MyItem>) {
+fun ListItemPreview(items: List<MyItem>, deleteMe: Boolean) {
 
     val itemsToPreview: List<MyItem> = if (items.size <= 5) {
         items
@@ -38,7 +38,7 @@ fun ListItemPreview(items: List<MyItem>) {
                 .fillMaxWidth()
                 .padding(15.dp)
                 .background(
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = if(deleteMe) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.tertiary,
                     shape = RoundedCornerShape(15)
                 )
         ) {
@@ -50,7 +50,7 @@ fun ListItemPreview(items: List<MyItem>) {
                 Text(
                     text = "This list is empty",
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onTertiary
+                    color = if(deleteMe) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.onTertiary
                 )
             }
         }
@@ -62,7 +62,7 @@ fun ListItemPreview(items: List<MyItem>) {
                 .fillMaxWidth()
                 .padding(15.dp)
                 .background(
-                    color = MaterialTheme.colorScheme.tertiary,
+                    color = if(deleteMe) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.tertiary,
                     shape = RoundedCornerShape(15)
                 )
         ) {
@@ -83,11 +83,11 @@ fun ListItemPreview(items: List<MyItem>) {
                         onCheckedChange = {},
                         enabled = false,
                         colors = CheckboxDefaults.colors(
-                            disabledUncheckedColor = MaterialTheme.colorScheme.onTertiary,
-                            disabledCheckedColor = MaterialTheme.colorScheme.onTertiary,
-                            checkedColor = MaterialTheme.colorScheme.onTertiary,
-                            uncheckedColor = MaterialTheme.colorScheme.onTertiary,
-                            checkmarkColor = MaterialTheme.colorScheme.tertiary
+                            disabledUncheckedColor = if(deleteMe) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.onTertiary,
+                            disabledCheckedColor = if(deleteMe) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.onTertiary,
+                            checkedColor = if(deleteMe) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.onTertiary,
+                            uncheckedColor = if(deleteMe) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.onTertiary,
+                            checkmarkColor = if(deleteMe) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.tertiary
                         ),
                         modifier = Modifier
                             .size(25.dp)
@@ -98,7 +98,7 @@ fun ListItemPreview(items: List<MyItem>) {
                         text = item.text,
                         style = MaterialTheme.typography.bodySmall,
                         textDecoration = if(item.done) LineThrough else None,
-                        color = MaterialTheme.colorScheme.onTertiary
+                        color = if(deleteMe) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.onTertiary
                     )
                 }
             }
@@ -112,7 +112,7 @@ fun ListItemPreview(items: List<MyItem>) {
                     Text(
                         text = ".......",
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onTertiary
+                        color = if(deleteMe) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.onTertiary
                     )
                 }
             }

@@ -33,7 +33,7 @@ fun ListTitleInfo(list: MyList){
             Text(
                 text = list.title,
                 style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.onPrimaryContainer
+                color = if(list.deleteMe.value) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.onPrimaryContainer
             )
         }
 
@@ -47,7 +47,7 @@ fun ListTitleInfo(list: MyList){
                 Text(
                     text = "Owner: ${list.owner}",
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                    color = if(list.deleteMe.value) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.onPrimaryContainer
                 )
             }
 
@@ -55,7 +55,7 @@ fun ListTitleInfo(list: MyList){
                 Text(
                     text = "Created: ${list.created?.let { SimpleDateFormat("MM-dd-yyyy").format(it.toDate()) }}",
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer
+                    color = if(list.deleteMe.value) MaterialTheme.colorScheme.onErrorContainer else MaterialTheme.colorScheme.onPrimaryContainer
                 )
             }
         }

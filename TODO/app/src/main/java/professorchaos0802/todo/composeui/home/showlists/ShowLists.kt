@@ -18,6 +18,7 @@ import kotlinx.coroutines.withContext
 import professorchaos0802.todo.composeui.home.listcardview.ListCardView
 import professorchaos0802.todo.models.ItemViewModel
 import professorchaos0802.todo.models.ListViewModel
+import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.utilities.FirebaseUtility
 
 /**
@@ -31,6 +32,7 @@ fun ShowLists(
     listViewModel: ListViewModel,
     itemModel: ItemViewModel,
     username: String,
+    listsToDelete: MutableList<MyList>,
     onClick:() -> Unit
 ){
     val scope = rememberCoroutineScope()
@@ -61,6 +63,8 @@ fun ShowLists(
                     items = itemModel.items.value.filter{ item ->
                         item.listId == list.id
                     },
+                    username = username,
+                    listsToDelete = listsToDelete,
                     onClick = {
                         listViewModel.updateCurrentList(list)
 

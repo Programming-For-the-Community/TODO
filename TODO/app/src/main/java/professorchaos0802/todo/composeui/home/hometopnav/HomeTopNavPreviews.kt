@@ -9,7 +9,7 @@ import professorchaos0802.todo.theme.TodoTheme
 @Composable
 fun LightBlueTopNavPreview(){
     TodoTheme(color = "Blue"){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -17,7 +17,7 @@ fun LightBlueTopNavPreview(){
 @Composable
 fun DarkBlueTopNavPreview(){
     TodoTheme(color = "Blue", darkTheme = true){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -25,7 +25,7 @@ fun DarkBlueTopNavPreview(){
 @Composable
 fun LightGreenTopNavPreview(){
     TodoTheme(color = "Green"){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -33,7 +33,7 @@ fun LightGreenTopNavPreview(){
 @Composable
 fun DarkGreenTopNavPreview(){
     TodoTheme(color = "Green", darkTheme = true){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -41,7 +41,7 @@ fun DarkGreenTopNavPreview(){
 @Composable
 fun LightRedTopNavPreview(){
     TodoTheme(color = "Red"){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -49,7 +49,7 @@ fun LightRedTopNavPreview(){
 @Composable
 fun DarkRedTopNavPreview(){
     TodoTheme(color = "Red", darkTheme = true){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -57,7 +57,7 @@ fun DarkRedTopNavPreview(){
 @Composable
 fun LightOrangeTopNavPreview(){
     TodoTheme(color = "Orange"){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -65,7 +65,7 @@ fun LightOrangeTopNavPreview(){
 @Composable
 fun DarkOrangeTopNavPreview(){
     TodoTheme(color = "Orange", darkTheme = true){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -73,7 +73,7 @@ fun DarkOrangeTopNavPreview(){
 @Composable
 fun LightPinkTopNavPreview(){
     TodoTheme(color = "Pink"){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -81,7 +81,7 @@ fun LightPinkTopNavPreview(){
 @Composable
 fun DarkPinkTopNavPreview(){
     TodoTheme(color = "Pink", darkTheme = true){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -89,7 +89,7 @@ fun DarkPinkTopNavPreview(){
 @Composable
 fun LightPurpleTopNavPreview(){
     TodoTheme(color = "Purple"){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
 
@@ -97,6 +97,6 @@ fun LightPurpleTopNavPreview(){
 @Composable
 fun DarkPurpleTopNavPreview(){
     TodoTheme(color = "Purple", darkTheme = true){
-        HomeTopNav(UserViewModel()){}
+        HomeTopNav(UserViewModel(), mutableListOf(), {}){}
     }
 }
