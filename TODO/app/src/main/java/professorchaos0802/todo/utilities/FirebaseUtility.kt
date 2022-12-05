@@ -22,6 +22,7 @@ object FirebaseUtility {
     private lateinit var userRef: DocumentReference
     private val listRef = Firebase.firestore.collection(MyList.COLLECTION_PATH)
     private val itemRef = Firebase.firestore.collection(MyItem.COLLECTION_PATH)
+    private val usernameRef = Firebase.firestore.collection(Constants.USERNAME_COLLECTION_PATH).document(Constants.ALL_USERNAMES_ID)
     lateinit var currentListRef: DocumentReference
     lateinit var currentItemRef: DocumentReference
 
@@ -66,6 +67,30 @@ object FirebaseUtility {
                 observer()
             }
         }
+    }
+
+    /**
+     * Subscribes a listener to all the usernames in the app
+     *
+     */
+    fun addUsernamesListener(): MutableList<String> {
+        val allUsernames = mutableListOf<String>()
+        val subscription = usernameRef
+            .addSnapshotListener { snapshot, e ->
+                e?.let {
+                    Log.d(Constants.SETUP, "ERROR: $e")
+                    return@addSnapshotListener
+                }
+                snapshot?.let {
+                    val usernames: List<String> = it.get("allUsernames") as List<String>
+                    allUsernames.addAll(usernames)
+                }
+                Log.d(Constants.SETUP, "All Usernames: ${allUsernames.size}")
+            }
+
+        subscriptions[Constants.usernamesListenerId] = subscription
+
+        return allUsernames
     }
 
     /**
@@ -238,6 +263,15 @@ object FirebaseUtility {
                 userRef.set(this)
             }
         }
+    }
+
+    /**
+     * Updates the list of all usernames in the app
+     *
+     * @param usernames - [MutableList]: new list to be pushed to Firebase
+     */
+    fun updateUsernames(usernames: MutableList<String>){
+        usernameRef.set(usernames.toList())
     }
 
     /**

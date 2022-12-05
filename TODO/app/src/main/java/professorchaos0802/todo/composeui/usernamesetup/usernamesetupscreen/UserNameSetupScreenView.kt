@@ -4,10 +4,13 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import professorchaos0802.todo.composeui.repeatedcomponents.defaulttopnav.DefaultTopNav
+import professorchaos0802.todo.composeui.usercusotmization.ErrorSnackbar
 import professorchaos0802.todo.composeui.usernamesetup.usernamesetupcontent.UserNameSetupContent
 import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.theme.TodoTheme
@@ -27,6 +30,7 @@ fun UserNameSetupScreenView(
     onNext: () -> Unit,
     onCancel: () -> Unit
 ) {
+    val snackbarHostState = remember { SnackbarHostState() }
     TodoTheme(
         color = userModel.userTheme.value
     ) {
@@ -34,7 +38,14 @@ fun UserNameSetupScreenView(
             topBar = { DefaultTopNav() },
             modifier = Modifier.fillMaxSize()
         ) {
-            UserNameSetupContent(userModel, onNext, onCancel)
+            UserNameSetupContent(
+                userModel = userModel,
+                snackbarHostState = snackbarHostState,
+                onNext = onNext,
+                onCancel = onCancel
+            )
+
+            ErrorSnackbar(hostState = snackbarHostState)
         }
     }
 }

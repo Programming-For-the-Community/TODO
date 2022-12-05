@@ -146,6 +146,7 @@ class MainActivity : AppCompatActivity() {
                                     lifecycleScope.launch {
                                         withContext(Dispatchers.IO) {
                                             FirebaseUtility.updateUser(userModel)
+                                            FirebaseUtility.removeListener(Constants.usernamesListenerId)
                                         }
                                     }
 
@@ -158,6 +159,7 @@ class MainActivity : AppCompatActivity() {
                                 onCancel = {
                                     Log.d(Constants.SETUP, "Logging out from UserCustomizationView")
                                     navController.navigate(TodoViews.Splash.route)
+                                    FirebaseUtility.removeListener(Constants.usernamesListenerId)
                                     Firebase.auth.signOut()
                                     userModel.user = null
                                 },
@@ -242,7 +244,7 @@ class MainActivity : AppCompatActivity() {
 
                                     // Add Listeners on Dispatchers.IO thread
                                     lifecycleScope.launch {
-                                        withContext(Dispatchers.IO){
+                                        withContext(Dispatchers.IO) {
                                             FirebaseUtility.addListListener(listViewModel.listEvent)
                                             FirebaseUtility.addItemListener(itemViewModel.itemsEvent)
                                         }
@@ -255,7 +257,14 @@ class MainActivity : AppCompatActivity() {
 
                         composable(route = TodoViews.Profile.route) {
                             ProfileScreenView(
-                                userModel = userModel
+                                userModel = userModel,
+                                signout = {
+                                    lifecycleScope.launch{
+                                        withContext(Dispatchers.IO){
+                                            Firebase.auth.signOut()
+                                        }
+                                    }
+                                }
                             )
                         }
                     }
@@ -281,19 +290,19 @@ class MainActivity : AppCompatActivity() {
             userModel.userImage.value = newImage
         }
 
-        itemViewModel.myItemText.observe(this){ text ->
+        itemViewModel.myItemText.observe(this) { text ->
             itemViewModel.itemText.value = text
         }
 
-        itemViewModel.myItems.observe(this){ allItems ->
+        itemViewModel.myItems.observe(this) { allItems ->
             itemViewModel.items.value = allItems
         }
 
-        itemViewModel.currItem.observe(this){ currentItem ->
+        itemViewModel.currItem.observe(this) { currentItem ->
             itemViewModel.currentItem.value = currentItem
         }
 
-        itemViewModel.currListItems.observe(this){ listItems ->
+        itemViewModel.currListItems.observe(this) { listItems ->
             itemViewModel.currentListItems.value = listItems
         }
 
@@ -311,10 +320,6 @@ class MainActivity : AppCompatActivity() {
         listViewModel.currListTitle.observe(this) { title ->
             listViewModel.currentListTitle.value = title
         }
-
-//        listViewModel.deleteLists.observe(this){
-//            listViewModel.hasListsToDelete.value = it
-//        }
     }
 
     /**
@@ -331,44 +336,40 @@ class MainActivity : AppCompatActivity() {
                     Check for the existence of a user, and if there isn't one logged in, create a
                     new user
                  */
-                lifecycleScope.launch {
-                    withContext(Dispatchers.IO) {
-                        FirebaseUtility.getOrMakeUser(sharedPreferences, userModel) {
-                            if (userModel.hasCompletedSetup()) {
-                                val id = navController.currentDestination!!.route
+                FirebaseUtility.getOrMakeUser(sharedPreferences, userModel) {
+                    if (userModel.hasCompletedSetup()) {
+                        val id = navController.currentDestination!!.route
 
-                                Log.d(Constants.SETUP, "Authenticating")
+                        Log.d(Constants.SETUP, "Authenticating")
 
-                                // If not of the Firebase provided AuthUI Screen go to the home screen
-                                if (id == TodoViews.Splash.route) {
+                        // If not of the Firebase provided AuthUI Screen go to the home screen
+                        if (id == TodoViews.Splash.route) {
 
-                                    // Add Firebase List listener
-                                    FirebaseUtility.addListListener(listViewModel.listEvent)
+                            // Add Firebase List listener
+                            FirebaseUtility.addListListener(listViewModel.listEvent)
 
-                                    FirebaseUtility.addItemListener(itemViewModel.itemsEvent)
+                            FirebaseUtility.addItemListener(itemViewModel.itemsEvent)
 
-                                    Log.d(
-                                        Constants.SETUP,
-                                        "Navigating to Home Page: ${TodoViews.Home.route}"
-                                    )
-                                    navController.navigate(TodoViews.Home.route)
-                                }
-                            } else {
-                                if (!userModel.selectingImage) {
-                                    Log.d(
-                                        Constants.SETUP,
-                                        "Navigating to UserName Setup: ${TodoViews.UserNameSetup.route}"
-                                    )
-                                    navController.navigate(TodoViews.UserNameSetup.route)
-                                } else {
-                                    userModel.selectingImage = false
-                                    Log.d(
-                                        Constants.SETUP,
-                                        "Navigating to ProfileImage: ${TodoViews.ProfileImage.route}"
-                                    )
-                                    navController.navigate(TodoViews.ProfileImage.route)
-                                }
-                            }
+                            Log.d(
+                                Constants.SETUP,
+                                "Navigating to Home Page: ${TodoViews.Home.route}"
+                            )
+                            navController.navigate(TodoViews.Home.route)
+                        }
+                    } else {
+                        if (!userModel.selectingImage) {
+                            Log.d(
+                                Constants.SETUP,
+                                "Navigating to UserName Setup: ${TodoViews.UserNameSetup.route}"
+                            )
+                            navController.navigate(TodoViews.UserNameSetup.route)
+                        } else {
+                            userModel.selectingImage = false
+                            Log.d(
+                                Constants.SETUP,
+                                "Navigating to ProfileImage: ${TodoViews.ProfileImage.route}"
+                            )
+                            navController.navigate(TodoViews.ProfileImage.route)
                         }
                     }
                 }
@@ -381,8 +382,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun setupAuthUI() {
         val providers = arrayListOf(
-            AuthUI.IdpConfig.GoogleBuilder().build(),
-            AuthUI.IdpConfig.EmailBuilder().build()
+            AuthUI.IdpConfig.GoogleBuilder().build()
         )
 
         val signinIntent = AuthUI.getInstance()
@@ -433,8 +433,8 @@ class MainActivity : AppCompatActivity() {
                     userModel.imageEvent.value = task.result.toString()
 
                     // Update the user in Firebase on the Dispatchers.IO thread
-                    lifecycleScope.launch{
-                        withContext(Dispatchers.IO){
+                    lifecycleScope.launch {
+                        withContext(Dispatchers.IO) {
                             FirebaseUtility.updateUser(userModel)
                         }
                     }

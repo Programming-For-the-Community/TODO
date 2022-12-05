@@ -18,6 +18,12 @@ object Constants {
     // Listener IDs
     const val listListenerId = "TodoLists"
     const val itemListenerId = "TodoItems"
+    const val usernamesListenerId = "Usernames"
+    const val publicUserListenerId = "PublicUsers"
+
+    // Username Collection Path
+    const val USERNAME_COLLECTION_PATH = "usernames"
+    const val ALL_USERNAMES_ID = "OKCoWRg2u7ZUhcSr58TZ"
 
     var windowManager: WindowManager? = null
 }

@@ -23,7 +23,7 @@ import professorchaos0802.todo.models.UserViewModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
-fun UserNameTextField(userModel: UserViewModel, onNext: () -> Unit) {
+fun UserNameTextField(userModel: UserViewModel, showErrorSnackbar:() -> Unit) {
     val keyboardController = LocalSoftwareKeyboardController.current
     val focusRequester = remember { FocusRequester() }
     val focusManager = LocalFocusManager.current
@@ -55,6 +55,7 @@ fun UserNameTextField(userModel: UserViewModel, onNext: () -> Unit) {
             onDone = {
                 focusManager.clearFocus()
                 keyboardController?.hide()
+                showErrorSnackbar()
             }
         ),
         colors = ExposedDropdownMenuDefaults.textFieldColors(
@@ -70,10 +71,11 @@ fun UserNameTextField(userModel: UserViewModel, onNext: () -> Unit) {
             .focusRequester(focusRequester)
             .fillMaxWidth()
             .onKeyEvent { event ->
-                if(event.key == Key.Enter){
+                if (event.key == Key.Enter) {
                     focusManager.clearFocus()
                     keyboardController?.hide()
                     userModel.nameEvent.value = userModel.userName.value.dropLast(1)
+                    showErrorSnackbar()
                 }
 
                 false

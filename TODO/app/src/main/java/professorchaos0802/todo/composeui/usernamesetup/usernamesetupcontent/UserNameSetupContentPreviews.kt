@@ -1,5 +1,6 @@
 package professorchaos0802.todo.composeui.usernamesetup.usernamesetupcontent
 
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -11,7 +12,7 @@ fun BlueUserNameSetupContentPreview(){
     TodoTheme(
         color = "Blue"
     ){
-        UserNameSetupContent(viewModel(), {}, {})
+        UserNameSetupContent(viewModel(), SnackbarHostState(), {}, {})
     }
 }
 
@@ -21,7 +22,7 @@ fun GreenUserNameSetupContentPreview(){
     TodoTheme(
         color = "Green"
     ){
-        UserNameSetupContent(viewModel(), {}, {})
+        UserNameSetupContent(viewModel(), SnackbarHostState(), {}, {})
     }
 }
 
@@ -31,7 +32,7 @@ fun RedUserNameSetupContentPreview(){
     TodoTheme(
         color = "Red"
     ){
-        UserNameSetupContent(viewModel(), {}, {})
+        UserNameSetupContent(viewModel(), SnackbarHostState(), {}, {})
     }
 }
 
@@ -41,7 +42,7 @@ fun OrangeUserNameSetupContentPreview(){
     TodoTheme(
         color = "Orange"
     ){
-        UserNameSetupContent(viewModel(), {}, {})
+        UserNameSetupContent(viewModel(), SnackbarHostState(), {}, {})
     }
 }
 
@@ -51,7 +52,7 @@ fun PinkUserNameSetupContentPreview(){
     TodoTheme(
         color = "Pink"
     ){
-        UserNameSetupContent(viewModel(), {}, {})
+        UserNameSetupContent(viewModel(), SnackbarHostState(), {}, {})
     }
 }
 
@@ -61,6 +62,6 @@ fun PurpleUserNameSetupContentPreview(){
     TodoTheme(
         color = "Purple"
     ){
-        UserNameSetupContent(viewModel(), {}, {})
+        UserNameSetupContent(viewModel(), SnackbarHostState(), {}, {})
     }
 }

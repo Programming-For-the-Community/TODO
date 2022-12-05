@@ -47,8 +47,7 @@ fun ShowLists(
         modifier = Modifier
             .fillMaxSize(1F)
             .padding(
-                top = 75.dp,
-                bottom = 25.dp,
+                top = 64.dp,
                 start = 15.dp,
                 end = 15.dp
             )

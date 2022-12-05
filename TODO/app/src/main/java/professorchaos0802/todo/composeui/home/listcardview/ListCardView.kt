@@ -47,6 +47,7 @@ fun ListCardView(list: MyList, items: List<MyItem>, username: String, listsToDel
                 }
             )
             .fillMaxWidth()
+            .padding(top = 10.dp)
             .background(
                 color = if(list.deleteMe.value) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.primaryContainer,
                 shape = RoundedCornerShape(15)
@@ -57,7 +58,7 @@ fun ListCardView(list: MyList, items: List<MyItem>, username: String, listsToDel
             verticalArrangement = Arrangement.Top,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(10.dp)
+                .padding(bottom = 10.dp, start = 10.dp, end = 10.dp)
         ) {
             ListTitleInfo(list = list)
             ListItemPreview(items, list.deleteMe.value)

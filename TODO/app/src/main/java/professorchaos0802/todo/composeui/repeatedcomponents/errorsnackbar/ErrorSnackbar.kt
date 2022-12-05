@@ -22,14 +22,14 @@ fun ErrorSnackbar(hostState: SnackbarHostState){
     ){ snackbarData: SnackbarData ->
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Bottom,
             modifier = Modifier.fillMaxSize()
         ){
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 50.dp, end = 50.dp)
+                    .padding(start = 50.dp, end = 50.dp, bottom = 50.dp)
                     .background(
                         color = MaterialTheme.colorScheme.error,
                         shape = RoundedCornerShape(25)
