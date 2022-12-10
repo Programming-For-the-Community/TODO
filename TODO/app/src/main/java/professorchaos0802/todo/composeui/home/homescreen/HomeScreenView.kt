@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -23,6 +20,7 @@ import professorchaos0802.todo.Constants
 import professorchaos0802.todo.R
 import professorchaos0802.todo.composeui.home.homescreenfab.HomeScreenFab
 import professorchaos0802.todo.composeui.home.hometopnav.HomeTopNav
+import professorchaos0802.todo.composeui.home.shareDialog.ShareDialog
 import professorchaos0802.todo.composeui.home.showlists.ShowLists
 import professorchaos0802.todo.composeui.repeatedcomponents.navdrawer.NavDrawer
 import professorchaos0802.todo.models.ItemViewModel
@@ -60,6 +58,7 @@ fun HomeScreenView(
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scope = rememberCoroutineScope()
     val listsToDelete = remember{ mutableStateListOf<MyList>() }
+    val showShareDialog = remember { mutableStateOf(false) }
 
     TodoTheme(color = userViewModel.userTheme.value) {
         ModalNavigationDrawer(
@@ -107,6 +106,10 @@ fun HomeScreenView(
             ) {
                 ShowLists(listViewModel, itemViewModel, userViewModel.userName.value, listsToDelete, onNavigateToList)
 
+                if(showShareDialog.value){
+                    ShareDialog(listViewModel, userViewModel.userName.value, showShareDialog)
+                }
+
                 Column(
                     verticalArrangement = Arrangement.Bottom,
                     modifier = Modifier
@@ -120,7 +123,7 @@ fun HomeScreenView(
                     ) {
                         HomeScreenFab(
                             icon = Icons.Filled.Share,
-                            onFabClick = { /* TODO: Implement Share Logic */ }
+                            onFabClick = { showShareDialog.value = true }
                         )
                         HomeScreenFab(
                             icon = ImageVector.vectorResource(R.drawable.ic_baseline_edit_note_24),

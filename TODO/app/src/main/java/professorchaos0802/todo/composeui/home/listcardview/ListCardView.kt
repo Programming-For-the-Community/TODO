@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import professorchaos0802.todo.R
 import professorchaos0802.todo.composeui.home.listitempreview.ListItemPreview
 import professorchaos0802.todo.composeui.home.listtitleinfo.ListTitleInfo
 import professorchaos0802.todo.objects.MyItem
@@ -35,7 +36,7 @@ fun ListCardView(list: MyList, items: List<MyItem>, username: String, listsToDel
                 onClick = onClick,
                 onLongClick = {
                     if(list.canView.contains(username)){
-                        Toast.makeText(context, "You do not have permission to edit this list", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, context.getString(R.string.list_permissions_warning), Toast.LENGTH_SHORT).show()
                     }else{
                         list.deleteMe.value = !list.deleteMe.value
                         if(list.deleteMe.value){

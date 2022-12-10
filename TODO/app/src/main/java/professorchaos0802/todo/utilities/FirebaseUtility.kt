@@ -1,6 +1,5 @@
 package professorchaos0802.todo.utilities
 
-import android.content.SharedPreferences
 import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.lifecycle.MutableLiveData
@@ -31,12 +30,10 @@ object FirebaseUtility {
     /**
      * If the current User exists in firestore, this method gets that user, otherwise it creates a new user
      *
-     * @param sharedPreferences - [SharedPreferences]: local app storage to grab the most recent user theme color from
      * @param userModel - [UserViewModel]: stores all data about the current user
      * @param observer - [Unit]: Lambda that runs after the user has been verified or created
      */
     fun getOrMakeUser(
-        sharedPreferences: SharedPreferences,
         userModel: UserViewModel,
         observer: () -> Unit
     ) {
@@ -60,13 +57,10 @@ object FirebaseUtility {
                     userModel.imageEvent.postValue(userModel.user!!.img)
                     userRef.set(userModel.user!!)
                 }
-
-                sharedPreferences.edit().putString(Constants.THEME_KEY, userModel.userTheme.value)
-                    .apply()
-
                 observer()
             }
         }
+
     }
 
     /**

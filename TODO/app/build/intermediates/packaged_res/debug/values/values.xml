@@ -2,11 +2,13 @@
 <resources>
     <string name="app_name">Todo</string>
     <string name="default_web_client_id" translatable="false">397807326938-dg2rl7n6knnqen6tkhajioed83fge1nq.apps.googleusercontent.com</string>
+    <string name="dialog_title">Choose a list to share:</string>
     <string name="gcm_defaultSenderId" translatable="false">397807326938</string>
     <string name="google_api_key" translatable="false">AIzaSyCOPSjmPTI6urv245MiAZcHSd4nW8dcHZ0</string>
     <string name="google_app_id" translatable="false">1:397807326938:android:03e14c3a74a673fa53f7e3</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCOPSjmPTI6urv245MiAZcHSd4nW8dcHZ0</string>
     <string name="google_storage_bucket" translatable="false">todo-99f73.appspot.com</string>
+    <string name="list_permissions_warning">You do not have permission to edit this list</string>
     <string name="project_id" translatable="false">todo-99f73</string>
     <style name="Theme.Todo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     </style>

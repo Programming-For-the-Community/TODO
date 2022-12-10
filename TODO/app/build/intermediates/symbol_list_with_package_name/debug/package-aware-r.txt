@@ -3654,6 +3654,7 @@ string default_error_message
 string default_popup_window_title
 string default_web_client_id
 string dialog
+string dialog_title
 string dropdown_menu
 string error_a11y_label
 string error_icon_content_description
@@ -3773,6 +3774,7 @@ string installation_cancelled
 string installation_failed
 string installing_module
 string item_view_role_description
+string list_permissions_warning
 string m3_sys_motion_easing_emphasized
 string m3_sys_motion_easing_emphasized_accelerate
 string m3_sys_motion_easing_emphasized_decelerate

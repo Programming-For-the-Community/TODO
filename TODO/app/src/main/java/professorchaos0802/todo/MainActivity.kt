@@ -86,7 +86,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        initializeAuthListener()
+        lifecycleScope.launch{
+            withContext(Dispatchers.IO){
+                initializeAuthListener()
+            }
+        }
+
         setupObservers()
 
         setContent {
@@ -336,7 +341,10 @@ class MainActivity : AppCompatActivity() {
                     Check for the existence of a user, and if there isn't one logged in, create a
                     new user
                  */
-                FirebaseUtility.getOrMakeUser(sharedPreferences, userModel) {
+                FirebaseUtility.getOrMakeUser(userModel) {
+                    sharedPreferences.edit().putString(Constants.THEME_KEY, userModel.userTheme.value)
+                        .apply()
+
                     if (userModel.hasCompletedSetup()) {
                         val id = navController.currentDestination!!.route
 

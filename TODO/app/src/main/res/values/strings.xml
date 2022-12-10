@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Todo</string>
+
+    <!-- Share Dialog -->
+    <string name="dialog_title">Choose a list to share:</string>
+
+    <!-- Lists Permissions Warning -->
+    <string name="list_permissions_warning">You do not have permission to edit this list</string>
 </resources>

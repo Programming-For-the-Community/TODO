@@ -1793,6 +1793,7 @@
     <string name="default_popup_window_title" ns1:ignore="ExtraTranslation">"Pop-Up Window"</string>
     <string name="default_web_client_id" translatable="false">397807326938-dg2rl7n6knnqen6tkhajioed83fge1nq.apps.googleusercontent.com</string>
     <string name="dialog">"Dialog"</string>
+    <string name="dialog_title">Choose a list to share:</string>
     <string name="dropdown_menu">"Dropdown menu"</string>
     <string description="Screen reader announcement for when a checkbox is on error. [CHAR LIMIT=NONE]" name="error_a11y_label">
     Error: invalid
@@ -1924,6 +1925,7 @@
     <string name="installation_failed">Installation failed.</string>
     <string name="installing_module">Installing module:</string>
     <string name="item_view_role_description">Tab</string>
+    <string name="list_permissions_warning">You do not have permission to edit this list</string>
     <string name="m3_sys_motion_easing_emphasized" translatable="false">path(M 0,0 C 0.05, 0, 0.133333, 0.06, 0.166666, 0.4 C 0.208333, 0.82, 0.25, 1, 1, 1)</string>
     <string name="m3_sys_motion_easing_emphasized_accelerate" translatable="false">cubic-bezier(0.3, 0.0, 0.8, 0.2)</string>
     <string name="m3_sys_motion_easing_emphasized_decelerate" translatable="false">cubic-bezier(0.1, 0.7, 0.1, 1.0)</string>
