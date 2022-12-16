@@ -15,7 +15,7 @@ fun ShareDialogPreview(){
     val user = "JDoe"
     val model = ListViewModel()
     val list = mutableListOf<MyList>()
-    for(i in 0..5){
+    for(i in 0..12){
         list.add(MyList(owner = "JDoe", title = "Title"))
     }
     model.lists.value = list
