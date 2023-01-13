@@ -41,6 +41,9 @@ fun ShareDialog(listModel: ListViewModel, user: String, showDialog: MutableState
 
                 if(selectLists.value){
                     SelectLists(listModel.lists.value.filter { it.canEdit.contains(user) || it.owner == user }, listsToShare, darkTheme)
+                }else{
+                    //TODO: Generate users list
+                    SelectUsers(listOf<String>("Joe", "Joe", "Joe"), mutableListOf<String>(), false)
                 }
             }
 
@@ -59,6 +62,7 @@ fun ShareDialog(listModel: ListViewModel, user: String, showDialog: MutableState
                        selectLists.value = false
                    },
                    onShare = {
+                       //TODO: Handle sharing
                        showDialog.value = false
                    }
                )
