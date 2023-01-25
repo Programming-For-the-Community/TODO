@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-80:/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "outputFile": "professorchaos0802.todo.app-mergeDebugResources-81:/values-sw600dp-v13/values-sw600dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\2dbc367b9043792d39c48a69483c752f\\transformed\\material-1.7.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\f542522f9058cf9d3e56da3b7bfeebe9\\transformed\\material-1.7.0\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\f2d0d7f972c1252ab98c765bf9fee9d1\\transformed\\appcompat-1.5.1\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\08fe94887b814da6139ae56e27caa6e1\\transformed\\appcompat-1.5.1\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

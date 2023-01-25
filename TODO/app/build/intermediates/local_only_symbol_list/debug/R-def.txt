@@ -18,6 +18,7 @@ font roboto_thin_italic
 mipmap ic_todo_launcher
 mipmap ic_todo_launcher_round
 string app_name
+string com.google.firebase.crashlytics.mapping_file_id
 string default_web_client_id
 string dialog_title
 string gcm_defaultSenderId

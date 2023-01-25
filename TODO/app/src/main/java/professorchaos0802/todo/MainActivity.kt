@@ -21,6 +21,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -342,6 +344,11 @@ class MainActivity : AppCompatActivity() {
                     new user
                  */
                 FirebaseUtility.getOrMakeUser(userModel) {
+                    FirebaseUtility.firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN){
+                        param(FirebaseAnalytics.Param.ITEM_ID, Firebase.auth.uid!!)
+                        param(FirebaseAnalytics.Param.ITEM_NAME, "User ${userModel.user!!.username} logged on")
+                    }
+
                     sharedPreferences.edit().putString(Constants.THEME_KEY, userModel.userTheme.value)
                         .apply()
 
@@ -350,7 +357,7 @@ class MainActivity : AppCompatActivity() {
 
                         Log.d(Constants.SETUP, "Authenticating")
 
-                        // If not of the Firebase provided AuthUI Screen go to the home screen
+                        // If not on the Firebase provided AuthUI Screen go to the home screen
                         if (id == TodoViews.Splash.route) {
 
                             // Add Firebase List listener

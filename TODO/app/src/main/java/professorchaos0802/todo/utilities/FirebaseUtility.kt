@@ -3,6 +3,9 @@ package professorchaos0802.todo.utilities
 import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.lifecycle.MutableLiveData
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.*
 import com.google.firebase.firestore.ktx.firestore
@@ -18,6 +21,8 @@ import professorchaos0802.todo.objects.User
  * interactions while the [ListViewModel] and [UserViewModel] hold all the data
  */
 object FirebaseUtility {
+    var firebaseAnalytics = Firebase.analytics
+
     private lateinit var userRef: DocumentReference
     private val listRef = Firebase.firestore.collection(MyList.COLLECTION_PATH)
     private val itemRef = Firebase.firestore.collection(MyItem.COLLECTION_PATH)
@@ -56,6 +61,9 @@ object FirebaseUtility {
                     userModel.themeEvent.postValue(userModel.user!!.theme)
                     userModel.imageEvent.postValue(userModel.user!!.img)
                     userRef.set(userModel.user!!)
+                }
+                firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SIGN_UP){
+                    param(FirebaseAnalytics.Param.ITEM_NAME, "New User: ${userModel.user!!.username}")
                 }
                 observer()
             }
