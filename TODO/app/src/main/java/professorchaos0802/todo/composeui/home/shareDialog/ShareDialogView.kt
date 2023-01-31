@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import professorchaos0802.todo.R
 import professorchaos0802.todo.models.ListViewModel
 import professorchaos0802.todo.objects.MyList
 
@@ -24,6 +25,7 @@ fun ShareDialog(listModel: ListViewModel, user: String, showDialog: MutableState
     val darkTheme = isSystemInDarkTheme()
     val selectLists = remember{ mutableStateOf(true) }
     val listsToShare = mutableListOf<MyList>()
+    val title = remember{ mutableStateOf(context.getString(R.string.dialog_title))}
 
     Dialog(
         onDismissRequest = { showDialog.value = false },
@@ -37,13 +39,13 @@ fun ShareDialog(listModel: ListViewModel, user: String, showDialog: MutableState
             Column(
                 modifier = Modifier.height(235.dp)
             ){
-                DialogTitle(darkTheme)
+                DialogTitle(darkTheme, title.value)
 
                 if(selectLists.value){
                     SelectLists(listModel.lists.value.filter { it.canEdit.contains(user) || it.owner == user }, listsToShare, darkTheme)
                 }else{
                     //TODO: Generate users list
-                    SelectUsers(listOf<String>("Joe", "Joe", "Joe"), mutableListOf<String>(), false)
+                    SelectUsers(listOf<String>("Joe", "Joe", "Joe"), mutableMapOf<String, String>(), false)
                 }
             }
 
@@ -60,6 +62,7 @@ fun ShareDialog(listModel: ListViewModel, user: String, showDialog: MutableState
                    },
                    onNext = {
                        selectLists.value = false
+                       title.value = "Choose someone to share your list with:"
                    },
                    onShare = {
                        //TODO: Handle sharing

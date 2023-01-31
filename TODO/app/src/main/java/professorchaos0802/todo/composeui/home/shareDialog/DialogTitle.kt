@@ -8,16 +8,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import professorchaos0802.todo.R
 
 @Composable
-fun DialogTitle(darkTheme: Boolean){
-    val context = LocalContext.current
-
+fun DialogTitle(darkTheme: Boolean, title: String){
     Text(
-        text = context.getString(R.string.dialog_title),
+        text = title,
         color = if (darkTheme) MaterialTheme.colorScheme.onSecondary else MaterialTheme.colorScheme.secondary,
         style = MaterialTheme.typography.titleLarge,
         modifier = Modifier

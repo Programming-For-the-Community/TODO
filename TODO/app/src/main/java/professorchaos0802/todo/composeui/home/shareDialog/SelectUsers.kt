@@ -17,10 +17,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SelectUsers(users: List<String>, usersToAdd: MutableList<String>, darkTheme: Boolean) {
+fun SelectUsers(users: List<String>, usersToAdd: MutableMap<String, String>, darkTheme: Boolean) {
     val scrollState = rememberLazyListState()
     val darkText = MaterialTheme.colorScheme.onTertiary
     val lightText = MaterialTheme.colorScheme.tertiary
+    val buttonWidth = 150.dp
+    val nameWidth = 200.dp
 
     LazyColumn(
         state = scrollState,
@@ -30,11 +32,12 @@ fun SelectUsers(users: List<String>, usersToAdd: MutableList<String>, darkTheme:
             val textColor = remember { mutableStateOf(if (darkTheme) darkText else lightText) }
             val rowColor = remember { mutableStateOf(Color.White) }
             val dividerColor = remember { mutableStateOf(Color.Black) }
-            var isSwitched = remember { mutableStateOf(false) }
+            val visibilityOptions = listOf("Can Edit", "Can View")
+            val displayedVisibility = remember{ mutableStateOf("Can Edit") }
 
             Row(
                 verticalAlignment = Alignment.CenterVertically,
-//                horizontalArrangement = Arrangement.SpaceBetween,
+                horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
@@ -50,7 +53,7 @@ fun SelectUsers(users: List<String>, usersToAdd: MutableList<String>, darkTheme:
                             textColor.value = Color.White
                             dividerColor.value = Color.White
                             rowColor.value = if (darkTheme) darkText else lightText
-                            usersToAdd.add(user)
+                            usersToAdd[user] = displayedVisibility.value
                         }
                     }
             ) {
@@ -60,34 +63,34 @@ fun SelectUsers(users: List<String>, usersToAdd: MutableList<String>, darkTheme:
                     style = MaterialTheme.typography.labelMedium,
                     fontWeight = FontWeight.Normal,
                     modifier = Modifier
-                        .fillMaxWidth()
+                        .width(nameWidth)
                         .padding(start = 10.dp)
                 )
 
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Start
+                Column(
+                    verticalArrangement = Arrangement.Top,
+                    horizontalAlignment = Alignment.End,
+                    modifier = Modifier.padding(end = 5.dp)
                 ) {
-                    Text(
-                        text = if(isSwitched.value) "Can Edit" else "Can View",
-                        color = textColor.value,
-                        style = MaterialTheme.typography.labelMedium,
-                        fontWeight = FontWeight.Normal,
-                    )
-
-                    Switch(
-                        checked = isSwitched.value,
-                        onCheckedChange = { isSwitched.value = !isSwitched.value },
-                        colors = SwitchDefaults.colors(
-                            checkedThumbColor = textColor.value,
-                            checkedTrackColor = if(darkTheme) lightText else darkText,
-                            uncheckedThumbColor = textColor.value,
-                            uncheckedTrackColor = if(darkTheme) lightText else darkText
+                    Button(
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = textColor.value
                         ),
-                        modifier = Modifier
-                            .padding(1.dp)
-                            .size(1.dp)
-                    )
+                        modifier = Modifier.width(buttonWidth),
+                        onClick = {
+                            when(displayedVisibility.value){
+                                visibilityOptions[0] -> displayedVisibility.value = visibilityOptions[1]
+                                else -> displayedVisibility.value = visibilityOptions[0]
+                            }
+                        }
+                    ){
+                        Text(
+                            text = displayedVisibility.value,
+                            color = rowColor.value,
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.Normal
+                        )
+                    }
                 }
             }
 
