@@ -15,9 +15,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import professorchaos0802.todo.objects.User
 
 @Composable
-fun SelectUsers(users: List<String>, usersToAdd: MutableMap<String, String>, darkTheme: Boolean) {
+fun SelectUsers(users: List<User>, usersToAdd: MutableMap<String, String>, darkTheme: Boolean) {
     val scrollState = rememberLazyListState()
     val darkText = MaterialTheme.colorScheme.onTertiary
     val lightText = MaterialTheme.colorScheme.tertiary
@@ -44,21 +45,21 @@ fun SelectUsers(users: List<String>, usersToAdd: MutableMap<String, String>, dar
                         color = rowColor.value
                     )
                     .clickable {
-                        if (usersToAdd.contains(user)) {
+                        if (usersToAdd.contains(user.username)) {
                             textColor.value = if (darkTheme) darkText else lightText
                             dividerColor.value = Color.Black
                             rowColor.value = Color.White
-                            usersToAdd.remove(user)
+                            usersToAdd.remove(user.username)
                         } else {
                             textColor.value = Color.White
                             dividerColor.value = Color.White
                             rowColor.value = if (darkTheme) darkText else lightText
-                            usersToAdd[user] = displayedVisibility.value
+                            usersToAdd[user.username] = displayedVisibility.value
                         }
                     }
             ) {
                 Text(
-                    text = user,
+                    text = user.username,
                     color = textColor.value,
                     style = MaterialTheme.typography.labelMedium,
                     fontWeight = FontWeight.Normal,

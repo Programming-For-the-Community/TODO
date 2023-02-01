@@ -1,5 +1,8 @@
 package professorchaos0802.todo.objects
 
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.Exclude
+
 /**
  * Data class outline all the things that are tracked by the user
  *
@@ -20,7 +23,21 @@ data class User(
     var hasCompletedSetup: Boolean = false,
     var isVisible: Boolean? = null
 ) {
+
+    @get:Exclude
+    var id = "" // Firestore ID
+
     companion object{
         const val COLLECTION_PATH = "users"
+
+        /**
+         * Converts a firestore DocumentSnapshot into a list object
+         */
+        fun from(snapshot: DocumentSnapshot): User{
+            val u = snapshot.toObject(User::class.java)!!
+            u.id = snapshot.id
+
+            return u
+        }
     }
 }

@@ -25,6 +25,7 @@ object FirebaseUtility {
 
     private lateinit var userRef: DocumentReference
     private val listRef = Firebase.firestore.collection(MyList.COLLECTION_PATH)
+    private val publicUserRef = Firebase.firestore.collection(User.COLLECTION_PATH)
     private val itemRef = Firebase.firestore.collection(MyItem.COLLECTION_PATH)
     private val usernameRef = Firebase.firestore.collection(Constants.USERNAME_COLLECTION_PATH).document(Constants.ALL_USERNAMES_ID)
     lateinit var currentListRef: DocumentReference
@@ -74,6 +75,7 @@ object FirebaseUtility {
     /**
      * Subscribes a listener to all the usernames in the app
      *
+     * @return allUsernames - [MutableList<String>]: All the usernames in the app
      */
     fun addUsernamesListener(): MutableList<String> {
         val allUsernames = mutableListOf<String>()
@@ -93,6 +95,31 @@ object FirebaseUtility {
         subscriptions[Constants.usernamesListenerId] = subscription
 
         return allUsernames
+    }
+
+    /**
+     * Subscribes a listener to all the public users in the app
+     *
+     * @return allPublicUsers - [MutableList<String>]: All public usernames in the app
+     */
+    fun addPublicUsersListener(): MutableList<User> {
+        val allPublicUsers = mutableListOf<User>()
+        val subscription = publicUserRef
+            .whereEqualTo("visible", true)
+            .addSnapshotListener { snapshot, e ->
+                e?.let {
+                    Log.d(Constants.SHARE, "ERROR: $e")
+                    return@addSnapshotListener
+                }
+                snapshot?.documents?.forEach {
+                    allPublicUsers.add(User.from(it))
+                }
+                Log.d(Constants.SHARE, "All Public Users: ${allPublicUsers.size}")
+            }
+
+        subscriptions[Constants.publicUserListenerId] = subscription
+
+        return allPublicUsers
     }
 
     /**
@@ -287,6 +314,19 @@ object FirebaseUtility {
 
         with(currentList) {
             this.title = currentTitle
+            currentListRef.set(this)
+        }
+    }
+
+    /**
+     * Updates the given list in Firebase
+     *
+     * @param list - [MyList]: List to be updated
+     */
+    fun updateList(list: MyList) {
+        currentListRef = listRef.document(list.id)
+
+        with(list) {
             currentListRef.set(this)
         }
     }
