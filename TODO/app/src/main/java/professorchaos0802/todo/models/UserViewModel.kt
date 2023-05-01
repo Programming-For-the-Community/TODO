@@ -22,6 +22,10 @@ class UserViewModel: ViewModel() {
     val image: LiveData<String> = imageEvent
     var userImage = mutableStateOf("")
 
+    val publicUserEvent: MutableLiveData<List<User>> = MutableLiveData<List<User>>()
+    val myPublicUsers: LiveData<List<User>> = publicUserEvent
+    val publicUsers = mutableStateOf(listOf<User>())
+
     /**
      * Returns whether or not the user has completed setup
      */

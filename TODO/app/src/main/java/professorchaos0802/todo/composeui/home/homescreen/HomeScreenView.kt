@@ -107,7 +107,7 @@ fun HomeScreenView(
                 ShowLists(listViewModel, itemViewModel, userViewModel.userName.value, listsToDelete, onNavigateToList)
 
                 if(showShareDialog.value){
-                    ShareDialog(listViewModel, userViewModel.userName.value, showShareDialog)
+                    ShareDialog(userViewModel, listViewModel, userViewModel.userName.value, showShareDialog)
                 }
 
                 Column(

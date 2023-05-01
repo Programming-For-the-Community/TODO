@@ -102,8 +102,7 @@ object FirebaseUtility {
      *
      * @return allPublicUsers - [MutableList<String>]: All public usernames in the app
      */
-    fun addPublicUsersListener(): MutableList<User> {
-        val allPublicUsers = mutableListOf<User>()
+    fun addPublicUsersListener(publicUserEvent: MutableLiveData<List<User>>) {
         val subscription = publicUserRef
             .whereEqualTo("visible", true)
             .addSnapshotListener { snapshot, e ->
@@ -111,15 +110,15 @@ object FirebaseUtility {
                     Log.d(Constants.SHARE, "ERROR: $e")
                     return@addSnapshotListener
                 }
+                val allPublicUsers = mutableListOf<User>()
                 snapshot?.documents?.forEach {
                     allPublicUsers.add(User.from(it))
                 }
+                publicUserEvent.postValue(allPublicUsers)
                 Log.d(Constants.SHARE, "All Public Users: ${allPublicUsers.size}")
             }
 
         subscriptions[Constants.publicUserListenerId] = subscription
-
-        return allPublicUsers
     }
 
     /**

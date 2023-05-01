@@ -297,6 +297,10 @@ class MainActivity : AppCompatActivity() {
             userModel.userImage.value = newImage
         }
 
+        userModel.myPublicUsers.observe(this) { pubUsers ->
+            userModel.publicUsers.value = pubUsers
+        }
+
         itemViewModel.myItemText.observe(this) { text ->
             itemViewModel.itemText.value = text
         }

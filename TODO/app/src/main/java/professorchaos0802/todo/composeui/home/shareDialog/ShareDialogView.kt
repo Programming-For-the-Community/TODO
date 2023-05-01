@@ -18,11 +18,12 @@ import kotlinx.coroutines.withContext
 import professorchaos0802.todo.Constants
 import professorchaos0802.todo.R
 import professorchaos0802.todo.models.ListViewModel
+import professorchaos0802.todo.models.UserViewModel
 import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.utilities.FirebaseUtility
 
 @Composable
-fun ShareDialog(listModel: ListViewModel, user: String, showDialog: MutableState<Boolean>) {
+fun ShareDialog(userModel: UserViewModel, listModel: ListViewModel, user: String, showDialog: MutableState<Boolean>) {
     val context = LocalContext.current
     val darkTheme = isSystemInDarkTheme()
     val scope = rememberCoroutineScope()
@@ -48,7 +49,8 @@ fun ShareDialog(listModel: ListViewModel, user: String, showDialog: MutableState
                 if(selectLists.value){
                     SelectLists(listModel.lists.value.filter { it.canEdit.contains(user) || it.owner == user }, listsToShare, darkTheme)
                 }else{
-                    SelectUsers(FirebaseUtility.addPublicUsersListener(), usersToShareWith, darkTheme)
+                    FirebaseUtility.addPublicUsersListener(userModel.publicUserEvent)
+                    SelectUsers(userModel.publicUsers.value, usersToShareWith, darkTheme)
                 }
             }
 
