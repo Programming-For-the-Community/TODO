@@ -298,7 +298,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         userModel.myPublicUsers.observe(this) { pubUsers ->
-            userModel.publicUsers.value = pubUsers
+            userModel.publicUsers.value = pubUsers.filter{
+                it.username != userModel.userName.value
+            }
         }
 
         itemViewModel.myItemText.observe(this) { text ->

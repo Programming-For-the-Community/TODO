@@ -23,10 +23,11 @@ import professorchaos0802.todo.objects.MyList
 import professorchaos0802.todo.utilities.FirebaseUtility
 
 @Composable
-fun ShareDialog(userModel: UserViewModel, listModel: ListViewModel, user: String, showDialog: MutableState<Boolean>) {
+fun ShareDialog(userModel: UserViewModel, listModel: ListViewModel, showDialog: MutableState<Boolean>) {
     val context = LocalContext.current
     val darkTheme = isSystemInDarkTheme()
     val scope = rememberCoroutineScope()
+    val user = userModel.userName.value // Current username
     val selectLists = remember{ mutableStateOf(true) }
     val listsToShare = mutableListOf<MyList>()
     val usersToShareWith = mutableMapOf<String, String>()
@@ -47,9 +48,10 @@ fun ShareDialog(userModel: UserViewModel, listModel: ListViewModel, user: String
                 DialogTitle(darkTheme, title.value)
 
                 if(selectLists.value){
+                    // Shows all the lists the current user owns or has edit rights to
                     SelectLists(listModel.lists.value.filter { it.canEdit.contains(user) || it.owner == user }, listsToShare, darkTheme)
                 }else{
-                    FirebaseUtility.addPublicUsersListener(userModel.publicUserEvent)
+                    FirebaseUtility.addPublicUsersListener(userModel.publicUserEvent) // Attach a Firebase listener for the public users
                     SelectUsers(userModel.publicUsers.value, usersToShareWith, darkTheme)
                 }
             }

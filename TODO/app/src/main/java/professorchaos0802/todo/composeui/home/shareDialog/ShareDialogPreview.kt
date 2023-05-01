@@ -13,18 +13,17 @@ import professorchaos0802.todo.theme.TodoTheme
 @Composable
 fun ShareDialogPreview(){
     val showDialog = remember{ mutableStateOf(true) }
-    val user = "JDoe"
-    val model = ListViewModel()
-    val model2 = UserViewModel()
+    val listModel = ListViewModel()
+    val userModel = UserViewModel()
     val list = mutableListOf<MyList>()
     for(i in 0..12){
         list.add(MyList(owner = "JDoe", title = "Title"))
     }
-    model.lists.value = list
+    listModel.lists.value = list
 
     TodoTheme(
         color = "Blue"
     ) {
-        ShareDialog(userModel = model2, listModel = model, user = user, showDialog = showDialog)
+        ShareDialog(userModel = userModel, listModel = listModel, showDialog = showDialog)
     }
 }
