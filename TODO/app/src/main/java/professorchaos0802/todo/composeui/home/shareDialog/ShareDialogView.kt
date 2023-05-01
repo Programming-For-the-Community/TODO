@@ -1,5 +1,6 @@
 package professorchaos0802.todo.composeui.home.shareDialog
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -68,29 +69,44 @@ fun ShareDialog(userModel: UserViewModel, listModel: ListViewModel, showDialog: 
                        showDialog.value = false
                    },
                    onNext = {
-                       selectLists.value = false
-                       title.value = "Choose someone to share your list with:"
+                       if(listsToShare.isEmpty()){
+                           Toast.makeText(context,
+                               context.getString(R.string.no_lists_selected_warning),
+                               Toast.LENGTH_SHORT)
+                               .show()
+                       }else{
+                           selectLists.value = false
+                           title.value = "Choose someone to share your list with:"
+                       }
                    },
                    onShare = {
-                       showDialog.value = false
+                       if(usersToShareWith.isEmpty()){
+                           // Display warning toast if no users have been selected to share the list(s) with
+                           Toast.makeText(context,
+                               context.getString(if(listsToShare.size > 1) R.string.no_users_to_share_multiple_list_warning else R.string.no_users_to_share_single_list_warning),
+                               Toast.LENGTH_SHORT)
+                               .show()
+                       }else{
+                           showDialog.value = false
 
-                       // Add Users to the chosen lists with the given permissions on the Dispatchers.IO
-                       // thread
-                       scope.launch{
-                           withContext(Dispatchers.IO){
-                               listsToShare.forEach{list ->
-                                   usersToShareWith.forEach{ userAndPermission ->
-                                       when(userAndPermission.value){
-                                           "Can Edit" -> list.canEdit.add(userAndPermission.key)
-                                           else -> list.canView.add(userAndPermission.key)
+                           // Add Users to the chosen lists with the given permissions on the Dispatchers.IO
+                           // thread
+                           scope.launch{
+                               withContext(Dispatchers.IO){
+                                   listsToShare.forEach{list ->
+                                       usersToShareWith.forEach{ userAndPermission ->
+                                           when(userAndPermission.value){
+                                               "Can Edit" -> list.canEdit.add(userAndPermission.key)
+                                               else -> list.canView.add(userAndPermission.key)
+                                           }
                                        }
+
+                                       FirebaseUtility.updateList(list)
                                    }
 
-                                   FirebaseUtility.updateList(list)
+                                   // Remove Public Users Listener once all the lists are updated
+                                   FirebaseUtility.removeListener(Constants.publicUserListenerId)
                                }
-
-                               // Remove Public Users Listener once all the lists are updated
-                               FirebaseUtility.removeListener(Constants.publicUserListenerId)
                            }
                        }
 

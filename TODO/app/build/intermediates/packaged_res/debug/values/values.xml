@@ -10,6 +10,9 @@
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCOPSjmPTI6urv245MiAZcHSd4nW8dcHZ0</string>
     <string name="google_storage_bucket" translatable="false">todo-99f73.appspot.com</string>
     <string name="list_permissions_warning">You do not have permission to edit this list</string>
+    <string name="no_lists_selected_warning">No lists have been selected to share</string>
+    <string name="no_users_to_share_multiple_list_warning">No users have been selected to share your lists with</string>
+    <string name="no_users_to_share_single_list_warning">No users have been selected to share your list with</string>
     <string name="project_id" translatable="false">todo-99f73</string>
     <style name="Theme.Todo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     </style>

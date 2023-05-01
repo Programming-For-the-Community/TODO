@@ -3867,6 +3867,9 @@ string mtrl_timepicker_confirm
 string nav_app_bar_navigate_up_description
 string nav_app_bar_open_drawer_description
 string navigation_menu
+string no_lists_selected_warning
+string no_users_to_share_multiple_list_warning
+string no_users_to_share_single_list_warning
 string not_selected
 string off
 string ok

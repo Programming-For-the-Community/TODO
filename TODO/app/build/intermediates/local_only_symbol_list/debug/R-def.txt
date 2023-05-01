@@ -27,5 +27,8 @@ string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
 string list_permissions_warning
+string no_lists_selected_warning
+string no_users_to_share_multiple_list_warning
+string no_users_to_share_single_list_warning
 string project_id
 style Theme.Todo

@@ -3866,6 +3866,9 @@ int string mtrl_timepicker_confirm 0x7f110112
 int string nav_app_bar_navigate_up_description 0x7f110113
 int string nav_app_bar_open_drawer_description 0x7f110114
 int string navigation_menu 0x7f110115
+int string no_lists_selected_warning 0x7f11012a
+int string no_users_to_share_multiple_list_warning 0x7f11012b
+int string no_users_to_share_single_list_warning 0x7f11012c
 int string not_selected 0x7f110116
 int string off 0x7f110117
 int string ok 0x7f110118
