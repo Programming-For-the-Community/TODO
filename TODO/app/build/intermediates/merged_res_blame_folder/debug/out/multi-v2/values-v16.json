@@ -4,7 +4,7 @@
             "outputFile": "professorchaos0802.todo.app-mergeDebugResources-81:/values-v16/values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\08fe94887b814da6139ae56e27caa6e1\\transformed\\appcompat-1.5.1\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\030f2cc965cd2d307ba0f0262aaab58e\\transformed\\appcompat-1.5.1\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\a3af5e7d73622d936a3cf2b9ad758001\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\hahmcm\\.gradle\\caches\\transforms-3\\bdde15edda195ed9c206b75ad9f02389\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

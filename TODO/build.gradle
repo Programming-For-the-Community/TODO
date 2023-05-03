@@ -10,12 +10,14 @@ buildscript {
 
     ext {
         compose_version = '1.4.0-alpha02'
+        kotlin_version = '1.7.20'
     }
 
     dependencies {
         // Add this line
         classpath 'com.google.gms:google-services:4.3.14'
         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 

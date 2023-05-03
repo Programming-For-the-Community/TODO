@@ -266,6 +266,10 @@ class MainActivity : AppCompatActivity() {
                         composable(route = TodoViews.Profile.route) {
                             ProfileScreenView(
                                 userModel = userModel,
+                                onNavigateToHome = {
+                                    navController.navigate(TodoViews.Home.route)
+                                },
+                                onNavigateToProfile = {},
                                 signout = {
                                     lifecycleScope.launch{
                                         launchCoroutine { Firebase.auth.signOut() }
