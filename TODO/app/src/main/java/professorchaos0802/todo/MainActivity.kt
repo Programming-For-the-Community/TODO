@@ -27,6 +27,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -50,6 +51,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavHostController
     private lateinit var authListener: FirebaseAuth.AuthStateListener
     private lateinit var sharedPreferences: SharedPreferences
+
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 
     private val listViewModel: ListViewModel by viewModels()
     private val userModel: UserViewModel by viewModels()
@@ -77,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         // Make sure there are no Firebase listeners remaining when the app stops using the
         // Dispatchers.IO thread
         lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
+            launchCoroutine {
                 FirebaseUtility.subscriptions.forEach { entry ->
                     FirebaseUtility.removeListener(entry.key)
                 }
@@ -89,9 +92,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         lifecycleScope.launch{
-            withContext(Dispatchers.IO){
-                initializeAuthListener()
-            }
+            launchCoroutine { initializeAuthListener() }
         }
 
         setupObservers()
@@ -119,7 +120,7 @@ class MainActivity : AppCompatActivity() {
                                 onNext = {
                                     // Update the user's name to Firebase on the Dispatcher.IO thread
                                     lifecycleScope.launch {
-                                        withContext(Dispatchers.IO) {
+                                        launchCoroutine {
                                             FirebaseUtility.updateName(userModel)
                                         }
                                     }
@@ -151,7 +152,7 @@ class MainActivity : AppCompatActivity() {
                                 onNext = {
                                     // Update the user in Firebase on the Dispatchers.IO thread
                                     lifecycleScope.launch {
-                                        withContext(Dispatchers.IO) {
+                                        launchCoroutine {
                                             FirebaseUtility.updateUser(userModel)
                                             FirebaseUtility.removeListener(Constants.usernamesListenerId)
                                         }
@@ -181,7 +182,7 @@ class MainActivity : AppCompatActivity() {
 
                                     // Update the user and add listeners in Firebase on the Dispatchers.IO thread
                                     lifecycleScope.launch {
-                                        withContext(Dispatchers.IO) {
+                                        launchCoroutine {
                                             FirebaseUtility.updateUser(userModel)
                                             FirebaseUtility.addListListener(listViewModel.listEvent)
                                             FirebaseUtility.addItemListener(itemViewModel.itemsEvent)
@@ -215,7 +216,7 @@ class MainActivity : AppCompatActivity() {
                                 itemViewModel = itemViewModel,
                                 onNavigateToSplash = {
                                     lifecycleScope.launch {
-                                        withContext(Dispatchers.IO) {
+                                        launchCoroutine {
                                             FirebaseUtility.removeListener(Constants.listListenerId)
                                             FirebaseUtility.removeListener(Constants.itemListenerId)
                                         }
@@ -231,7 +232,7 @@ class MainActivity : AppCompatActivity() {
 
                                     // Remove the Firebase listeners for all lists on the Dispatchers.IO thread
                                     lifecycleScope.launch {
-                                        withContext(Dispatchers.IO) {
+                                        launchCoroutine {
                                             FirebaseUtility.removeListener(Constants.listListenerId)
                                             FirebaseUtility.removeListener(Constants.itemListenerId)
                                         }
@@ -251,7 +252,7 @@ class MainActivity : AppCompatActivity() {
 
                                     // Add Listeners on Dispatchers.IO thread
                                     lifecycleScope.launch {
-                                        withContext(Dispatchers.IO) {
+                                        launchCoroutine {
                                             FirebaseUtility.addListListener(listViewModel.listEvent)
                                             FirebaseUtility.addItemListener(itemViewModel.itemsEvent)
                                         }
@@ -267,9 +268,7 @@ class MainActivity : AppCompatActivity() {
                                 userModel = userModel,
                                 signout = {
                                     lifecycleScope.launch{
-                                        withContext(Dispatchers.IO){
-                                            Firebase.auth.signOut()
-                                        }
+                                        launchCoroutine { Firebase.auth.signOut() }
                                     }
                                 }
                             )
@@ -279,6 +278,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private suspend fun launchCoroutine(coroutineFunction:() -> Unit){
+        withContext(dispatcher){
+            coroutineFunction()
+        }
     }
 
     /**
@@ -455,7 +460,7 @@ class MainActivity : AppCompatActivity() {
 
                     // Update the user in Firebase on the Dispatchers.IO thread
                     lifecycleScope.launch {
-                        withContext(Dispatchers.IO) {
+                        launchCoroutine {
                             FirebaseUtility.updateUser(userModel)
                         }
                     }

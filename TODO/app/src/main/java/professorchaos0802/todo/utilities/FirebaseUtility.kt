@@ -86,7 +86,7 @@ object FirebaseUtility {
                     return@addSnapshotListener
                 }
                 snapshot?.let {
-                    val usernames: List<String> = it.get("allUsernames") as List<String>
+                    val usernames: List<String> = it["allUsernames"] as List<String>
                     allUsernames.addAll(usernames)
                 }
                 Log.d(Constants.SETUP, "All Usernames: ${allUsernames.size}")
