@@ -33,7 +33,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import professorchaos0802.todo.composeui.home.homescreen.HomeScreenView
 import professorchaos0802.todo.composeui.list.listscreen.ListScreenView
-import professorchaos0802.todo.composeui.profile.ProfileScreenView
+import professorchaos0802.todo.composeui.profile.profilescreen.ProfileScreenView
 import professorchaos0802.todo.composeui.profileimage.profileimagescreen.ProfileImage
 import professorchaos0802.todo.composeui.splash.splashscreen.SplashScreenView
 import professorchaos0802.todo.composeui.usercusotmization.usercustomizationscreen.UserCustomization
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        lifecycleScope.launch{
+        lifecycleScope.launch {
             launchCoroutine { initializeAuthListener() }
         }
 
@@ -271,9 +271,16 @@ class MainActivity : AppCompatActivity() {
                                 },
                                 onNavigateToProfile = {},
                                 signout = {
-                                    lifecycleScope.launch{
-                                        launchCoroutine { Firebase.auth.signOut() }
-                                    }
+                                    AuthUI.getInstance()
+                                        .signOut(this@MainActivity)
+                                        .addOnCompleteListener {
+                                            userModel.user = null
+                                            navController.navigate(TodoViews.Splash.route)
+                                            initializeAuthListener()
+                                        }
+                                },
+                                onChooseImage = {
+                                    pickMediaActivityResultLauncher.launch("image/*")
                                 }
                             )
                         }
@@ -284,8 +291,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private suspend fun launchCoroutine(coroutineFunction:() -> Unit){
-        withContext(dispatcher){
+    private suspend fun launchCoroutine(coroutineFunction: () -> Unit) {
+        withContext(dispatcher) {
             coroutineFunction()
         }
     }
@@ -307,7 +314,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         userModel.myPublicUsers.observe(this) { pubUsers ->
-            userModel.publicUsers.value = pubUsers.filter{
+            userModel.publicUsers.value = pubUsers.filter {
                 it.username != userModel.userName.value
             }
         }
@@ -359,12 +366,16 @@ class MainActivity : AppCompatActivity() {
                     new user
                  */
                 FirebaseUtility.getOrMakeUser(userModel) {
-                    FirebaseUtility.firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN){
+                    FirebaseUtility.firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN) {
                         param(FirebaseAnalytics.Param.ITEM_ID, Firebase.auth.uid!!)
-                        param(FirebaseAnalytics.Param.ITEM_NAME, "User ${userModel.user!!.username} logged on")
+                        param(
+                            FirebaseAnalytics.Param.ITEM_NAME,
+                            "User ${userModel.user!!.username} logged on"
+                        )
                     }
 
-                    sharedPreferences.edit().putString(Constants.THEME_KEY, userModel.userTheme.value)
+                    sharedPreferences.edit()
+                        .putString(Constants.THEME_KEY, userModel.userTheme.value)
                         .apply()
 
                     if (userModel.hasCompletedSetup()) {

@@ -2,8 +2,8 @@
   <library name="Gradle: androidx.compose.ui:ui-graphics:1.4.0-alpha02@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/89d548f8c8906dbd8ce4a70c943f7c90/transformed/ui-graphics-1.4.0-alpha02/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/89d548f8c8906dbd8ce4a70c943f7c90/transformed/ui-graphics-1.4.0-alpha02/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/89d548f8c8906dbd8ce4a70c943f7c90/transformed/ui-graphics-1.4.0-alpha02/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/89d548f8c8906dbd8ce4a70c943f7c90/transformed/ui-graphics-1.4.0-alpha02/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
